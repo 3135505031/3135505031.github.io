@@ -1300,6 +1300,7 @@ pre code {
   border: 2px solid #333;
   max-width: 96px;
   padding: 2px;
+  border-radius: 50%;
 }
 .site-author-name {
   color: #f5f5f5;
@@ -1637,6 +1638,12 @@ pre code {
   display: inline-block;
   margin: 0 5px;
 }
+.busuanzi-count #busuanzi_container_site_uv {
+  display: none;
+}
+.busuanzi-count #busuanzi_container_site_pv {
+  display: none;
+}
 @keyframes icon-animate {
   0%, 100% {
     transform: scale(1);
@@ -1653,45 +1660,23 @@ pre code {
 }
 .back-to-top {
   font-size: 12px;
-  align-items: center;
-  bottom: -100px;
-  color: #fff;
-  display: flex;
-  height: 26px;
-  transition: bottom 0.2s ease-in-out;
-  background: #222;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  z-index: 30;
-  left: 30px;
+  margin: 8px -10px -20px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 .back-to-top span {
   margin-right: 8px;
-  display: none;
 }
 .back-to-top .fa {
   text-align: center;
   width: 26px;
 }
-@media (max-width: 991px) {
-  .back-to-top {
-    left: 20px;
-  }
-}
-.back-to-top:hover {
-  opacity: 1;
-}
-@media (max-width: 991px) {
-  .back-to-top {
-    opacity: 1;
-  }
-}
-.back-to-top:hover {
-  color: #87daff;
-}
 .back-to-top.back-to-top-on {
-  bottom: 30px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.back-to-top.back-to-top-on:hover {
+  opacity: 1;
 }
 .reading-progress-bar {
   --progress: 0;
@@ -2055,6 +2040,9 @@ pre code {
   flex-basis: 100%;
   height: 0;
 }
+#busuanzi_container_page_pv {
+  display: none;
+}
 .post-nav {
   border-top: 1px solid #eee;
   display: flex;
@@ -2356,6 +2344,114 @@ ul.breadcrumb li:last-child {
   border-bottom-color: #111;
   color: #111;
 }
+.search-active {
+  overflow: hidden;
+}
+.search-pop-overlay {
+  background: rgba(0,0,0,0);
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility 0.4s, background 0.4s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 40;
+}
+.search-active .search-pop-overlay {
+  background: rgba(0,0,0,0.3);
+  visibility: visible;
+}
+.search-popup {
+  background: var(--card-bg-color);
+  border-radius: 5px;
+  height: 80%;
+  margin: auto;
+  transform: scale(0);
+  transition: transform 0.4s;
+  width: 700px;
+}
+.search-active .search-popup {
+  transform: scale(1);
+}
+@media (max-width: 767px) {
+  .search-popup {
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
+  color: #999;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.search-popup .popup-btn-close {
+  cursor: pointer;
+}
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  padding: 5px;
+}
+.search-popup input.search-input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+.search-popup input.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-popup .search-result-container {
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+}
+.search-popup .search-result-container hr {
+  margin: 5px 0 10px;
+}
+.search-popup .search-result-container hr:first-child {
+  display: none;
+}
+.search-popup .search-result-list {
+  margin: 0 5px;
+  padding: 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup .search-input-container {
+  flex-grow: 1;
+  padding: 2px;
+}
+.search-popup .no-result {
+  display: flex;
+}
+.search-popup .search-result-list {
+  width: 100%;
+}
+.search-popup .search-result-icon {
+  color: #ccc;
+  margin: auto;
+}
+mark.search-keyword {
+  background: transparent;
+  border-bottom: 1px dashed #ff2a2a;
+  color: #ff2a2a;
+  font-weight: bold;
+}
 mjx-container[jax='CHTML'][display='true'],
 .has-jax {
   overflow: auto hidden;
@@ -2516,7 +2612,6 @@ header.header {
 .sidebar {
   background: #222;
   bottom: 0;
-  box-shadow: inset 0 2px 6px #000;
   max-height: 100vh;
   overflow-y: auto;
   position: fixed;
@@ -2544,7 +2639,7 @@ header.header {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #a696cc;
+  background: #ffa1ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2587,4 +2682,11 @@ header.header {
   .sidebar-dimmer {
     display: none;
   }
+}
+body {
+  background: url("/images/background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
 }
