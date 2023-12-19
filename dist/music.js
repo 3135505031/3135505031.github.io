@@ -34,7 +34,14 @@ const ap = new APlayer({
             name: 'あージンセーいそがし',
             artist: '美波',
             url: 'https://m10.music.126.net/20231219200230/1de5e412be7a8cd7321f9ac9f88634a4/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/32238338903/27e7/a3b4/6ca2/033a89bc318f312989a3e06ea7842fdd.mp3',
-            cover: '',
+            cover: 'http://p2.music.126.net/yp3u6HdA59MbxgxkKutLlw==/109951168481635953.jpg?param=130y130',
+            lrc: '',
+        },
+        {
+            name: 'garden',
+            artist: '',
+            url: 'https://m10.music.126.net/20231219202402/831b51f519f70ca85adf00ad6ef94acb/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/32238359970/baf8/7cca/6bc6/ae8d69930f9736da05df82f1a13e4d9e.mp3',
+            cover: 'https://s2.music.126.net/style/web2/img/coverall.png?027b42174f61b6f29d37c53ea255f996',
             lrc: '',
         },
     ]
