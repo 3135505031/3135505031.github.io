@@ -58,5 +58,12 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/1xHEk3lzc5_27k6jDYtYsw==/109951166200821146.jpg',
             lrc: 'https://lav2.top/music/lrc/何度も.lrc',
         },
+        {
+            name: '眠れない夜に',
+            artist: '初音ミク',
+            url: 'https://m10.music.126.net/20231220002908/1c6c237e66a3a9f0b47e00da1f9b7d82/ymusic/bR63woeDvkGqwsXgd9Y-6Q==/509951163311399267',
+            cover: 'http://i0.hdslb.com/bfs/archive/c1cfc4aa2c71cc62a312496293515ee0637e78f3.jpg',
+            lrc: '',
+        },
     ]
 });
