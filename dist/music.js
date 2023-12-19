@@ -38,8 +38,8 @@ const ap = new APlayer({
             lrc: '',
         },
         {
-            name: 'garden',
-            artist: '',
+            name: 'Garden',
+            artist: 'Headache',
             url: 'https://m10.music.126.net/20231219202402/831b51f519f70ca85adf00ad6ef94acb/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/32238359970/baf8/7cca/6bc6/ae8d69930f9736da05df82f1a13e4d9e.mp3',
             cover: 'http://p1.music.126.net/x6T6bl-B5cdMdt-6B7RycA==/109951168745032017.jpg',
             lrc: '',
@@ -50,6 +50,13 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=2042620761.mp3',
             cover: 'http://p2.music.126.net/sow08JEIvl_FJ8axqVAZEw==/109951168571744892.jpg',
             lrc: 'https://lav2.top/music/lrc/リセットなの。.lrc',
+        },
+        {
+            name: '何度も',
+            artist: 'RAM WIRE',
+            url: 'https://m10.music.126.net/20231219222338/2b7bc9cef5d2de73ca0f9ba6aa9fdac9/ymusic/Bs_z1eZJj7ETheVsl95pZA==/509951163311385998',
+            cover: 'http://p1.music.126.net/1xHEk3lzc5_27k6jDYtYsw==/109951166200821146.jpg',
+            lrc: 'https://lav2.top/music/lrc/何度も.lrc',
         },
     ]
 });
