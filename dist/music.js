@@ -3,6 +3,8 @@ const ap = new APlayer({
     fixed: true,
     autoplay: true,
     loop: 'all',
+    order: 'random',
+    preload: 'auto',
     volume: 0.7,
     mutex: true,
     lrcType: 3,
@@ -27,6 +29,13 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=2029892284.mp3',
             cover: 'http://p1.music.126.net/FWGUSBkMRM1ZXWRFm3qcpg==/109951168466553622.jpg?param=130y130',
             lrc: 'https://lav2.top/music/lrc/Ahead of Us.lrc',
+        },
+        {
+            name: 'あージンセーいそがし',
+            artist: '美波',
+            url: 'https://lav2.top/music/lrc/あージンセーいそがし.mp3',
+            cover: '',
+            lrc: '',
         },
     ]
 });
