@@ -33,7 +33,7 @@ const ap = new APlayer({
         {
             name: 'あージンセーいそがし',
             artist: '美波',
-            url: 'https://lav2.top/music/lrc/あージンセーいそがし.mp3',
+            url: 'https://lav2.top/music/あージンセーいそがし.mp3',
             cover: '',
             lrc: '',
         },
