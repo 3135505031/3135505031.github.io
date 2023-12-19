@@ -2,7 +2,7 @@ const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
     autoplay: true,
-    loop: all,
+    loop: 'all',
     volume: 0.7,
     mutex: true,
     lrcType: 3,
