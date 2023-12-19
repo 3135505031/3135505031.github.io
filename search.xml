@@ -24,6 +24,15 @@
 <p>blah,markdown</p>
 </blockquote>
 <blockquote class="blockquote-center">blah blah blah</blockquote>
+
+
+<!--aplayer-->
+<link rel="stylesheet" href="https://unpkg.com/browse/aplayer@1.10.1/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="https://unpkg.com/browse/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://你的域名/js/useaplayer.js"></script>
+
+
 ]]></content>
       <categories>
         <category>Test_Categories</category>
