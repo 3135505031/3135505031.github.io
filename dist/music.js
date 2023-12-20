@@ -65,5 +65,63 @@ const ap = new APlayer({
             cover: 'http://i0.hdslb.com/bfs/archive/c1cfc4aa2c71cc62a312496293515ee0637e78f3.jpg',
             lrc: '',
         },
+        {
+            name: 'カイコ',
+            artist: 'RADWIMPS',
+            url: 'https://m10.music.126.net/20231220105439/388a90971fdab97e7bb75000b6b05563/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/32251061520/3422/afe2/cb89/0f60aad123ad5c22e71f248dd781de94.mp3',
+            cover: 'http://p1.music.126.net/lzBt4JMfdmi0ZuhLWL6ZsQ==/6646547790414773.jpg',
+            lrc: 'https://lav2.top/music/lrc/カイコ.lrc',
+        },
+        {
+            name: '今、歩き出す君へ。',
+            artist: 'Ceui',
+            url: 'https://m10.music.126.net/20231220111358/817aafcf2ff64a559e68095bf823f85c/ymusic/0QNMIHm6ft-wcrTERolLvA==/509951163311409432',
+            cover: 'http://p1.music.126.net/1X7cXElImUddORZG4sw2yQ==/2246302255568809.jpg',
+            lrc: 'https://lav2.top/music/lrc/今、歩き出す君へ。.lrc',
+        },
+        {
+            name: 'アイロニ',
+            artist: 'すこっぷ/初音ミク',
+            url: 'https://m10.music.126.net/20231220111726/a3b40349ae82d5363a44c049bfd147ea/ymusic/eCmKEzBvxGa2uqQ89tmtZw==/509951163311420064',
+            cover: 'http://p2.music.126.net/OGC_-6NGZUag4pETRlkvSQ==/6041816394875075.jpg',
+            lrc: 'https://lav2.top/music/lrc/アイロニ.lrc',
+        },
+        {
+            name: '明日、春が来たら',
+            artist: 'Lefty Hand Cream',
+            url: 'https://m10.music.126.net/20231220112004/1248dc566de7548b19e84b7e626bcb9e/ymusic/gZWkzeNPN17qxlTLHxNtkA==/509951163311416696',
+            cover: 'http://p1.music.126.net/qNbcQ3uBclFSEXnzs74KJw==/109951168518024995.jpg',
+            lrc: 'https://lav2.top/music/lrc/明日、春が来たら.lrc',
+        },
+        {
+            name: 'フィナーレ。',
+            artist: 'eill',
+            url: 'https://m10.music.126.net/20231220112225/87ddc65c0c43d26e43c4442a091abd9a/ymusic/5yZAy9MscmG31guDTKslwQ==/509951163311409907',
+            cover: 'http://p2.music.126.net/elOSlLUcyPt_fqdluhSBBA==/109951167783001594.jpg',
+            lrc: 'https://lav2.top/music/lrc/フィナーレ。.lrc',
+        },
+        {
+            name: 'カタオモイ / 单相思',
+            artist: '米白zzz',
+            url: 'https://m10.music.126.net/20231220112449/ac5dac1b7fe0535aec3637cd61c25ac0/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/32252080734/4dbf/e879/9e05/54a601d273e89daea880ff2f26f3bff2.mp3',
+            cover: 'http://p1.music.126.net/JGHNPhCPrpvT9plJcVp7yw==/109951167315744853.jpg',
+            lrc: 'https://lav2.top/music/lrc/カタオモイ.lrc',
+        },
+        {
+            name: '心拍数♯0822',
+            artist: 'Akie秋绘',
+            url: 'https://m10.music.126.net/20231220112705/c8445b7bae3a7b2171d430833870119d/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/17298303685/e765/9615/741a/26b601f3e35bcc944bf0619637a9f6cd.mp3',
+            cover: 'http://p2.music.126.net/EizbSb-yKpjslyUOQjdsdA==/109951162822510988.jpg',
+            lrc: 'https://lav2.top/music/lrc/心拍数♯0822.lrc',
+        },
     ]
 });
+
+
+        // {
+        //     name: '',
+        //     artist: '',
+        //     url: '',
+        //     cover: '',
+        //     lrc: '',
+        // },
