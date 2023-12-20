@@ -61,14 +61,14 @@ const ap = new APlayer({
         {
             name: '眠れない夜に / 在一个不眠之夜',
             artist: '初音ミク',
-            url: 'http://storage.live.com/items/28117BB5E039AF80%21651?filename%3d初音ミク「眠れない夜に」.mp3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUXpXbG1fTWdTdDhqS1R4P2U9dUhBbndG.mp3',
             cover: 'http://i0.hdslb.com/bfs/archive/c1cfc4aa2c71cc62a312496293515ee0637e78f3.jpg',
             lrc: '',
         },
         {
             name: 'カイコ / 蚕',
             artist: 'RADWIMPS',
-            url: 'https://m10.music.126.net/20231220105439/388a90971fdab97e7bb75000b6b05563/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/32251061520/3422/afe2/cb89/0f60aad123ad5c22e71f248dd781de94.mp3',
+            url: '',
             cover: 'http://p1.music.126.net/lzBt4JMfdmi0ZuhLWL6ZsQ==/6646547790414773.jpg',
             lrc: 'https://lav2.top/music/lrc/カイコ.lrc',
         },
