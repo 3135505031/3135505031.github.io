@@ -125,8 +125,15 @@ const ap = new APlayer({
             name: 'ツギハギスタッカート / 拼凑的断音',
             artist: 'とあ / 初音ミク',
             url: 'http://music.163.com/song/media/outer/url?id=30148963.mp3',
-            cover: 'http://p1.music.126.net/2be9bL1tfpcraFTEAgCu9A==/109951164193974375.jpg?param=130y130',
+            cover: 'http://p1.music.126.net/2be9bL1tfpcraFTEAgCu9A==/109951164193974375.jpg',
             lrc: 'https://lav2.top/music/lrc/ツギハギスタッカート.lrc',
+        },
+        {
+            name: 'Magia',
+            artist: 'Kalafina',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUk5ULThIc1RYQlBtRHpQP2U9b0xZQzhk.mp3',
+            cover: 'http://p2.music.126.net/fGKyWby9MfRnDtD3i_phZw==/109951167991723578.jpg',
+            lrc: 'https://lav2.top/music/lrc/Magia.lrc',
         },
     ]
 });
