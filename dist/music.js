@@ -75,7 +75,7 @@ const ap = new APlayer({
         {
             name: '今、歩き出す君へ。',
             artist: 'Ceui',
-            url: 'https://m10.music.126.net/20231220111358/817aafcf2ff64a559e68095bf823f85c/ymusic/0QNMIHm6ft-wcrTERolLvA==/509951163311409432',
+            url: 'https://m10.music.126.net/20231220121200/e418802ae19a96835431f65a9df83c84/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/27440693108/0aa6/fc99/1157/7bf7594ebaf02837f9e0212726ae0e70.mp3',
             cover: 'http://p1.music.126.net/1X7cXElImUddORZG4sw2yQ==/2246302255568809.jpg',
             lrc: 'https://lav2.top/music/lrc/今、歩き出す君へ。.lrc',
         },
