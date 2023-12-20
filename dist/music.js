@@ -75,7 +75,7 @@ const ap = new APlayer({
         {
             name: '今、歩き出す君へ。 / 献给此刻迈步前行的你',
             artist: 'Ceui',
-            url: 'music.163.com/song/media/outer/url?id=26209670.mp3',
+            url: 'http://music.163.com/song/media/outer/url?id=26209670.mp3',
             cover: 'http://p1.music.126.net/1X7cXElImUddORZG4sw2yQ==/2246302255568809.jpg',
             lrc: 'https://lav2.top/music/lrc/今、歩き出す君へ。.lrc',
         },
