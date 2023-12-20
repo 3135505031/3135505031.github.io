@@ -121,6 +121,13 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/x99KKlEDq3SiKvhP410D4Q==/109951167148425324.jpg',
             lrc: 'https://lav2.top/music/lrc/デイドリーム.lrc',
         },
+        {
+            name: 'ツギハギスタッカート / 拼凑的断音',
+            artist: 'とあ / 初音ミク',
+            url: 'http://music.163.com/song/media/outer/url?id=30148963.mp3',
+            cover: 'http://p1.music.126.net/2be9bL1tfpcraFTEAgCu9A==/109951164193974375.jpg?param=130y130',
+            lrc: 'https://lav2.top/music/lrc/ツギハギスタッカート.lrc',
+        },
     ]
 });
 
