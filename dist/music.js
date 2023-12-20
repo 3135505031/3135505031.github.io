@@ -61,7 +61,7 @@ const ap = new APlayer({
         {
             name: '眠れない夜に / 在一个不眠之夜',
             artist: '初音ミク',
-            url: 'http://storage.live.com/items/28117BB5E039AF80!652:/初音ミク「眠れない夜に」.mp3',
+            url: 'https://onedrive.live.com/embed?resid=28117BB5E039AF80%21652&authkey=!AJTkSCQEYfZ034U',
             cover: 'http://i0.hdslb.com/bfs/archive/c1cfc4aa2c71cc62a312496293515ee0637e78f3.jpg',
             lrc: '',
         },
