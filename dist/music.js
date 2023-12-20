@@ -219,6 +219,62 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/Jvjt2z0uB1DW_xnR1ABfoQ==/109951165276938348.jpg',
             lrc: 'https://lav2.top/music/lrc/夏のせい.lrc',
         },
+        {
+            name: '光るなら / 若能绽放光芒',
+            artist: 'Goose house',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUm5WaDJpZ3U4MEtQeDRZP2U9ZUtpOGVy.mp3',
+            cover: 'http://p2.music.126.net/w1pQ83qhoVMJ_eMpRyoAtA==/109951166200199773.jpg',
+            lrc: 'https://lav2.top/music/lrc/光るなら.lrc',
+        },
+        {
+            name: '優しい恋人 / 温柔的恋人',
+            artist: 'しまも',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUm9ESTFtNHVJUDd0VXNKP2U9SzNtb1Z6.mp3',
+            cover: 'http://p2.music.126.net/Mk3aii_HNSqPin-9806THg==/109951168258116768.jpg',
+            lrc: 'https://lav2.top/music/lrc/優しい恋人.lrc',
+        },
+        {
+            name: 'トモダチ/コイビト / 朋友/恋人',
+            artist: 'moumoon',
+            url: 'http://music.163.com/song/media/outer/url?id=507116307.mp3',
+            cover: 'http://p1.music.126.net/ca2M4HnEBjx1Jm3hDfC18A==/109951163027825862.jpg',
+            lrc: 'https://lav2.top/music/lrc/トモダチ/コイビト.lrc',
+        },
+        {
+            name: '秒針を噛む / 噬咬秒针',
+            artist: 'ずっと真夜中でいいのに。',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUnZST19NVzI1OV8zYXh5P2U9RDlCWGNT.mp3',
+            cover: 'http://p1.music.126.net/bw7Sxt-W5lq0Jeq9B9eaXA==/109951163846794308.jpg',
+            lrc: 'https://lav2.top/music/lrc/トモダチ/秒針を噛む.lrc',
+        },
+        {
+            name: '恋はキライだ / 讨厌恋爱',
+            artist: '三月のパンタシア',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUndiTU12aHdiNVpySFBiP2U9RDNSSWlI.mp3',
+            cover: 'http://p1.music.126.net/gY746T5yOCLL76HdHoK4rA==/109951165048559260.jpg',
+            lrc: 'https://lav2.top/music/lrc/トモダチ/恋はキライだ.lrc',
+        },
+        {
+            name: '邂逅 / Chance meeting',
+            artist: '花譜',
+            url: 'http://music.163.com/song/media/outer/url?id=2026787183.mp3',
+            cover: 'http://p2.music.126.net/vlT1L_p5ExPSydDE8HUPpQ==/109951168436884742.jpg',
+            lrc: 'https://lav2.top/music/lrc/トモダチ/邂逅.lrc',
+        },
+        {
+            name: '花に亡霊 / 花上亡灵',
+            artist: 'ヨルシカ',
+            url: 'http://music.163.com/song/media/outer/url?id=1442466883.mp3',
+            cover: 'http://p2.music.126.net/_Os98d4NSKf-vLo_93QoEg==/109951164927614269.jpg',
+            lrc: 'https://lav2.top/music/lrc/トモダチ/花に亡霊.lrc',
+        },
+        {
+            name: 'あさひ / 朝日',
+            artist: '花譜 / 佐倉綾音',
+            url: 'http://music.163.com/song/media/outer/url?id=2042046337.mp3',
+            cover: 'http://p2.music.126.net/srllDL-_P79llZYYw-PNFA==/109951168567596177.jpg',
+            lrc: 'https://lav2.top/music/lrc/トモダチ/あさひ.lrc',
+        },
     ]
 });
 
