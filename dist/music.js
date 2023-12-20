@@ -40,7 +40,7 @@ const ap = new APlayer({
         {
             name: 'Garden',
             artist: 'Headache',
-            url: 'http://storage.live.com/items/28117BB5E039AF80!657:/garden.mp3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUkV5dWpyNkpDLW42cXdlP2U9cUZWZVJq.mp3',
             cover: 'http://p1.music.126.net/x6T6bl-B5cdMdt-6B7RycA==/109951168745032017.jpg',
             lrc: '',
         },
