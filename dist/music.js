@@ -33,7 +33,7 @@ const ap = new APlayer({
         {
             name: 'ブルーグラス / 蓝色玻璃杯',
             artist: '美波',
-            url: 'http://storage.live.com/items/28117BB5E039AF80!656:/ブルーグラス.mp3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUkRNUk4yRVBNbmRxdmhRP2U9MjJqU243.mp3',
             cover: 'http://p2.music.126.net/yp3u6HdA59MbxgxkKutLlw==/109951168481635953.jpg',
             lrc: '',
         },
@@ -54,21 +54,21 @@ const ap = new APlayer({
         {
             name: '何度も / 无数次',
             artist: 'RAM WIRE',
-            url: 'http://storage.live.com/items/28117BB5E039AF80!653:/何度も - RAM WIRE.mp3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUTJRMEFHdmFQcEs3bmZuP2U9TXVsSVVz.mp3',
             cover: 'http://p1.music.126.net/1xHEk3lzc5_27k6jDYtYsw==/109951166200821146.jpg',
             lrc: 'https://lav2.top/music/lrc/何度も.lrc',
         },
         {
             name: '眠れない夜に / 在一个不眠之夜',
             artist: '初音ミク',
-            url: 'https://onedrive.live.com/embed?resid=28117BB5E039AF80%21652&authkey=!AJTkSCQEYfZ034U',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUXpXbG1fTWdTdDhqS1R4P2U9ZzdMY2FY.mp3',
             cover: 'http://i0.hdslb.com/bfs/archive/c1cfc4aa2c71cc62a312496293515ee0637e78f3.jpg',
             lrc: '',
         },
         {
             name: 'カイコ / 蚕',
             artist: 'RADWIMPS',
-            url: 'http://storage.live.com/items/28117BB5E039AF80!654:/カイコ - RADWIMPS.mp3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUTVpeFhBa3R2aHNlcER2P2U9VHhhU0hT.mp3',
             cover: 'http://p1.music.126.net/lzBt4JMfdmi0ZuhLWL6ZsQ==/6646547790414773.jpg',
             lrc: 'https://lav2.top/music/lrc/カイコ.lrc',
         },
@@ -96,7 +96,7 @@ const ap = new APlayer({
         {
             name: 'フィナーレ。 / 终曲',
             artist: 'eill',
-            url: 'http://storage.live.com/items/28117BB5E039AF80!655:/フィナーレ。 - eill.MP3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUS1NVllDdUh6ZUVtLUNSP2U9VzM1bnJR.mp3',
             cover: 'http://p2.music.126.net/elOSlLUcyPt_fqdluhSBBA==/109951167783001594.jpg',
             lrc: 'https://lav2.top/music/lrc/フィナーレ。.lrc',
         },
