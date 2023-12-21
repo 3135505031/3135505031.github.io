@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://img.loj.ac.cn/2023/12/17/1cacbb60b4c22.png">
 <meta property="og:image" content="https://thupc2024.thusaac.com/staticdata/12.A49HdJ2m8MwR4sqR.pub/u4Fp8Rb0KbuTjeG3.sample1.png/sample1.png">
 <meta property="article:published_time" content="2023-12-19T16:12:21.000Z">
-<meta property="article:modified_time" content="2023-12-21T11:56:28.732Z">
+<meta property="article:modified_time" content="2023-12-21T13:25:57.947Z">
 <meta property="article:author" content="LA">
 <meta property="article:tag" content="THUPC">
 <meta name="twitter:card" content="summary">
@@ -166,18 +166,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -245,7 +245,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-21 19:56:28" itemprop="dateModified" datetime="2023-12-21T19:56:28+08:00">2023-12-21</time>
+      <time title="修改时间：2023-12-21 21:25:57" itemprop="dateModified" datetime="2023-12-21T21:25:57+08:00">2023-12-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -396,6 +396,8 @@
 </summary>
 <figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="symbol">^vv</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>如果先沿着中间的折痕对折，那么两侧的纸恰好重合，此时再对折一次即可将说明书折叠整齐。</p>
+
 </details>
 
 <details class="note info no-icon"><summary><p>样例二</p>
@@ -821,7 +823,7 @@
 </details>
 
 <h4 id="提示-3"><a href="#提示-3" class="headerlink" title="提示"></a>提示</h4><p>你说得对，但是如果我说这道题的题面是 AI 生成的，阁下又该如何应对？</p>
-<h3 id="题解-12"><a href="#题解-12" class="headerlink" title="题解"></a>题解</h3><p>经典最后一题放签到。判断一下前19个字符即可即可。</p>
+<h3 id="题解-12"><a href="#题解-12" class="headerlink" title="题解"></a>题解</h3><p>经典最后一题放签到。判断一下前19个字符即可。</p>
 <details class="note info no-icon"><summary><p>code for M</p>
 </summary>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    string s; <span class="built_in">getline</span>(cin, s);</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">size</span>() &lt; <span class="number">19</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Human&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">substr</span>(<span class="number">0</span>, <span class="number">19</span>) == <span class="string">&quot;You are right, but &quot;</span>) </span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;AI&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Human&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -846,6 +848,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/undefined/9210d486/" rel="next" title="瞎写">
+                  瞎写 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>

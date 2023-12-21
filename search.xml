@@ -96,6 +96,8 @@
 </summary>
 <figure class="highlight cos"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="symbol">^vv</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>如果先沿着中间的折痕对折，那么两侧的纸恰好重合，此时再对折一次即可将说明书折叠整齐。</p>
+
 </details>
 
 <details class="note info no-icon"><summary><p>样例二</p>
@@ -521,7 +523,7 @@
 </details>
 
 <h4 id="提示-3"><a href="#提示-3" class="headerlink" title="提示"></a>提示</h4><p>你说得对，但是如果我说这道题的题面是 AI 生成的，阁下又该如何应对？</p>
-<h3 id="题解-12"><a href="#题解-12" class="headerlink" title="题解"></a>题解</h3><p>经典最后一题放签到。判断一下前19个字符即可即可。</p>
+<h3 id="题解-12"><a href="#题解-12" class="headerlink" title="题解"></a>题解</h3><p>经典最后一题放签到。判断一下前19个字符即可。</p>
 <details class="note info no-icon"><summary><p>code for M</p>
 </summary>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    string s; <span class="built_in">getline</span>(cin, s);</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">size</span>() &lt; <span class="number">19</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Human&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">substr</span>(<span class="number">0</span>, <span class="number">19</span>) == <span class="string">&quot;You are right, but &quot;</span>) </span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;AI&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Human&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -568,6 +570,20 @@
       </categories>
       <tags>
         <tag>Test_tags</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>瞎写</title>
+    <url>/undefined/9210d486/</url>
+    <content><![CDATA[<h2 id="2023-12"><a href="#2023-12" class="headerlink" title="2023.12"></a>2023.12</h2><h3 id="12-21"><a href="#12-21" class="headerlink" title="12.21"></a>12.21</h3><p><del>我的两天小长假怎么结束了</del></p>
+<p>听四字说元旦联欢要来10班弹吉他<del>巡演</del>，n-buna专场好耶。可惜我大概不会跟着他乱转所以只能听一首awa。</p>
+<p>回去先问下班长。应该会同意。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
