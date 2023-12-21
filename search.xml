@@ -22,7 +22,32 @@
 <p>由于你是因精益求精而远近闻名的排序大师，你需要给出一个排序方案<strong>最小化</strong>操作次数。</p>
 <p>输入的第一行一个整数 $n(1 \le n \le 2,000)$ 表示序列长度，第二行 $n$ 个整数 $a_1,a_2,\cdots,a_n (1 \le a_i \le n)$ 描述排列。</p>
 <p>输出的第一行一个整数 $s$ 表示你给出的方案的步数，接下来 $s$ 行每行四个整数 $i,j,k,l$ 表示一次操作。若有多个方案，输出任意一个即可。</p>
-<h3 id="sol"><a href="#sol" class="headerlink" title="sol"></a>sol</h3>]]></content>
+<h3 id="sol"><a href="#sol" class="headerlink" title="sol"></a>sol</h3><h2 id="B-一棵树"><a href="#B-一棵树" class="headerlink" title="B. 一棵树"></a>B. 一棵树</h2><h3 id="statement-1"><a href="#statement-1" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-1"><a href="#sol-1" class="headerlink" title="sol"></a>sol</h3><h2 id="C-前缀和"><a href="#C-前缀和" class="headerlink" title="C. 前缀和"></a>C. 前缀和</h2><h3 id="statement-2"><a href="#statement-2" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-2"><a href="#sol-2" class="headerlink" title="sol"></a>sol</h3><p>先给一个std里的神秘双射做法：</p>
+<p>考虑无穷个灯排成一排，每个灯有 $p$ 的概率亮，有 $1-p$ 的概率不亮，每个灯独立。</p>
+<p>那么，$x_1&#x3D;a$ 的概率就是从左往右数，第一个亮着的灯是第 $a$ 个灯的概率。因此又有，$y_i&#x3D;a$ 的概率就是从左往右数，第 $i$ 个亮着的灯是第 $a$ 个灯的概率，由此我们就成功构造出了一个双射。</p>
+<p>在这个双射中，存在一个 $y_i&#x3D;a$ 就等价于第 $a$ 个灯是亮着的，因此 $[l,r]$ 中亮着的灯的数量就等于在 $[l,r]$ 的 $y_i$ 的数量，而每个灯亮的概率都是 $p$，因此答案就是 $p(r-l+1)$。</p>
+<p>上述神秘双射如果之前没有遇到过的话，很难在场上独自想出来<del>当然可能是我太菜了</del>，下面提供一个PGF常规推式子的经济实惠考场做法：</p>
+<p>先写出来 $x_i$ 的PGF是</p>
+<p>$$<br>F(z)&#x3D;\sum_{i&#x3D;0}^{+\infty}(1-p)^{i}p z^{i+1}<br>$$</p>
+<p>简单解一下这个GF：</p>
+<p>$$<br>\begin{aligned}<br>&amp;(1-p)z F(z)&#x3D;\sum_{i&#x3D;1}^{+\infty}(1-p)^{i}p z^{i+1}&#x3D;F(z)-pz\<br>&amp;\Longrightarrow F(z)&#x3D;\frac{pz}{1-z+pz}<br>\end{aligned}<br>$$</p>
+<p>那么 $y_n$ 的PGF就是</p>
+<p>$$<br>\left( F(z) \right)^n<br>$$</p>
+<p>因为答案其实是</p>
+<p>$$<br>\sum_{i&#x3D;1}^{n}P([l \le y_i \le r])<br>$$</p>
+<p>所以只需要提出来每个 $y_i$ 的PGF在 $z^{l..r}$ 处的系数和相加即可，由于 $n \ge r$，因此将 $n$ 看作 $+\infty$ 是对答案无影响的，下面我们就这样做。</p>
+<p>将所有 $y_i$ 的PGF加起来：</p>
+<p>$$<br>\sum_{i&#x3D;1}^{+\infty} \left( F(z) \right)^i&#x3D;\frac{1}{1-F(z)}-1&#x3D;\frac{1-z+pz}{1-z}-1&#x3D;p\frac{z}{1-z}<br>$$</p>
+<p>一下子就得到了一个漂亮的式子，因为 $1 \le l \le r \le n$，因此 $\frac{z}{1-z}$ 在 $l..r$ 项的系数都是 $1$，所以答案就是 $p(r-l+1)$，得到了和神秘双射相同的结果。</p>
+<h2 id="D-多折较差验证"><a href="#D-多折较差验证" class="headerlink" title="D. 多折较差验证"></a>D. 多折较差验证</h2><h3 id="statement-3"><a href="#statement-3" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-3"><a href="#sol-3" class="headerlink" title="sol"></a>sol</h3><h2 id="E-转化"><a href="#E-转化" class="headerlink" title="E. 转化"></a>E. 转化</h2><h3 id="statement-4"><a href="#statement-4" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-4"><a href="#sol-4" class="headerlink" title="sol"></a>sol</h3><h2 id="F-机器人"><a href="#F-机器人" class="headerlink" title="F. 机器人"></a>F. 机器人</h2><h3 id="statement-5"><a href="#statement-5" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-5"><a href="#sol-5" class="headerlink" title="sol"></a>sol</h3><h2 id="G-采矿"><a href="#G-采矿" class="headerlink" title="G. 采矿"></a>G. 采矿</h2><h3 id="statement-6"><a href="#statement-6" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-6"><a href="#sol-6" class="headerlink" title="sol"></a>sol</h3><h2 id="H-二进制"><a href="#H-二进制" class="headerlink" title="H. 二进制"></a>H. 二进制</h2><h3 id="statement-7"><a href="#statement-7" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-7"><a href="#sol-7" class="headerlink" title="sol"></a>sol</h3><h2 id="I-分治乘法"><a href="#I-分治乘法" class="headerlink" title="I. 分治乘法"></a>I. 分治乘法</h2><h3 id="statement-8"><a href="#statement-8" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-8"><a href="#sol-8" class="headerlink" title="sol"></a>sol</h3><h2 id="J-套娃"><a href="#J-套娃" class="headerlink" title="J. 套娃"></a>J. 套娃</h2><h3 id="statement-9"><a href="#statement-9" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-9"><a href="#sol-9" class="headerlink" title="sol"></a>sol</h3><h2 id="K-三步棋"><a href="#K-三步棋" class="headerlink" title="K. 三步棋"></a>K. 三步棋</h2><h3 id="statement-10"><a href="#statement-10" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-10"><a href="#sol-10" class="headerlink" title="sol"></a>sol</h3><p>既然所有o构成一个大小不超过4的四联通块，那就不妨对每种联通块的形状分类讨论一下。显然旋转后相同的联通块是本质相同的，下面我们只看每种本质不同的。</p>
+<p>当然一种简单粗暴的方法是直接写一个暴力去判断，但是其实手推也是比较有意思的，下面就用手推的做法了。</p>
+<p>当只有一个o的时候，显然后手必胜，没什么好说的。</p>
+<p>当有两个o的时候，只有一种本质不同的就是两个o连起来变成oo，由于第一个 $3$ 的倍数是先手放，而先手总可以在那一步放出一个oo，因此先手必胜。</p>
+<p>当有三个o的时候，有两种本质不同的联通块，但其实它们的胜负是相同的，分析方法也一致：虽然第一个 $3$ 的倍数是先手放，但只要后手在放第二个子的时候避开先手，那么先手在放第三个子的时候只有第一步、第三步两颗子，是组不成合法的联通块的，而后手在放第 $6$ 个子的时候，显然 $2,4,6$ 步都是自己的，可以组成一个合法联通块，后手必胜。</p>
+<p>有四个o的时候呢？先手是肯定不能在第 $3$ 颗子的时候赢了，后手呢？它只能放 $2,4,6$ 三个子，看起来是不够的，但是它可以贴着先手第一步放的子来做联通块，三个子就是足够的了。所以后手必胜。</p>
+<p>但是其实有一个bug，例如合法联通块是<code>Z</code>形或<code>L</code>形、<code>T</code>形的时候，先手可以将第一个子放到角落上一个必然组不成合法联通块的位置让后手贴不到，因此这三种情况是先手必胜，当是一个 $1 \times 4$ 的长条或 $2 \times 2$ 的方形的时候，后手必胜。</p>
+<h2 id="L-勇闯末日塔"><a href="#L-勇闯末日塔" class="headerlink" title="L. 勇闯末日塔"></a>L. 勇闯末日塔</h2><h3 id="statement-11"><a href="#statement-11" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-11"><a href="#sol-11" class="headerlink" title="sol"></a>sol</h3><h2 id="M-你说得对，但是AIGC"><a href="#M-你说得对，但是AIGC" class="headerlink" title="M. 你说得对，但是AIGC"></a>M. 你说得对，但是AIGC</h2><h3 id="statement-12"><a href="#statement-12" class="headerlink" title="statement"></a>statement</h3><h3 id="sol-12"><a href="#sol-12" class="headerlink" title="sol"></a>sol</h3><p>经典最后一题放签到。判断一下前19个字符即可即可。</p>
+]]></content>
       <categories>
         <category>公开赛</category>
       </categories>
