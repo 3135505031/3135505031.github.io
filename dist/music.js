@@ -289,6 +289,13 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/Ok0xk_CpJW21lAUG9UiMww==/109951165666599650.jpg',
             lrc: 'https://lav2.top/music/lrc/嘘月.lrc',
         },
+        {
+            name: '春夏秋冬 reprise',
+            artist: '當山みれい',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU09iRzJDTHNXVFFieTNFP2U9bHRwZURh.mp3',
+            cover: 'http://p2.music.126.net/Ysxjg2cvS1FSK3bLNiYoDg==/109951165947041530.jpg',
+            lrc: 'https://lav2.top/music/lrc/春夏秋冬.lrc',
+        },
     ]
 });
 
