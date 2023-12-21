@@ -350,7 +350,7 @@
 </details>
 
 <h4 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h4><p>如果你的复杂度是好的，请相信常数。</p>
-<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><p>std是四毛子，有点抽象了，这里说一个比较难卡（至少目前没有被卡掉）的混乱中立做法。</p>
+<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><p>std是四毛子有点抽象了，这里说一个比较难卡（至少目前没有被卡掉）的混乱中立做法。</p>
 <p>首先还是考虑不用3操作而是直接分治，这是 $\mathcal{O}(n \log n)$ 的，理论上把它除以2就行了。肯定是用3操作。<br>具体一点的话，每次分治选一个mid，完了之后把两边的公共部分弄出来单独做一次，只在左边、右边的单独做，Huffman树合并即可。</p>
 <p>当然，本题肯定有各种各样的做法，这里仅列一个比较简单的。</p>
 <details class="note info no-icon"><summary><p>code for I</p>
@@ -536,6 +536,22 @@
       </tags>
   </entry>
   <entry>
+    <title>瞎写</title>
+    <url>/undefined/9210d486/</url>
+    <content><![CDATA[<h1 id="2023-12"><a href="#2023-12" class="headerlink" title="2023.12"></a>2023.12</h1><h2 id="12-21"><a href="#12-21" class="headerlink" title="12.21"></a>12.21</h2><p><del>我的两天小长假怎么结束了</del></p>
+<p>听四字说元旦联欢要来10班弹吉他<del>巡演</del>，n-buna专场好耶。可惜我大概不会跟着他乱转所以只能听一首awa。</p>
+<p>回去先问下班长。应该会同意。</p>
+<p>据说明天和领导拍照，<del>肖波大概不会来吧</del>。</p>
+<p>把歌弄到onedrive上怎么感觉这么不靠谱啊。今天晚上有时候就放不出来。。但是网易云的vip歌又不给外链挂不上去。。算了。挂了再修吧<del>反正这网站也是做着玩的</del></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Test</title>
     <url>/undefined/4a17b156/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -570,21 +586,6 @@
       </categories>
       <tags>
         <tag>Test_tags</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>瞎写</title>
-    <url>/undefined/9210d486/</url>
-    <content><![CDATA[<h1 id="2023-12"><a href="#2023-12" class="headerlink" title="2023.12"></a>2023.12</h1><h2 id="12-21"><a href="#12-21" class="headerlink" title="12.21"></a>12.21</h2><p><del>我的两天小长假怎么结束了</del></p>
-<p>听四字说元旦联欢要来10班弹吉他<del>巡演</del>，n-buna专场好耶。可惜我大概不会跟着他乱转所以只能听一首awa。</p>
-<p>回去先问下班长。应该会同意。</p>
-<p>据说明天和领导拍照，<del>肖波大概不会来吧</del>。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
