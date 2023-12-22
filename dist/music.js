@@ -366,6 +366,27 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/t5hKN2sVlTXXQ4BpabUn6Q==/109951167035588310.jpg',
             lrc: 'https://lav2.top/music/lrc/Eighteen Color.lrc',
         },
+        {
+            name: '私でありたい',
+            artist: '木咲桃華',
+            url: 'http://music.163.com/song/media/outer/url?id=1875921749.mp3',
+            cover: 'http://p1.music.126.net/XDyIOtTDTmoK9HKhb84Amw==/109951166361259147.jpg',
+            lrc: 'https://lav2.top/music/lrc/私でありたい.lrc',
+        },
+        {
+            name: '猫失格',
+            artist: 'ReoNa',
+            url: 'http://music.163.com/song/media/outer/url?id=1963505143.mp3',
+            cover: 'http://p1.music.126.net/kNq5xc3f0itt1HR_Y1qnpA==/109951167662798934.jpg',
+            lrc: 'https://lav2.top/music/lrc/猫失格.lrc',
+        },
+        {
+            name: 'LyriC',
+            artist: 'MIMI',
+            url: 'http://music.163.com/song/media/outer/url?id=1918884888.mp3',
+            cover: 'http://p2.music.126.net/eBTNOYSfIeBETiQRYkH92g==/109951167031675322.jpg',
+            lrc: 'https://lav2.top/music/lrc/LyriC.lrc',
+        },
     ]
 });
 
