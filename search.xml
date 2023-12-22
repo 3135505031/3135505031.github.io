@@ -118,7 +118,14 @@
 <figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">24 </span><span class="number">663</span></span><br></pre></td></tr></table></figure>
 </details>
 
-<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><h2 id="E-转化"><a href="#E-转化" class="headerlink" title="E. 转化"></a>E. 转化</h2><h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h3><p>小 E 在玩 Somzig 游戏的时候因为操作时间不够绷不住了，于是就有了这个题。</p>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><p>一个显然的想法是区间dp，只需要 $\mathcal{O}(n^2)$ 预处理一下每个位置可以折的最大半径即可，总复杂度 $\mathcal{O}(n^3)$ 肯定过不了。</p>
+<p>注意力集中一点就可以注意到极大半径和不会很大，因此我们在区间dp枚举转移点的时候，不要从左端点到右端点扫过去，而是直接找覆盖了左端点或右端点的位置转移，复杂度大概是 $\mathcal{O(n^2 \log n)}$ 的，但是出题人和验题人<del>和我</del>都不会证。</p>
+<details class="note info no-icon"><summary><p>code for D</p>
+</summary>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5010</span>;</span><br><span class="line"><span class="type">int</span> n; <span class="type">char</span> S[N];</span><br><span class="line"><span class="type">int</span> R[N]; vector&lt;<span class="type">int</span>&gt; cover[<span class="number">2</span>][N];</span><br><span class="line">pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; n &gt;&gt; (S + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        R[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i - R[i] &gt; <span class="number">1</span> &amp;&amp; i + R[i] &lt; n &amp;&amp; S[i - R[i] - <span class="number">1</span>] != S[i + R[i] + <span class="number">1</span>])</span><br><span class="line">            R[i] ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        cerr &lt;&lt; R[i] &lt;&lt; <span class="string">&quot; \n&quot;</span>[i == n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= R[i]; j ++)</span><br><span class="line">            cover[<span class="number">0</span>][i - j].<span class="built_in">emplace_back</span>(i), cover[<span class="number">1</span>][i + j].<span class="built_in">emplace_back</span>(i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="built_in">reverse</span>(cover[<span class="number">1</span>][i].<span class="built_in">begin</span>(), cover[<span class="number">1</span>][i].<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) f[i][i] = &#123;<span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> len = <span class="number">2</span>; len &lt;= n; len ++) <span class="keyword">for</span>(<span class="type">int</span> l = <span class="number">1</span>; l + len - <span class="number">1</span> &lt;= n; l ++) &#123;</span><br><span class="line">        <span class="type">int</span> r = l + len - <span class="number">1</span>; f[l][r] = &#123;n + <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : cover[<span class="number">0</span>][l]) &#123;</span><br><span class="line">            <span class="keyword">if</span>(x &gt; mid) <span class="keyword">break</span>; <span class="type">int</span> y = (r - x) - (x - l);</span><br><span class="line">            f[l][r] = <span class="built_in">min</span>(f[l][r], &#123;f[x + <span class="number">1</span>][r].first + <span class="number">1</span>, f[x + <span class="number">1</span>][r].second + y&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : cover[<span class="number">1</span>][r]) &#123;</span><br><span class="line">            <span class="keyword">if</span>(x &lt;= mid) <span class="keyword">break</span>; <span class="type">int</span> y = (x - l) - (r - x);</span><br><span class="line">            f[l][r] = <span class="built_in">min</span>(f[l][r], &#123;f[l][x - <span class="number">1</span>].first + <span class="number">1</span>, f[l][x - <span class="number">1</span>].second + y&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; f[<span class="number">1</span>][n].first &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; f[<span class="number">1</span>][n].second &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<h2 id="E-转化"><a href="#E-转化" class="headerlink" title="E. 转化"></a>E. 转化</h2><h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h3><p>小 E 在玩 Somzig 游戏的时候因为操作时间不够绷不住了，于是就有了这个题。</p>
 <p>小 E 有 $n$ 种颜色的球，其中第 $i$ 种有 $a_i$ 个。有两类工具，第一类可以把一个指定颜色的球变成一个<strong>任意</strong>颜色的球；第二类可以把一个指定颜色的球变成两个<strong>这种</strong>颜色的球。一个变化之后的球也可以通过工具产生新的变化。关于第 $i$ 种颜色的第一类工具有 $b_i$ 个，第二类工具有 $c_i$ 个。小 E 想知道，如果每一<strong>个</strong>工具最多只能使用一次，那么对于每种颜色 $i$，第 $i$ 种颜色的球最后最多能有多少个。以及，小 E 最后最多能有多少个球。</p>
 <h4 id="输入格式-4"><a href="#输入格式-4" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行一个正整数 $n$。</p>
 <p>第二行 $n$ 个整数，其中第 $i$ 个表示 $a_i$。</p>
@@ -536,22 +543,6 @@
       </tags>
   </entry>
   <entry>
-    <title>瞎写</title>
-    <url>/undefined/9210d486/</url>
-    <content><![CDATA[<h1 id="2023-12"><a href="#2023-12" class="headerlink" title="2023.12"></a>2023.12</h1><h2 id="12-21"><a href="#12-21" class="headerlink" title="12.21"></a>12.21</h2><p><del>我的两天小长假怎么结束了</del></p>
-<p>听四字说元旦联欢要来10班弹吉他<del>巡演</del>，n-buna专场好耶。可惜我大概不会跟着他乱转所以只能听一首awa。</p>
-<p>回去先问下班长。应该会同意。</p>
-<p>据说明天和领导拍照，<del>肖波大概不会来吧</del>。</p>
-<p>把歌弄到onedrive上怎么感觉这么不靠谱啊。今天晚上有时候就放不出来。。但是网易云的vip歌又不给外链挂不上去。。算了。挂了再修吧<del>反正这网站也是做着玩的</del></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Test</title>
     <url>/undefined/4a17b156/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -586,6 +577,23 @@
       </categories>
       <tags>
         <tag>Test_tags</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>瞎写</title>
+    <url>/undefined/9210d486/</url>
+    <content><![CDATA[<h1 id="2023-12"><a href="#2023-12" class="headerlink" title="2023.12"></a>2023.12</h1><h2 id="12-21"><a href="#12-21" class="headerlink" title="12.21"></a>12.21</h2><p><del>我的两天小长假怎么结束了</del></p>
+<p>听四字说元旦联欢要来10班弹吉他<del>巡演</del>，n-buna专场好耶。可惜我大概不会跟着他乱转所以只能听一首awa。</p>
+<p>回去先问下班长。应该会同意。</p>
+<p>据说明天和领导拍照，<del>肖波大概不会来吧</del>。</p>
+<p>把歌弄到onedrive上怎么感觉这么不靠谱啊。今天晚上有时候就放不出来。。但是网易云的vip歌又不给外链挂不上去。。算了。挂了再修吧<del>反正这网站也是做着玩的</del></p>
+<h2 id="12-22"><a href="#12-22" class="headerlink" title="12.22"></a>12.22</h2><p>我擦。 怎么还有好几个班合办的联欢会啊，还有人说要去中道报告厅。。这下这下了。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
