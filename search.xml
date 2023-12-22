@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hash Killer</title>
+    <url>/undefined/5bb54114/</url>
+    <content><![CDATA[<h2 id="bzoj3097-Hash-Killer-I"><a href="#bzoj3097-Hash-Killer-I" class="headerlink" title="bzoj3097. Hash Killer I"></a>bzoj3097. Hash Killer I</h2><p>这天天气不错，hzhwcmhf 神犇给 VFleaKing 出了一道题：</p>
+<p>给你一个长度为 $n$ 的字符串 $s$ ，求有多少个不同的长度为 $l$ 的连续子串。</p>
+<p>两个字符串被认为是不同的当且仅当某个位置上的字符不同。</p>
+<p>VFleaKing 一看觉得这不是 Hash 的裸题么！于是果断写了哈希 $+$ 排序。</p>
+<p>而 hzhwcmhf 神犇心里自然知道，这题就是后缀数组的 height 中 $&lt;L$ 的个数 $+1$，就是后缀自动机上代表的长度区间包含 $l$ 的结点个数，就是后缀树深度为 $l$ 的结点的数量。</p>
+<p>但是 hzhwcmhf 神犇看了看 VFleaKing 的做法表示非常汗。于是想卡掉他。</p>
+<p>VFleaKing 使用的是字典序哈希，其代码大致如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">u64 val = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; l; i++)</span><br><span class="line">    val = val * base + s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>u64</code> 是无符号 <code>int64</code>，范围是 $[0,2^{64})$。VFleaKing 让 <code>val</code> 自然溢出。</p>
+<p><code>base</code> 是一个常量，VFleaKing 会根据心情决定其值。</p>
+<p>VFleaKing 还求出来了 $base^l$，即 $base$ 的 $l$ 次方，这样就能方便地求出所有长度为 $l$ 的子串的哈希值。</p>
+<p>然后 VFleaKing 给哈希值排序，去重，求出有多少个不同的哈希值，把这个数作为结果。</p>
+<p>其算法的 <code>C++</code> 代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> u64;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MaxN = <span class="number">100000</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">hash_handle</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *s, <span class="type">const</span> <span class="type">int</span> &amp;n, <span class="type">const</span> <span class="type">int</span> &amp;l, <span class="type">const</span> <span class="type">int</span> &amp;base)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    u64 hash_pow_l = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= l; i++)</span><br><span class="line">    hash_pow_l *= base;</span><br><span class="line">    <span class="type">int</span> li_n = <span class="number">0</span>;</span><br><span class="line">    <span class="type">static</span> u64 li[MaxN];</span><br><span class="line">    u64 val = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; l; i++)</span><br><span class="line">    val = val * base + s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    li[li_n++] = val;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">    val = val * base + s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    val -= (s[i - l] - <span class="string">&#x27;a&#x27;</span>) * hash_pow_l;</span><br><span class="line">    li[li_n++] = val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(li, li + li_n);</span><br><span class="line">    li_n = <span class="built_in">unique</span>(li, li + li_n) - li;</span><br><span class="line">    <span class="keyword">return</span> li_n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>hzhwcmhf 当然知道怎么卡啦！但是他想考考你。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>没有输入。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>你需要输出一组数据使得 VFleaKing 的代码 WA 掉。我们会使用 Special Judge 检查你的结果的正确性。</p>
+<p>输出文件共两行。</p>
+<p>第一行两个用空格隔开的数 $n,l$。</p>
+<p>第二行是一个长度为 $n$ 的字符串。只能包含小写字母。</p>
+<p>需要保证 $1 \le n \le 10^5, 1 \le l \le n$，不符合以上格式会 WA。不要有多余字符，很可能导致你 WA。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>模 $2^{64}$ 自然溢出是广为人知的随便卡，今天就来尝试一下。</p>
+<p>说白了就是要构造两个长度为 $l$ 的小写字符串 $S,T$ 使得 $S \ne T$ 但</p>
+<p>$$<br>\sum_{i&#x3D;0}^{l-1}S_i \times base^i \equiv \sum_{i&#x3D;0}^{l-1}T_i \times base^i \pmod{2^{64}}\nonumber<br>$$</p>
+<p>当 $base \equiv 0 \pmod 2$ 的时候狗都会做，因为这时候 $base^{x}, x \ge 64$ 都是 $0$，所以随便来两个最后 $64$ 个字符相同，前面的字符不同的串就行，比如 <code>aaaaa...aaa</code> 和 <code>baaaa....aaa</code>。</p>
+<p>否则 $base \equiv 1 \pmod 2$</p>
+]]></content>
+      <categories>
+        <category>杂题</category>
+      </categories>
+      <tags>
+        <tag>杂题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>THUPC2024 初赛</title>
     <url>/undefined/1fddaa55/</url>
     <content><![CDATA[<p>哈哈，被干爆了。<del>拖了cdqz哥后腿</del>。</p>
@@ -592,15 +631,6 @@
       </tags>
   </entry>
   <entry>
-    <title>留言板</title>
-    <url>/undefined/c0297c2d/</url>
-    <content><![CDATA[<p>欢迎留言qwq</p>
-]]></content>
-      <categories>
-        <category>留言板</category>
-      </categories>
-  </entry>
-  <entry>
     <title>瞎写</title>
     <url>/undefined/9210d486/</url>
     <content><![CDATA[<h1 id="2023-12"><a href="#2023-12" class="headerlink" title="2023.12"></a>2023.12</h1><h2 id="12-21"><a href="#12-21" class="headerlink" title="12.21"></a>12.21</h2><p><del>我的两天小长假怎么结束了</del></p>
@@ -610,7 +640,8 @@
 <p>把歌弄到onedrive上怎么感觉这么不靠谱啊。今天晚上有时候就放不出来。。但是网易云的vip歌又不给外链挂不上去。。算了。挂了再修吧<del>反正这网站也是做着玩的</del></p>
 <h2 id="12-22"><a href="#12-22" class="headerlink" title="12.22"></a>12.22</h2><p>我擦。 怎么还有好几个班合办的联欢会啊，还有人说要去中道报告厅。。这下这下了。</p>
 <p>往网站上新加了个留言板，但是应该不会有人看见XD。</p>
-<p>とあ纯大跌我去，Reset太好听了。</p>
+<p>とあ纯大跌我去，Reset太好听了。神曲www</p>
+<p>草。肖波还真要来。等下看看要干嘛。</p>
 ]]></content>
       <categories>
         <category>随笔</category>
