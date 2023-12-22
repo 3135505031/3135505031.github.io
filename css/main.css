@@ -2663,7 +2663,7 @@ header.header {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #750dff;
+  background: #8394bb;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2708,7 +2708,7 @@ header.header {
   }
 }
 body {
-  background: url("/images/background.png");
+  background: url("https://cdn.luogu.com.cn/upload/image_hosting/5fm0pyya.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
