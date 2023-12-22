@@ -29,7 +29,7 @@
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>模 $2^{64}$ 自然溢出是广为人知的随便卡，今天就来尝试一下。</p>
 <p>说白了就是要构造两个长度为 $l$ 的小写字符串 $S,T$ 使得 $S \ne T$ 但</p>
 <p>$$<br>\sum_{i&#x3D;0}^{l-1}S_i \times base^i \equiv \sum_{i&#x3D;0}^{l-1}T_i \times base^i \pmod{2^{64}}\nonumber<br>$$</p>
-<p>当 $base \equiv 0 \pmod 2$ 的时候狗都会做，因为这时候 $base^{x}, x \ge 64$ 都是 $0$，所以随便来两个最后 $64$ 个字符相同，前面的字符不同的串就行，比如 <code>aaaaa...aaa</code> 和 <code>baaaa....aaa</code>。</p>
+<p>$base \equiv 0 \pmod 2$ 狗都会做，因为这时候 $base^{x}, x \ge 64$ 都是 $0$，所以随便来两个最后 $64$ 个字符相同，前面的字符不同的串就行，比如 <code>aaaaa...aaa</code> 和 <code>baaaa....aaa</code>。</p>
 <p>否则 $base \equiv 1 \pmod 2$</p>
 ]]></content>
       <categories>
