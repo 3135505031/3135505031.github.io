@@ -408,6 +408,13 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/4EJb75SCcBf50S8SfWsayg==/109951165946705599.jpg',
             lrc: 'https://lav2.top/music/lrc/アイディスマイル.lrc',
         },
+        {
+            name: '月华舞',
+            artist: '洛天依',
+            url: 'http://music.163.com/song/media/outer/url?id=2062921141.mp3',
+            cover: 'http://p2.music.126.net/g9hQW8F-V-iSu3fl3OxW9w==/109951168730716074.jpg',
+            lrc: 'https://lav2.top/music/lrc/月华舞.lrc',
+        },
     ]
 });
 
