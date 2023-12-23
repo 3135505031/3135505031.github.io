@@ -154,7 +154,7 @@
     <title>THUPC2024 初赛</title>
     <url>/undefined/1fddaa55/</url>
     <content><![CDATA[<p>哈哈，被干爆了。<del>拖了cdqz哥后腿</del>。</p>
-<h3 id="题目使用协议"><a href="#题目使用协议" class="headerlink" title="题目使用协议"></a>题目使用协议</h3><p>来自 THUPC2024（2024年清华大学学生程序设计竞赛暨高校邀请赛）初赛。</p>
+<h2 id="题目使用协议"><a href="#题目使用协议" class="headerlink" title="题目使用协议"></a>题目使用协议</h2><p>来自 THUPC2024（2024年清华大学学生程序设计竞赛暨高校邀请赛）初赛。</p>
 <p>以下『本仓库』皆指 <a href="https://github.com/ckw20/thupc2024_pre_public">THUPC2024 初赛 官方仓库</a></p>
 <ul>
 <li><p>任何单位或个人都可以免费使用或转载本仓库的题目；</p>
@@ -702,7 +702,8 @@
 <details class="note info no-icon"><summary><p>code for M</p>
 </summary>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    string s; <span class="built_in">getline</span>(cin, s);</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">size</span>() &lt; <span class="number">19</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Human&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">substr</span>(<span class="number">0</span>, <span class="number">19</span>) == <span class="string">&quot;You are right, but &quot;</span>) </span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;AI&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Human&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>]]></content>
+</details>
+]]></content>
       <categories>
         <category>公开赛</category>
       </categories>
