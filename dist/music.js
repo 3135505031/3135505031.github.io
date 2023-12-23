@@ -415,6 +415,13 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/g9hQW8F-V-iSu3fl3OxW9w==/109951168730716074.jpg',
             lrc: 'https://lav2.top/music/lrc/月华舞.lrc',
         },
+        {
+            name: 'オレンジ / Orange',
+            artist: 'トーマ / 初音ミク',
+            url: 'http://music.163.com/song/media/outer/url?id=26310273.mp3',
+            cover: 'http://p1.music.126.net/7dkEW80_gBGmIGe3ROXMFQ==/2524478697429863.jpg',
+            lrc: 'https://lav2.top/music/lrc/オレンジ.lrc',
+        },
     ]
 });
 
