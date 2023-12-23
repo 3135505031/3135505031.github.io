@@ -387,6 +387,27 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/eBTNOYSfIeBETiQRYkH92g==/109951167031675322.jpg',
             lrc: 'https://lav2.top/music/lrc/LyriC.lrc',
         },
+        {
+            name: 'ステンドノクターン / 涅染夜曲',
+            artist: 'とあ / 初音ミク / 鏡音リン',
+            url: 'http://music.163.com/song/media/outer/url?id=1917835637.mp3',
+            cover: 'http://p2.music.126.net/lHRI1NiMEasA-O9CqT1Kkw==/109951167017888034.jpg',
+            lrc: 'https://lav2.top/music/lrc/ステンドノクターン.lrc',
+        },
+        {
+            name: 'こいあい',
+            artist: 'とあ / 初音ミク',
+            url: 'http://music.163.com/song/media/outer/url?id=505474377.mp3',
+            cover: 'http://p2.music.126.net/0r3rPTmSp_qGMqR31PvXyg==/109951163023679798.jpg',
+            lrc: 'https://lav2.top/music/lrc/こいあい.lrc',
+        },
+        {
+            name: 'アイディスマイル / IDSMILE',
+            artist: 'とあ / 初音ミク / 鏡音リン',
+            url: 'http://music.163.com/song/media/outer/url?id=1842166288.mp3',
+            cover: 'http://p1.music.126.net/4EJb75SCcBf50S8SfWsayg==/109951165946705599.jpg',
+            lrc: 'https://lav2.top/music/lrc/アイディスマイル.lrc',
+        },
     ]
 });
 
