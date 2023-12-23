@@ -30,7 +30,7 @@
 <meta property="og:description" content="硬币、阿克、猜数、卡片">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-22T23:53:52.000Z">
-<meta property="article:modified_time" content="2023-12-23T00:35:09.328Z">
+<meta property="article:modified_time" content="2023-12-23T00:52:35.714Z">
 <meta property="article:author" content="LA">
 <meta property="article:tag" content="模拟赛">
 <meta name="twitter:card" content="summary">
@@ -174,7 +174,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -259,7 +259,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-12-23 07:53:52 / 修改时间：08:35:09" itemprop="dateCreated datePublished" datetime="2023-12-23T07:53:52+08:00">2023-12-23</time>
+      <time title="创建时间：2023-12-23 07:53:52 / 修改时间：08:52:35" itemprop="dateCreated datePublished" datetime="2023-12-23T07:53:52+08:00">2023-12-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -448,7 +448,7 @@
 <p>$$<br>\sum_{i&#x3D;1}^{n}A_i (2i-2)!!\nonumber<br>$$</p>
 <p>显然，假如可以进位（对应原题中的地 $j$ 类牌换第 $j \bmod n+1$ 类牌），我们是一定会进位的，于是换牌操作自然地变成了数字的进位，通过数字还原每类牌的数量也是容易的.</p>
 <p>还有一个特殊的换牌是第 $n$ 类换第 $1$ 类，这可以看作是将数对 $2n!!-1$ 取模，但是取模的要求是 $&gt;2n!!-1$ 而不是 $\ge$.</p>
-<p>根据裴蜀定理，我们可以求出 $m$ 中牌包对应数字与 $2n!!-1$ 的 $\operatorname{gcd}$，设为 $d$，于是我们可以到达的状态数量就有 $\frac{2n!!-1}{d}$ 个了，暴力枚举，时间复杂度为 $\O{n \frac{2n!!-1}{d}}$.</p>
+<p>根据裴蜀定理，我们可以求出 $m$ 中牌包对应数字与 $2n!!-1$ 的 $\operatorname{gcd}$，设为 $d$，于是我们可以到达的状态数量就有 $\frac{2n!!-1}{d}$ 个了，暴力枚举，时间复杂度为 $\mathcal{O}\left(n \frac{2n!!-1}{d}\right)$.</p>
 <p>假如不暴力枚举呢？容易发现我们要找的其实是牌数最少的、和初始状态模 $d$ 同余的那个状态，可以跑同余最短路，时间复杂度是 $\mathcal{O}(n^2d)$.特殊处理一下初始状态模 $d$ 为 $0$ 的情况，钦定这个时候必须经过至少一条边即可.</p>
 <p>显然我们有两种取决于 $d$ 的算法，可以考虑根号分治，当 $d &gt; \sqrt{2n!!-1}$ 的时候选暴力枚举的算法，否则选同余最短路算法.</p>
 <p>算一下复杂度发现好像过不去，但是这里的根号是卡不满的，由于 $d$ 是 $2n!!-1$ 的因数，而其小于根号的因数最大其实是 $1214827$.</p>
@@ -512,13 +512,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">29k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:43</span>
+    <span title="站点阅读时长">1:47</span>
   </span>
 </div>
 <div class="busuanzi-count">
