@@ -29,8 +29,8 @@
 <h2 id="D-Split-Plus-K"><a href="#D-Split-Plus-K" class="headerlink" title="D. Split Plus K"></a>D. Split Plus K</h2><p>先看 $k&#x3D;0$ 的时候怎么做，显然我们是把每个数都拆成若干个相同的数，每个原数拆成的数还一样。</p>
 <p>若将 $a$ 拆成 $y$，显然必须满足 $y \mid a$，此时需要拆 $\frac{a}{y}-1$ 次，于是 $y$ 越大越好。</p>
 <p>每个 $a_i$ 拆成的 $y$ 还要一样，所以 $y$ 应该是所有 $a_i$ 的公因数，还要最大的话就是 $y&#x3D;\gcd a_i$ 了，此时答案可以直接算，即<br>$$<br>\sum_{i&#x3D;1}^{n} \frac{a_i}{y}-1\nonumber<br>$$</p>
-<p>当 $k \ne 0$ 的时候，想法是类似的，将 $a$ 拆成 $p$ 个 $y$，应该满足 $a+pk&#x3D;(p+1)y$，整理得到 $p&#x3D;\frac{a-y}{y-k}&#x3D;\frac{a-k}{y-k}-1$。于是 $y-k$ 应该是 $a-k$ 的因数，$y-k$ 要尽可能大的话，就是 $\gcd a_i-k$ 了。</p>
-<p>把 $\gcd a_i-k$ 求出来，设为 $d$，那么答案就是</p>
+<p>当 $k \ne 0$ 的时候，想法是类似的，将 $a$ 拆成 $p$ 个 $y$，应该满足 $a+pk&#x3D;(p+1)y$，整理得到 $p&#x3D;\frac{a-y}{y-k}&#x3D;\frac{a-k}{y-k}-1$。于是 $y-k$ 应该是 $a-k$ 的因数，$y-k$ 要尽可能大的话，就是 $\gcd(a_i-k)$ 了。</p>
+<p>把 $\gcd(a_i-k)$ 求出来，设为 $d$，那么答案就是</p>
 <p>$$<br>\sum_{i&#x3D;1}^{n}\frac{a_i-k}{d}-1\nonumber<br>$$</p>
 <p>可以发现这些推导是完全兼容 $k&#x3D;0$ 的情况的。</p>
 <p>还有无解的情况存在，如果存在数 $\ge k$ 并且存在数 $&lt;k$，一定无解，因为前者拆出来的数一定有至少一个 $\ge k$，后者拆出来的数一定有一个至少 $&lt;k$，它们不可能相等;同理，若存在数 $\le k$ 并且存在数 $&gt;k$，也一定无解，</p>
