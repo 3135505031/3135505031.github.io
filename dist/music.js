@@ -429,6 +429,20 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/OPArnWreTh4ISr7LvlNhVw==/109951168551087913.jpg',
             lrc: 'https://lav2.top/music/lrc/まほう.lrc',
         },
+        {
+            name: '好きなので。 / 因为喜欢你',
+            artist: '雨宮天',
+            url: 'http://music.163.com/song/media/outer/url?id=38019747.mp3',
+            cover: 'http://p1.music.126.net/JvCzECg-bM3ZvePvKwBAEw==/109951165390158816.jpg',
+            lrc: 'https://lav2.top/music/lrc/好きなので。.lrc',
+        },
+        {
+            name: '恋愛裁判 / 恋爱审判',
+            artist: '40mP / 初音ミク',
+            url: 'http://music.163.com/song/media/outer/url?id=28953243.mp3',
+            cover: 'http://p2.music.126.net/0uIypvfFOdxceKBD7kaedA==/109951166919149354.jpg',
+            lrc: 'https://lav2.top/music/lrc/恋愛裁判.lrc',
+        },
     ]
 });
 
