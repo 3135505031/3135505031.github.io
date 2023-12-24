@@ -422,6 +422,13 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/7dkEW80_gBGmIGe3ROXMFQ==/2524478697429863.jpg',
             lrc: 'https://lav2.top/music/lrc/オレンジ.lrc',
         },
+        {
+            name: 'まほう / 魔法',
+            artist: '花譜',
+            url: 'http://music.163.com/song/media/outer/url?id=1501450517.mp3',
+            cover: 'http://p1.music.126.net/OPArnWreTh4ISr7LvlNhVw==/109951168551087913.jpg',
+            lrc: 'https://lav2.top/music/lrc/まほう.lrc',
+        },
     ]
 });
 
