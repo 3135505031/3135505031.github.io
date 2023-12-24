@@ -55,7 +55,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="https://waline-3lupleob1-3135505031s-projects.vercel.app/">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -291,13 +291,13 @@
   
   <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/undefined/1fddaa55/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="undefined/1fddaa55/" itemprop="commentCount"></span>
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/undefined/1fddaa55/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/undefined/1fddaa55/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -930,11 +930,7 @@
 
 
 
-    
-  <div class="comments" id="disqus_thread">
-    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-  </div>
-  
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -1170,6 +1166,8 @@ if (document.querySelectorAll('div.pdf').length) {
     });
 }
 </script>
+<script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.12/pdfobject.min.js","integrity":"sha256-g2xji1rlE3KsGVClvuxTbcR0Kn2+wtQADSff2Tbb4zA="},"url":"/lib/pdf/web/viewer.html"}</script>
+<script src="/js/third-party/tags/pdf.js"></script>
 
 
 
@@ -1188,8 +1186,17 @@ if (document.querySelectorAll('div.pdf').length) {
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"lav2","count":true,"i18n":{"disqus":"disqus"}}</script>
-<script src="/js/third-party/comments/disqus.js"></script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-3lupleob1-3135505031s-projects.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"欢迎评论！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick"],"requiredMeta":["nick"],"wordLimit":0,"login":"enable","pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/undefined/1fddaa55/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 </body>
 </html>
