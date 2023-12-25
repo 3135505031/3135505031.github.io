@@ -100,24 +100,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://lav2.top/pdfjs/web/viewer.html</loc>
-    
-    <lastmod>2023-11-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/pdfjs/web/locale/locale.json</loc>
-    
-    <lastmod>2023-11-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://lav2.top/</loc>
