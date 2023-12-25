@@ -520,6 +520,34 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/zOY_thHWX_Tso0Pb2eohIw==/109951169169658821.jpg',
             lrc: 'https://lav2.top/music/lrc/日常と地球の額縁.lrc',
         },
+        {
+            name: 'Daisy / 雏菊',
+            artist: 'R・O・N',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU29GMHpaYU4xQU1fVmVKP2U9RDdZczBt.mp3',
+            cover: 'http://p2.music.126.net/YlKhzFAsP5fmXpl4TGX4og==/109951168958535083.jpg',
+            lrc: 'https://lav2.top/music/lrc/Daisy.lrc',
+        },
+        {
+            name: '小喋日和 / 好天气',
+            artist: 'FantasticYouth',
+            url: 'http://music.163.com/song/media/outer/url?id=1937930080.mp3',
+            cover: 'http://p1.music.126.net/rl-BYDj8FUHgZ5bqpIZDOA==/109951167288526971.jpg',
+            lrc: 'https://lav2.top/music/lrc/小喋日和.lrc',
+        },
+        {
+            name: 'コイワズライ / 相思病',
+            artist: 'Aimer',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU3NFUER4ckptQ3NEampsP2U9NURWOUlY.mp3',
+            cover: 'http://p2.music.126.net/f1EN7WBAstx5ZhOrBVc7eQ==/109951166919027146.jpg',
+            lrc: 'https://lav2.top/music/lrc/コイワズライ.lrc',
+        },
+        {
+            name: 'たばこ / 烟草',
+            artist: 'コレサワ',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU3o0dmp1TUJKWlRXb2tnP2U9Z1dHNTF4.mp3',
+            cover: 'http://p2.music.126.net/x5TqF7cnDzid-_72poJHkg==/109951163549384168.jpg',
+            lrc: 'https://lav2.top/music/lrc/たばこ.lrc',
+        },
     ]
 });
 
