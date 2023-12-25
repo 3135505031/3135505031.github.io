@@ -443,6 +443,27 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/0uIypvfFOdxceKBD7kaedA==/109951166919149354.jpg',
             lrc: 'https://lav2.top/music/lrc/恋愛裁判.lrc',
         },
+        {
+            name: '世界は恋に落ちている / 我的世界已坠入爱河',
+            artist: 'かぴ',
+            url: 'http://music.163.com/song/media/outer/url?id=30251317.mp3',
+            cover: 'http://p2.music.126.net/bHl4J0VWC8VOEM7e8z2uyg==/109951169054383254.jpg',
+            lrc: 'https://lav2.top/music/lrc/世界は恋に落ちている.lrc',
+        },
+        {
+            name: 'あの頃~ジンジンバオヂュオニー~ / 那些年~紧紧抱着你~',
+            artist: 'whiteeeen',
+            url: 'http://music.163.com/song/media/outer/url?id=35090707.mp3',
+            cover: 'http://p2.music.126.net/fB7jJkRwhmACmRajZZm-Kg==/3407386534502077.jpg',
+            lrc: 'https://lav2.top/music/lrc/あの頃~ジンジンバオヂュオニー~.lrc',
+        },
+        {
+            name: 'magical mode',
+            artist: '花澤香菜',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU2NFVkdQRDZLTjNlQXg0P2U9UlhkNWhn.mp3',
+            cover: 'http://p1.music.126.net/mraHgnv_PTUsZzcrfLRzng==/109951165871731700.jpg',
+            lrc: 'https://lav2.top/music/lrc/magical-mode.lrc',
+        },
     ]
 });
 
