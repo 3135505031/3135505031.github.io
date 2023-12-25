@@ -520,13 +520,6 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/zOY_thHWX_Tso0Pb2eohIw==/109951169169658821.jpg',
             lrc: 'https://lav2.top/music/lrc/日常と地球の額縁.lrc',
         },
-        {
-            name: 'SLEEPWALK',
-            artist: 'ヒトリエ',
-            url: 'http://music.163.com/song/media/outer/url?id=.mp3',
-            cover: '',
-            lrc: '',
-        },
     ]
 });
 
