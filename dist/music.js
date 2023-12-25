@@ -544,7 +544,7 @@ const ap = new APlayer({
         {
             name: 'たばこ / 烟草',
             artist: 'コレサワ',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU3o0dmp1TUJKWlRXb2tnP2U9Z1dHNTF4.mp3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUzVLOU8tb3U0cDJSU3d5P2U9R25UOXQy.mp3',
             cover: 'http://p2.music.126.net/x5TqF7cnDzid-_72poJHkg==/109951163549384168.jpg',
             lrc: 'https://lav2.top/music/lrc/たばこ.lrc',
         },
