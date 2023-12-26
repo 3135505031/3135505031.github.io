@@ -80,25 +80,11 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/今、歩き出す君へ。.lrc',
         },
         {
-            name: 'アイロニ / 反语',
-            artist: 'すこっぷ/初音ミク',
-            url: 'http://music.163.com/song/media/outer/url?id=28411815.mp3',
-            cover: 'http://p2.music.126.net/OGC_-6NGZUag4pETRlkvSQ==/6041816394875075.jpg',
-            lrc: 'https://lav2.top/music/lrc/アイロニ.lrc',
-        },
-        {
             name: '明日、春が来たら / 明日、春来后',
             artist: 'Lefty Hand Cream',
             url: 'http://music.163.com/song/media/outer/url?id=2035847007.mp3',
             cover: 'http://p1.music.126.net/qNbcQ3uBclFSEXnzs74KJw==/109951168518024995.jpg',
             lrc: 'https://lav2.top/music/lrc/明日、春が来たら.lrc',
-        },
-        {
-            name: 'フィナーレ。 / 终曲',
-            artist: 'eill',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUS1NVllDdUh6ZUVtLUNSP2U9VzM1bnJR.mp3',
-            cover: 'http://p2.music.126.net/elOSlLUcyPt_fqdluhSBBA==/109951167783001594.jpg',
-            lrc: 'https://lav2.top/music/lrc/フィナーレ。.lrc',
         },
         {
             name: 'カタオモイ / 单相思',
@@ -143,13 +129,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/嘘つき.lrc',
         },
         {
-            name: 'Ref:rain / 恋如雨止',
-            artist: 'Aimer',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUlNFZ1N0VHB6c19yNklqP2U9Smh6M2V5.mp3',
-            cover: 'http://p2.music.126.net/wAxnnUZnkN7Soqf7nhjThQ==/109951166663296887.jpg',
-            lrc: 'https://lav2.top/music/lrc/Refrain.lrc',
-        },
-        {
             name: '小さな恋のうた / 小小恋歌',
             artist: '石見舞菜香',
             url: 'http://music.163.com/song/media/outer/url?id=2015001195.mp3',
@@ -169,13 +148,6 @@ const ap = new APlayer({
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUlg4MlU0SmUwQlFUOHNFP2U9cVBaSURB.mp3',
             cover: 'http://p2.music.126.net/E4rGcR6s7C2xdHZyn2FMRw==/109951163597282351.jpg',
             lrc: 'https://lav2.top/music/lrc/こいのうた.lrc',
-        },
-        {
-            name: 'Avid',
-            artist: 'SawanoHiroyuki[nZk] / 瑞葵(mizuki)',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUmJWelF4dkxqWk1yMzJRP2U9Y1JUZTh3.mp3',
-            cover: 'http://p1.music.126.net/Pdul4HmgspmsiPUq9oKkfQ==/109951166004106688.jpg',
-            lrc: 'https://lav2.top/music/lrc/Avid.lrc',
         },
         {
             name: '雨き声残響 / 雨声残响',
@@ -213,13 +185,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/痛いよ.lrc',
         },
         {
-            name: '夏のせい / 都怪夏天',
-            artist: 'RADWIMPS',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUmdhcFlGYVJfdjBaSVM5P2U9MXRDWjJ0.mp3',
-            cover: 'http://p2.music.126.net/Jvjt2z0uB1DW_xnR1ABfoQ==/109951165276938348.jpg',
-            lrc: 'https://lav2.top/music/lrc/夏のせい.lrc',
-        },
-        {
             name: '光るなら / 若能绽放光芒',
             artist: 'Goose house',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUm5WaDJpZ3U4MEtQeDRZP2U9ZUtpOGVy.mp3',
@@ -239,13 +204,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=507116307.mp3',
             cover: 'http://p1.music.126.net/ca2M4HnEBjx1Jm3hDfC18A==/109951163027825862.jpg',
             lrc: 'https://lav2.top/music/lrc/トモダチコイビト.lrc',
-        },
-        {
-            name: '秒針を噛む / 噬咬秒针',
-            artist: 'ずっと真夜中でいいのに。',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUnZST19NVzI1OV8zYXh5P2U9RDlCWGNT.mp3',
-            cover: 'http://p1.music.126.net/bw7Sxt-W5lq0Jeq9B9eaXA==/109951163846794308.jpg',
-            lrc: 'https://lav2.top/music/lrc/秒針を噛む.lrc',
         },
         {
             name: '恋はキライだ / 讨厌恋爱',
@@ -304,41 +262,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/鸟之诗.lrc',
         },
         {
-            name: 'shall we talk.',
-            artist: '8bite',
-            url: 'http://music.163.com/song/media/outer/url?id=1986510161.mp3',
-            cover: 'http://p2.music.126.net/OfDyH6QrD5-2xxDamQg0RA==/109951167932405586.jpg',
-            lrc: 'https://lav2.top/music/lrc/shall we talk.lrc',
-        },
-        {
-            name: 'Rise',
-            artist: 'Biscuits',
-            url: 'http://music.163.com/song/media/outer/url?id=1467363772.mp3',
-            cover: 'http://p1.music.126.net/UP7t8sHknOBgHb_SgChzkQ==/109951163656999368.jpg',
-            lrc: 'https://lav2.top/music/lrc/Rise.lrc',
-        },
-        {
-            name: 'Hindenburg Lover',
-            artist: 'Anson Seabra',
-            url: 'http://music.163.com/song/media/outer/url?id=1440687084.mp3',
-            cover: 'http://p2.music.126.net/wwFpf0rR5Vie_5AofRsDzQ==/109951165932515768.jpg',
-            lrc: 'https://lav2.top/music/lrc/Hindenburg Lover.lrc',
-        },
-        {
-            name: 'Peter Pan Was Right',
-            artist: 'Anson Seabra',
-            url: 'http://music.163.com/song/media/outer/url?id=1942594143.mp3',
-            cover: 'http://p1.music.126.net/yhS80cYs4vpWf_xwwKbufA==/109951167353556368.jpg',
-            lrc: 'https://lav2.top/music/lrc/Peter Pan Was Right.lrc',
-        },
-        {
-            name: 'I Really Like You',
-            artist: 'Anthem Lights',
-            url: 'http://music.163.com/song/media/outer/url?id=426850419.mp3',
-            cover: 'http://p1.music.126.net/l7xDdHmy7TqQH8kiC90onw==/109951164854830326.jpg',
-            lrc: 'https://lav2.top/music/lrc/I Really Like You.lrc',
-        },
-        {
             name: 'A Turtle\'s Heart',
             artist: 'Mili',
             url: 'http://music.163.com/song/media/outer/url?id=29418286.mp3',
@@ -381,13 +304,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/猫失格.lrc',
         },
         {
-            name: 'LyriC',
-            artist: 'MIMI',
-            url: 'http://music.163.com/song/media/outer/url?id=1918884888.mp3',
-            cover: 'http://p2.music.126.net/eBTNOYSfIeBETiQRYkH92g==/109951167031675322.jpg',
-            lrc: 'https://lav2.top/music/lrc/LyriC.lrc',
-        },
-        {
             name: 'ステンドノクターン / 涅染夜曲',
             artist: 'とあ / 初音ミク / 鏡音リン',
             url: 'http://music.163.com/song/media/outer/url?id=1917835637.mp3',
@@ -407,13 +323,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=1842166288.mp3',
             cover: 'http://p1.music.126.net/4EJb75SCcBf50S8SfWsayg==/109951165946705599.jpg',
             lrc: 'https://lav2.top/music/lrc/アイディスマイル.lrc',
-        },
-        {
-            name: '月华舞',
-            artist: '洛天依',
-            url: 'http://music.163.com/song/media/outer/url?id=2062921141.mp3',
-            cover: 'http://p2.music.126.net/g9hQW8F-V-iSu3fl3OxW9w==/109951168730716074.jpg',
-            lrc: 'https://lav2.top/music/lrc/月华舞.lrc',
         },
         {
             name: 'オレンジ / Orange',
@@ -479,25 +388,11 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/不问天.lrc',
         },
         {
-            name: 'Scarborough Fair',
-            artist: '山田タマル',
-            url: 'http://music.163.com/song/media/outer/url?id=489970551.mp3',
-            cover: 'http://p2.music.126.net/PFu_Fb_sYULwkoJ87mHDmA==/19023750184014421.jpg',
-            lrc: 'https://lav2.top/music/lrc/Scarborough-Fair.lrc',
-        },
-        {
             name: '砕月',
             artist: 'Pizuya\'s Cell',
             url: 'http://music.163.com/song/media/outer/url?id=34613812.mp3',
             cover: 'http://p2.music.126.net/QF8FPmcbY31ypYuWidLmDw==/3274345628208568.jpg',
             lrc: 'https://lav2.top/music/lrc/砕月.lrc',
-        },
-        {
-            name: '蜘蛛糸モノポリー / 蜘蛛丝Monopoly',
-            artist: 'sasakure.UK / 初音ミク',
-            url: 'http://music.163.com/song/media/outer/url?id=26440351.mp3',
-            cover: 'http://p1.music.126.net/b6cwIaAUy5MXSm3iNC0KNg==/109951163352158677.jpg',
-            lrc: 'https://lav2.top/music/lrc/蜘蛛糸モノポリー.lrc',
         },
         {
             name: '別の人の彼女になったよ / 成了别人的女朋友哦',
@@ -512,13 +407,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=1897342672.mp3',
             cover: 'http://p2.music.126.net/GgGyyYaY245x5zGUgJ7zRg==/109951166650368741.jpg',
             lrc: 'https://lav2.top/music/lrc/WXY.lrc',
-        },
-        {
-            name: '日常と地球の額縁 / 日常和地球的画框',
-            artist: 'ヒトリエ',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU21Da0RlOGVXU3VMbW84P2U9YVl6VWt4.mp3',
-            cover: 'http://p1.music.126.net/zOY_thHWX_Tso0Pb2eohIw==/109951169169658821.jpg',
-            lrc: 'https://lav2.top/music/lrc/日常と地球の額縁.lrc',
         },
         {
             name: 'Daisy / 雏菊',
