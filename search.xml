@@ -734,6 +734,14 @@
 <p align="center">
   <object type="image/svg+xml" data="/posts/467aa07b/figure2.svg" width='100%' height='100%' ></object>
 </p>
+
+<p>上图中，对于非叶结点，用方点表示 $\operatorname{compress}$ 操作，圆点表示 $\operatorname{rake}$ 操作。</p>
+<p>依照上述策略构造出的Top Tree几乎没有任何用处，因为它的树高是 $\mathcal{O}(n)$ 的，依照经验来看，我们应当尝试构造一棵高度为 $\mathcal{O}(\log n)$ 的 Top Tree。</p>
+<p>（下图为上面例图的一棵Top Tree）</p>
+<p align="center">
+  <object type="image/svg+xml" data="/posts/467aa07b/figure3.svg" width='100%' height='100%' ></object>
+</p>
+
 ]]></content>
       <categories>
         <category>笔记</category>
