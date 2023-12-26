@@ -30,7 +30,7 @@
 <meta property="og:description" content="ReferenceWerneck R F .Design and Analysis of Data Structures for Dynamic Trees[D].Princeton University. 2006. Tarjan, Robert &amp; Werneck, Renato. (2005). Self-adjusting top trees. Proceedings of the">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-25T06:21:56.000Z">
-<meta property="article:modified_time" content="2023-12-26T02:58:25.596Z">
+<meta property="article:modified_time" content="2023-12-26T06:47:02.358Z">
 <meta property="article:author" content="LA">
 <meta property="article:tag" content="动态树">
 <meta property="article:tag" content="笔记">
@@ -266,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 10:58:25" itemprop="dateModified" datetime="2023-12-26T10:58:25+08:00">2023-12-26</time>
+      <time title="修改时间：2023-12-26 14:47:02" itemprop="dateModified" datetime="2023-12-26T14:47:02+08:00">2023-12-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,14 +292,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -345,16 +345,22 @@
 <h4 id="构建静态Top-Tree"><a href="#构建静态Top-Tree" class="headerlink" title="构建静态Top Tree"></a>构建静态Top Tree</h4><p>本节内容和传统Top Tree几乎无关，为2023集训队论文内容</p>
 <p><strong>「施工中」</strong></p>
 <h4 id="Self-Adjusting-Top-Tree"><a href="#Self-Adjusting-Top-Tree" class="headerlink" title="Self-Adjusting Top Tree"></a>Self-Adjusting Top Tree</h4><h5 id="SATT的表示"><a href="#SATT的表示" class="headerlink" title="SATT的表示"></a>SATT的表示</h5><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a target="_blank" rel="noopener" href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
-<p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再调出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，递归地拆下去，本质上拆为了一堆链，如下方左图所示。</p>
+<p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再找出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，每个子树都可以看作是一个unit tree，递归地拆下去，本质上将整棵树拆为了一堆链，如下方左图所示。</p>
 <p align="center">
   <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg" width='48%' height='50%' ></object>
   <object type="image/svg+xml" data="/posts/467aa07b/figure5.svg" width='48%' height='50%' ></object>
 </p>
 
-<p>假如只关注root path，用一堆compress操作将它们收缩为一个簇，构成的Top Tree叫做<strong>compress tree</strong>，其中的每一个叶结点表示root path上的一条边（基簇），每个结点都表示root path的一个子路径。</p>
+<p>假如只关注root path，用一堆compress操作将它们收缩为一个簇，构成的Top Tree叫做<strong>compress tree</strong>，这是一棵二叉树，其中的每一个叶结点表示root path上的一条边（基簇），每个结点都表示root path的一个子路径。</p>
 <p>如何处理root path外面挂着的簇呢？显然应该将它们递归地收缩为一个簇，再rake到root path上，值得注意的是，这里的rake应当尽可能晚，尽可能晚指的是在它的根被compress之前紧跟着rake。</p>
-<p>在数据结构中，这些被rake的簇称为<strong>foster child</strong>，在 $\operatorname{compress}(v)$，v是root path上一点时，会有两个root path上的簇被compress，这两个簇则叫做<strong>proper child</strong>，compress时，左侧的foster child被rake到左侧的proper child上，右侧的foster child被rake到右侧的proper child上，上图的右侧展示了其左侧图的合并结构，白点为foster child，黑点为proper child，所有的黑点及它们之间的边即为compress tree，$N_y$ 表示 $\operatorname{compress}(y)$ 操作得到的新簇。每个结点有至多四个儿子，至多表示三个操作：$2$ 次rake和一次compress，图中与foster child相邻的黑色结点就是它rake的目标。</p>
-<p>回忆一下，每个foster child（白色结点）都是一个子树收缩成的树（白色结点构成了<strong>rake tree</strong>），我们将上述表示叫做<strong>augmented top tree</strong>。</p>
+<p>在数据结构中，这些被rake的簇称为<strong>foster child</strong>，在 $\operatorname{compress}(v)$，v是root path上一点时，会有两个root path上的簇被compress，这两个簇则叫做<strong>proper child</strong>，compress时，左侧的foster child被rake到左侧的proper child上，右侧的foster child被rake到右侧的proper child上，上图的右侧展示了其左侧图的合并结构，白点为foster child，黑点为proper child，所有的黑点及它们之间的边即为compress tree，$N_y$ 表示 $\operatorname{compress}(y)$ 操作得到的新簇。每个内点有至多四个儿子，至多表示三个操作：$2$ 次rake和一次compress，图中与foster child相邻的黑色结点就是它rake的目标。</p>
+<p>回忆一下，每个foster child（白色结点）都是若干个unit tree不断rake收缩成的簇（这些rake操作构成了<strong>rake tree</strong>），我们将上述表示叫做<strong>augmented top tree</strong>。</p>
+<p>总之，我们这样表示一个unit tree：</p>
+<ul>
+<li>递归地将每一个根结点在root path（设为 $P$）上的unit tree收缩为一个簇。</li>
+<li>建出来rake tree来表示每个根结点在 $P$ 上的unit tree</li>
+<li>建出来compress tree（这是一个二叉树）再加上作为foster child的rake tree来表示 $P$。</li>
+</ul>
 <p>另一个例子如下图，左侧为augmented top tree，黑色方块表示基簇，白色方块表示compress结点，白色圆形表示rake结点，右侧为实际的top tree。</p>
 <p align="center">
   <object type="image/svg+xml" data="/posts/467aa07b/figure6.svg" width='100%' height='100%' ></object>
@@ -423,7 +429,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:07</span>
+    <span title="站点阅读时长">2:08</span>
   </span>
 </div>
 <div class="busuanzi-count">

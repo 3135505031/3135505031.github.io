@@ -646,6 +646,41 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/dZtYghi0jtEa1Nl46-YVJg==/930186837144419.jpg',
             lrc: 'https://lav2.top/music/lrc/たいせつなきみのために、ぼくにできるいちばんのこと.lrc',
         },
+        {
+            name: '世末歌者',
+            artist: '乐正绫 / COP',
+            url: 'http://music.163.com/song/media/outer/url?id=429460239.mp3',
+            cover: 'http://p1.music.126.net/sZGaAxUHHhuhQ1Zxa2jw4g==/17790098137764958.jpg',
+            lrc: 'https://lav2.top/music/lrc/世末歌者.lrc',
+        },
+        {
+            name: '光与影的对白',
+            artist: '洛天依',
+            url: 'http://music.163.com/song/media/outer/url?id=1963053471.mp3',
+            cover: 'http://p1.music.126.net/BgJWQTjYHjNkznwAw6VWjg==/109951167656373279.jpg',
+            lrc: 'https://lav2.top/music/lrc/光与影的对白.lrc',
+        },
+        {
+            name: '闭眼，我触碰幻想的边界',
+            artist: '苏逸_Suyi / 洛天依',
+            url: 'http://music.163.com/song/media/outer/url?id=2016400471.mp3',
+            cover: 'http://p2.music.126.net/e_5Ngtg6wYmu3xUs5_nhfw==/109951168252208407.jpg',
+            lrc: 'https://lav2.top/music/lrc/闭眼，我触碰幻想的边界.lrc',
+        },
+        {
+            name: '歌行四方',
+            artist: '洛天依',
+            url: 'http://music.163.com/song/media/outer/url?id=2078368206.mp3',
+            cover: 'http://p1.music.126.net/mEig0MbM-u-W3MCMo37RcQ==/109951168884148478.jpg',
+            lrc: 'https://lav2.top/music/lrc/歌行四方.lrc',
+        },
+        {
+            name: '花 feat. 花譜',
+            artist: 'Guiano / 花譜',
+            url: 'http://music.163.com/song/media/outer/url?id=2048604694.mp3',
+            cover: 'http://p2.music.126.net/6CjCnkCYfXlDujCH2RFsBQ==/109951168622465171.jpg
+            lrc: 'https://lav2.top/music/lrc/花.lrc',
+        },
     ]
 });
 
