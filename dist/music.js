@@ -576,6 +576,27 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/qW0AgTmoAbls6aBlK0nSPQ==/109951165774920849.jpg',
             lrc: 'https://lav2.top/music/lrc/Believe-in-you.lrc',
         },
+        {
+            name: 'なんでもないや / 没什么大不了',
+            artist: 'Lefty Hand Cream',
+            url: 'http://music.163.com/song/media/outer/url?id=1417621863.mp3',
+            cover: 'http://p1.music.126.net/SZ_7FAjIjyrJKSkGoyEdKA==/109951164637407252.jpg',
+            lrc: 'https://lav2.top/music/lrc/なんでもないや.lrc',
+        },
+        {
+            name: '回る空うさぎ / 月兔回旋于空中',
+            artist: 'Akie秋绘',
+            url: 'http://music.163.com/song/media/outer/url?id=1979461987.mp3',
+            cover: 'http://p1.music.126.net/2hrnUzcs7UHrm9IqTl2C5Q==/109951167854711796.jpg',
+            lrc: 'https://lav2.top/music/lrc/回る空うさぎ.lrc',
+        },
+        {
+            name: '君が生まれた日 / 你诞生的那一天',
+            artist: '米白zzz',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oVEMtdlptYTNaUk90T3REP2U9SGxJb0Ex.mp3',
+            cover: 'http://p2.music.126.net/miA_GvbL08VlvvL89ST2IA==/109951164294547502.jpg',
+            lrc: 'https://lav2.top/music/lrc/君が生まれた日.lrc',
+        },
     ]
 });
 
