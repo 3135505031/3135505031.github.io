@@ -24,13 +24,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/まよいづき.lrc',
         },
         {
-            name: 'Ahead of Us',
-            artist: '小瀬村晶',
-            url: 'http://music.163.com/song/media/outer/url?id=2029892284.mp3',
-            cover: 'http://p1.music.126.net/FWGUSBkMRM1ZXWRFm3qcpg==/109951168466553622.jpg',
-            lrc: 'https://lav2.top/music/lrc/Ahead of Us.lrc',
-        },
-        {
             name: 'ブルーグラス / 蓝色玻璃杯',
             artist: '美波',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUkRNUk4yRVBNbmRxdmhRP2U9MjJqU243.mp3',
@@ -281,13 +274,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=28953243.mp3',
             cover: 'http://p2.music.126.net/0uIypvfFOdxceKBD7kaedA==/109951166919149354.jpg',
             lrc: 'https://lav2.top/music/lrc/恋愛裁判.lrc',
-        },
-        {
-            name: '世界は恋に落ちている / 我的世界已坠入爱河',
-            artist: 'かぴ',
-            url: 'http://music.163.com/song/media/outer/url?id=30251317.mp3',
-            cover: 'http://p2.music.126.net/bHl4J0VWC8VOEM7e8z2uyg==/109951169054383254.jpg',
-            lrc: 'https://lav2.top/music/lrc/世界は恋に落ちている.lrc',
         },
         {
             name: 'あの頃~ジンジンバオヂュオニー~ / 那些年~紧紧抱着你~',
