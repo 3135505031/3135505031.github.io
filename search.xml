@@ -710,7 +710,26 @@
   <entry>
     <title>Top Tree 学习笔记</title>
     <url>/posts/467aa07b/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>Tarjan, Robert &amp; Werneck, Renato. (2005). Self-adjusting top trees. Proceedings of the Annual ACM-SIAM Symposium on Discrete Algorithms. 813-822. 10.1145&#x2F;1070432.1070547.</p>
+<p>2023 年信息学奥林匹克 中国国家集训队论文，浅谈静态 Top Tree 在树和广义串并联图上的应用，程思元</p>
+<p><a href="https://negiizhao.blog.uoj.ac/blog/4912">negiizhao的博客</a></p>
+<p>笔者水平有限，有些描述会直接采用上述文章中的说法。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Top Tree 解决一类LCT不好解决的动态树问题，例如 <a href="https://www.luogu.com.cn/problem/P5649">Sone1</a>。</p>
+<p>给你一个 $n$ 个点的森林，边带权，要求在线维护加边、删边、换根，链加、子树加、查询链、子树的最小、最大值还有和，要求复杂度是 $\mathcal{O}(n \log n)$。</p>
+<h2 id="Top-Tree"><a href="#Top-Tree" class="headerlink" title="Top Tree"></a>Top Tree</h2><h3 id="簇-cluster"><a href="#簇-cluster" class="headerlink" title="簇(cluster)"></a>簇(cluster)</h3><p>对于一棵无向树 $T$，定义 $T$ 上的一个<strong>簇</strong>(cluster)为一个三元组 $C&#x3D;(V,E,B)$，其中 $(V,E)$ 是 $T$ 的一个连通子图，$B \subseteq V$ 并且 $|B| \le 2$，并且对于每个 $x \in V$，如果存在 $y \notin V,(x,y) \in E$，那么 $x \in B$，称 $B$ 中元素为 $C$ 的端点(endpoint)。</p>
+<p>将这样一个结构挑出来的用意是，我们想要维护一类数据结构，可以不断合并某两个子结构，最终将整棵树合并，而对每个合并的结构维护一些信息，最终在它上面查询或修改，Top Tree选择了簇这个结构。下面介绍簇是怎样合并的。</p>
+<h3 id="簇的-compress-与-rake"><a href="#簇的-compress-与-rake" class="headerlink" title="簇的 compress 与 rake"></a>簇的 compress 与 rake</h3><p>compress操作指定了一个度数为 $2$ 的点 $v$，将它的两条边合并为一条，并且删去 $v$ 点。形式化地，对于 $T$ 上的两个簇 $C,D$，满足 $B(C) \cap B(D) &#x3D; v$，那么 $\operatorname{compress}(C,D)$ 的结果是新簇 $\Big(V(C) \cup V(D),E(C) \cup E(D),(B(C) \cup B(D)) - {v}\Big)$ </p>
+<p>当且仅当 $|B(C) \cap B(D)|&#x3D;1$ 并且 $\operatorname{compress}(C,D)$ 仍是 $T$ 上的簇时才可以运算。</p>
+<p>rake操作指定了一个叶子结点 $v$，将它的边合并到了另一端点上的另一条边，即对 $T$ 上的簇 $C,D$，若 $B(C) \cap B(D)&#x3D;x$，那么 $\operatorname{rake}(C,D)$ 的结果就是 $\Big( V(C) \cup V(D),E(C) \cup E(D),B(C) \Big)$。</p>
+<p><object type="image/svg+xml" data="/posts/467aa07b/figure1.svg"></object></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>动态树</tag>
+        <tag>笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>瞎写</title>

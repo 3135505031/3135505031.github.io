@@ -548,6 +548,13 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/x5TqF7cnDzid-_72poJHkg==/109951163549384168.jpg',
             lrc: 'https://lav2.top/music/lrc/たばこ.lrc',
         },
+        {
+            name: 'スパークル / 火花',
+            artist: '幾田りら',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUzgxU3MxSGpDanlUMUUtP2U9UzBmMTg2.mp3',
+            cover: 'http://p1.music.126.net/5iDRvUGps4i1N9_HBSPN5A==/109951166888054876.jpg',
+            lrc: 'https://lav2.top/music/lrc/スパークル.lrc',
+        },
     ]
 });
 
