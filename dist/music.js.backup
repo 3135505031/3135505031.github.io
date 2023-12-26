@@ -591,12 +591,113 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/回る空うさぎ.lrc',
         },
         {
-
+/*
           name: '君が生まれた日 / 你诞生的那一天',
             artist: '米白zzz',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oVEMtdlptYTNaUk90T3REP2U9SGxJb0Ex.mp3',
             cover: 'http://p1.music.126.net/lmX-7K2DWKMLC-xT1hup0w==/2523379185807439.jpg',
             lrc: 'https://lav2.top/music/lrc/君が生まれた日.lrc',
         },
+        {
+            name: 'In My Room (feat. KMNZ LIZ)',
+            artist: 'キツネDJ / KMNZ',
+            url: 'http://music.163.com/song/media/outer/url?id=1853327677.mp3',
+            cover: 'http://p2.music.126.net/m8YGeWoLyuFMF6JHBSE1bw==/109951166087559899.jpg',
+            lrc: 'https://lav2.top/music/lrc/In-My-Room.lrc',
+        },
+        {
+            name: '君をなぞるだけの夜',
+            artist: '秋葵AKIAOI / 理想放逐',
+            url: 'http://music.163.com/song/media/outer/url?id=2015256468.mp3',
+            cover: 'http://p2.music.126.net/NdW0x2MlylcgEJayR4P3GA==/109951168241799646.jpg',
+            lrc: 'https://lav2.top/music/lrc/君をなぞるだけの夜.lrc',
+        },
+        {
+            name: 'earth meal',
+            artist: 'asmi',
+            url: 'http://music.163.com/song/media/outer/url?id=1958493948.mp3',
+            cover: 'http://p2.music.126.net/LlbHfNjSIMAXTQRmOUOThg==/109951167582423613.jpg',
+            lrc: 'https://lav2.top/music/lrc/earth-meal.lrc',
+        },
+        {
+            name: '妄想感傷代償連盟',
+            artist: 'DECO*27 / 初音ミク',
+            url: 'http://music.163.com/song/media/outer/url?id=432486474.mp3',
+            cover: 'http://p2.music.126.net/S8Fw1AOhq45Obb_YyThviw==/18495984602893574.jpg',
+            lrc: 'https://lav2.top/music/lrc/妄想感傷代償連盟.lrc',
+        },
+        {
+            name: 'DAYBREAK FRONTLINE / 拂晓前线',
+            artist: 'めありー / Orangestar',
+            url: 'http://music.163.com/song/media/outer/url?id=557579433.mp3',
+            cover: 'http://p1.music.126.net/yWSaYnUJwkxjc5Zvwxdnsw==/109951165847397360.jpg',
+            lrc: 'https://lav2.top/music/lrc/DAYBREAK-FRONTLINE.lrc',
+        },
+        {
+            name: 'Alice in 冷凍庫',
+            artist: 'めありー / Orangestar',
+            url: 'http://music.163.com/song/media/outer/url?id=557583473.mp3',
+            cover: 'http://p2.music.126.net/yWSaYnUJwkxjc5Zvwxdnsw==/109951165847397360.jpg',
+            lrc: 'https://lav2.top/music/lrc/Alice-in-冷凍庫.lrc',
+        },
+        {
+            name: 'たいせつなきみのために、ぼくにできるいちばんのこと (short.ver)',
+            artist: 'Duca',
+            url: 'http://music.163.com/song/media/outer/url?id=564999.mp3',
+            cover: 'http://p1.music.126.net/dZtYghi0jtEa1Nl46-YVJg==/930186837144419.jpg',
+            lrc: 'https://lav2.top/music/lrc/たいせつなきみのために、ぼくにできるいちばんのこと.lrc',
+        },
+        {
+            name: '世末歌者',
+            artist: '乐正绫 / COP',
+            url: 'http://music.163.com/song/media/outer/url?id=429460239.mp3',
+            cover: 'http://p1.music.126.net/sZGaAxUHHhuhQ1Zxa2jw4g==/17790098137764958.jpg',
+            lrc: 'https://lav2.top/music/lrc/世末歌者.lrc',
+        },
+        {
+            name: '光与影的对白',
+            artist: '洛天依',
+            url: 'http://music.163.com/song/media/outer/url?id=1963053471.mp3',
+            cover: 'http://p1.music.126.net/BgJWQTjYHjNkznwAw6VWjg==/109951167656373279.jpg',
+            lrc: 'https://lav2.top/music/lrc/光与影的对白.lrc',
+        },
+        {
+            name: '闭眼，我触碰幻想的边界',
+            artist: '苏逸_Suyi / 洛天依',
+            url: 'http://music.163.com/song/media/outer/url?id=2016400471.mp3',
+            cover: 'http://p2.music.126.net/e_5Ngtg6wYmu3xUs5_nhfw==/109951168252208407.jpg',
+            lrc: 'https://lav2.top/music/lrc/闭眼，我触碰幻想的边界.lrc',
+        },
+        {
+            name: '歌行四方',
+            artist: '洛天依',
+            url: 'http://music.163.com/song/media/outer/url?id=2078368206.mp3',
+            cover: 'http://p1.music.126.net/mEig0MbM-u-W3MCMo37RcQ==/109951168884148478.jpg',
+            lrc: 'https://lav2.top/music/lrc/歌行四方.lrc',
+        },
+        {
+            name: '花 feat. 花譜',
+            artist: 'Guiano / 花譜',
+            url: 'http://music.163.com/song/media/outer/url?id=2048604694.mp3',
+            cover: 'http://p2.music.126.net/6CjCnkCYfXlDujCH2RFsBQ==/109951168622465171.jpg
+            lrc: 'https://lav2.top/music/lrc/花.lrc',
+        },
+        {
+            name: '灼け落ちない翼 / 燃烧未落的羽翼',
+            artist: '多田葵',
+            url: 'http://music.163.com/song/media/outer/url?id=34077763.mp3',
+            cover: 'http://p1.music.126.net/BhWL_WN9jQRNWEdTUmmWXQ==/7901090558399010.jpg',
+            lrc: 'https://lav2.top/music/lrc/灼け落ちない翼.lrc',
+        },
+*/
     ]
 });
+
+
+        // {
+        //     name: '',
+        //     artist: '',
+        //     url: '',
+        //     cover: '',
+        //     lrc: '',
+        // },
