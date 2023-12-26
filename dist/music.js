@@ -591,7 +591,8 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/回る空うさぎ.lrc',
         },
         {
-            name: '君が生まれた日 / 你诞生的那一天',
+/*
+          name: '君が生まれた日 / 你诞生的那一天',
             artist: '米白zzz',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oVEMtdlptYTNaUk90T3REP2U9SGxJb0Ex.mp3',
             cover: 'http://p1.music.126.net/lmX-7K2DWKMLC-xT1hup0w==/2523379185807439.jpg',
@@ -681,6 +682,14 @@ const ap = new APlayer({
             cover: 'http://p2.music.126.net/6CjCnkCYfXlDujCH2RFsBQ==/109951168622465171.jpg
             lrc: 'https://lav2.top/music/lrc/花.lrc',
         },
+        {
+            name: '灼け落ちない翼 / 燃烧未落的羽翼',
+            artist: '多田葵',
+            url: 'http://music.163.com/song/media/outer/url?id=34077763.mp3',
+            cover: 'http://p1.music.126.net/BhWL_WN9jQRNWEdTUmmWXQ==/7901090558399010.jpg',
+            lrc: 'https://lav2.top/music/lrc/灼け落ちない翼.lrc',
+        },
+*/
     ]
 });
 
