@@ -724,7 +724,7 @@
 <p>当且仅当 $|B(C) \cap B(D)|&#x3D;1$ 并且 $\operatorname{compress}(C,D)$ 仍是 $T$ 上的簇时才可以运算。</p>
 <p>rake操作指定了一个叶子结点 $v$，将它的边合并到了另一端点上的另一条边，即对 $T$ 上的簇 $C,D$，若 $B(C) \cap B(D)&#x3D;x$，那么 $\operatorname{rake}(C,D)$ 的结果就是 $\Big( V(C) \cup V(D),E(C) \cup E(D),B(C) \Big)$。</p>
 <p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure1.svg" width='120%' height='120%' ></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure1.svg" width='100%' height='100%' ></object>
 </p>
 
 ]]></content>
