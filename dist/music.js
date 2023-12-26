@@ -555,6 +555,13 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/5iDRvUGps4i1N9_HBSPN5A==/109951166888054876.jpg',
             lrc: 'https://lav2.top/music/lrc/スパークル.lrc',
         },
+        {
+            name: '晴るる / 放晴',
+            artist: 'あたらよ',
+            url: 'http://music.163.com/song/media/outer/url?id=1839931917.mp3',
+            cover: 'http://p1.music.126.net/Y2z2uLpmd21d1FxgnRB1Gw==/109951165920589543.jpg',
+            lrc: 'https://lav2.top/music/lrc/晴るる.lrc',
+        },
     ]
 });
 
