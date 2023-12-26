@@ -30,7 +30,7 @@
 <meta property="og:description" content="ReferenceWerneck R F .Design and Analysis of Data Structures for Dynamic Trees[D].Princeton University. 2006. Tarjan, Robert &amp; Werneck, Renato. (2005). Self-adjusting top trees. Proceedings of the">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-25T06:21:56.000Z">
-<meta property="article:modified_time" content="2023-12-26T00:53:25.947Z">
+<meta property="article:modified_time" content="2023-12-26T01:27:56.273Z">
 <meta property="article:author" content="LA">
 <meta property="article:tag" content="动态树">
 <meta property="article:tag" content="笔记">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Top-Tree"><span class="nav-number">3.</span> <span class="nav-text">Top Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%87-cluster"><span class="nav-number">3.1.</span> <span class="nav-text">簇(cluster)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%87%E7%9A%84-compress-%E4%B8%8E-rake"><span class="nav-number">3.2.</span> <span class="nav-text">簇的 compress 与 rake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-Tree-1"><span class="nav-number">3.3.</span> <span class="nav-text">Top Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E9%9D%99%E6%80%81Top-Tree"><span class="nav-number">3.3.1.</span> <span class="nav-text">构建静态Top Tree</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Top-Tree"><span class="nav-number">3.</span> <span class="nav-text">Top Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%87-cluster"><span class="nav-number">3.1.</span> <span class="nav-text">簇(cluster)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%87%E7%9A%84-compress-%E4%B8%8E-rake"><span class="nav-number">3.2.</span> <span class="nav-text">簇的 compress 与 rake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-Tree-1"><span class="nav-number">3.3.</span> <span class="nav-text">Top Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E9%9D%99%E6%80%81Top-Tree"><span class="nav-number">3.3.1.</span> <span class="nav-text">构建静态Top Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%BA%A6%E5%8C%96Self-Adjusting-Top-Tree%E7%9A%84%E4%BF%A1%E6%81%AF%E7%BB%B4%E6%8A%A4"><span class="nav-number">3.3.2.</span> <span class="nav-text">三度化Self-Adjusting Top Tree的信息维护</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -266,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 08:53:25" itemprop="dateModified" datetime="2023-12-26T08:53:25+08:00">2023-12-26</time>
+      <time title="修改时间：2023-12-26 09:27:56" itemprop="dateModified" datetime="2023-12-26T09:27:56+08:00">2023-12-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,14 +292,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -318,7 +318,7 @@
 
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Top Tree 解决一类LCT不好解决的动态树问题，例如 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5649">Sone1</a>。</p>
 <p>给你一个 $n$ 个点的森林，边带权，要求在线维护加边、删边、换根，链加、子树加、查询链、子树的最小、最大值还有和，要求复杂度是 $\mathcal{O}(n \log n)$。</p>
-<h2 id="Top-Tree"><a href="#Top-Tree" class="headerlink" title="Top Tree"></a>Top Tree</h2><h3 id="簇-cluster"><a href="#簇-cluster" class="headerlink" title="簇(cluster)"></a>簇(cluster)</h3><p>对于一棵无向树 $T$，定义 $T$ 上的一个<strong>簇</strong>(cluster)为一个三元组 $C&#x3D;(V,E,B)$，其中 $(V,E)$ 是 $T$ 的一个连通子图，$B \subseteq V$ 并且 $|B| \le 2$，并且对于每个 $x \in V$，如果存在 $y \notin V,(x,y) \in E$，那么 $x \in B$，称 $B$ 中元素为 $C$ 的<strong>端点</strong>(endpoint)，集合 $V-B$ 中的元素称为簇的<strong>内点</strong>。</p>
+<h2 id="Top-Tree"><a href="#Top-Tree" class="headerlink" title="Top Tree"></a>Top Tree</h2><h3 id="簇-cluster"><a href="#簇-cluster" class="headerlink" title="簇(cluster)"></a>簇(cluster)</h3><p>对于一棵无向树 $T$，定义 $T$ 上的一个<strong>簇</strong>(cluster)为一个三元组 $C&#x3D;(V,E,B)$，其中 $(V,E)$ 是 $T$ 的一个连通子图，$B \subseteq V$ 并且 $|B| \le 2$，并且对于每个 $x \in V$，如果存在 $y \notin V,(x,y) \in E$，那么 $x \in B$，称集合 $V-B$ 中的元素称为簇的<strong>内点</strong>(internal node)，$B$ 中元素为 $C$ 的<strong>端点</strong>(endpoint)，称树上连接这两个端点的路径为<strong>簇路径</strong>(cluster path)，集合 $E$ 中的边叫做<strong>内边</strong>(internal edge)。</p>
 <p>将这样一个结构挑出来的用意是，我们想要维护一类数据结构，可以不断合并某两个子结构，最终将整棵树合并，而对每个合并的结构维护一些信息，最终在它上面查询或修改，Top Tree选择了簇这个结构。下面介绍簇是怎样合并的。</p>
 <h3 id="簇的-compress-与-rake"><a href="#簇的-compress-与-rake" class="headerlink" title="簇的 compress 与 rake"></a>簇的 compress 与 rake</h3><p>compress操作指定了一个度数为 $2$ 的点 $v$，将它的两条边合并为一条，并且删去 $v$ 点。形式化地，对于 $T$ 上的两个簇 $C,D$，满足 $B(C) \cap B(D) &#x3D; v$，那么 $\operatorname{compress}(C,D)$ 的结果是新簇 $\Big(V(C) \cup V(D),E(C) \cup E(D),(B(C) \cup B(D)) - {v}\Big)$ </p>
 <p>当且仅当 $|B(C) \cap B(D)|&#x3D;1$ 并且 $\operatorname{compress}(C,D)$ 仍是 $T$ 上的簇时才可以运算。</p>
@@ -327,14 +327,15 @@
   <object type="image/svg+xml" data="/posts/467aa07b/figure1.svg" width='100%' height='100%' ></object>
 </p>
 
-<h3 id="Top-Tree-1"><a href="#Top-Tree-1" class="headerlink" title="Top Tree"></a>Top Tree</h3><p>可以确信的是，对于任何一棵树 $T$，我们都可以通过这两种操作将整棵树收缩为一条边，称原树收缩过若干次之后变成的新树为<strong>收缩树</strong>，收缩树的每条边都是一个簇。为了表述方便，我们称树 $T$ 一开始就有的簇（即最开始的每一条边）为<strong>基簇</strong>(base cluster)，</p>
-<p>更具体地，任选一个点作为根，每次调出来当前收缩树的一个叶子 $x$，若 $x$ 有兄弟，就把 $x$ 到其父亲之间的这个簇 $\operatorname{rake}$ 到它兄弟上，否则把 $x$ 到其父亲、 $x$ 的父亲到其父亲这两个簇 $\operatorname{compress}$ 起来，重复这样的操作就可以得到整棵树构成的簇。</p>
+<p>合并两个簇时，我们将其信息也一并合并。</p>
+<h3 id="Top-Tree-1"><a href="#Top-Tree-1" class="headerlink" title="Top Tree"></a>Top Tree</h3><p>可以确信的是，对于任何一棵树 $T$，我们都可以通过这两种操作将整棵树收缩为一条边，称原树收缩过若干次之后变成的新树为<strong>收缩树</strong>，收缩树的每条边都是一个簇。为了表述方便，我们称树 $T$ 一开始就有的簇（即最开始的每一条边）为<strong>基簇</strong>(base cluster)，最终整棵树代表的簇称为<strong>根簇</strong>(root cluster)，每个簇维护其内部的边和其内点的信息（注意，不包含端点）。</p>
+<p>更具体地，构造方案是任选一个点作为根，每次调出来当前收缩树的一个叶子 $x$，若 $x$ 有兄弟，就把 $x$ 到其父亲之间的这个簇 $\operatorname{rake}$ 到它兄弟上，否则把 $x$ 到其父亲、 $x$ 的父亲到其父亲这两个簇 $\operatorname{compress}$ 起来，重复这样的操作就可以得到整棵树构成的簇。</p>
 <p>将每个簇视作结点，根结点为最终簇，叶结点为基簇，一个非叶结点的两个儿子进行了某个操作(compress 或 rake) 得到了这个结点，这样构建的树就叫做 <strong>Top Tree</strong>。</p>
 <p align="center">
   <object type="image/svg+xml" data="/posts/467aa07b/figure2.svg" width='100%' height='100%' ></object>
 </p>
 
-<p>上图中，对于非叶结点，用方点表示 $\operatorname{compress}$ 操作，圆点表示 $\operatorname{rake}$ 操作。</p>
+<p>上图中，对于非叶结点，用方点表示 $\operatorname{compress}$ 操作，圆点表示 $\operatorname{rake}$ 操作，每一层都代表了一棵收缩树。</p>
 <p>依照上述策略构造出的Top Tree几乎没有任何用处，因为它的树高是 $\mathcal{O}(n)$ 的，依照经验来看，我们应当尝试构造一棵高度为 $\mathcal{O}(\log n)$ 的 Top Tree。</p>
 <p>（下图为上面例图的一棵Top Tree）</p>
 <p align="center">
@@ -343,6 +344,11 @@
 
 <h4 id="构建静态Top-Tree"><a href="#构建静态Top-Tree" class="headerlink" title="构建静态Top Tree"></a>构建静态Top Tree</h4><p>本节内容和传统Top Tree几乎无关，为2023集训队论文内容</p>
 <p><strong>「施工中」</strong></p>
+<h4 id="三度化Self-Adjusting-Top-Tree的信息维护"><a href="#三度化Self-Adjusting-Top-Tree的信息维护" class="headerlink" title="三度化Self-Adjusting Top Tree的信息维护"></a>三度化Self-Adjusting Top Tree的信息维护</h4><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a target="_blank" rel="noopener" href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
+<p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再调出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，如下图所示。</p>
+<p align="center">
+  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg" width='100%' height='100%' ></object>
+</p>
 
     </div>
 
@@ -401,7 +407,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:04</span>
+    <span title="站点阅读时长">2:05</span>
   </span>
 </div>
 <div class="busuanzi-count">
