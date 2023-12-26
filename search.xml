@@ -748,8 +748,8 @@
 <h4 id="Self-Adjusting-Top-Tree"><a href="#Self-Adjusting-Top-Tree" class="headerlink" title="Self-Adjusting Top Tree"></a>Self-Adjusting Top Tree</h4><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
 <p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再调出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，递归地拆下去，本质上拆为了一堆链，如下方左图所示。</p>
 <p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg"></object>
-  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg"></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg" width='48%' height='50%' ></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure5.svg" width='48%' height='50%' ></object>
 </p>
 
 <p>假如只关注root path，用一堆compress操作将它们收缩为一个簇，构成的Top Tree叫做<strong>compress tree</strong>，其中的每一个叶结点表示root path上的一条边（基簇），每个结点都表示root path的一个子路径。</p>
