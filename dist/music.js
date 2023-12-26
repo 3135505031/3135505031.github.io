@@ -66,13 +66,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/眠れない夜に.lrc',
         },
         {
-            name: 'カイコ / 蚕',
-            artist: 'RADWIMPS',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUTVpeFhBa3R2aHNlcER2P2U9VHhhU0hT.mp3',
-            cover: 'http://p1.music.126.net/lzBt4JMfdmi0ZuhLWL6ZsQ==/6646547790414773.jpg',
-            lrc: 'https://lav2.top/music/lrc/カイコ.lrc',
-        },
-        {
             name: '今、歩き出す君へ。 / 献给此刻迈步前行的你',
             artist: 'Ceui',
             url: 'http://music.163.com/song/media/outer/url?id=26209670.mp3',
@@ -171,13 +164,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/光るなら.lrc',
         },
         {
-            name: '優しい恋人 / 温柔的恋人',
-            artist: 'しまも',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUm9ESTFtNHVJUDd0VXNKP2U9SzNtb1Z6.mp3',
-            cover: 'http://p2.music.126.net/Mk3aii_HNSqPin-9806THg==/109951168258116768.jpg',
-            lrc: 'https://lav2.top/music/lrc/優しい恋人.lrc',
-        },
-        {
             name: 'トモダチ/コイビト / 朋友/恋人',
             artist: 'moumoon',
             url: 'http://music.163.com/song/media/outer/url?id=507116307.mp3',
@@ -213,13 +199,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/あさひ.lrc',
         },
         {
-            name: '潮鳴り / 潮鸣',
-            artist: '折戸伸治',
-            url: 'http://music.163.com/song/media/outer/url?id=22707008.mp3',
-            cover: 'http://p2.music.126.net/PtLd62-khEg8iCutTdE5Vg==/109951163286813093.jpg',
-            lrc: 'https://lav2.top/music/lrc/潮鳴り.lrc',
-        },
-        {
             name: '嘘月',
             artist: 'ヨルシカ',
             url: 'http://music.163.com/song/media/outer/url?id=1815109509.mp3',
@@ -232,13 +211,6 @@ const ap = new APlayer({
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU09iRzJDTHNXVFFieTNFP2U9bHRwZURh.mp3',
             cover: 'http://p2.music.126.net/Ysxjg2cvS1FSK3bLNiYoDg==/109951165947041530.jpg',
             lrc: 'https://lav2.top/music/lrc/春夏秋冬.lrc',
-        },
-        {
-            name: '鸟之诗',
-            artist: '初音ミク',
-            url: 'http://music.163.com/song/media/outer/url?id=27808549.mp3',
-            cover: 'http://p1.music.126.net/8a7gVw-srMfHEQkCYW5sfQ==/1351299790586222.jpg',
-            lrc: 'https://lav2.top/music/lrc/鸟之诗.lrc',
         },
         {
             name: 'A Turtle\'s Heart',
@@ -304,13 +276,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/アイディスマイル.lrc',
         },
         {
-            name: 'オレンジ / Orange',
-            artist: 'トーマ / 初音ミク',
-            url: 'http://music.163.com/song/media/outer/url?id=26310273.mp3',
-            cover: 'http://p1.music.126.net/7dkEW80_gBGmIGe3ROXMFQ==/2524478697429863.jpg',
-            lrc: 'https://lav2.top/music/lrc/オレンジ.lrc',
-        },
-        {
             name: 'まほう / 魔法',
             artist: '花譜',
             url: 'http://music.163.com/song/media/outer/url?id=1501450517.mp3',
@@ -365,20 +330,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=34613812.mp3',
             cover: 'http://p2.music.126.net/QF8FPmcbY31ypYuWidLmDw==/3274345628208568.jpg',
             lrc: 'https://lav2.top/music/lrc/砕月.lrc',
-        },
-        {
-            name: '別の人の彼女になったよ / 成了别人的女朋友哦',
-            artist: 'Lefty Hand Cream',
-            url: 'http://music.163.com/song/media/outer/url?id=1815901850.mp3',
-            cover: 'http://p2.music.126.net/ApjxYIvvUP_tEzQ3pPH7rA==/109951165674109191.jpg',
-            lrc: 'https://lav2.top/music/lrc/別の人の彼女になったよ.lrc',
-        },
-        {
-            name: 'Daisy / 雏菊',
-            artist: 'R・O・N',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU29GMHpaYU4xQU1fVmVKP2U9RDdZczBt.mp3',
-            cover: 'http://p2.music.126.net/YlKhzFAsP5fmXpl4TGX4og==/109951168958535083.jpg',
-            lrc: 'https://lav2.top/music/lrc/Daisy.lrc',
         },
         {
             name: '小喋日和 / 好天气',
