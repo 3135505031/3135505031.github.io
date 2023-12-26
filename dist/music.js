@@ -115,13 +115,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/ツギハギスタッカート.lrc',
         },
         {
-            name: 'Magia',
-            artist: 'Kalafina',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUk5ULThIc1RYQlBtRHpQP2U9b0xZQzhk.mp3',
-            cover: 'http://p2.music.126.net/fGKyWby9MfRnDtD3i_phZw==/109951167991723578.jpg',
-            lrc: 'https://lav2.top/music/lrc/Magia.lrc',
-        },
-        {
             name: '嘘つき (Acoustic ver.) / 骗子',
             artist: 'あたらよ',
             url: 'http://music.163.com/song/media/outer/url?id=1960384348.mp3',
@@ -155,20 +148,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=1814930102.mp3',
             cover: 'http://p1.music.126.net/Csi2dossGZ2S4LTduPqB2w==/109951165665056355.jpg',
             lrc: 'https://lav2.top/music/lrc/雨き声残響.lrc',
-        },
-        {
-            name: 'My Dearest',
-            artist: 'supercell',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUmVPNjRUQ3Etb2pmS2E0P2U9bnFvTlhQ.mp3',
-            cover: 'http://p1.music.126.net/u78AmmcaZCO3sKbafA_Gpw==/109951166200230737.jpg',
-            lrc: 'https://lav2.top/music/lrc/My Dearest.lrc',
-        },
-        {
-            name: 'Sincerely',
-            artist: 'TRUE',
-            url: 'http://music.163.com/song/media/outer/url?id=534065323.mp3',
-            cover: 'http://p2.music.126.net/hG0w6oJIf-ybewGk3wcuOg==/109951168980496900.jpg',
-            lrc: 'https://lav2.top/music/lrc/Sincerely.lrc',
         },
         {
             name: '地球最後の告白を / 地球最后的告白',
@@ -367,13 +346,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/あの頃~ジンジンバオヂュオニー~.lrc',
         },
         {
-            name: 'magical mode',
-            artist: '花澤香菜',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU2NFVkdQRDZLTjNlQXg0P2U9UlhkNWhn.mp3',
-            cover: 'http://p1.music.126.net/mraHgnv_PTUsZzcrfLRzng==/109951165871731700.jpg',
-            lrc: 'https://lav2.top/music/lrc/magical-mode.lrc',
-        },
-        {
             name: '横竖撇点折',
             artist: '米白',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU2dIT3BCbVFxcXI4N2t3P2U9bnliWlRT.mp3',
@@ -400,13 +372,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=1815901850.mp3',
             cover: 'http://p2.music.126.net/ApjxYIvvUP_tEzQ3pPH7rA==/109951165674109191.jpg',
             lrc: 'https://lav2.top/music/lrc/別の人の彼女になったよ.lrc',
-        },
-        {
-            name: 'W / X / Y',
-            artist: 'Tani Yuuki',
-            url: 'http://music.163.com/song/media/outer/url?id=1897342672.mp3',
-            cover: 'http://p2.music.126.net/GgGyyYaY245x5zGUgJ7zRg==/109951166650368741.jpg',
-            lrc: 'https://lav2.top/music/lrc/WXY.lrc',
         },
         {
             name: 'Daisy / 雏菊',
@@ -485,6 +450,13 @@ const ap = new APlayer({
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oVEMtdlptYTNaUk90T3REP2U9SGxJb0Ex.mp3',
             cover: 'http://p1.music.126.net/lmX-7K2DWKMLC-xT1hup0w==/2523379185807439.jpg',
             lrc: 'https://lav2.top/music/lrc/君が生まれた日.lrc',
+        },
+        {
+            name: '君をなぞるだけの夜',
+            artist: '秋葵AKIAOI / 理想放逐',
+            url: 'http://music.163.com/song/media/outer/url?id=2015256468.mp3',
+            cover: 'http://p2.music.126.net/NdW0x2MlylcgEJayR4P3GA==/109951168241799646.jpg',
+            lrc: 'https://lav2.top/music/lrc/君をなぞるだけの夜.lrc',
         },
     ]
 });
