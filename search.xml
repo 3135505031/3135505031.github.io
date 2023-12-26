@@ -710,16 +710,17 @@
   <entry>
     <title>Top Tree 学习笔记</title>
     <url>/posts/467aa07b/</url>
-    <content><![CDATA[<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>Werneck R F .Design and Analysis of Data Structures for Dynamic Trees[D].Princeton University. 2006.</p>
+    <content><![CDATA[<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>Werneck R F .Design and Analysis of Data Structures for Dynamic Trees[D].Princeton University. 2006.</p>
 <p>Tarjan, Robert &amp; Werneck, Renato. (2005). Self-adjusting top trees. Proceedings of the Annual ACM-SIAM Symposium on Discrete Algorithms. 813-822. 10.1145&#x2F;1070432.1070547.</p>
 <p>2023 年信息学奥林匹克 中国国家集训队论文，浅谈静态 Top Tree 在树和广义串并联图上的应用，程思元</p>
 <p><a href="https://negiizhao.blog.uoj.ac/blog/4912">negiizhao的博客</a></p>
+<p><a href="https://oi-wiki.org/ds/top-tree">OI-Wiki: Top Tree</a></p>
 <p>笔者水平有限，有些描述会直接采用上述文章中的说法。</p>
 <span id="more"></span>
 
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Top Tree 解决一类LCT不好解决的动态树问题，例如 <a href="https://www.luogu.com.cn/problem/P5649">Sone1</a>。</p>
+<h1 id="Top-Tree-介绍"><a href="#Top-Tree-介绍" class="headerlink" title="Top Tree 介绍"></a>Top Tree 介绍</h1><p>Top Tree 解决一类LCT不好解决的动态树问题，例如 <a href="https://www.luogu.com.cn/problem/P5649">Sone1</a>。</p>
 <p>给你一个 $n$ 个点的森林，边带权，要求在线维护加边、删边、换根，链加、子树加、查询链、子树的最小、最大值还有和，要求复杂度是 $\mathcal{O}(n \log n)$。</p>
-<h2 id="Top-Tree"><a href="#Top-Tree" class="headerlink" title="Top Tree"></a>Top Tree</h2><h3 id="簇-cluster"><a href="#簇-cluster" class="headerlink" title="簇(cluster)"></a>簇(cluster)</h3><p>对于一棵无向树 $T$，定义 $T$ 上的一个<strong>簇</strong>(cluster)为一个三元组 $C&#x3D;(V,E,B)$，其中 $(V,E)$ 是 $T$ 的一个连通子图，$B \subseteq V$ 并且 $|B| \le 2$，并且对于每个 $x \in V$，如果存在 $y \notin V,(x,y) \in E$，那么 $x \in B$，称集合 $V-B$ 中的元素称为簇的<strong>内点</strong>(internal node)，$B$ 中元素为 $C$ 的<strong>端点</strong>(endpoint)，称树上连接这两个端点的路径为<strong>簇路径</strong>(cluster path)，集合 $E$ 中的边叫做<strong>内边</strong>(internal edge)。</p>
+<h2 id="簇-cluster"><a href="#簇-cluster" class="headerlink" title="簇(cluster)"></a>簇(cluster)</h2><p>对于一棵无向树 $T$，定义 $T$ 上的一个<strong>簇</strong>(cluster)为一个三元组 $C&#x3D;(V,E,B)$，其中 $(V,E)$ 是 $T$ 的一个连通子图，$B \subseteq V$ 并且 $|B| \le 2$，并且对于每个 $x \in V$，如果存在 $y \notin V,(x,y) \in E$，那么 $x \in B$，称集合 $V-B$ 中的元素称为簇的<strong>内点</strong>(internal node)，$B$ 中元素为 $C$ 的<strong>端点</strong>(endpoint)，称树上连接这两个端点的路径为<strong>簇路径</strong>(cluster path)，集合 $E$ 中的边叫做<strong>内边</strong>(internal edge)。</p>
 <p>将这样一个结构挑出来的用意是，我们想要维护一类数据结构，可以不断合并某两个子结构，最终将整棵树合并，而对每个合并的结构维护一些信息，最终在它上面查询或修改，Top Tree选择了簇这个结构。下面介绍簇是怎样合并的。</p>
 <h3 id="簇的-compress-与-rake"><a href="#簇的-compress-与-rake" class="headerlink" title="簇的 compress 与 rake"></a>簇的 compress 与 rake</h3><p>compress操作指定了一个度数为 $2$ 的点 $v$，将它的两条边合并为一条，并且删去 $v$ 点。形式化地，对于 $T$ 上的两个簇 $C,D$，满足 $B(C) \cap B(D) &#x3D; v$，那么 $\operatorname{compress}(C,D)$ 的结果是新簇 $\Big(V(C) \cup V(D),E(C) \cup E(D),(B(C) \cup B(D)) - {v}\Big)$ </p>
 <p>当且仅当 $|B(C) \cap B(D)|&#x3D;1$ 并且 $\operatorname{compress}(C,D)$ 仍是 $T$ 上的簇时才可以运算。</p>
@@ -729,7 +730,7 @@
 </p>
 
 <p>合并两个簇时，我们将其信息也一并合并。</p>
-<h3 id="Top-Tree-1"><a href="#Top-Tree-1" class="headerlink" title="Top Tree"></a>Top Tree</h3><p>可以确信的是，对于任何一棵树 $T$，我们都可以通过这两种操作将整棵树收缩为一条边，称原树收缩过若干次之后变成的新树为<strong>收缩树</strong>，收缩树的每条边都是一个簇。为了表述方便，我们称树 $T$ 一开始就有的簇（即最开始的每一条边）为<strong>基簇</strong>(base cluster)，最终整棵树代表的簇称为<strong>根簇</strong>(root cluster)，每个簇维护其内部的边和其内点的信息（注意，不包含端点）。</p>
+<h2 id="Top-Tree"><a href="#Top-Tree" class="headerlink" title="Top Tree"></a>Top Tree</h2><p>可以确信的是，对于任何一棵树 $T$，我们都可以通过这两种操作将整棵树收缩为一条边，称原树收缩过若干次之后变成的新树为<strong>收缩树</strong>，收缩树的每条边都是一个簇。为了表述方便，我们称树 $T$ 一开始就有的簇（即最开始的每一条边）为<strong>基簇</strong>(base cluster)，最终整棵树代表的簇称为<strong>根簇</strong>(root cluster)，每个簇维护其内部的边和其内点的信息（注意，不包含端点）。</p>
 <p>更具体地，构造方案是任选一个点作为根，每次调出来当前收缩树的一个叶子 $x$，若 $x$ 有兄弟，就把 $x$ 到其父亲之间的这个簇 $\operatorname{rake}$ 到它兄弟上，否则把 $x$ 到其父亲、 $x$ 的父亲到其父亲这两个簇 $\operatorname{compress}$ 起来，重复这样的操作就可以得到整棵树构成的簇。</p>
 <p>将每个簇视作结点，根结点为最终簇，叶结点为基簇，一个非叶结点的两个儿子进行了某个操作(compress 或 rake) 得到了这个结点，这样构建的树就叫做 <strong>Top Tree</strong>。</p>
 <p align="center">
@@ -743,9 +744,9 @@
   <object type="image/svg+xml" data="/posts/467aa07b/figure3.svg" width='100%' height='100%' ></object>
 </p>
 
-<h4 id="构建静态Top-Tree"><a href="#构建静态Top-Tree" class="headerlink" title="构建静态Top Tree"></a>构建静态Top Tree</h4><p>本节内容和传统Top Tree几乎无关，为2023集训队论文内容</p>
+<h3 id="构建静态Top-Tree"><a href="#构建静态Top-Tree" class="headerlink" title="构建静态Top Tree"></a>构建静态Top Tree</h3><p>本节内容和传统Top Tree几乎无关，为2023集训队论文内容</p>
 <p><strong>「施工中」</strong></p>
-<h4 id="Self-Adjusting-Top-Tree"><a href="#Self-Adjusting-Top-Tree" class="headerlink" title="Self-Adjusting Top Tree"></a>Self-Adjusting Top Tree</h4><h5 id="SATT的表示"><a href="#SATT的表示" class="headerlink" title="SATT的表示"></a>SATT的表示</h5><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
+<h3 id="Self-Adjusting-Top-Tree"><a href="#Self-Adjusting-Top-Tree" class="headerlink" title="Self-Adjusting Top Tree"></a>Self-Adjusting Top Tree</h3><h4 id="SATT的表示"><a href="#SATT的表示" class="headerlink" title="SATT的表示"></a>SATT的表示</h4><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
 <p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再找出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，每个子树都可以看作是一个unit tree，递归地拆下去，本质上将整棵树拆为了一堆链，如下方左图所示。</p>
 <p align="center">
   <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg" width='48%' height='50%' ></object>
@@ -754,7 +755,7 @@
 
 <p>假如只关注root path，用一堆compress操作将它们收缩为一个簇，构成的Top Tree叫做<strong>compress tree</strong>，这是一棵二叉树，其中的每一个叶结点表示root path上的一条边（基簇），每个结点都表示root path的一个子路径。</p>
 <p>如何处理root path外面挂着的簇呢？显然应该将它们递归地收缩为一个簇，再rake到root path上，值得注意的是，这里的rake应当尽可能晚，尽可能晚指的是在它的根被compress之前紧跟着rake。</p>
-<p>在数据结构中，这些被rake的簇称为<strong>foster child</strong>，在 $\operatorname{compress}(v)$，v是root path上一点时，会有两个root path上的簇被compress，这两个簇则叫做<strong>proper child</strong>，compress时，左侧的foster child被rake到左侧的proper child上，右侧的foster child被rake到右侧的proper child上，上图的右侧展示了其左侧图的合并结构，白点为foster child，黑点为proper child，所有的黑点及它们之间的边即为compress tree，$N_y$ 表示 $\operatorname{compress}(y)$ 操作得到的新簇。每个内点有至多四个儿子，至多表示三个操作：$2$ 次rake和一次compress，图中与foster child相邻的黑色结点就是它rake的目标。</p>
+<p>这些被rake的簇称为<strong>foster child</strong>，在 $\operatorname{compress}(v)$，$v$ 是root path上一点时，会有两个root path上的簇被compress，这两个簇则叫做<strong>proper child</strong>，compress时，左侧的foster child被rake到左侧的proper child上，右侧的foster child被rake到右侧的proper child上，上图的右侧展示了其左侧图的合并结构，白点为foster child，黑点为proper child，所有的黑点及它们之间的边即为compress tree，$N_y$ 表示 $\operatorname{compress}(y)$ 操作得到的新簇。每个内点有至多四个儿子，至多表示三个操作：$2$ 次rake和一次compress，图中与foster child相邻的黑色结点就是它rake的目标。</p>
 <p>回忆一下，每个foster child（白色结点）都是若干个unit tree不断rake收缩成的簇（这些rake操作构成了<strong>rake tree</strong>），我们将上述表示叫做<strong>augmented top tree</strong>。</p>
 <p>总之，我们这样表示一个unit tree：</p>
 <ul>
@@ -772,7 +773,10 @@
   <object type="image/svg+xml" data="/posts/467aa07b/figure8.svg" width='48%' height='50%' ></object>
 </p>
 
-<h5 id="SATT的信息维护"><a href="#SATT的信息维护" class="headerlink" title="SATT的信息维护"></a>SATT的信息维护</h5>]]></content>
+<h4 id="SATT的信息维护"><a href="#SATT的信息维护" class="headerlink" title="SATT的信息维护"></a>SATT的信息维护</h4><p>在compress tree中，我们规定：<strong>compress tree中基簇的中序遍历顺序与对应边在 $T$ 中的深度是一致的</strong>，也就是说，中序遍历越早，深度越浅。同样的，每个点对应的 $\operatorname{compress}(x)$ 的中序遍历也应当按照深度排列。</p>
+<p>值得注意的是，compress tree和rake tree上的点是可以旋转的，因此可以用splay维护，之后我们会再次提到。</p>
+<p>接下来我们采用三度化SATT，每个rake结点表示由其左右儿子rake到中儿子代表的簇中形成的。</p>
+]]></content>
       <categories>
         <category>笔记</category>
       </categories>
