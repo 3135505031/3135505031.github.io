@@ -732,7 +732,7 @@
 <p>更具体地，任选一个点作为根，每次调出来当前收缩树的一个叶子 $x$，若 $x$ 有兄弟，就把 $x$ 到其父亲之间的这个簇 $\operatorname{rake}$ 到它兄弟上，否则把 $x$ 到其父亲、 $x$ 的父亲到其父亲这两个簇 $\operatorname{compress}$ 起来，重复这样的操作就可以得到整棵树构成的簇。</p>
 <p>将每个簇视作结点，根结点为最终簇，叶结点为基簇，一个非叶结点的两个儿子进行了某个操作(compress 或 rake) 得到了这个结点，这样构建的树就叫做 <strong>Top Tree</strong>。</p>
 <p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure1.svg" width='100%' height='100%' ></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure2.svg" width='100%' height='100%' ></object>
 </p>
 ]]></content>
       <categories>
