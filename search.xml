@@ -745,22 +745,23 @@
 
 <h4 id="构建静态Top-Tree"><a href="#构建静态Top-Tree" class="headerlink" title="构建静态Top Tree"></a>构建静态Top Tree</h4><p>本节内容和传统Top Tree几乎无关，为2023集训队论文内容</p>
 <p><strong>「施工中」</strong></p>
-<h4 id="三度化Self-Adjusting-Top-Tree的信息维护"><a href="#三度化Self-Adjusting-Top-Tree的信息维护" class="headerlink" title="三度化Self-Adjusting Top Tree的信息维护"></a>三度化Self-Adjusting Top Tree的信息维护</h4><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
-<p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再调出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，递归地拆下去，本质上拆为了一堆链，如下图所示。</p>
+<h4 id="Self-Adjusting-Top-Tree"><a href="#Self-Adjusting-Top-Tree" class="headerlink" title="Self-Adjusting Top Tree"></a>Self-Adjusting Top Tree</h4><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
+<p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再调出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，递归地拆下去，本质上拆为了一堆链，如下方左图所示。</p>
 <p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg" width='100%' height='100%' ></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg"></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg"></object>
 </p>
 
-<p>先递归地将root path外的每个子树收缩为一个簇，再将root path上每个点两侧的簇分别rake为 $1$ 个，再尽可能晚地将它rake到root path上，尽可能晚指的是就在这个点被compress之前。</p>
-<p>用一个 augmented top tree表示这个过程。表示某点某一侧rake的结点在augmented top tree中形成了一个树，成为<strong>rake tree</strong>。每个表示compress的结点最多可能有 $4$ 个孩子，其中 $2$ 个表示两侧rake到路径上的簇， $2$ 个表示被compress的簇，所以实际上最多表示 $2$ 次rake和 $1$ 次compress。同样，这些结点也形成了一棵树，称为<strong>compress tree</strong>。</p>
+<p>假如只关注root path，用一堆compress操作将它们收缩为一个簇，构成的Top Tree叫做<strong>compress tree</strong>，其中的每一个叶结点表示root path上的一条边（基簇），每个结点都表示root path的一个子路径。</p>
+<p>如何处理root path外面挂着的簇呢？显然应该将它们递归地收缩为一个簇，再rake到root path上，值得注意的是，这里的rake应当尽可能晚，尽可能晚指的是在它的根被compress之前紧跟着rake。</p>
 <p>一个例子如下图，左侧为augmented top tree，右侧为实际的top tree。</p>
 <p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure5.svg" width='100%' height='100%' ></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure6.svg" width='100%' height='100%' ></object>
 </p>
 
 <p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure6.svg" width='48%' height='50%' ></object>
   <object type="image/svg+xml" data="/posts/467aa07b/figure7.svg" width='48%' height='50%' ></object>
+  <object type="image/svg+xml" data="/posts/467aa07b/figure8.svg" width='48%' height='50%' ></object>
 </p>
 ]]></content>
       <categories>

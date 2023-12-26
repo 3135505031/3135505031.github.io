@@ -562,6 +562,20 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/Y2z2uLpmd21d1FxgnRB1Gw==/109951165920589543.jpg',
             lrc: 'https://lav2.top/music/lrc/晴るる.lrc',
         },
+        {
+            name: 'ミカヅキ -street弾き語りver.- / 月牙',
+            artist: 'さユり',
+            url: 'http://music.163.com/song/media/outer/url?id=34179277.mp3',
+            cover: 'http://p2.music.126.net/1iZC0lS-2SbXto3IzJX_tw==/7943971512750366.jpg',
+            lrc: 'https://lav2.top/music/lrc/ミカヅキ.lrc',
+        },
+        {
+            name: 'Believe in you',
+            artist: 'nonoc',
+            url: 'http://music.163.com/song/media/outer/url?id=1824473220.mp3',
+            cover: 'http://p2.music.126.net/qW0AgTmoAbls6aBlK0nSPQ==/109951165774920849.jpg',
+            lrc: 'https://lav2.top/music/lrc/Believe-in-you.lrc',
+        },
     ]
 });
 
