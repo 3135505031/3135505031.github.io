@@ -171,13 +171,6 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/トモダチコイビト.lrc',
         },
         {
-            name: '恋はキライだ / 讨厌恋爱',
-            artist: '三月のパンタシア',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUndiTU12aHdiNVpySFBiP2U9RDNSSWlI.mp3',
-            cover: 'http://p1.music.126.net/gY746T5yOCLL76HdHoK4rA==/109951165048559260.jpg',
-            lrc: 'https://lav2.top/music/lrc/恋はキライだ.lrc',
-        },
-        {
             name: '邂逅 / Chance meeting',
             artist: '花譜',
             url: 'http://music.163.com/song/media/outer/url?id=2026787183.mp3',
@@ -204,13 +197,6 @@ const ap = new APlayer({
             url: 'http://music.163.com/song/media/outer/url?id=1815109509.mp3',
             cover: 'http://p2.music.126.net/Ok0xk_CpJW21lAUG9UiMww==/109951165666599650.jpg',
             lrc: 'https://lav2.top/music/lrc/嘘月.lrc',
-        },
-        {
-            name: '春夏秋冬 reprise',
-            artist: '當山みれい',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oU09iRzJDTHNXVFFieTNFP2U9bHRwZURh.mp3',
-            cover: 'http://p2.music.126.net/Ysxjg2cvS1FSK3bLNiYoDg==/109951165947041530.jpg',
-            lrc: 'https://lav2.top/music/lrc/春夏秋冬.lrc',
         },
         {
             name: 'A Turtle\'s Heart',
@@ -346,25 +332,11 @@ const ap = new APlayer({
             lrc: 'https://lav2.top/music/lrc/コイワズライ.lrc',
         },
         {
-            name: 'たばこ / 烟草',
-            artist: 'コレサワ',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUzVLOU8tb3U0cDJSU3d5P2U9R25UOXQy.mp3',
-            cover: 'http://p2.music.126.net/x5TqF7cnDzid-_72poJHkg==/109951163549384168.jpg',
-            lrc: 'https://lav2.top/music/lrc/たばこ.lrc',
-        },
-        {
             name: 'スパークル / 火花',
             artist: '幾田りら',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oUzgxU3MxSGpDanlUMUUtP2U9UzBmMTg2.mp3',
             cover: 'http://p1.music.126.net/5iDRvUGps4i1N9_HBSPN5A==/109951166888054876.jpg',
             lrc: 'https://lav2.top/music/lrc/スパークル.lrc',
-        },
-        {
-            name: '晴るる / 放晴',
-            artist: 'あたらよ',
-            url: 'http://music.163.com/song/media/outer/url?id=1839931917.mp3',
-            cover: 'http://p1.music.126.net/Y2z2uLpmd21d1FxgnRB1Gw==/109951165920589543.jpg',
-            lrc: 'https://lav2.top/music/lrc/晴るる.lrc',
         },
         {
             name: 'ミカヅキ -street弾き語りver.- / 月牙',
@@ -401,13 +373,6 @@ const ap = new APlayer({
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBb0N2T2VDMWV4RW9oVEMtdlptYTNaUk90T3REP2U9SGxJb0Ex.mp3',
             cover: 'http://p1.music.126.net/lmX-7K2DWKMLC-xT1hup0w==/2523379185807439.jpg',
             lrc: 'https://lav2.top/music/lrc/君が生まれた日.lrc',
-        },
-        {
-            name: '君をなぞるだけの夜',
-            artist: '秋葵AKIAOI / 理想放逐',
-            url: 'http://music.163.com/song/media/outer/url?id=2015256468.mp3',
-            cover: 'http://p2.music.126.net/NdW0x2MlylcgEJayR4P3GA==/109951168241799646.jpg',
-            lrc: 'https://lav2.top/music/lrc/君をなぞるだけの夜.lrc',
         },
     ]
 });
