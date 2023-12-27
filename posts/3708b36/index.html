@@ -22,29 +22,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lav2.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":"mac","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="ReferenceWerneck R F .Design and Analysis of Data Structures for Dynamic Trees[D].Princeton University. 2006. Tarjan, Robert &amp; Werneck, Renato. (2005). Self-adjusting top trees. Proceedings of the">
+    <meta name="description" content="比赛链接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Top Tree 学习笔记">
-<meta property="og:url" content="https://lav2.top/posts/467aa07b/index.html">
+<meta property="og:title" content="UR-10">
+<meta property="og:url" content="https://lav2.top/posts/3708b36/index.html">
 <meta property="og:site_name" content="LA&#39;s Blog">
-<meta property="og:description" content="ReferenceWerneck R F .Design and Analysis of Data Structures for Dynamic Trees[D].Princeton University. 2006. Tarjan, Robert &amp; Werneck, Renato. (2005). Self-adjusting top trees. Proceedings of the">
+<meta property="og:description" content="比赛链接">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-25T06:21:56.000Z">
-<meta property="article:modified_time" content="2023-12-26T11:00:41.648Z">
+<meta property="article:published_time" content="2023-12-27T00:40:55.000Z">
+<meta property="article:modified_time" content="2023-12-27T00:55:46.815Z">
 <meta property="article:author" content="LA">
-<meta property="article:tag" content="动态树">
-<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://lav2.top/posts/467aa07b/">
+<link rel="canonical" href="https://lav2.top/posts/3708b36/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lav2.top/posts/467aa07b/","path":"posts/467aa07b/","title":"Top Tree 学习笔记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lav2.top/posts/3708b36/","path":"posts/3708b36/","title":"UR-10"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Top Tree 学习笔记 | LA's Blog</title>
+<title>UR-10 | LA's Blog</title>
   
 
 
@@ -149,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Top-Tree-%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">Top Tree 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B0%87-cluster"><span class="nav-number">2.1.</span> <span class="nav-text">簇(cluster)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%87%E7%9A%84-compress-%E4%B8%8E-rake"><span class="nav-number">2.1.1.</span> <span class="nav-text">簇的 compress 与 rake</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Top-Tree"><span class="nav-number">2.2.</span> <span class="nav-text">Top Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E9%9D%99%E6%80%81Top-Tree"><span class="nav-number">2.2.1.</span> <span class="nav-text">构建静态Top Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Adjusting-Top-Tree"><span class="nav-number">2.2.2.</span> <span class="nav-text">Self-Adjusting Top Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SATT%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">SATT的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SATT%E7%9A%84%E4%BF%A1%E6%81%AF%E7%BB%B4%E6%8A%A4"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">SATT的信息维护</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-%E6%B1%89%E8%AF%BA%E5%A1%94"><span class="nav-number">1.</span> <span class="nav-text">A. 汉诺塔</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">1.4.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">1.5.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -230,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lav2.top/posts/467aa07b/">
+    <link itemprop="mainEntityOfPage" href="https://lav2.top/posts/3708b36/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -243,12 +241,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Top Tree 学习笔记 | LA's Blog">
+      <meta itemprop="name" content="UR-10 | LA's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Top Tree 学习笔记
+          UR-10
         </h1>
 
         <div class="post-meta-container">
@@ -258,15 +256,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-12-25 14:21:56" itemprop="dateCreated datePublished" datetime="2023-12-25T14:21:56+08:00">2023-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 19:00:41" itemprop="dateModified" datetime="2023-12-26T19:00:41+08:00">2023-12-26</time>
+      <time title="创建时间：2023-12-27 08:40:55 / 修改时间：08:55:46" itemprop="dateCreated datePublished" datetime="2023-12-27T08:40:55+08:00">2023-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,7 +266,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+          <a href="/categories/%E5%85%AC%E5%BC%80%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">公开赛</span></a>
         </span>
     </span>
 
@@ -292,14 +284,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -309,72 +301,49 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>Werneck R F .Design and Analysis of Data Structures for Dynamic Trees[D].Princeton University. 2006.</p>
-<p>Tarjan, Robert &amp; Werneck, Renato. (2005). Self-adjusting top trees. Proceedings of the Annual ACM-SIAM Symposium on Discrete Algorithms. 813-822. 10.1145&#x2F;1070432.1070547.</p>
-<p>2023 年信息学奥林匹克 中国国家集训队论文，浅谈静态 Top Tree 在树和广义串并联图上的应用，程思元</p>
-<p><a target="_blank" rel="noopener" href="https://negiizhao.blog.uoj.ac/blog/4912">negiizhao的博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/top-tree">OI-Wiki: Top Tree</a></p>
-<p>笔者水平有限，有些描述会直接采用上述文章中的说法。</p>
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://uoj.ac/contest/22">比赛链接</a></p>
 <span id="more"></span>
 
-<h1 id="Top-Tree-介绍"><a href="#Top-Tree-介绍" class="headerlink" title="Top Tree 介绍"></a>Top Tree 介绍</h1><p>Top Tree 解决一类LCT不好解决的动态树问题，例如 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5649">Sone1</a>。</p>
-<p>给你一个 $n$ 个点的森林，边带权，要求在线维护加边、删边、换根，链加、子树加、查询链、子树的最小、最大值还有和，要求复杂度是 $\mathcal{O}(n \log n)$。</p>
-<h2 id="簇-cluster"><a href="#簇-cluster" class="headerlink" title="簇(cluster)"></a>簇(cluster)</h2><p>对于一棵无向树 $T$，定义 $T$ 上的一个<strong>簇</strong>(cluster)为一个三元组 $C&#x3D;(V,E,B)$，其中 $(V,E)$ 是 $T$ 的一个连通子图，$B \subseteq V$ 并且 $|B| \le 2$，并且对于每个 $x \in V$，如果存在 $y \notin V,(x,y) \in E$，那么 $x \in B$，称集合 $V-B$ 中的元素称为簇的<strong>内点</strong>(internal node)，$B$ 中元素为 $C$ 的<strong>端点</strong>(endpoint)，称树上连接这两个端点的路径为<strong>簇路径</strong>(cluster path)，集合 $E$ 中的边叫做<strong>内边</strong>(internal edge)。</p>
-<p>将这样一个结构挑出来的用意是，我们想要维护一类数据结构，可以不断合并某两个子结构，最终将整棵树合并，而对每个合并的结构维护一些信息，最终在它上面查询或修改，Top Tree选择了簇这个结构。下面介绍簇是怎样合并的。</p>
-<h3 id="簇的-compress-与-rake"><a href="#簇的-compress-与-rake" class="headerlink" title="簇的 compress 与 rake"></a>簇的 compress 与 rake</h3><p>compress操作指定了一个度数为 $2$ 的点 $v$，将它的两条边合并为一条，并且删去 $v$ 点。形式化地，对于 $T$ 上的两个簇 $C,D$，满足 $B(C) \cap B(D) &#x3D; v$，那么 $\operatorname{compress}(C,D)$ 的结果是新簇 $\Big(V(C) \cup V(D),E(C) \cup E(D),(B(C) \cup B(D)) - {v}\Big)$ </p>
-<p>当且仅当 $|B(C) \cap B(D)|&#x3D;1$ 并且 $\operatorname{compress}(C,D)$ 仍是 $T$ 上的簇时才可以运算。</p>
-<p>rake操作指定了一个叶子结点 $v$，将它的边合并到了另一端点上的另一条边，即对 $T$ 上的簇 $C,D$，若 $B(C) \cap B(D)&#x3D;x$，那么 $\operatorname{rake}(C,D)$ 的结果就是 $\Big( V(C) \cup V(D),E(C) \cup E(D),B(C) \Big)$。</p>
-<p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure1.svg" width='100%' height='100%' ></object>
-</p>
+<h1 id="A-汉诺塔"><a href="#A-汉诺塔" class="headerlink" title="A. 汉诺塔"></a>A. 汉诺塔</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>picks 博士乘上时光机器，打算回到 2012 年化身马猴烧酒阻止金星凌日，挽救世风日下的 OI 界于水火之中。</p>
+<p>但是不幸的是，时光机器出现了一些特殊的故障，picks 博士被传送到了一个未知的时空。为了修理时光机器，他必须要得到一种叫做巴拉拉能量的能源。经过调查，他发现在这个时空中存在着一个被当地人称为魔仙堡的领域，从生活在那儿的小魔仙那里就可以得到足够的巴拉拉能量。</p>
+<p>然而在那个时空中，存在着一股强大的势力与善良的小魔仙们敌对——那就是邪恶的黑魔仙们。巴拉拉能量是不能被黑魔仙得到的，否则就会产生严重的后果。为了检验 picks 博士是否是黑魔仙派来窃取巴拉拉能量的奸细，睿智的魔仙女王给 picks 博士出了一道题：</p>
+<p>我现在使用巴拉拉能量造了三根柱子(编号分别为 $1 到 $3$)以及 $n$ 块颜色不同的圆盘(编号为 $1$ 到 $n$)。最开始我给定一个 $1$ 到 $n$ 的排列 $A$，我会用巴拉拉能量把这些圆盘放到编号为 $1$ 的柱子上，使得从上到下第 $i$ 块圆盘的编号是 $A_i$。</p>
+<p>接着你可以进行若干次操作，每一次操作用两个整数 $a,b$($1 \leq a,b \leq 3,a \neq b$) 来描述，表示这次操作你将会把第 $a$ 根柱子最上面的圆盘取出，并放到第 $b$ 根柱子上去(如果当前第 $a$ 根柱子上不存在圆盘，这次操作将会被小魔仙们忽略)。最终你要使得这 $n$ 块圆盘在同一根柱子上，且从上到下编号依次递增(最终状态下所有圆盘可以在任意一根柱子上)。</p>
+<p>小魔仙们虽然善良，但是他们的耐心并不是无限的，所以你必须在 $10^6$ 次操作内完成任务。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个正整数 $n$。</p>
+<p>第二行是一个 $1$ 到 $n$ 的排列 $A$，相邻数字之间恰有一个空格隔开。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>第一行输出一个整数 $K$，满足$0 \leq K \leq 10^6$)。</p>
+<p>接下来 $K$ 行每行两个整数 $a_i,b_i$，按照顺序依次描述你的每一次操作。</p>
+<p>如果有多种方案，输出任意一种即可。</p>
+<details class="note info no-icon"><summary><p>样例一</p>
+</summary>
+<p><strong>输入</strong></p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">1</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p><strong>输出</strong></p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><strong>样例解释</strong></p>
+<p>最开始三根柱子上的圆盘状态分别为 $(2,1,3),(),()$。</p>
+<p>第一次操作后圆盘状态为 $(1,3),(),(2)$</p>
+<p>第二次操作后圆盘状态为 $(3),(1),(2)$</p>
+<p>第三次操作后圆盘状态为 $(2,3),(1),()$</p>
+<p>第四次操作后圆盘状态为 $(1,2,3),(),()$</p>
+<p>在所有操作结束后，圆盘都在第一根柱子上且从上到下编号依次递增。</p>
 
-<p>合并两个簇时，我们将其信息也一并合并。</p>
-<h2 id="Top-Tree"><a href="#Top-Tree" class="headerlink" title="Top Tree"></a>Top Tree</h2><p>可以确信的是，对于任何一棵树 $T$，我们都可以通过这两种操作将整棵树收缩为一条边，称原树收缩过若干次之后变成的新树为<strong>收缩树</strong>，收缩树的每条边都是一个簇。为了表述方便，我们称树 $T$ 一开始就有的簇（即最开始的每一条边）为<strong>基簇</strong>(base cluster)，最终整棵树代表的簇称为<strong>根簇</strong>(root cluster)，每个簇维护其内部的边和其内点的信息（注意，不包含端点）。</p>
-<p>更具体地，构造方案是任选一个点作为根，每次调出来当前收缩树的一个叶子 $x$，若 $x$ 有兄弟，就把 $x$ 到其父亲之间的这个簇 $\operatorname{rake}$ 到它兄弟上，否则把 $x$ 到其父亲、 $x$ 的父亲到其父亲这两个簇 $\operatorname{compress}$ 起来，重复这样的操作就可以得到整棵树构成的簇。</p>
-<p>将每个簇视作结点，根结点为最终簇，叶结点为基簇，一个非叶结点的两个儿子进行了某个操作(compress 或 rake) 得到了这个结点，这样构建的树就叫做 <strong>Top Tree</strong>。</p>
-<p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure2.svg" width='100%' height='100%' ></object>
-</p>
+</details>
 
-<p>上图中，对于非叶结点，用方点表示 $\operatorname{compress}$ 操作，圆点表示 $\operatorname{rake}$ 操作，每一层都代表了一棵收缩树。</p>
-<p>依照上述策略构造出的Top Tree几乎没有任何用处，因为它的树高是 $\mathcal{O}(n)$ 的，依照经验来看，我们应当尝试构造一棵高度为 $\mathcal{O}(\log n)$ 的 Top Tree。</p>
-<p>（下图为上面例图的一棵Top Tree）</p>
-<p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure3.svg" width='100%' height='100%' ></object>
-</p>
+<details class="note info no-icon"><summary><p>样例二</p>
+</summary>
+<p>见样例数据下载</p>
 
-<h3 id="构建静态Top-Tree"><a href="#构建静态Top-Tree" class="headerlink" title="构建静态Top Tree"></a>构建静态Top Tree</h3><p>本节内容和传统Top Tree几乎无关，为2023集训队论文内容</p>
-<p><strong>「施工中」</strong></p>
-<h3 id="Self-Adjusting-Top-Tree"><a href="#Self-Adjusting-Top-Tree" class="headerlink" title="Self-Adjusting Top Tree"></a>Self-Adjusting Top Tree</h3><h4 id="SATT的表示"><a href="#SATT的表示" class="headerlink" title="SATT的表示"></a>SATT的表示</h4><p>2005年 Tarjan 和 Werneck 结合路径分解的方法在 <a target="_blank" rel="noopener" href="https://renatowerneck.files.wordpress.com/2016/06/tw05-self-adjusting-top-tree.pdf">Self-Adjusting Top Trees</a>给出了一个非常像 ST-tree(aka link-cut tree) 的 self-adjusting 实现，一般简称为 SATT。</p>
-<p>首先，我们指定一个度数为 $1$ 的结点作为根，将所有边都指向根，得到的有向树称为<strong>unit tree</strong>。再找出一个叶子来，将它到根的路径称为<strong>root path</strong>，那么整棵树被我们拆分为了一条链和若干子树，每个子树都可以看作是一个unit tree，递归地拆下去，本质上将整棵树拆为了一堆链，如下方左图所示。</p>
-<p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure4.svg" width='48%' height='50%' ></object>
-  <object type="image/svg+xml" data="/posts/467aa07b/figure5.svg" width='48%' height='50%' ></object>
-</p>
+</details>
 
-<p>假如只关注root path，用一堆compress操作将它们收缩为一个簇，构成的Top Tree叫做<strong>compress tree</strong>，这是一棵二叉树，其中的每一个叶结点表示root path上的一条边（基簇），每个结点都表示root path的一个子路径。</p>
-<p>如何处理root path外面挂着的簇呢？显然应该将它们递归地收缩为一个簇，再rake到root path上，值得注意的是，这里的rake应当尽可能晚，尽可能晚指的是在它的根被compress之前紧跟着rake。</p>
-<p>这些被rake的簇称为<strong>foster child</strong>，在 $\operatorname{compress}(v)$，$v$ 是root path上一点时，会有两个root path上的簇被compress，这两个簇则叫做<strong>proper child</strong>，compress时，左侧的foster child被rake到左侧的proper child上，右侧的foster child被rake到右侧的proper child上，上图的右侧展示了其左侧图的合并结构，白点为foster child，黑点为proper child，所有的黑点及它们之间的边即为compress tree，$N_y$ 表示 $\operatorname{compress}(y)$ 操作得到的新簇。每个内点有至多四个儿子，至多表示三个操作：$2$ 次rake和一次compress，图中与foster child相邻的黑色结点就是它rake的目标。</p>
-<p>回忆一下，每个foster child（白色结点）都是若干个unit tree不断rake收缩成的簇（这些rake操作构成了<strong>rake tree</strong>），我们将上述表示叫做<strong>augmented top tree</strong>。</p>
-<p>总之，我们这样表示一个unit tree：</p>
-<ul>
-<li>递归地将每一个根结点在root path（设为 $P$）上的unit tree收缩为一个簇。</li>
-<li>建出来rake tree来表示每个根结点在 $P$ 上的unit tree</li>
-<li>建出来compress tree（这是一个二叉树）再加上作为foster child的rake tree来表示 $P$。</li>
-</ul>
-<p>另一个例子如下图，左侧为augmented top tree，黑色方块表示基簇，白色方块表示compress结点，白色圆形表示rake结点，右侧为实际的top tree。</p>
-<p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure6.svg" width='100%' height='100%' ></object>
-</p>
+<h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><p>对于100%的数据，保证 $n \le 10000$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>显然每次暴力挑出来没有在正确位置的最大元素可以做到 $\mathcal{O}(n^2)$ 次操作，想要降低操作次数的话，考虑分治，每次将待排序元素均分到另外两个柱子分别递归下去排序，最后再合并，操作次数是 $\mathcal{O}(n \log n)$ 的，可以通过。</p>
+<details class="note info no-icon"><summary><p>code for A</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n, A[<span class="number">3</span>][N], tot[<span class="number">3</span>];</span><br><span class="line">vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">Move</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">    ans.<span class="built_in">push_back</span>(&#123;x + <span class="number">1</span>, y + <span class="number">1</span>&#125;);</span><br><span class="line">    <span class="built_in">assert</span>(tot[x] &gt;= <span class="number">1</span>);</span><br><span class="line">    A[y][++tot[y]] = A[x][tot[x]];</span><br><span class="line">    tot[x] --;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>, siz = r - l + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> x = (u == <span class="number">0</span>), y = <span class="number">3</span> - x - u;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= siz; i ++)</span><br><span class="line">        <span class="built_in">Move</span>(u, A[u][tot[u]] &lt;= mid ? x : y);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">solve</span>(x, l, mid, type ^ <span class="number">1</span>), <span class="built_in">solve</span>(y, mid + <span class="number">1</span>, r, type ^ <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(type == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= r - mid; i ++)</span><br><span class="line">            <span class="built_in">Move</span>(y, u);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= mid - l + <span class="number">1</span>; i ++)</span><br><span class="line">            <span class="built_in">Move</span>(x, u);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= mid - l + <span class="number">1</span>; i ++)</span><br><span class="line">            <span class="built_in">Move</span>(x, u);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= r - mid; i ++)</span><br><span class="line">            <span class="built_in">Move</span>(y, u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i --)</span><br><span class="line">        cin &gt;&gt; A[<span class="number">0</span>][i];</span><br><span class="line">    tot[<span class="number">0</span>] = n;</span><br><span class="line">    <span class="built_in">solve</span>(<span class="number">0</span>, <span class="number">1</span>, n, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans.<span class="built_in">size</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> pr : ans)</span><br><span class="line">        cout &lt;&lt; pr.first &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; pr.second &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i --) <span class="built_in">assert</span>(A[<span class="number">0</span>][i] + i == n + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
 
-<p align="center">
-  <object type="image/svg+xml" data="/posts/467aa07b/figure7.svg" width='48%' height='50%' ></object>
-  <object type="image/svg+xml" data="/posts/467aa07b/figure8.svg" width='48%' height='50%' ></object>
-</p>
-
-<h4 id="SATT的信息维护"><a href="#SATT的信息维护" class="headerlink" title="SATT的信息维护"></a>SATT的信息维护</h4><p>在compress tree中，我们规定：<strong>compress tree中基簇的中序遍历顺序与对应边在 $T$ 中的深度是一致的</strong>，也就是说，中序遍历越早，深度越浅。同样的，每个点对应的 $\operatorname{compress}(x)$ 的中序遍历也应当按照深度排列。</p>
-<p>值得注意的是，compress tree和rake tree上的点是可以旋转的，因此可以用splay维护，之后我们会再次提到。</p>
-<p>接下来我们采用三度化SATT，每个rake结点表示由其左右儿子rake到中儿子代表的簇中形成的。</p>
 
     </div>
 
@@ -383,23 +352,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%8A%A8%E6%80%81%E6%A0%91/" rel="tag"># 动态树</a>
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/8e2ae2ba/" rel="prev" title="Codeforces Pinely Round 3">
-                  <i class="fa fa-angle-left"></i> Codeforces Pinely Round 3
+                <a href="/posts/9c3f7715/" rel="prev" title="NFLS 2024省选2">
+                  <i class="fa fa-angle-left"></i> NFLS 2024省选2
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/9c3f7715/" rel="next" title="NFLS 2024省选2">
-                  NFLS 2024省选2 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
