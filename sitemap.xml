@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lav2.top/posts/52f717fe/</loc>
+    <loc>https://lav2.top/posts/926ddf74/</loc>
     
     <lastmod>2023-12-29</lastmod>
     
@@ -13,7 +13,16 @@
   <url>
     <loc>https://lav2.top/posts/9210d486/</loc>
     
-    <lastmod>2023-12-28</lastmod>
+    <lastmod>2023-12-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lav2.top/posts/52f717fe/</loc>
+    
+    <lastmod>2023-12-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -92,15 +101,6 @@
   </url>
   
   <url>
-    <loc>https://lav2.top/posts/926ddf74/</loc>
-    
-    <lastmod>2023-12-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lav2.top/categories/index.html</loc>
     
     <lastmod>2023-12-22</lastmod>
@@ -155,14 +155,14 @@
 
   
   <url>
-    <loc>https://lav2.top/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://lav2.top/tags/Codeforces/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lav2.top/tags/Codeforces/</loc>
+    <loc>https://lav2.top/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -206,6 +206,13 @@
 
   
   <url>
+    <loc>https://lav2.top/categories/Codeforces/</loc>
+    <lastmod>2023-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://lav2.top/categories/%E5%85%AC%E5%BC%80%E8%B5%9B/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -214,13 +221,6 @@
   
   <url>
     <loc>https://lav2.top/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2023-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/categories/Codeforces/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
