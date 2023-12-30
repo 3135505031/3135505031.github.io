@@ -1,298 +1,292 @@
-<hr>
-<h2 id="nav-zh-Hanssearch-zh-Hans"><a href="#nav-zh-Hanssearch-zh-Hans" class="headerlink" title="nav: zh-Hanssearch: zh-Hans"></a>nav: zh-Hans<br>search: zh-Hans</h2><h1 id="APlayer"><a href="#APlayer" class="headerlink" title="APlayer"></a>APlayer</h1><p>🍭 Wow, such a beautiful HTML5 music player</p>
-<h2 id="特别赞助商"><a href="#特别赞助商" class="headerlink" title="特别赞助商"></a>特别赞助商</h2><a href="https://www.dogecloud.com/?ref=dplayer" target="_blank">
-    <img width="222px" src="https://player.dogecloud.com/img/logo_with_product3.png">
-</a>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 npm:</p>
-<pre><code>npm install aplayer --save
-</code></pre>
+<h1 id="aplayer">APlayer</h1>
+<p>🍭 Wow, such a beautiful HTML5 music player</p>
+<h2 id="特别赞助商">特别赞助商</h2>
+<p><a href="https://www.dogecloud.com/?ref=dplayer" target="_blank">
+<img width="222px" src="https://player.dogecloud.com/img/logo_with_product3.png">
+</a></p>
+<h2 id="安装">安装</h2>
+<p>使用 npm:</p>
+<pre><code>npm install aplayer --save</code></pre>
 <p>使用 Yarn:</p>
-<pre><code>yarn add aplayer
-</code></pre>
-<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><div class="aplayer-wrap">
-    <div id="aplayer2"><button class="docute-button load">点击加载播放器</div>
+<pre><code>yarn add aplayer</code></pre>
+<h2 id="入门">入门</h2>
+<div class="aplayer-wrap">
+<pre><code>&lt;div id=&quot;aplayer2&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;APlayer.min.css&quot;&gt;
-&lt;div id=&quot;aplayer&quot;&gt;&lt;/div&gt;
-&lt;script src=&quot;APlayer.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;aplayer&#39;),
-    audio: [{
-        name: &#39;name&#39;,
-        artist: &#39;artist&#39;,
-        url: &#39;url.mp3&#39;,
-        cover: &#39;cover.jpg&#39;
-    }]
-});
-</code></pre>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;APlayer.min.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;aplayer&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;APlayer.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;aplayer&#39;</span>)<span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [{</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name&#39;</span><span class="op">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover.jpg&#39;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    }]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <p>使用模块管理器:</p>
-<pre><code class="js">import &#39;APlayer/dist/APlayer.min.css&#39;;
-import APlayer from &#39;APlayer&#39;;
-
-const ap = new APlayer(options);
-</code></pre>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="st">&#39;APlayer/dist/APlayer.min.css&#39;</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> APlayer <span class="im">from</span> <span class="st">&#39;APlayer&#39;</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>(options)<span class="op">;</span></span></code></pre></div>
+<h2 id="参数">参数</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 46%" />
+<col style="width: 26%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>名称</th>
 <th>默认值</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>container</td>
-<td>document.querySelector(‘.aplayer’)</td>
+<td>document.querySelector('.aplayer')</td>
 <td>播放器容器元素</td>
 </tr>
-<tr>
+<tr class="even">
 <td>fixed</td>
 <td>false</td>
-<td>开启吸底模式, <a href="https://aplayer.js.org/#/home?id=fixed-mode">详情</a></td>
+<td>开启吸底模式, <a
+href="https://aplayer.js.org/#/home?id=fixed-mode">详情</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>mini</td>
 <td>false</td>
-<td>开启迷你模式, <a href="https://aplayer.js.org/#/home?id=mini-mode">详情</a></td>
+<td>开启迷你模式, <a
+href="https://aplayer.js.org/#/home?id=mini-mode">详情</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td>autoplay</td>
 <td>false</td>
 <td>音频自动播放</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>theme</td>
-<td>‘#b7daff’</td>
+<td>'#b7daff'</td>
 <td>主题色</td>
 </tr>
-<tr>
+<tr class="even">
 <td>loop</td>
-<td>‘all’</td>
-<td>音频循环播放, 可选值: ‘all’, ‘one’, ‘none’</td>
+<td>'all'</td>
+<td>音频循环播放, 可选值: 'all', 'one', 'none'</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>order</td>
-<td>‘list’</td>
-<td>音频循环顺序, 可选值: ‘list’, ‘random’</td>
+<td>'list'</td>
+<td>音频循环顺序, 可选值: 'list', 'random'</td>
 </tr>
-<tr>
+<tr class="even">
 <td>preload</td>
-<td>‘auto’</td>
-<td>预加载，可选值: ‘none’, ‘metadata’, ‘auto’</td>
+<td>'auto'</td>
+<td>预加载，可选值: 'none', 'metadata', 'auto'</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>volume</td>
 <td>0.7</td>
 <td>默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效</td>
 </tr>
-<tr>
+<tr class="even">
 <td>audio</td>
 <td>-</td>
 <td>音频信息, 应该是一个对象或对象数组</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>audio.name</td>
 <td>-</td>
 <td>音频名称</td>
 </tr>
-<tr>
+<tr class="even">
 <td>audio.artist</td>
 <td>-</td>
 <td>音频艺术家</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>audio.url</td>
 <td>-</td>
 <td>音频链接</td>
 </tr>
-<tr>
+<tr class="even">
 <td>audio.cover</td>
 <td>-</td>
 <td>音频封面</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>audio.lrc</td>
 <td>-</td>
 <td><a href="https://aplayer.js.org/#/home?id=lrc">详情</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td>audio.theme</td>
 <td>-</td>
 <td>切换到此音频时的主题色，比上面的 theme 优先级高</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>audio.type</td>
-<td>‘auto’</td>
-<td>可选值: ‘auto’, ‘hls’, ‘normal’ 或其他自定义类型, <a href="https://aplayer.js.org/#/home?id=mse-support">详情</a></td>
+<td>'auto'</td>
+<td>可选值: 'auto', 'hls', 'normal' 或其他自定义类型, <a
+href="https://aplayer.js.org/#/home?id=mse-support">详情</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td>customAudioType</td>
 <td>-</td>
-<td>自定义类型，<a href="https://aplayer.js.org/#/home?id=mse-support">详情</a></td>
+<td>自定义类型，<a
+href="https://aplayer.js.org/#/home?id=mse-support">详情</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>mutex</td>
 <td>true</td>
 <td>互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器</td>
 </tr>
-<tr>
+<tr class="even">
 <td>lrcType</td>
 <td>0</td>
 <td><a href="https://aplayer.js.org/#/home?id=lrc">详情</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>listFolded</td>
 <td>false</td>
 <td>列表默认折叠</td>
 </tr>
-<tr>
+<tr class="even">
 <td>listMaxHeight</td>
 <td>-</td>
 <td>列表最大高度</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>storageName</td>
-<td>‘aplayer-setting’</td>
+<td>'aplayer-setting'</td>
 <td>存储播放器设置的 localStorage key</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>例如:</p>
 <div class="aplayer-wrap">
-    <div id="aplayer3"><button class="docute-button load">点击加载播放器</div>
+<pre><code>&lt;div id=&quot;aplayer3&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;player&#39;),
-    mini: false,
-    autoplay: false,
-    theme: &#39;#FADFA3&#39;,
-    loop: &#39;all&#39;,
-    order: &#39;random&#39;,
-    preload: &#39;auto&#39;,
-    volume: 0.7,
-    mutex: true,
-    listFolded: false,
-    listMaxHeight: 90,
-    lrcType: 3,
-    audio: [
-        {
-            name: &#39;name1&#39;,
-            artist: &#39;artist1&#39;,
-            url: &#39;url1.mp3&#39;,
-            cover: &#39;cover1.jpg&#39;,
-            lrc: &#39;lrc1.lrc&#39;,
-            theme: &#39;#ebd0c2&#39;
-        },
-        {
-            name: &#39;name2&#39;,
-            artist: &#39;artist2&#39;,
-            url: &#39;url2.mp3&#39;,
-            cover: &#39;cover2.jpg&#39;,
-            lrc: &#39;lrc2.lrc&#39;,
-            theme: &#39;#46718b&#39;
-        }
-    ]
-});
-</code></pre>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
-<li><p><code>APlayer.version</code>: 静态属性, 返回 APlayer 的版本号</p>
-</li>
-<li><p><code>ap.play()</code>: 播放音频</p>
-</li>
-<li><p><code>ap.pause()</code>: 暂停音频</p>
-</li>
-<li><p><code>ap.seek(time: number)</code>: 跳转到特定时间，时间的单位为秒</p>
-<pre><code class="js">ap.seek(100);
-</code></pre>
-</li>
-<li><p><code>ap.toggle()</code>: 切换播放和暂停</p>
-</li>
-<li><p><code>ap.on(event: string, handler: function)</code>: 绑定音频和播放器事件，<a href="https://aplayer.js.org/#/home?id=event-binding">详情</a></p>
-</li>
-<li><p><code>ap.volume(percentage: number, nostorage: boolean)</code>: 设置音频音量</p>
-<pre><code class="js">ap.volume(0.1, true);
-</code></pre>
-</li>
-<li><p><code>ap.theme(color: string, index: number)</code>: 设置播放器主题色, index 默认为当前音频的 index</p>
-<pre><code class="js">ap.theme(&#39;#000&#39;, 0);
-</code></pre>
-</li>
-<li><p><code>ap.setMode(mode: string)</code>: 设置播放器模式，mode 取值应为 ‘mini’ 或 ‘normal’</p>
-</li>
-<li><p><code>ap.mode</code>: 返回播放器当前模式，’mini’ 或 ‘normal’</p>
-</li>
-<li><p><code>ap.notice(text: string, time: number, opacity: number)</code>: 显示通知，时间的单位为毫秒，默认时间 2000 毫秒，默认透明度 0.8，设置时间为 0 可以取消通知自动隐藏</p>
-<pre><code class="js">ap.notice(&#39;Amazing player&#39;, 2000, 0.8);
-</code></pre>
-</li>
-<li><p><code>ap.skipBack()</code>: 切换到上一首音频</p>
-</li>
-<li><p><code>ap.skipForward()</code>: 切换到下一首音频</p>
-</li>
-<li><p><code>ap.destroy()</code>: 销毁播放器</p>
-</li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;player&#39;</span>)<span class="op">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">mini</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">autoplay</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">theme</span><span class="op">:</span> <span class="st">&#39;#FADFA3&#39;</span><span class="op">,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">loop</span><span class="op">:</span> <span class="st">&#39;all&#39;</span><span class="op">,</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">order</span><span class="op">:</span> <span class="st">&#39;random&#39;</span><span class="op">,</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">preload</span><span class="op">:</span> <span class="st">&#39;auto&#39;</span><span class="op">,</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volume</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">mutex</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">listFolded</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">listMaxHeight</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lrcType</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name1&#39;</span><span class="op">,</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist1&#39;</span><span class="op">,</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url1.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover1.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            <span class="dt">lrc</span><span class="op">:</span> <span class="st">&#39;lrc1.lrc&#39;</span><span class="op">,</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            <span class="dt">theme</span><span class="op">:</span> <span class="st">&#39;#ebd0c2&#39;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        }<span class="op">,</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>            <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name2&#39;</span><span class="op">,</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist2&#39;</span><span class="op">,</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url2.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>            <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover2.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            <span class="dt">lrc</span><span class="op">:</span> <span class="st">&#39;lrc2.lrc&#39;</span><span class="op">,</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            <span class="dt">theme</span><span class="op">:</span> <span class="st">&#39;#46718b&#39;</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="api">API</h2>
+<ul>
+<li><p><code>APlayer.version</code>: 静态属性, 返回 APlayer
+的版本号</p></li>
+<li><p><code>ap.play()</code>: 播放音频</p></li>
+<li><p><code>ap.pause()</code>: 暂停音频</p></li>
+<li><p><code>ap.seek(time: number)</code>:
+跳转到特定时间，时间的单位为秒</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="fu">seek</span>(<span class="dv">100</span>)<span class="op">;</span></span></code></pre></div></li>
+<li><p><code>ap.toggle()</code>: 切换播放和暂停</p></li>
+<li><p><code>ap.on(event: string, handler: function)</code>:
+绑定音频和播放器事件，<a
+href="https://aplayer.js.org/#/home?id=event-binding">详情</a></p></li>
+<li><p><code>ap.volume(percentage: number, nostorage: boolean)</code>:
+设置音频音量</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="fu">volume</span>(<span class="fl">0.1</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span></code></pre></div></li>
+<li><p><code>ap.theme(color: string, index: number)</code>:
+设置播放器主题色, index 默认为当前音频的 index</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="fu">theme</span>(<span class="st">&#39;#000&#39;</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div></li>
+<li><p><code>ap.setMode(mode: string)</code>: 设置播放器模式，mode
+取值应为 'mini' 或 'normal'</p></li>
+<li><p><code>ap.mode</code>: 返回播放器当前模式，'mini' 或
+'normal'</p></li>
+<li><p><code>ap.notice(text: string, time: number, opacity: number)</code>:
+显示通知，时间的单位为毫秒，默认时间 2000 毫秒，默认透明度
+0.8，设置时间为 0 可以取消通知自动隐藏</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="fu">notice</span>(<span class="st">&#39;Amazing player&#39;</span><span class="op">,</span> <span class="dv">2000</span><span class="op">,</span> <span class="fl">0.8</span>)<span class="op">;</span></span></code></pre></div></li>
+<li><p><code>ap.skipBack()</code>: 切换到上一首音频</p></li>
+<li><p><code>ap.skipForward()</code>: 切换到下一首音频</p></li>
+<li><p><code>ap.destroy()</code>: 销毁播放器</p></li>
 <li><p><code>ap.lrc</code></p>
 <ul>
-<li><p><code>ap.lrc.show()</code>: 显示歌词</p>
-</li>
-<li><p><code>ap.lrc.hide()</code>: 隐藏歌词</p>
-</li>
-<li><p><code>ap.lrc.toggle()</code>: 显示&#x2F;隐藏歌词</p>
-</li>
-</ul>
-</li>
+<li><p><code>ap.lrc.show()</code>: 显示歌词</p></li>
+<li><p><code>ap.lrc.hide()</code>: 隐藏歌词</p></li>
+<li><p><code>ap.lrc.toggle()</code>: 显示/隐藏歌词</p></li>
+</ul></li>
 <li><p><code>ap.list</code></p>
 <ul>
-<li><p><code>ap.list.show()</code>: 显示播放列表</p>
-</li>
-<li><p><code>ap.list.hide()</code>: 隐藏播放列表</p>
-</li>
-<li><p><code>ap.list.toggle()</code>: 显示&#x2F;隐藏播放列表</p>
-</li>
-<li><p><code>ap.list.add(audios: array | object)</code>: 添加一个或几个新音频到播放列表</p>
-</li>
+<li><p><code>ap.list.show()</code>: 显示播放列表</p></li>
+<li><p><code>ap.list.hide()</code>: 隐藏播放列表</p></li>
+<li><p><code>ap.list.toggle()</code>: 显示/隐藏播放列表</p></li>
+<li><p><code>ap.list.add(audios: array | object)</code>:
+添加一个或几个新音频到播放列表</p></li>
 </ul>
-<pre><code class="js">ap.list.add([{
-    name: &#39;name&#39;,
-    artist: &#39;artist&#39;,
-    url: &#39;url.mp3&#39;,
-    cover: &#39;cover.jpg&#39;,
-    lrc: &#39;lrc.lrc&#39;,
-    theme: &#39;#ebd0c2&#39;
-}]);
-</code></pre>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="at">list</span><span class="op">.</span><span class="fu">add</span>([{</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name&#39;</span><span class="op">,</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lrc</span><span class="op">:</span> <span class="st">&#39;lrc.lrc&#39;</span><span class="op">,</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">theme</span><span class="op">:</span> <span class="st">&#39;#ebd0c2&#39;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}])<span class="op">;</span></span></code></pre></div>
 <ul>
-<li><code>ap.list.remove(index: number)</code>: 移除播放列表中的一个音频</li>
+<li><code>ap.list.remove(index: number)</code>:
+移除播放列表中的一个音频</li>
 </ul>
-<pre><code class="js">ap.list.remove(1);
-</code></pre>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="at">list</span><span class="op">.</span><span class="fu">remove</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
 <ul>
 <li><code>ap.list.switch()</code>: 切换到播放列表里的其他音频</li>
 </ul>
-<pre><code class="js">ap.list.switch(1);
-</code></pre>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="at">list</span><span class="op">.</span><span class="fu">switch</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
 <ul>
 <li><code>ap.list.clear()</code>: 清空播放列表</li>
+</ul></li>
+<li><p><code>ap.audio</code>: 原生 audio</p></li>
+<li><p><code>ap.audio.currentTime</code>: 返回音频当前播放时间</p></li>
+<li><p><code>ap.audio.duration</code>: 返回音频总时间</p></li>
+<li><p><code>ap.audio.paused</code>: 返回音频是否暂停</p></li>
+<li><p>支持大多数<a
+href="http://www.w3schools.com/tags/ref_av_dom.asp">原生audio接口</a></p></li>
 </ul>
-</li>
-<li><p><code>ap.audio</code>: 原生 audio</p>
-</li>
-<li><p><code>ap.audio.currentTime</code>: 返回音频当前播放时间</p>
-</li>
-<li><p><code>ap.audio.duration</code>: 返回音频总时间</p>
-</li>
-<li><p><code>ap.audio.paused</code>: 返回音频是否暂停</p>
-</li>
-<li><p>支持大多数<a href="http://www.w3schools.com/tags/ref_av_dom.asp">原生audio接口</a></p>
-</li>
-</ul>
-<h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><p><code>ap.on(event, handler)</code></p>
-<pre><code class="js">ap.on(&#39;ended&#39;, function () {
-    console.log(&#39;player ended&#39;);
-});
-</code></pre>
+<h2 id="事件绑定">事件绑定</h2>
+<p><code>ap.on(event, handler)</code></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="fu">on</span>(<span class="st">&#39;ended&#39;</span><span class="op">,</span> <span class="kw">function</span> () {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;player ended&#39;</span>)<span class="op">;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <p>音频事件</p>
 <ul>
 <li>abort</li>
@@ -333,245 +327,263 @@ const ap = new APlayer(options);
 <li>lrcshow</li>
 <li>lrchide</li>
 </ul>
-<h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><p>我们有三种方式来给 APlayer 传递歌词，使用 <code>lrcType</code> 参数指明使用哪种方式，然后把歌词放到 <code>audio.lrc</code> 参数或者 HTML 里。</p>
+<h2 id="歌词">歌词</h2>
+<p>我们有三种方式来给 APlayer 传递歌词，使用 <code>lrcType</code>
+参数指明使用哪种方式，然后把歌词放到 <code>audio.lrc</code> 参数或者
+HTML 里。</p>
 <div class="aplayer-wrap">
-    <div id="aplayer4"><button class="docute-button load">点击加载播放器</div>
+<pre><code>&lt;div id=&quot;aplayer4&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<h3 id="LRC-文件方式"><a href="#LRC-文件方式" class="headerlink" title="LRC 文件方式"></a>LRC 文件方式</h3><p>第一种方式，把歌词放到 LRC 文件里，音频播放时会加载对应的 LRC 文件。</p>
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;aplayer&#39;),
-    lrcType: 3,
-    audio: {
-        name: &#39;name&#39;,
-        artist: &#39;artist&#39;,
-        url: &#39;demo.mp3&#39;,
-        cover: &#39;demo.jpg&#39;,
-        lrc: &#39;lrc.lrc&#39;
-    }
-});
-</code></pre>
-<h3 id="JS-字符串方式"><a href="#JS-字符串方式" class="headerlink" title="JS 字符串方式"></a>JS 字符串方式</h3><p>第二种方式，把歌词放到 JS 字符串里面。</p>
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;aplayer&#39;),
-    lrcType: 1,
-    audio: {
-        name: &#39;name&#39;,
-        artist: &#39;artist&#39;,
-        url: &#39;demo.mp3&#39;,
-        cover: &#39;demo.jpg&#39;,
-        lrc: &#39;[00:00.00]APlayer\n[00:04.01]is\n[00:08.02]amazing&#39;
-    }
-});
-</code></pre>
-<h3 id="HTML-方式"><a href="#HTML-方式" class="headerlink" title="HTML 方式"></a>HTML 方式</h3><p>第三种方式，把歌词放到 HTML 里面。</p>
-<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;APlayer.min.css&quot;&gt;
-&lt;div id=&quot;player&quot;&gt;
-    &lt;pre class=&quot;aplayer-lrc-content&quot;&gt;
-        [00:00.00]APlayer audio1
-        [00:04.01]is
-        [00:08.02]amazing
-        &lt;!-- ... --&gt;
-    &lt;/pre&gt;
-    &lt;pre class=&quot;aplayer-lrc-content&quot;&gt;
-        [00:00.00]APlayer audio2
-        [00:04.01]is
-        [00:08.02]amazing
-        &lt;!-- ... --&gt;
-    &lt;/pre&gt;
-&lt;/div&gt;
-&lt;script src=&quot;APlayer.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;aplayer&#39;),
-    lrcType: 2,
-    audio: [[
-        {
-            name: &#39;name1&#39;,
-            artist: &#39;artist1&#39;,
-            url: &#39;url1.mp3&#39;,
-            cover: &#39;cover1.jpg&#39;
-        },
-        {
-            name: &#39;name2&#39;,
-            artist: &#39;artist2&#39;,
-            url: &#39;url2.mp3&#39;,
-            cover: &#39;cover2.jpg&#39;
-        }
-    ]]
-});
-</code></pre>
-<h3 id="歌词格式"><a href="#歌词格式" class="headerlink" title="歌词格式"></a>歌词格式</h3><p>支持下面格式的歌词：</p>
+<h3 id="lrc-文件方式">LRC 文件方式</h3>
+<p>第一种方式，把歌词放到 LRC 文件里，音频播放时会加载对应的 LRC
+文件。</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;aplayer&#39;</span>)<span class="op">,</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lrcType</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> {</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name&#39;</span><span class="op">,</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;demo.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;demo.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">lrc</span><span class="op">:</span> <span class="st">&#39;lrc.lrc&#39;</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h3 id="js-字符串方式">JS 字符串方式</h3>
+<p>第二种方式，把歌词放到 JS 字符串里面。</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;aplayer&#39;</span>)<span class="op">,</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lrcType</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> {</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name&#39;</span><span class="op">,</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;demo.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;demo.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">lrc</span><span class="op">:</span> <span class="st">&#39;[00:00.00]APlayer</span><span class="sc">\n</span><span class="st">[00:04.01]is</span><span class="sc">\n</span><span class="st">[00:08.02]amazing&#39;</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h3 id="html-方式">HTML 方式</h3>
+<p>第三种方式，把歌词放到 HTML 里面。</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;APlayer.min.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;player&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">pre</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;aplayer-lrc-content&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        [00:00.00]APlayer audio1</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        [00:04.01]is</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        [00:08.02]amazing</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- ... --&gt;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">pre</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;aplayer-lrc-content&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        [00:00.00]APlayer audio2</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        [00:04.01]is</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        [00:08.02]amazing</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- ... --&gt;</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;APlayer.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;aplayer&#39;</span>)<span class="op">,</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lrcType</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [[</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name1&#39;</span><span class="op">,</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>            <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist1&#39;</span><span class="op">,</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url1.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover1.jpg&#39;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        }<span class="op">,</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>            <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name2&#39;</span><span class="op">,</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist2&#39;</span><span class="op">,</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>            <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url2.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>            <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover2.jpg&#39;</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    ]]</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h3 id="歌词格式">歌词格式</h3>
+<p>支持下面格式的歌词：</p>
 <p><code>[mm:ss]APlayer</code></p>
 <p><code>[mm:ss.xx]is</code></p>
 <p><code>[mm:ss.xxx]amazing</code></p>
 <p><code>[mm:ss.xx][mm:ss.xx]APlayer</code></p>
 <p><code>[mm:ss.xx]&lt;mm:ss.xx&gt;is</code></p>
 <p><code>[mm:ss.xx]amazing[mm:ss.xx]APlayer</code></p>
-<h2 id="播放列表"><a href="#播放列表" class="headerlink" title="播放列表"></a>播放列表</h2><p>当有多个音频时会 APlayer 会展示一个播放列表，<code>listFolded</code> 参数指明列表是否默认折叠，<code>listMaxHeight</code> 参数指明列表最大高度。</p>
+<h2 id="播放列表">播放列表</h2>
+<p>当有多个音频时会 APlayer 会展示一个播放列表，<code>listFolded</code>
+参数指明列表是否默认折叠，<code>listMaxHeight</code>
+参数指明列表最大高度。</p>
 <div class="aplayer-wrap">
-    <div id="aplayer5"><button class="docute-button load">点击加载播放器</div>
+<pre><code>&lt;div id=&quot;aplayer5&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;player&#39;),
-    listFolded: false,
-    listMaxHeight: 90,
-    lrcType: 3,
-    audio: [
-        {
-            name: &#39;name1&#39;,
-            artist: &#39;artist1&#39;,
-            url: &#39;url1.mp3&#39;,
-            cover: &#39;cover1.jpg&#39;,
-            lrc: &#39;lrc1.lrc&#39;,
-            theme: &#39;#ebd0c2&#39;
-        },
-        {
-            name: &#39;name2&#39;,
-            artist: &#39;artist2&#39;,
-            url: &#39;url2.mp3&#39;,
-            cover: &#39;cover2.jpg&#39;,
-            lrc: &#39;lrc2.lrc&#39;,
-            theme: &#39;#46718b&#39;
-        }
-    ]
-});
-</code></pre>
-<h2 id="吸底模式"><a href="#吸底模式" class="headerlink" title="吸底模式"></a>吸底模式</h2><p>APlayer 可以通过吸底模式固定在页面底部，这种模式跟普通模式有很大不同。</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;player&#39;</span>)<span class="op">,</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">listFolded</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">listMaxHeight</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lrcType</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name1&#39;</span><span class="op">,</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist1&#39;</span><span class="op">,</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url1.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>            <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover1.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>            <span class="dt">lrc</span><span class="op">:</span> <span class="st">&#39;lrc1.lrc&#39;</span><span class="op">,</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">theme</span><span class="op">:</span> <span class="st">&#39;#ebd0c2&#39;</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        }<span class="op">,</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name2&#39;</span><span class="op">,</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist2&#39;</span><span class="op">,</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>            <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url2.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>            <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover2.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>            <span class="dt">lrc</span><span class="op">:</span> <span class="st">&#39;lrc2.lrc&#39;</span><span class="op">,</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>            <span class="dt">theme</span><span class="op">:</span> <span class="st">&#39;#46718b&#39;</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="吸底模式">吸底模式</h2>
+<p>APlayer
+可以通过吸底模式固定在页面底部，这种模式跟普通模式有很大不同。</p>
 <div class="aplayer-wrap">
-    <div id="aplayer9"><button class="docute-button load">点击加载播放器</div>
+<pre><code>&lt;div id=&quot;aplayer9&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;player&#39;),
-    fixed: true,
-    audio: [{
-        name: &#39;name&#39;,
-        artist: &#39;artist&#39;,
-        url: &#39;url.mp3&#39;,
-        cover: &#39;cover.jpg&#39;,
-    }]
-});
-</code></pre>
-<h2 id="迷你模式"><a href="#迷你模式" class="headerlink" title="迷你模式"></a>迷你模式</h2><p>如果你没有足够空间来放置正常模式的播放器，那么你可以考虑使用迷你模式。</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;player&#39;</span>)<span class="op">,</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fixed</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [{</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name&#39;</span><span class="op">,</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    }]</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="迷你模式">迷你模式</h2>
+<p>如果你没有足够空间来放置正常模式的播放器，那么你可以考虑使用迷你模式。</p>
 <p>请注意迷你模式与吸底模式冲突。</p>
 <div class="aplayer-wrap">
-    <div id="aplayer6"><button class="docute-button load">点击加载播放器</div>
+<pre><code>&lt;div id=&quot;aplayer6&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;player&#39;),
-    mini: true,
-    audio: [{
-        name: &#39;name&#39;,
-        artist: &#39;artist&#39;,
-        url: &#39;url.mp3&#39;,
-        cover: &#39;cover.jpg&#39;,
-    }]
-});
-</code></pre>
-<h2 id="MSE-支持"><a href="#MSE-支持" class="headerlink" title="MSE 支持"></a>MSE 支持</h2><h3 id="HLS"><a href="#HLS" class="headerlink" title="HLS"></a>HLS</h3><p>需要在 <code>APlayer.min.js</code> 前面加载 <a href="https://github.com/video-dev/hls.js">hls.js</a>。</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;player&#39;</span>)<span class="op">,</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">mini</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [{</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name&#39;</span><span class="op">,</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    }]</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="mse-支持">MSE 支持</h2>
+<h3 id="hls">HLS</h3>
+<p>需要在 <code>APlayer.min.js</code> 前面加载 <a
+href="https://github.com/video-dev/hls.js">hls.js</a>。</p>
 <div class="aplayer-wrap">
-    <div id="aplayer7"><button class="docute-button load">点击加载播放器</div>
+<pre><code>&lt;div id=&quot;aplayer7&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;APlayer.min.css&quot;&gt;
-&lt;div id=&quot;aplayer&quot;&gt;&lt;/div&gt;
-&lt;script src=&quot;hls.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;APlayer.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;aplayer&#39;),
-    audio: [{
-        name: &#39;HLS&#39;,
-        artist: &#39;artist&#39;,
-        url: &#39;url.m3u8&#39;,
-        cover: &#39;cover.jpg&#39;,
-        type: &#39;hls&#39;
-    }]
-});
-</code></pre>
-<pre><code class="js">// 另一种方式，使用 customAudioType
-const ap = new APlayer({
-    container: document.getElementById(&#39;aplayer&#39;),
-    audio: [{
-        name: &#39;HLS&#39;,
-        artist: &#39;artist&#39;,
-        url: &#39;url.m3u8&#39;,
-        cover: &#39;cover.jpg&#39;,
-        type: &#39;customHls&#39;
-    }],
-    customAudioType: {
-        &#39;customHls&#39;: function (audioElement, audio, player) {
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(audio.url);
-                hls.attachMedia(audioElement);
-            }
-            else if (audioElement.canPlayType(&#39;application/x-mpegURL&#39;) || audioElement.canPlayType(&#39;application/vnd.apple.mpegURL&#39;)) {
-                audioElement.src = audio.url;
-            }
-            else {
-                player.notice(&#39;Error: HLS is not supported.&#39;);
-            }
-        }
-    }
-});
-</code></pre>
-<h2 id="根据封面自适应主题色"><a href="#根据封面自适应主题色" class="headerlink" title="根据封面自适应主题色"></a>根据封面自适应主题色</h2><p>需要额外加载 <a href="https://github.com/lokesh/color-thief/blob/master/src/color-thief.js">color-thief.js</a></p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;APlayer.min.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;aplayer&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;hls.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;APlayer.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;aplayer&#39;</span>)<span class="op">,</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [{</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;HLS&#39;</span><span class="op">,</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url.m3u8&#39;</span><span class="op">,</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;hls&#39;</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    }]</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 另一种方式，使用 customAudioType</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;aplayer&#39;</span>)<span class="op">,</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [{</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;HLS&#39;</span><span class="op">,</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist&#39;</span><span class="op">,</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url.m3u8&#39;</span><span class="op">,</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;customHls&#39;</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    }]<span class="op">,</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">customAudioType</span><span class="op">:</span> {</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;customHls&#39;</span><span class="op">:</span> <span class="kw">function</span> (audioElement<span class="op">,</span> audio<span class="op">,</span> player) {</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (Hls<span class="op">.</span><span class="fu">isSupported</span>()) {</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>                <span class="kw">const</span> hls <span class="op">=</span> <span class="kw">new</span> <span class="fu">Hls</span>()<span class="op">;</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>                hls<span class="op">.</span><span class="fu">loadSource</span>(audio<span class="op">.</span><span class="at">url</span>)<span class="op">;</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>                hls<span class="op">.</span><span class="fu">attachMedia</span>(audioElement)<span class="op">;</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> <span class="cf">if</span> (audioElement<span class="op">.</span><span class="fu">canPlayType</span>(<span class="st">&#39;application/x-mpegURL&#39;</span>) <span class="op">||</span> audioElement<span class="op">.</span><span class="fu">canPlayType</span>(<span class="st">&#39;application/vnd.apple.mpegURL&#39;</span>)) {</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>                audioElement<span class="op">.</span><span class="at">src</span> <span class="op">=</span> audio<span class="op">.</span><span class="at">url</span><span class="op">;</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> {</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>                player<span class="op">.</span><span class="fu">notice</span>(<span class="st">&#39;Error: HLS is not supported.&#39;</span>)<span class="op">;</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="根据封面自适应主题色">根据封面自适应主题色</h2>
+<p>需要额外加载 <a
+href="https://github.com/lokesh/color-thief/blob/master/src/color-thief.js">color-thief.js</a></p>
 <div class="aplayer-wrap">
-    <div id="aplayer8"><button class="docute-button load">点击加载播放器</div>
+<pre><code>&lt;div id=&quot;aplayer8&quot;&gt;&lt;button class=&quot;docute-button load&quot;&gt;点击加载播放器&lt;/div&gt;</code></pre>
 </div>
-
-<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;APlayer.min.css&quot;&gt;
-&lt;div id=&quot;aplayer&quot;&gt;&lt;/div&gt;
-&lt;script src=&quot;APlayer.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;color-thief.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<pre><code class="js">const ap = new APlayer({
-    container: document.getElementById(&#39;aplayer&#39;),
-    theme: &#39;#e9e9e9&#39;,
-    audio: [{
-        name: &#39;name1&#39;,
-        artist: &#39;artist1&#39;,
-        url: &#39;url1.mp3&#39;,
-        cover: &#39;cover1.jpg&#39;
-    }, {
-        name: &#39;name2&#39;,
-        artist: &#39;artist2&#39;,
-        url: &#39;url2.mp3&#39;,
-        cover: &#39;cover2.jpg&#39;
-    }]
-});
-
-const colorThief = new ColorThief();
-const image = new Image();
-const xhr = new XMLHttpRequest();
-const setTheme = (index) =&gt; {
-    if (!ap.list.audios[index].theme) {
-        xhr.onload = function(){
-            let coverUrl = URL.createObjectURL(this.response);
-            image.onload = function(){
-                let color = colorThief.getColor(image);
-                ap.theme(`rgb(${color[0]}, ${color[1]}, ${color[2]})`, index);
-                URL.revokeObjectURL(coverUrl)
-            };
-            image.src = coverUrl;
-        }
-        xhr.open(&#39;GET&#39;, ap.list.audios[index].cover, true);
-        xhr.responseType = &#39;blob&#39;;
-        xhr.send();
-    }
-};
-setTheme(ap.list.index);
-ap.on(&#39;listswitch&#39;, (index) =&gt; {
-    setTheme(index);
-});
-</code></pre>
-<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><ul>
-<li><a href="https://www.jsdelivr.com/package/npm/aplayer">jsDelivr</a></li>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;APlayer.min.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;aplayer&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;APlayer.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;color-thief.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ap <span class="op">=</span> <span class="kw">new</span> <span class="fu">APlayer</span>({</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">container</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;aplayer&#39;</span>)<span class="op">,</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">theme</span><span class="op">:</span> <span class="st">&#39;#e9e9e9&#39;</span><span class="op">,</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">audio</span><span class="op">:</span> [{</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name1&#39;</span><span class="op">,</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist1&#39;</span><span class="op">,</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url1.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover1.jpg&#39;</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span> {</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;name2&#39;</span><span class="op">,</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">artist</span><span class="op">:</span> <span class="st">&#39;artist2&#39;</span><span class="op">,</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;url2.mp3&#39;</span><span class="op">,</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cover</span><span class="op">:</span> <span class="st">&#39;cover2.jpg&#39;</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    }]</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> colorThief <span class="op">=</span> <span class="kw">new</span> <span class="fu">ColorThief</span>()<span class="op">;</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> image <span class="op">=</span> <span class="kw">new</span> <span class="fu">Image</span>()<span class="op">;</span></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> xhr <span class="op">=</span> <span class="kw">new</span> <span class="bu">XMLHttpRequest</span>()<span class="op">;</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> setTheme <span class="op">=</span> (index) <span class="kw">=&gt;</span> {</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>ap<span class="op">.</span><span class="at">list</span><span class="op">.</span><span class="at">audios</span>[index]<span class="op">.</span><span class="at">theme</span>) {</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>        xhr<span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>(){</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>            <span class="kw">let</span> coverUrl <span class="op">=</span> URL<span class="op">.</span><span class="fu">createObjectURL</span>(<span class="kw">this</span><span class="op">.</span><span class="at">response</span>)<span class="op">;</span></span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>            image<span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>(){</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> color <span class="op">=</span> colorThief<span class="op">.</span><span class="fu">getColor</span>(image)<span class="op">;</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>                ap<span class="op">.</span><span class="fu">theme</span>(<span class="vs">`rgb(</span><span class="sc">${</span>color[<span class="dv">0</span>]<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>color[<span class="dv">1</span>]<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>color[<span class="dv">2</span>]<span class="sc">}</span><span class="vs">)`</span><span class="op">,</span> index)<span class="op">;</span></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>                URL<span class="op">.</span><span class="fu">revokeObjectURL</span>(coverUrl)</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>            }<span class="op">;</span></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>            image<span class="op">.</span><span class="at">src</span> <span class="op">=</span> coverUrl<span class="op">;</span></span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>        xhr<span class="op">.</span><span class="fu">open</span>(<span class="st">&#39;GET&#39;</span><span class="op">,</span> ap<span class="op">.</span><span class="at">list</span><span class="op">.</span><span class="at">audios</span>[index]<span class="op">.</span><span class="at">cover</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>        xhr<span class="op">.</span><span class="at">responseType</span> <span class="op">=</span> <span class="st">&#39;blob&#39;</span><span class="op">;</span></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>        xhr<span class="op">.</span><span class="fu">send</span>()<span class="op">;</span></span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a><span class="fu">setTheme</span>(ap<span class="op">.</span><span class="at">list</span><span class="op">.</span><span class="at">index</span>)<span class="op">;</span></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>ap<span class="op">.</span><span class="fu">on</span>(<span class="st">&#39;listswitch&#39;</span><span class="op">,</span> (index) <span class="kw">=&gt;</span> {</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setTheme</span>(index)<span class="op">;</span></span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="cdn">CDN</h2>
+<ul>
+<li><a
+href="https://www.jsdelivr.com/package/npm/aplayer">jsDelivr</a></li>
 <li><a href="https://cdnjs.com/libraries/aplayer">cdnjs</a></li>
 <li><a href="https://unpkg.com/aplayer/">unpkg</a></li>
 </ul>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="为什么播放器不能在手机上自动播放？"><a href="#为什么播放器不能在手机上自动播放？" class="headerlink" title="为什么播放器不能在手机上自动播放？"></a>为什么播放器不能在手机上自动播放？</h3><p>大多数移动端浏览器禁止了音频自动播放。</p>
+<h2 id="常见问题">常见问题</h2>
+<h3
+id="为什么播放器不能在手机上自动播放">为什么播放器不能在手机上自动播放？</h3>
+<p>大多数移动端浏览器禁止了音频自动播放。</p>
