@@ -58,6 +58,24 @@ class="math inline">\(\mathcal{O}(nB)\)</span>。</p>
 class="math inline">\(\frac{n}{B}\)</span> 次，取 <span
 class="math inline">\(B=\sqrt{n}\)</span>，时间复杂度 <span
 class="math inline">\(\mathcal{O}(n \sqrt{n})\)</span>。</p>
+<h1 id="cf587f.-duff-is-mad">CF587F. Duff is Mad</h1>
+<p>设 <span class="math inline">\(\sum |s_i| = m\)</span> 设定阈值 <span
+class="math inline">\(B\)</span>，若 <span class="math inline">\(|s_k|
+&gt; B\)</span>，那么暴力将AC自动机中该串的路径上的点权设为 <span
+class="math inline">\(1\)</span>，其他设为 <span
+class="math inline">\(0\)</span>，算出来fail树上每个点的子树和，前缀和后
+<span class="math inline">\(\mathcal{O}(1)\)</span>
+处理每个询问，时间复杂度 <span
+class="math inline">\(\mathcal{O}(\frac{m^2}{B})\)</span>。</p>
+<p>对于 <span class="math inline">\(|s_k| \le B\)</span>，拆成两个询问
+<span class="math inline">\([1,l-1]\)</span> 和 <span
+class="math inline">\([1,r]\)</span>，从左往右扫描线，每次暴力将该串的子树加一，询问的时候直接暴力看trie中该串的那些点的权值和。可以使用树状数组，但是由于询问有
+<span class="math inline">\(\mathcal{O}(nB)\)</span> 次，所以用 <span
+class="math inline">\(\mathcal{O}(\sqrt{m})\)</span> 区间加、<span
+class="math inline">\(\mathcal{O}(1)\)</span>
+单点查询的分块复杂度更优。</p>
+<p>若 <span class="math inline">\(B=\sqrt{m}\)</span>，时间复杂度为
+<span class="math inline">\(\mathcal{O}(n \sqrt n)\)</span>。</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
