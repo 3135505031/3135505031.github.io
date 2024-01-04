@@ -46,6 +46,115 @@ alt="Goodbye,2023." />
       </tags>
   </entry>
   <entry>
+    <title>CF1917F. Construct Tree</title>
+    <url>/posts/677e8275/</url>
+    <content><![CDATA[<p><a href="https://codeforces.com/problemset/problem/1917/F">CF1917F.
+Construct Tree</a></p>
+<span id="more"></span>
+<h1 id="construct-tree">Construct Tree</h1>
+<h2 id="题面翻译">题面翻译</h2>
+<p>给你一个数组 <span class="math inline">\(l_1,l_2,\dots.l_n\)</span>
+和一个数字 <span
+class="math inline">\(d\)</span>。问你是否能够构造一棵树满足以下条件：</p>
+<ul>
+<li>这棵树有 <span class="math inline">\(n+1\)</span> 个点。</li>
+<li>第 <span class="math inline">\(i\)</span> 条边的长度是 <span
+class="math inline">\(l_i\)</span>。</li>
+<li>树的直径是 <span class="math inline">\(d\)</span>。</li>
+</ul>
+<p>只需要判断是否有解即可。<br />
+<span class="math inline">\(2\le n\le2000,1\le d\le 2000,1\le l_i\le
+d\)</span>。<br />
+By:Call_me_Eric</p>
+<h2 id="题目描述">题目描述</h2>
+<p>You are given an array of integers $ l_1, l_2, , l_n $ and an integer
+$ d $ . Is it possible to construct a tree satisfying the following
+three conditions?</p>
+<ul>
+<li>The tree contains $ n + 1 $ nodes.</li>
+<li>The length of the $ i $ -th edge is equal to $ l_i $ .</li>
+<li>The (weighted) diameter of the tree is equal to $ d $ .</li>
+</ul>
+<h2 id="输入格式">输入格式</h2>
+<p>Each test consists of multiple test cases. The first line contains a
+single integer $ t $ ( $ 1 t $ ) — the number of test cases. The
+description of the test cases follows.</p>
+<p>The first line of each test case contains two integers $ n $ , $ d $
+( $ 2 n , 1 d $ ).</p>
+<p>The second line of each test case contains $ n $ integers $ l_1, l_2,
+, l_n $ ( $ 1 l_i d $ ).</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not
+exceed $ 2000 $ .</p>
+<h2 id="输出格式">输出格式</h2>
+<p>For each test case, output $ $ if it is possible to construct a tree
+that satisfies all the conditions, and $ $ otherwise.</p>
+<p>You can print the letters in any case (upper or lower).</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">4 10</span><br><span class="line">1 2 3 4</span><br><span class="line">4 7</span><br><span class="line">1 4 3 4</span><br><span class="line">6 18</span><br><span class="line">2 4 3 7 6 7</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1">样例输出 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Yes</span><br><span class="line">No</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
+<h2 id="提示">提示</h2>
+<p>Below, you are given the illustrations of trees for the first and
+third test cases. One of the diameters is highlighted by coloring its
+edges in red.</p>
+<p><img
+src="https://cdn.luogu.com.cn/upload/vjudge_pic/CF1917F/b0da55c56a8230f64464b5410b99445c4424c394.png" /></p>
+<h1 id="题解">题解</h1>
+<p>考虑长度最大的那条边，设长度为 <span
+class="math inline">\(L\)</span>，那么如果 <span class="math inline">\(L
+&gt; \lfloor \frac{d}{2} \rfloor\)</span>，<span
+class="math inline">\(L\)</span> 就必然在直径上。</p>
+<p>证明考虑若它不在直径上，那么我们总可以将这条边取代直径的某一侧获得更大的直径。</p>
+<p>之后，既然它在直径上，那么直径就会成为一条长 <span
+class="math inline">\(L\)</span> 的边拼上一条长 <span
+class="math inline">\(d-L\)</span> 的路径，若存在另外一条长度为 <span
+class="math inline">\(L&#39;\)</span> 的边使得 <span
+class="math inline">\(L&#39;&gt;d-L\)</span>，一定无解，证明同上。既然所有边的长度都不超过
+<span class="math inline">\(d-L \le
+L\)</span>了，那么不在直径上的边总是可以找到一个合法位置的（挂在 <span
+class="math inline">\(L\)</span> 与 <span
+class="math inline">\(d-L\)</span>
+的交界处），于是只需要做一个背包判断剩下的长度能不能拼出 <span
+class="math inline">\(d-L\)</span> 即可，时间复杂度 <span
+class="math inline">\(\mathcal{O}(nd)\)</span>。</p>
+<p>否则 <span class="math inline">\(L \le \lfloor \frac{d}{2}
+\rfloor\)</span>，同样考虑这条边 <span
+class="math inline">\(L\)</span>，如果它可以在直径上，那么所有其它没有在直径上的边也就可以得到一个合法的位置，判断这个只需要和之前
+<span class="math inline">\(L &gt; \lfloor \frac{d}{2} \rfloor\)</span>
+一样，判断剩下的边是否可以拼出 <span class="math inline">\(d-L\)</span>
+即可。</p>
+<p>否则它不在直径上，删掉它，设 <span
+class="math inline">\(dp_{i,j,k}\)</span> 表示前 <span
+class="math inline">\(i\)</span> 条边是否可以拼出一段长为 <span
+class="math inline">\(j\)</span> 的路径和一段长为 <span
+class="math inline">\(k\)</span> 的路径，值只有 <span
+class="math inline">\(0\)</span> 和 <span
+class="math inline">\(1\)</span>，可以用<code>std::bitset</code> 优化至
+<span
+class="math inline">\(\frac{nd^2}{w}\)</span>。之后只需要看是否存在一组
+<span class="math inline">\(j,k\)</span> 满足 <span
+class="math inline">\(\min(j,k) \ge L\)</span> 并且 <span
+class="math inline">\(j,k\)</span> 可以被拼出即可。</p>
+<p>单组数据的时间复杂度为 <span
+class="math inline">\(\mathcal{O}\left(\frac{n^2d}{w}\right)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="type">int</span> n, d, L[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> d)</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> bitset&lt;2001&gt; f; f.<span class="built_in">reset</span>();</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n &amp;&amp; !f[d]; i ++)</span><br><span class="line">        f = f | (f &lt;&lt; L[i]);</span><br><span class="line">    <span class="keyword">return</span> f[d];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">BackPack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> bitset&lt;2001&gt; f[<span class="number">2</span>][<span class="number">2001</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= d; i ++) f[<span class="number">0</span>][i].<span class="built_in">reset</span>();</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; <span class="type">int</span> cur = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        cur ^= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= d; j ++)</span><br><span class="line">            f[cur][j] = f[cur ^ <span class="number">1</span>][j] | (f[cur ^ <span class="number">1</span>][j] &lt;&lt; L[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = L[i]; j &lt;= d; j ++) </span><br><span class="line">            f[cur][j] = f[cur][j] | f[cur ^ <span class="number">1</span>][j - L[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = L[n]; i &lt;= d - L[n]; i ++)</span><br><span class="line">        <span class="keyword">if</span>(f[cur][i][d - i]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> string <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; L[i];</span><br><span class="line">    <span class="built_in">sort</span>(L + <span class="number">1</span>, L + n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(L[n] &gt; (d &gt;&gt; <span class="number">1</span>)) &#123;</span><br><span class="line">        <span class="keyword">if</span>(L[n - <span class="number">1</span>] &gt; d - L[n]) <span class="keyword">return</span> <span class="string">&quot;No&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">check</span>(n - <span class="number">1</span>, d - L[n]) ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(n - <span class="number">1</span>, d - L[n])) <span class="keyword">return</span> <span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">BackPack</span>() ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) cout &lt;&lt; <span class="built_in">solve</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+]]></content>
+      <categories>
+        <category>题目</category>
+      </categories>
+      <tags>
+        <tag>dp</tag>
+        <tag>背包</tag>
+        <tag>bitset</tag>
+        <tag>构造</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>雅礼集训2019 Day1</title>
     <url>/posts/8650b34/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
