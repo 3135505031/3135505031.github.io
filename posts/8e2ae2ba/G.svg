@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="296.99997mm"
-   height="210mm"
-   viewBox="0 0 1122.5196 793.70081"
+   width="260.39148mm"
+   height="101.52366mm"
+   viewBox="0 0 984.1568 383.71148"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,8 @@
        id="rect6-1-3-0-1-4-4" />
   </defs>
   <g
-     id="layer1">
+     id="layer1"
+     transform="translate(-61.568754,-129.39418)">
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.77222;stroke-opacity:1"
        id="rect1"
@@ -133,9 +134,9 @@
        transform="translate(36.427304,15.294687)"><tspan
          x="26.474609"
          y="177.21672"
-         id="tspan9"><tspan
+         id="tspan2"><tspan
            style="font-family:P052;-inkscape-font-specification:P052;fill:#000000"
-           id="tspan7">S</tspan></tspan></text>
+           id="tspan1">S</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text6-5"
@@ -143,9 +144,9 @@
        transform="translate(154.74539,15.096601)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan12"><tspan
+         id="tspan4"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan11">x</tspan></tspan></text>
+           id="tspan3">x</tspan></tspan></text>
     <path
        id="rect7-9"
        style="fill:#e20000;fill-opacity:1;stroke:#000000;stroke-width:0.999763;stroke-opacity:1"
@@ -157,9 +158,9 @@
        transform="translate(152.96069,209.37066)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan14"><tspan
+         id="tspan6"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan13">x</tspan></tspan></text>
+           id="tspan5">x</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text6-5-5"
@@ -167,9 +168,9 @@
        transform="translate(344.06268,13.551666)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan16"><tspan
+         id="tspan8"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan15">y</tspan></tspan></text>
+           id="tspan7">y</tspan></tspan></text>
     <path
        id="rect7-4-6"
        style="fill:#4100e2;fill-opacity:1;stroke:#000000;stroke-width:1.14277;stroke-opacity:1"
@@ -181,9 +182,9 @@
        transform="translate(342.06268,206.55167)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan18"><tspan
+         id="tspan10"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan17">y</tspan></tspan></text>
+           id="tspan9">y</tspan></tspan></text>
     <path
        id="rect7-4-6-9"
        style="fill:#4100e2;fill-opacity:1;stroke:#000000;stroke-width:1.14277;stroke-opacity:1"
@@ -195,9 +196,9 @@
        transform="translate(561.06268,206.55167)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan20"><tspan
+         id="tspan12"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan19">y</tspan></tspan></text>
+           id="tspan11">y</tspan></tspan></text>
     <path
        id="rect7-4-6-9-4"
        style="fill:#4100e2;fill-opacity:1;stroke:#000000;stroke-width:1.14277;stroke-opacity:1"
@@ -221,9 +222,9 @@
        transform="translate(781.06268,206.55167)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan22"><tspan
+         id="tspan14"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan21">y</tspan></tspan></text>
+           id="tspan13">y</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text6-5-5-3-88"
@@ -231,9 +232,9 @@
        transform="translate(355.22055,298.46118)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan24"><tspan
+         id="tspan16"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan23">y'</tspan></tspan></text>
+           id="tspan15">y'</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text6-5-5-3-8-6"
@@ -241,9 +242,9 @@
        transform="translate(574.22055,298.46118)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan26"><tspan
+         id="tspan18"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan25">y'</tspan></tspan></text>
+           id="tspan17">y'</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text6-5-5-3-8-4-4"
@@ -251,9 +252,9 @@
        transform="translate(794.22059,298.46118)"><tspan
          x="26.474609"
          y="178.49672"
-         id="tspan28"><tspan
+         id="tspan20"><tspan
            style="font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';fill:#000000"
-           id="tspan27">y'</tspan></tspan></text>
+           id="tspan19">y'</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text6-6"
@@ -261,9 +262,9 @@
        transform="translate(34.634144,209.40524)"><tspan
          x="26.474609"
          y="177.21672"
-         id="tspan30"><tspan
+         id="tspan22"><tspan
            style="font-family:P052;-inkscape-font-specification:P052;fill:#000000"
-           id="tspan29">T</tspan></tspan></text>
+           id="tspan21">T</tspan></tspan></text>
     <path
        id="rect7-4-1"
        style="fill:#d7e200;fill-opacity:1;stroke:#000000;stroke-width:0.799525;stroke-opacity:1"
@@ -275,7 +276,7 @@
        transform="translate(7.0589568,-12.658888)"><tspan
          x="538.07422"
          y="207.25648"
-         id="tspan31">z</tspan></text>
+         id="tspan23">z</tspan></text>
     <path
        id="rect7-4-1-9"
        style="fill:#d7e200;fill-opacity:1;stroke:#000000;stroke-width:0.799525;stroke-opacity:1"
@@ -287,7 +288,7 @@
        transform="translate(443.03327,180.97891)"><tspan
          x="538.07422"
          y="207.25648"
-         id="tspan32">z</tspan></text>
+         id="tspan24">z</tspan></text>
     <path
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
        d="m 516.47765,223.74431 c 0.13208,33.31344 0.26417,66.62689 0.39625,99.94033"
@@ -303,7 +304,7 @@
        transform="translate(338.46412,-4.7906649)"><tspan
          x="310.27148"
          y="258.37243"
-         id="tspan33">S[b+1]=T[c]</tspan></text>
+         id="tspan25">S[b+1]=T[c]</tspan></text>
     <text
        xml:space="preserve"
        id="text10"
@@ -311,6 +312,6 @@
        transform="translate(-28.655643,14.106702)"><tspan
          x="472.79883"
          y="273.50328"
-         id="tspan34">S[b+1]=T[b+1]</tspan></text>
+         id="tspan26">S[b+1]=T[b+1]</tspan></text>
   </g>
 </svg>
