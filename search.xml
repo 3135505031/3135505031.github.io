@@ -46,6 +46,112 @@ alt="Goodbye,2023." />
       </tags>
   </entry>
   <entry>
+    <title>CF1917E. Construct Matrix</title>
+    <url>/posts/abc58e79/</url>
+    <content><![CDATA[<p><a href="https://codeforces.com/problemset/problem/1917/E">CF1917E.
+Construct Matrix</a></p>
+<span id="more"></span>
+<h1 id="construct-matrix">Construct Matrix</h1>
+<h2 id="题面翻译">题面翻译</h2>
+<p>给你一个偶数 <span class="math inline">\(n\)</span> 和一个整数 <span
+class="math inline">\(k\)</span>。你需要构造一个 <span
+class="math inline">\(01\)</span> 矩阵满足如下条件：</p>
+<ul>
+<li>矩阵所有数总和是 <span class="math inline">\(k\)</span>。</li>
+<li>每一行的 <span class="math inline">\(XOR\)</span> 值相同。</li>
+<li>每一列的 <span class="math inline">\(XOR\)</span> 值相同。</li>
+</ul>
+<p>有解给出构造，否则报告无解。<br />
+<span class="math inline">\(2\le n\le 1000,0\le k\le
+n^2\)</span>。<br />
+多测，保证所有测试点的 <span class="math inline">\(n\)</span>
+加起来不超过 <span class="math inline">\(2000\)</span>。<br />
+By:Call_me_Eric</p>
+<h2 id="题目描述">题目描述</h2>
+<p>You are given an even integer $ n $ and an integer $ k $ . Your task
+is to construct a matrix of size $ n n $ consisting of numbers $ 0 $ and
+$ 1 $ in such a way that the following conditions are true, or report
+that it is impossible:</p>
+<ul>
+<li>the sum of all the numbers in the matrix is exactly $ k $ ;</li>
+<li>the bitwise $ $ of all the numbers in the row $ i $ is the same for
+each $ i $ ;</li>
+<li>the bitwise $ $ of all the numbers in the column $ j $ is the same
+for each $ j $ .</li>
+</ul>
+<h2 id="输入格式">输入格式</h2>
+<p>Each test consists of multiple test cases. The first line contains a
+single integer $ t $ ( $ 1 t $ ) — the number of test cases. The
+description of the test cases follows.</p>
+<p>Each test case is described by a single line, which contains two
+integers $ n $ and $ k $ ( $ 2 n $ , $ n $ is even, $ 0 k n^2 $ ).</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not
+exceed $ 2000 $ .</p>
+<h2 id="输出格式">输出格式</h2>
+<p>For each test case, output $ $ if it's possible to construct a matrix
+that satisfies all of the problem's conditions, and $ $ otherwise.</p>
+<p>If it is possible to construct a matrix, the $ i $ -th of the next $
+n $ lines should contain $ n $ integers representing the elements in the
+$ i $ -th row of the matrix.</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">4 0</span><br><span class="line">6 6</span><br><span class="line">6 5</span><br><span class="line">4 2</span><br><span class="line">6 36</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1">样例输出 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Yes</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">Yes</span><br><span class="line">1 0 0 0 0 0</span><br><span class="line">0 1 0 0 0 0</span><br><span class="line">0 0 1 0 0 0</span><br><span class="line">0 0 0 1 0 0</span><br><span class="line">0 0 0 0 1 0</span><br><span class="line">0 0 0 0 0 1</span><br><span class="line">No</span><br><span class="line">No</span><br><span class="line">Yes</span><br><span class="line">1 1 1 1 1 1</span><br><span class="line">1 1 1 1 1 1</span><br><span class="line">1 1 1 1 1 1</span><br><span class="line">1 1 1 1 1 1</span><br><span class="line">1 1 1 1 1 1</span><br><span class="line">1 1 1 1 1 1</span><br></pre></td></tr></table></figure>
+<h2 id="提示">提示</h2>
+<p>In the first example, all conditions are satisfied:</p>
+<ul>
+<li>the sum of all the numbers in the matrix is exactly $ 0 $ ;</li>
+<li>the bitwise $ $ of all the numbers in the row $ i $ is $ 0 $ for
+each $ i $ ;</li>
+<li>the bitwise $ $ of all the numbers in the column $ j $ is $ 0 $ for
+each $ j $ .</li>
+</ul>
+<p>In the third example, it can be shown that it's impossible to find a
+matrix satisfying all the problem's conditions.</p>
+<h1 id="题解">题解</h1>
+<p>有趣构造。</p>
+<p>首先 <span class="math inline">\(k\)</span>
+为奇数的时候一定无解，这是因为每一行的<code>1</code>的个数的奇偶性相同而一共有偶数行，然后特判
+<span class="math inline">\(n=2\)</span> 的情况。</p>
+<p>当 <span class="math inline">\(k \equiv 0 \pmod 4\)</span>
+的时候，我们可以每次将一个 <span class="math inline">\(2 \times
+2\)</span>
+的全<code>0</code>矩阵全部变成<code>1</code>，每行、列的奇偶性不变。</p>
+<p>当 <span class="math inline">\(k \equiv 2 \pmod 4\)</span>
+的时候，可以构造如下含有 <span class="math inline">\(6\)</span>
+个<code>1</code>的方案到左上角的 <span class="math inline">\(4 \times
+4\)</span> 的子矩阵中（<span class="math inline">\(n=2\)</span>
+的情况已经特判掉了）： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 1 0 0</span><br><span class="line">1 0 1 0</span><br><span class="line">0 1 1 0</span><br><span class="line">0 0 0 0</span><br></pre></td></tr></table></figure> 若 <span
+class="math inline">\(k=2\)</span>，无解，否则将左上角填上这 <span
+class="math inline">\(6\)</span> 个<code>1</code>后接着往别的地方填
+<span class="math inline">\(2 \times 2\)</span>
+的全<code>1</code>矩阵即可。</p>
+<p>但是注意到此时 <span class="math inline">\(k \le
+n^2-10\)</span>，还有 <span class="math inline">\(k =
+n^2-6,n^2-2\)</span> 的情况没有考虑（左上角浪费了 <span
+class="math inline">\(10\)</span> 个位置）。</p>
+<p><span class="math inline">\(k=n^2-2\)</span> 和 <span
+class="math inline">\(k=2\)</span> 本质相同，无解。</p>
+<p>对于 <span class="math inline">\(k=n^2-6\)</span>
+的情况，可以将左上角的<code>0</code>和<code>1</code>反转得到
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0 0 1 1</span><br><span class="line">0 1 0 1</span><br><span class="line">1 0 0 1</span><br><span class="line">1 1 1 1</span><br></pre></td></tr></table></figure>
+剩下的位置填<code>1</code>就构造完成了，单组询问的时间复杂度为 <span
+class="math inline">\(\mathcal{O}(n^2)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> n, k, A[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">if</span>(k % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">0</span>) cout &lt;&lt; <span class="string">&quot;0 0\n0 0\n&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(k == <span class="number">2</span>) cout &lt;&lt; <span class="string">&quot;0 1\n1 0\n&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;1 1\n1 1\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(k % <span class="number">4</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(k) A[i][j] = <span class="number">1</span>, k -= <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">else</span> A[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++)</span><br><span class="line">                A[i + <span class="number">1</span>][j] = A[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">2</span> || k == n * n - <span class="number">2</span>) &#123;cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; <span class="keyword">return</span>; &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(k == n * n - <span class="number">6</span>) &#123;</span><br><span class="line">            A[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>, A[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>, A[<span class="number">1</span>][<span class="number">3</span>] = <span class="number">1</span>, A[<span class="number">1</span>][<span class="number">4</span>] = <span class="number">1</span>;</span><br><span class="line">            A[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>, A[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>, A[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">0</span>, A[<span class="number">2</span>][<span class="number">4</span>] = <span class="number">1</span>;</span><br><span class="line">            A[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">1</span>, A[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">0</span>, A[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">0</span>, A[<span class="number">3</span>][<span class="number">4</span>] = <span class="number">1</span>;</span><br><span class="line">            A[<span class="number">4</span>][<span class="number">1</span>] = <span class="number">1</span>, A[<span class="number">4</span>][<span class="number">2</span>] = <span class="number">1</span>, A[<span class="number">4</span>][<span class="number">3</span>] = <span class="number">1</span>, A[<span class="number">4</span>][<span class="number">4</span>] = <span class="number">1</span>;</span><br><span class="line">            k -= <span class="number">10</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            A[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>, A[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">1</span>, A[<span class="number">1</span>][<span class="number">3</span>] = <span class="number">0</span>, A[<span class="number">1</span>][<span class="number">4</span>] = <span class="number">0</span>;</span><br><span class="line">            A[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">1</span>, A[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">0</span>, A[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">1</span>, A[<span class="number">2</span>][<span class="number">4</span>] = <span class="number">0</span>;</span><br><span class="line">            A[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">0</span>, A[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">1</span>, A[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">1</span>, A[<span class="number">3</span>][<span class="number">4</span>] = <span class="number">0</span>;</span><br><span class="line">            A[<span class="number">4</span>][<span class="number">1</span>] = <span class="number">0</span>, A[<span class="number">4</span>][<span class="number">2</span>] = <span class="number">0</span>, A[<span class="number">4</span>][<span class="number">3</span>] = <span class="number">0</span>, A[<span class="number">4</span>][<span class="number">4</span>] = <span class="number">0</span>;</span><br><span class="line">            k -= <span class="number">6</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) <span class="keyword">if</span>(i &gt; <span class="number">4</span> || j &gt; <span class="number">4</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(k) A[i][j] = <span class="number">1</span>, k -= <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">else</span> A[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++)</span><br><span class="line">                <span class="keyword">if</span>(i &gt; <span class="number">4</span> || j &gt; <span class="number">4</span>) A[i + <span class="number">1</span>][j] = A[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">assert</span>(k == <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++)</span><br><span class="line">            cout &lt;&lt; A[i][j] &lt;&lt; <span class="string">&quot; \n&quot;</span>[j == n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) <span class="built_in">solve</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+]]></content>
+      <categories>
+        <category>题目</category>
+      </categories>
+      <tags>
+        <tag>构造</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CF1917F. Construct Tree</title>
     <url>/posts/677e8275/</url>
     <content><![CDATA[<p><a href="https://codeforces.com/problemset/problem/1917/F">CF1917F.
@@ -137,7 +243,7 @@ class="math inline">\(\frac{nd^2}{w}\)</span>。之后只需要看是否存在�
 class="math inline">\(\min(j,k) \ge L\)</span> 并且 <span
 class="math inline">\(j,k\)</span> 可以被拼出即可。</p>
 <p>单组数据的时间复杂度为 <span
-class="math inline">\(\mathcal{O}\left(\frac{n^2d}{w}\right)\)</span>。</p>
+class="math inline">\(\mathcal{O}\left(\frac{nd^2}{w}\right)\)</span>。</p>
 <details class="note info no-icon"><summary><p>code</p>
 </summary>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="type">int</span> n, d, L[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> d)</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> bitset&lt;2001&gt; f; f.<span class="built_in">reset</span>();</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n &amp;&amp; !f[d]; i ++)</span><br><span class="line">        f = f | (f &lt;&lt; L[i]);</span><br><span class="line">    <span class="keyword">return</span> f[d];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">BackPack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> bitset&lt;2001&gt; f[<span class="number">2</span>][<span class="number">2001</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= d; i ++) f[<span class="number">0</span>][i].<span class="built_in">reset</span>();</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; <span class="type">int</span> cur = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        cur ^= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= d; j ++)</span><br><span class="line">            f[cur][j] = f[cur ^ <span class="number">1</span>][j] | (f[cur ^ <span class="number">1</span>][j] &lt;&lt; L[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = L[i]; j &lt;= d; j ++) </span><br><span class="line">            f[cur][j] = f[cur][j] | f[cur ^ <span class="number">1</span>][j - L[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = L[n]; i &lt;= d - L[n]; i ++)</span><br><span class="line">        <span class="keyword">if</span>(f[cur][i][d - i]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> string <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; L[i];</span><br><span class="line">    <span class="built_in">sort</span>(L + <span class="number">1</span>, L + n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(L[n] &gt; (d &gt;&gt; <span class="number">1</span>)) &#123;</span><br><span class="line">        <span class="keyword">if</span>(L[n - <span class="number">1</span>] &gt; d - L[n]) <span class="keyword">return</span> <span class="string">&quot;No&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">check</span>(n - <span class="number">1</span>, d - L[n]) ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(n - <span class="number">1</span>, d - L[n])) <span class="keyword">return</span> <span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">BackPack</span>() ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) cout &lt;&lt; <span class="built_in">solve</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
