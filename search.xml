@@ -46,6 +46,79 @@ alt="Goodbye,2023." />
       </tags>
   </entry>
   <entry>
+    <title>UOJ Easy Round 10</title>
+    <url>/posts/30f79854/</url>
+    <content><![CDATA[<p><a href="https://uoj.ac/contest/75">比赛链接</a></p>
+<span id="more"></span>
+<h1 id="a.-随机薅羊毛">A. 随机薅羊毛</h1>
+<p>设 <span class="math inline">\(f_i\)</span> 表示选到了第 <span
+class="math inline">\(i\)</span> 个机器的期望操作次数，有</p>
+<p><span class="math display">\[
+f_i=1+(1-p_i)\sum_{j=1}^{n}[j \ne
+i]\frac{f_j}{n-1}=1+\frac{1-p_i}{n-1}\sum_{j=1}^{n}[j \ne i]f_j\nonumber
+\]</span></p>
+<p>直接高斯消元可以做到 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span>。</p>
+<p>直觉告诉我们右边的求和扣掉 <span class="math inline">\(i\)</span>
+是不自然的，考虑补全它，变成</p>
+<p><span class="math display">\[
+\frac{n-p_i}{n-1}f_i=1+\frac{(1-p_i)}{n-1}\sum_{j=1}^{n}f_j\nonumber
+\]</span></p>
+<p>直觉又一次告诉我们，可以利用 <span
+class="math inline">\(\sum_{j=1}^{n}f_j\)</span>，设它为 <span
+class="math inline">\(s\)</span>，就有</p>
+<p><span class="math display">\[
+\frac{n-p_i}{n-1}f_i=1+\frac{1-p_i}{n-1}s\Longrightarrow
+f_i=\frac{n-1}{n-p_i}+\frac{1-p_i}{n-p_i}s\nonumber
+\]</span></p>
+<p>重算 <span class="math inline">\(s\)</span>，得到</p>
+<p><span class="math display">\[
+s=\sum_{i=1}^{n}f_i=\sum_{i=1}^{n}\frac{n-1}{n-p_i}+\frac{1-p_i}{n-p_i}s\nonumber
+\]</span></p>
+<p>整理得到</p>
+<p><span class="math display">\[
+s=\frac{\sum_{i=1}^{n}\frac{n-1}{n-p_i}}{1-\sum_{i=1}^{n}\frac{1-p_i}{n-p_i}}\nonumber
+\]</span></p>
+<p>右边的值是已知的，直接算出来就行，答案为 <span
+class="math inline">\(\frac{s}{n}\)</span>，时间复杂度 <span
+class="math inline">\(\mathcal{O}(n)\)</span>。</p>
+<p>但是这样会被第三个hack数据叉掉，看一下会发现里面是 <span
+class="math inline">\(n=10^6,a_i=1\)</span>，算这个长式子会疯狂掉精度。</p>
+<p>于是只能接着推下去这个式子：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{s}{n}&amp;=\frac{1}{n} \times
+\frac{\sum_{i=1}^{n}\frac{n-1}{n-p_i}}{1-\sum_{i=1}^{n}\frac{1-p_i}{n-p_i}}\newline
+&amp;=\frac{n-1}{n} \times
+\frac{\sum_{i=1}^{n}\frac{1}{n-p_i}}{1+\sum_{i=1}^{n}\frac{p_i-1}{n-p_i}}\newline
+&amp;=\frac{n-1}{n} \times
+\frac{\sum_{i=1}^{n}\frac{1}{n-p_i}}{-n+1+\sum_{i=1}^{n}\frac{n-1}{n-p_i}}\newline
+&amp;=\frac{n-1}{n} \times
+\frac{\sum_{i=1}^{n}\frac{1}{n-p_i}}{(n-1)(-1+\sum_{i=1}^{n}\frac{1}{n-p_i})}\newline
+&amp;=\frac{1}{n} \times
+\frac{\sum_{i=1}^{n}\frac{1}{n-p_i}}{-1+\sum_{i=1}^{n}\frac{1}{n-p_i}}\newline
+&amp;=\frac{1}{n} \times
+\frac{1+(-1+\sum_{i=1}^{n}\frac{1}{n-p_i})}{-1+\sum_{i=1}^{n}\frac{1}{n-p_i}}\newline
+&amp;=\frac{1}{n}\left(1+\frac{1}{-1+\sum_{i=1}^{n}\frac{1}{n-p_i}}\right)
+\end{aligned}\nonumber
+\]</span></p>
+<p>就差最后一步了，将括号打开，答案就是</p>
+<p><span class="math display">\[
+\frac{1}{n}+\frac{1}{-n+\sum_{i=1}^{n}\frac{n}{n-p_i}}=\frac{1}{n}+\frac{1}{\sum_{i=1}^{n}\frac{p_i}{n-p_i}}\nonumber
+\]</span></p>
+<p>这样精度就不会出问题了，时间复杂度仍然是 <span
+class="math inline">\(\mathcal{O}(n)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code for A</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n, A[N]; <span class="type">long</span> <span class="type">double</span> P[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; A[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        P[i] = (<span class="type">long</span> <span class="type">double</span>)A[i] / <span class="number">1000000</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 被卡精度到 97pt</span></span><br><span class="line">    <span class="comment">// long double a = 0, b = 0;</span></span><br><span class="line">    <span class="comment">// for(int i = 1; i &lt;= n; i ++)</span></span><br><span class="line">    <span class="comment">//     a += (n - 1) / (n - P[i]);</span></span><br><span class="line">    <span class="comment">// for(int i = 1; i &lt;= n; i ++)</span></span><br><span class="line">    <span class="comment">//     b += (1 - P[i]) / (n - P[i]);</span></span><br><span class="line">    <span class="comment">// long double s = a / (1 - b);</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; fixed &lt;&lt; setprecision(10) &lt;&lt; s / n &lt;&lt; &#x27;\n&#x27;;</span></span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">double</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        a += P[i] / (n - P[i]);</span><br><span class="line">    cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">10</span>) &lt;&lt; (<span class="type">long</span> <span class="type">double</span>)<span class="number">1</span> / n + <span class="number">1</span> / a &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+]]></content>
+      <categories>
+        <category>公开赛</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Codeforces Round 917</title>
     <url>/posts/ca961978/</url>
     <content><![CDATA[<p><a href="https://codeforces.com/contest/1917/">比赛链接</a></p>
