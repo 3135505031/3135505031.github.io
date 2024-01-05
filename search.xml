@@ -50,6 +50,68 @@ alt="Goodbye,2023." />
     <url>/posts/ca961978/</url>
     <content><![CDATA[<p><a href="https://codeforces.com/contest/1917/">比赛链接</a></p>
 <span id="more"></span>
+<h1 id="a.-least-product">A. Least Product</h1>
+<p>假如序列中有 <span class="math inline">\(0\)</span>，那么答案是 <span
+class="math inline">\(0\)</span>。</p>
+<p>否则如果有奇数个负数，只需要让每个数的绝对值最大：不操作是最优的。</p>
+<p>否则如果有偶数个负数，乘积只会 <span class="math inline">\(\ge
+0\)</span>，为了达到最小值 <span
+class="math inline">\(0\)</span>，只需要将任意一个数改成 <span
+class="math inline">\(0\)</span>。</p>
+<p>时间复杂度 <span class="math inline">\(\mathcal{O}(n)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code for A</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n, A[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; A[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">if</span>(A[i] == <span class="number">0</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;0&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        cnt += (A[i] &lt; <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(cnt % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;1&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;1 0&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) <span class="built_in">solve</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+<h1 id="b.-erase-first-or-second-letter">B. Erase First or Second
+Letter</h1>
+<p>最终序列会变成<code>XcXS</code>的形状，其中<code>X</code>是被删掉的一段连续子串，<code>S</code>是被留下来的一段连续子串，<code>c</code>是一个字符，<code>X</code>和<code>S</code>都可以为空。</p>
+<p>枚举那个后缀<code>S</code>，看前面有多少种字符即可。</p>
+<details class="note info no-icon"><summary><p>code for B</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n; <span class="type">char</span> S[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n; cin &gt;&gt; n &gt;&gt; (S + <span class="number">1</span>);</span><br><span class="line">    set&lt;<span class="type">char</span>&gt; Set; <span class="type">int</span> ans = n;</span><br><span class="line">    Set.<span class="built_in">insert</span>(S[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">3</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        ans += Set.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(Set.<span class="built_in">count</span>(S[i - <span class="number">1</span>])) ans --;</span><br><span class="line">        Set.<span class="built_in">insert</span>(S[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Set.<span class="built_in">insert</span>(S[n]), ans += Set.<span class="built_in">size</span>() - <span class="number">1</span>;    <span class="comment">// S 为空串</span></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) <span class="built_in">solve</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+<h1 id="c.-watering-an-array">C. Watering an Array</h1>
+<p>当序列全变为 <span class="math inline">\(0\)</span>
+之后，由于每次加的是一个前缀，所以最多只会有一个 <span
+class="math inline">\(i\)</span> 满足 <span class="math inline">\(a_i =
+i\)</span>，因此最优方案就是加一次让 <span
+class="math inline">\(a_1=1\)</span>，紧跟着将序列清零，贡献加一，答案为
+<span class="math inline">\(\lfloor \frac{c}{2} \rfloor\)</span>，其中
+<span class="math inline">\(c\)</span> 为操作次数。</p>
+<p>但是最开始序列不全为 <span
+class="math inline">\(0\)</span>，但是我们可以枚举它加了多少次后变成全
+<span class="math inline">\(0\)</span>，一个暴力的想法是 <span
+class="math inline">\(nk\)</span> 次，因为这之后，每个 <span
+class="math inline">\(a_i\)</span> 要么就是不能通过 <span
+class="math inline">\(b\)</span> 变化，要么就是再加就会 <span
+class="math inline">\(&gt;a_i\)</span> 了。</p>
+<p>直接暴力加是 <span class="math inline">\(\mathcal{O}(n^2k)\)</span>
+的，肯定过不了，但是我们可以用一个小根堆维护当前满足 <span
+class="math inline">\(a_i &lt; i\)</span> 的下标 <span
+class="math inline">\(i\)</span> 和 <span class="math inline">\(a_i =
+i\)</span> 的下标 <span
+class="math inline">\(i\)</span>，每次取出某些堆顶再放回去（或者不放回），每个下标只会出队、入队
+<span class="math inline">\(\mathcal{O}(n)\)</span> 次，复杂度是 <span
+class="math inline">\(\mathcal{O}(nk + n^2 \log n)\)</span>
+的，可以通过。</p>
+<p>一个更聪明的做法是，最开始加的次数不会超过 <span
+class="math inline">\(2n\)</span>，这是因为若加的次数超过 <span
+class="math inline">\(2n\)</span>，这些操作最终的贡献也不会超过 <span
+class="math inline">\(n\)</span>（只有 <span
+class="math inline">\(n\)</span> 个数），但是我们可以在一开始就把序列清
+<span class="math inline">\(0\)</span>，然后用 <span
+class="math inline">\(2n\)</span>
+次操作获得相同的贡献。每次暴力做前缀加法，统计 <span
+class="math inline">\(a_i=i\)</span> 的数量，时间复杂度 <span
+class="math inline">\(\mathcal{O}(n^2)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code for C</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2010</span>, K = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n, k, d;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a[N], v[K];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++) cin &gt;&gt; v[i];</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) </span><br><span class="line">        cnt += a[i] == i;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = cnt + (d - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>, op = <span class="number">1</span>; i &lt; <span class="built_in">min</span>(d, <span class="number">2</span> * n + <span class="number">1</span>); i ++, op ++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(op == k + <span class="number">1</span>) op = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= v[op]; j ++) a[j] ++;</span><br><span class="line">        cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) cnt += a[j] == j;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans, <span class="number">1ll</span> * cnt + (d - i - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) <span class="built_in">solve</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
 <h1 id="d.-yet-another-inversions-problem">D. Yet Another Inversions
 Problem</h1>
 <p>将整个序列分为 <span class="math inline">\(n\)</span> 块，每块 <span
