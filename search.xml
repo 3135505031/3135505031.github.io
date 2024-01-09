@@ -6,6 +6,41 @@
     <content><![CDATA[<h1 id="reference">Reference</h1>
 <p><a href="https://oi-wiki.org/graph/lgv/">OI-wiki</a></p>
 <span id="more"></span>
+<head>
+<style>
+table {
+border-collapse: collapse;
+width: 100%;
+max-width: 800px;
+margin: 0 auto;
+}
+th, td {
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+tr:nth-child(odd) {
+background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+background-color: #ffffff;
+}
+.center {
+text-align: center;
+}
+</style>
+</head>
+<script>
+// 使用JavaScript给表格奇偶行添加类名
+var rows = document.getElementsByTagName("tr");
+for (var i = 0; i < rows.length; i++) {
+if (i % 2 === 0) {
+rows[i].className = "even";
+} else {
+rows[i].className = "odd";
+}
+}
+</script>
 <h1 id="介绍">介绍</h1>
 <p>LGV引理(Lindström–Gessel–Viennot
 lemma)用来解决<strong>有向无环图</strong>上不相交路径计数，注意仅适用于有向无环图。</p>
