@@ -5,6 +5,7 @@
     <url>/posts/eb7c3ef8/</url>
     <content><![CDATA[<h1 id="reference">Reference</h1>
 <p><a href="https://oi-wiki.org/graph/lgv/">OI-wiki</a></p>
+<span id="more"></span>
 <h1 id="介绍">介绍</h1>
 <p>LGV引理(Lindström–Gessel–Viennot
 lemma)用来解决<strong>有向无环图</strong>上不相交路径计数，注意仅适用于有向无环图。</p>
