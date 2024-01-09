@@ -138,6 +138,7 @@ class="math inline">\((1,2)\)</span> 到 <span
 class="math inline">\((n-1,m)\)</span>，从 <span
 class="math inline">\((2,1)\)</span> 到 <span
 class="math inline">\((n,m-1)\)</span>，符号是正的。</p>
+<p>这也是大部分LGV引理题的通用性质：<strong>符合条件的排列本质上只有一种</strong>。</p>
 <p><span class="math inline">\(f\)</span> 可以网格图上dp算，时间复杂度
 <span class="math inline">\(\mathcal{O}(nm)\)</span>。</p>
 <details class="note info no-icon"><summary><p>code for CF348D</p>
@@ -173,6 +174,267 @@ P)\)</span>。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>, K = <span class="number">110</span>, MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Plus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a + b &gt;= MOD ? a + b - MOD : a + b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Minus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a - b &lt; <span class="number">0</span> ? a - b + MOD : a - b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">ksm</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> r = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(; b; b &gt;&gt;= <span class="number">1</span>, a = a * a % MOD)</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>) r = r * a % MOD;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, k, A[K], B[K];</span><br><span class="line"><span class="type">int</span> fac[N], ifac[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">C</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a &gt;= b &amp;&amp; b &gt;= <span class="number">0</span> ? <span class="number">1ll</span> * fac[a] * ifac[b] % MOD * ifac[a - b] % MOD : <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> Mat[K][K];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">det</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> flag = <span class="number">1</span>, ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!Mat[i][i]) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= k; j ++)</span><br><span class="line">                <span class="keyword">if</span>(Mat[j][i]) &#123;</span><br><span class="line">                    <span class="built_in">swap</span>(Mat[i], Mat[j]), flag = -flag;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!Mat[i][i]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        ans = <span class="number">1ll</span> * ans * Mat[i][i] % MOD;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> mul = <span class="built_in">ksm</span>(Mat[i][i], MOD - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i; j &lt;= k; j ++)</span><br><span class="line">            Mat[i][j] = Mat[i][j] * mul % MOD;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= k; j ++) &#123;</span><br><span class="line">            mul = Mat[j][i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> p = i; p &lt;= k; p ++)</span><br><span class="line">                Mat[j][p] = <span class="built_in">Minus</span>(Mat[j][p], mul * Mat[i][p] % MOD);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">-1</span>) ans = <span class="built_in">Minus</span>(<span class="number">0</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++)</span><br><span class="line">        cin &gt;&gt; A[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++)</span><br><span class="line">        cin &gt;&gt; B[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= k; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i] &lt;= B[j]) Mat[i][j] = <span class="built_in">C</span>((n - <span class="number">1</span>) + (B[j] - A[i]), n - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">else</span> Mat[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">det</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    fac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; N; i ++) fac[i] = <span class="number">1ll</span> * fac[i - <span class="number">1</span>] * i % MOD;</span><br><span class="line">    ifac[N - <span class="number">1</span>] = <span class="built_in">ksm</span>(fac[N - <span class="number">1</span>], MOD - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = N - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i --) ifac[i - <span class="number">1</span>] = <span class="number">1ll</span> * ifac[i] * i % MOD;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) <span class="built_in">solve</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </details>
+<h2 id="noi2021-路径交点">[NOI2021] 路径交点</h2>
+<h3 id="题目描述">题目描述</h3>
+<p>小 L 有一个有向图，图中的顶点可以分为 <span
+class="math inline">\(k\)</span> 层，第 <span
+class="math inline">\(i\)</span> 层有 <span
+class="math inline">\(n_i\)</span> 个顶点，第 <span
+class="math inline">\(1\)</span> 层与第 <span
+class="math inline">\(k\)</span> 层<strong>顶点数相同</strong>，即 <span
+class="math inline">\(n_1 = n_k\)</span>，且对于第 <span
+class="math inline">\(j\)</span>（<span class="math inline">\(2 \leq j
+\leq k-1\)</span>）层，<span class="math inline">\(n_1 \leq n_j \leq
+2n_1\)</span>。对于第 <span class="math inline">\(j\)</span>（<span
+class="math inline">\(1 \leq j &lt;
+k\)</span>）层的顶点，以它们为起点的边只会连向第 <span
+class="math inline">\(j + 1\)</span> 层的顶点。没有边连向第 <span
+class="math inline">\(1\)</span> 层的顶点，第 <span
+class="math inline">\(k\)</span> 层的顶点不会向其他顶点连边。</p>
+<p>现在小 L 要从这个图中选出 <span class="math inline">\(n_1\)</span>
+条路径，每条路径以第 <span class="math inline">\(1\)</span>
+层顶点为起点，第 <span class="math inline">\(k\)</span>
+层顶点为终点，并要求<strong>图中的每个顶点至多出现在一条路径中</strong>。更具体地，把每一层顶点按照
+<span class="math inline">\(1,2,\ldots,n_1\)</span>
+进行编号，则每条路径可以写为一个 <span class="math inline">\(k\)</span>
+元组 <span
+class="math inline">\((p_1,p_2,\ldots,p_k)\)</span>，表示这条路径依次经过第
+<span class="math inline">\(j\)</span> 层的 <span
+class="math inline">\(p_j\)</span>（<span class="math inline">\(1 \leq
+p_j \leq n_j\)</span>）号顶点，并且第 <span
+class="math inline">\(j\)</span>（<span class="math inline">\(1 \leq j
+&lt; k\)</span>）层的 <span class="math inline">\(p_j\)</span>
+号顶点有一条边连向第 <span class="math inline">\(j+1\)</span> 层的第
+<span class="math inline">\(p_{j+1}\)</span> 号顶点。</p>
+<p>小 L 把这些路径画在了纸上，发现它们会产生若干个交点。对于两条路径
+<span class="math inline">\(P,Q\)</span>，分别设它们在第 <span
+class="math inline">\(j\)</span> 层与第 <span
+class="math inline">\(j+1\)</span> 层之间的连边为 <span
+class="math inline">\((P_j,P_{j+1})\)</span> 与 <span
+class="math inline">\((Q_j,Q_{j+1})\)</span>，若，</p>
+<p><span
+class="math display">\[(P_j-Q_j)\times(P_{j+1}-Q_{j+1})&lt;0\nonumber\]</span></p>
+<p>则称它们在第 <span class="math inline">\(j\)</span>
+层后产生了一个交点。两条路径的交点数为它们在第 <span
+class="math inline">\(1, 2,\ldots,k - 1\)</span>
+层后产生的交点总数。对于整个路径方案，它的交点数为<strong>两两不同路径间交点数之和</strong>。例如下图是一个
+<span class="math inline">\(3\)</span> 条路径，共 <span
+class="math inline">\(3\)</span> 个交点的例子，其中红色点是交点。</p>
+<p><img
+src="https://cdn.luogu.com.cn/upload/image_hosting/pvr0iwkt.png" /></p>
+<p>小 L
+现在想知道有偶数个交点的路径方案数比有奇数个交点的路径方案数多多少个。两个路径方案被视为相同的，当且仅当它们的
+<span class="math inline">\(n_1\)</span>
+条路径按第一层起点编号顺序写下的 <span class="math inline">\(k\)</span>
+元组能对应相同。由于最后的结果可能很大，请你输出它对 <span
+class="math inline">\(998244353\)</span>（一个大质数）取模后的值。</p>
+<h3 id="输入格式">输入格式</h3>
+<p>本题有多组数据，输入数据第一行一个正整数 <span
+class="math inline">\(T\)</span> ，表示数据组数。对于每组数据：</p>
+<p>第一行一个正整数 <span class="math inline">\(k\)</span>，表示一共有
+<span class="math inline">\(k\)</span> 层顶点。</p>
+<p>第二行包含 <span class="math inline">\(k\)</span> 个整数 <span
+class="math inline">\(n_1,n_2,\ldots,n_k\)</span>，依次表示每一层的顶点数量。保证
+<span class="math inline">\(n_1=n_k\)</span>，且 <span
+class="math inline">\(n_1 \leq n_i \leq 2n_1\)</span>（<span
+class="math inline">\(2 \leq i \leq k-1\)</span>）。</p>
+<p>第三行包含 <span class="math inline">\(k-1\)</span> 个整数 <span
+class="math inline">\(m_1,m_2,\ldots,m_{k-1}\)</span>，依次表示第 <span
+class="math inline">\(j\)</span> 层顶点到第 <span
+class="math inline">\(j+1\)</span> 层顶点的边数。保证 <span
+class="math inline">\(m_j \leq n_j \times n_{j+1}\)</span>。</p>
+<p>接下来有 <span class="math inline">\(k-1\)</span> 段输入。第 <span
+class="math inline">\(j\)</span>（<span class="math inline">\(1 \leq j
+&lt; k\)</span>）段输入包含 <span class="math inline">\(m_j\)</span>
+行，每一行两个整数 <span class="math inline">\(u,v\)</span>，表示第
+<span class="math inline">\(j\)</span> 层的 <span
+class="math inline">\(u\)</span> 号顶点有一条边连向第 <span
+class="math inline">\(j+1\)</span> 层的 <span
+class="math inline">\(v\)</span> 号顶点。</p>
+<p>数据保证图中不会出现重边。</p>
+<h3 id="输出格式">输出格式</h3>
+<p>输出共 <span class="math inline">\(T\)</span>
+行，每行一个整数，表示该组数据的答案对 <span
+class="math inline">\(998244353\)</span> 取模后的值。</p>
+<details class="note info no-icon"><summary><p>样例1</p>
+</summary>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">3</span><br><span class="line">2 3 2</span><br><span class="line">4 4</span><br><span class="line">1 1 </span><br><span class="line">1 2</span><br><span class="line">2 1</span><br><span class="line">2 3</span><br><span class="line">1 2</span><br><span class="line">2 1</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>偶数个交点的方案有 <span class="math inline">\(2\)</span>
+个，奇数个交点的方案有 <span class="math inline">\(1\)</span>
+个，所以答案为 <span class="math inline">\(1\)</span>。</p>
+<p>将下表中路径 <span class="math inline">\(1\)</span> 和路径 <span
+class="math inline">\(2\)</span>
+的方案交换，将会得到相同的方案，例如路径 <span
+class="math inline">\(1\)</span> 为 <span class="math inline">\((2, 3,
+1)\)</span> 且路径 <span class="math inline">\(2\)</span> 为 <span
+class="math inline">\((1, 1, 2)\)</span> 的方案与方案 <span
+class="math inline">\(1\)</span> 是相同的方案，所以不会被计入答案。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">路径方案</th>
+<th style="text-align: center;">路径 <span
+class="math inline">\(1\)</span></th>
+<th style="text-align: center;">路径 <span
+class="math inline">\(2\)</span></th>
+<th style="text-align: center;">交点总数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\((1,1,2)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\((2,3,1)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\((1,2,1)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\((2,1,2)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\((1,2,1)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\((2,3,2)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+
+</details>
+<details class="note info no-icon"><summary><p>样例2</p>
+</summary>
+<p>见附件 <code>xpath2.in</code> 与 <code>xpath2.ans</code>。</p>
+<p>该样例约束与测试点 <span class="math inline">\(7 \sim 8\)</span>
+一致。</p>
+
+</details>
+<details class="note info no-icon"><summary><p>样例3</p>
+</summary>
+<p>见附件 <code>xpath3.in</code> 与 <code>xpath3.ans</code>。</p>
+<p>该样例约束与测试点 <span class="math inline">\(9 \sim 10\)</span>
+一致。</p>
+
+</details>
+<details class="note info no-icon"><summary><p>样例4</p>
+</summary>
+<p>见附件 <code>xpath4.in</code> 与 <code>xpath4.ans</code>。</p>
+<p>该样例约束与测试点 <span class="math inline">\(14 \sim 15\)</span>
+一致。</p>
+
+</details>
+<h3 id="数据范围">数据范围</h3>
+<p>对于所有测试数据：<span class="math inline">\(2 \leq k \leq
+100\)</span>，<span class="math inline">\(2 \leq n_1 \leq
+100\)</span>，<span class="math inline">\(1 \leq T \leq 5\)</span>。</p>
+<p>每个测试点中，保证 <span class="math inline">\(n_1 &gt; 10\)</span>
+的数据只有 <span class="math inline">\(1\)</span> 组。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">测试点编号</th>
+<th style="text-align: center;"><span
+class="math inline">\(k=\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(n_1
+\leq\)</span></th>
+<th style="text-align: center;">特殊性质</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1 \sim
+4\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;">无</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(5 \sim
+6\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;">A，B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(7 \sim
+8\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(9 \sim
+10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;">无</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(11 \sim
+13\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;">无</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(14 \sim
+15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;">A，B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(16 \sim
+17\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(18 \sim
+20\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;">无</td>
+</tr>
+</tbody>
+</table>
+<p>特殊性质 A：对于所有 <span class="math inline">\(i\)</span>（<span
+class="math inline">\(2 \leq i \leq k-1\)</span>）满足 <span
+class="math inline">\(n_i = n_1\)</span>。</p>
+<p>特殊性质 B：保证路径方案总数至多为 <span
+class="math inline">\(1\)</span>。</p>
+<h3 id="题解-2">题解</h3>
 ]]></content>
       <categories>
         <category>学习笔记</category>
