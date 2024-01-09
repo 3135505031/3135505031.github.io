@@ -1,6 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>特征多项式学习笔记</title>
+    <url>/posts/acbaae17/</url>
+    <content><![CDATA[<p>介绍了方阵的特征多项式以及利用上Hessenberg矩阵的 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span> 求法。</p>
+<h1 id="reference">Reference</h1>
+<p><a
+href="https://oi-wiki.org/math/linear-algebra/char-poly/">OI-wiki</a></p>
+<p><a
+href="https://zhuanlan.zhihu.com/p/613146294">特征多项式：Hessenberg
+法及加速矩阵幂</a></p>
+<span id="more"></span>
+<h1 id="特征值与特征向量">特征值与特征向量</h1>
+<p>给定 <span class="math inline">\(n \times n\)</span> 的方阵 <span
+class="math inline">\(\mathbf{T}\)</span>，若存在一个非零列向量 <span
+class="math inline">\(\mathbf{v}\)</span> 和数 <span
+class="math inline">\(\lambda\)</span> 满足 <span
+class="math inline">\(\mathbf{T}\mathbf{v} = \lambda
+\mathbf{v}\)</span>，则称 <span class="math inline">\(\lambda\)</span>
+为 <span class="math inline">\(\mathbf{T}\)</span>
+的一个<strong>特征值</strong>，而 <span
+class="math inline">\(\mathbf{v}\)</span> 是 <span
+class="math inline">\(\mathbf{T}\)</span> 的<strong>属于特征值</strong>
+<span class="math inline">\(\mathbf{v}\)</span>
+的一个<strong>特征向量</strong>。</p>
+<p>也就是说，<span class="math inline">\(\mathbf{v}\)</span> 在 <span
+class="math inline">\(\mathbf{T}\)</span> 的线性变换下，只是伸缩了 <span
+class="math inline">\(\lambda\)</span> 倍。</p>
+<h1 id="特征多项式">特征多项式</h1>
+<p>将上面的式子变换得到 <span class="math inline">\((\lambda
+\mathbf{I}-\mathbf{T})\mathbf{v}=\mathbf{0}\)</span>，相应地，非 <span
+class="math inline">\(\mathbf{0}\)</span> 解 <span
+class="math inline">\(\mathbf{v}\)</span> 就是一个特征向量。我们称 <span
+class="math inline">\(\lambda \mathbf{I} - \mathbf{T}\)</span> 为 <span
+class="math inline">\(T\)</span>
+的<strong>特征矩阵</strong>，特征矩阵的行列式 <span
+class="math inline">\(\operatorname{det}(\lambda \mathbf{I} -
+\mathbf{T})\)</span> 是一个 <span class="math inline">\(n\)</span>
+次多项式，称为 <span class="math inline">\(\mathbf{T}\)</span>
+的<strong>特征多项式</strong>，其根就是 <span
+class="math inline">\(\mathbf{T}\)</span> 的特征值，记做 <span
+class="math inline">\(p_{\mathbf{T}}(\lambda)\)</span>。</p>
+<p>怎么求一个方阵的特征多项式？代入 <span
+class="math inline">\(n+1\)</span> 个 <span
+class="math inline">\(\lambda\)</span> 后Lagrange插值即可，时间复杂度
+<span class="math inline">\(\mathcal{O}(n^4)\)</span>。</p>
+<p>接下来，我们引入相似矩阵和上Hessenberg矩阵来做到 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span> 的时间复杂度。</p>
+<h1 id="更优秀的做法">更优秀的做法</h1>
+<h2 id="hessenberg矩阵">Hessenberg矩阵</h2>
+<p>海森堡矩阵（Hessenberg
+matrix）是一个和三角阵很相似的<strong>方阵</strong>，上海森堡矩阵（upper
+Hessenberg matrix）的次对角线以下元素全为 <span
+class="math inline">\(0\)</span>，下海森堡（lower Hessenberg
+matrix）矩阵的次对角线以上元素全为 <span
+class="math inline">\(0\)</span>，下面是两个例子，左侧为上Hessenberg矩阵，右侧为下Hessenberg矩阵。</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 3 &amp; 4 &amp; 2\\
+7 &amp; 2 &amp; 2 &amp; 1\\
+0 &amp; 1 &amp; 4 &amp; 5\\
+0 &amp; 0 &amp; 3 &amp; 9
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 6 &amp; 0 &amp; 0\\
+7 &amp; 2 &amp; 2 &amp; 0\\
+3 &amp; 1 &amp; 4 &amp; 5\\
+5 &amp; 8 &amp; 3 &amp; 9
+\end{bmatrix}
+\nonumber
+\]</span></p>
+<p>Hessenberg矩阵对我们求特征多项式有什么用处吗？接下来我们试着求出一个上Hessenberg矩阵的特征多项式，并且在之后用相似变换将求一般方阵的特征多项式转换为求Hessenberg矩阵的特征多项式。</p>
+<p>设上Hessenberg矩阵 <span class="math inline">\(\mathbf{H}\)</span>
+为</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+\alpha_1 &amp; h_{1,2} &amp; h_{1,3} &amp; \cdots &amp; h_{1,n} \\
+\beta_2 &amp; \alpha_2 &amp; h_{2,3} &amp; \cdots &amp; h_{2,n} \\
+  &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+  &amp;  &amp; \ddots &amp; \ddots &amp; h_{n-1,n} \\
+  &amp;  &amp;  &amp; \beta_n &amp; \alpha_n
+\end{bmatrix}
+\nonumber
+\]</span></p>
+<p>那么其特征多项式就是</p>
+<p><span class="math display">\[
+\begin{vmatrix}
+\lambda-\alpha_1 &amp; -h_{1,2} &amp; -h_{1,3} &amp; \cdots &amp;
+-h_{1,n} \\
+-\beta_2 &amp; \lambda-\alpha_2 &amp; -h_{2,3} &amp; \cdots &amp;
+-h_{2,n} \\
+  &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+  &amp;  &amp; \ddots &amp; \ddots &amp; -h_{n-1,n} \\
+  &amp;  &amp;  &amp; -\beta_n &amp; \lambda-\alpha_n
+\end{vmatrix}
+\nonumber
+\]</span></p>
+<p>记 <span class="math inline">\(\mathbf{H}_i\)</span> 表示保留 <span
+class="math inline">\(\mathbf{H}\)</span> 的前 <span
+class="math inline">\(i\)</span> 行前 <span
+class="math inline">\(i\)</span> 列得到的方阵，<span
+class="math inline">\(p_i(\lambda)\)</span> 表示 <span
+class="math inline">\(\mathbf{H}_i\)</span> 的特征多项式。</p>
+<p>按最后一行展开 <span
+class="math inline">\(p_{n}(\lambda)\)</span>，得到</p>
+<p><span class="math display">\[
+p_{n}(\lambda) = (\lambda - \alpha_n)p_{n-1}(\lambda) + \beta_n
+\begin{vmatrix}
+\lambda-\alpha_1 &amp; -h_{1,2} &amp; \cdots &amp; -h_{1,n-2} &amp;
+-h_{1,n} \\
+-\beta_2 &amp; \lambda-\alpha_2 &amp; \cdots &amp; -h_{2,n-2} &amp;
+-h_{2,n} \\
+  &amp; \ddots &amp; \ddots &amp; \vdots &amp; \vdots \\
+  &amp;  &amp; \ddots &amp; \lambda - \alpha_{n-2} &amp; -h_{n-2,n} \\
+  &amp;  &amp;  &amp; -\beta_{n-1} &amp; -h_{n-1,n}
+\end{vmatrix}
+\nonumber
+\]</span></p>
+<p>再按最后一列展开右面的行列式，对于每一个 <span
+class="math inline">\(-h_{n-i,n}\)</span>，其余子式皆形如</p>
+<p><span class="math display">\[
+\begin{vmatrix}
+  &amp;  &amp;  &amp;  &amp;  &amp; \\
+  &amp; [\lambda \mathbf{I}-\mathbf{H}_{n-i-1}]
+&amp;  &amp;  &amp;  &amp;  \\
+  &amp;  &amp;  &amp;  &amp;  &amp; \\
+  &amp;  &amp; -\beta_{n-i+1} &amp; \cdots &amp; &amp; \\
+  &amp;  &amp;  &amp; \ddots &amp; \vdots &amp; \vdots \\
+  &amp;  &amp;  &amp;  &amp; -\beta_{n-2} &amp; \vdots \\
+  &amp;  &amp;  &amp;  &amp;  &amp; -\beta_{n-1}
+\end{vmatrix}
+\nonumber
+\]</span></p>
+<p>这个东西很特别，它就是</p>
+<p><span class="math display">\[
+p_{n-i-1}(\lambda) \prod_{j=n-i+1}^{n-1}-\beta_j
+\nonumber
+\]</span></p>
+<p>把每个 <span class="math inline">\(-h_{n-i,n}\)</span>
+展开的结果加起来，得到</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n-1}(-1)^{1+(n-i)+(n-1)+(i-1)}
+p_{n-i-1}(\lambda)h_{n-i,n}\prod_{j=n-i+1}^{n-1}\beta_j=-\sum_{i=1}^{n-1}p_{n-i-1}(\lambda)h_{n-i,n}\prod_{j=n-i+1}^{n-1}\beta_j
+\nonumber
+\]</span></p>
+<p>代回到原式子，我们就有</p>
+<p><span class="math display">\[
+p_{n}(\lambda) = (\lambda - \alpha_n)p_{n-1}(\lambda)
+-\sum_{i=1}^{n-1}p_{n-i-1}(\lambda)h_{n-i,n}\prod_{j=n-i+1}^{n}\beta_j
+\nonumber
+\]</span></p>
+<p>可以递推计算 <span
+class="math inline">\(p_i(\lambda)\)</span>，时间复杂度 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span>。</p>
+<h2 id="相似矩阵">相似矩阵</h2>
+<p>对于一个 <span class="math inline">\(n \times n\)</span> 方阵 <span
+class="math inline">\(\mathbf{A}\)</span>，定义其<strong>相似矩阵</strong>
+<span class="math inline">\(\mathbf{B}\)</span> 是可以表示为 <span
+class="math inline">\(\mathbf{P} \times \mathbf{A} \times
+\mathbf{P}^{-1}\)</span> 的 <span class="math inline">\(n \times
+n\)</span> 方阵，其中 <span class="math inline">\(\mathbf{P}\)</span>
+是任意一个 <span class="math inline">\(n \times n\)</span>
+的可逆方阵，此时称 <span class="math inline">\(\mathbf{A}\)</span> 和
+<span class="math inline">\(\mathbf{B}\)</span>
+<strong>相似</strong>。</p>
+<p>相似矩阵有什么特别之处吗？</p>
+<p><strong>定理：</strong> 两个相似矩阵 <span
+class="math inline">\(\mathbf{A}\)</span> 和 <span
+class="math inline">\(\mathbf{B}\)</span> 具有相同的特征多项式。</p>
+<p><strong>证明：</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{det}(\lambda \mathbf{I} -
+\mathbf{P}\mathbf{A}\mathbf{P}^{-1})&amp;=\operatorname{det}(\mathbf{P}(\lambda
+\mathbf{I})\mathbf{P}^{-1} -
+\mathbf{P}\mathbf{A}\mathbf{P}^{-1})\newline
+&amp;=\operatorname{det}(\mathbf{P})\operatorname{det}(\mathbf{P}^{-1})\operatorname{det}(\lambda
+\mathbf{I} - \mathbf{A})\newline
+&amp;=\operatorname{det}(\lambda \mathbf{I} - \mathbf{A})
+\end{aligned}\nonumber
+\]</span></p>
+<p>证毕！</p>
+<p>运用相似变换直接将一个任意方阵 <span
+class="math inline">\(\mathbf{A}\)</span>
+变为上三角阵是不现实的：在消元时做第 <span
+class="math inline">\(i\)</span> 列和第 <span
+class="math inline">\(j\)</span>
+列的初等列变换会把之前的东西变乱——但是运用相似变换将一个任意方阵 <span
+class="math inline">\(\mathbf{A}\)</span>
+变为一个Hessenberg矩阵是容易的！此时消元的初等列变换不会干扰到之前做好的值。</p>
+<p>于是就得到了 <span class="math inline">\(\mathcal{O}(n^3)\)</span>
+求任意方阵的特征多项式的做法。</p>
+<details class="note info no-icon"><summary><p>示例代码</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Plus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a + b &gt;= MOD ? a + b - MOD : a + b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Minus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a - b &lt; <span class="number">0</span> ? a - b + MOD : a - b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">ksm</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> r = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(; b; b &gt;&gt;= <span class="number">1</span>, a = a * a % MOD)</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>) r = r * a % MOD;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> solver &#123;</span><br><span class="line">    <span class="type">int</span> Mat[N][N];</span><br><span class="line">    <span class="type">int</span> p[N][N];    <span class="comment">// p[i][k] 表示 p_i(Mat) 中 \lambda^k 的系数</span></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> vector&lt;<span class="type">int</span>&gt; <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(Mat[i + <span class="number">1</span>][i] == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">2</span>; j &lt;= n; j ++)</span><br><span class="line">                    <span class="keyword">if</span>(Mat[j][i] != <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="built_in">swap</span>(Mat[i + <span class="number">1</span>], Mat[j]);</span><br><span class="line">                        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k ++)</span><br><span class="line">                            <span class="built_in">swap</span>(Mat[k][i + <span class="number">1</span>], Mat[k][j]);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(Mat[i + <span class="number">1</span>][i] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">2</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">                <span class="type">long</span> <span class="type">long</span> mul = <span class="number">1ll</span> * Mat[j][i] * <span class="built_in">ksm</span>(Mat[i + <span class="number">1</span>][i], MOD - <span class="number">2</span>) % MOD;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k ++)</span><br><span class="line">                    Mat[j][k] = <span class="built_in">Minus</span>(Mat[j][k], mul * Mat[i + <span class="number">1</span>][k] % MOD);</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k ++)</span><br><span class="line">                    Mat[k][i + <span class="number">1</span>] = <span class="built_in">Plus</span>(Mat[k][i + <span class="number">1</span>], mul * Mat[k][j] % MOD);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= n; j ++)</span><br><span class="line">                p[i][j] = <span class="number">0</span>; <span class="comment">// 只做一次的话可以不清空</span></span><br><span class="line">        p[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">            p[i][<span class="number">0</span>] = <span class="built_in">Minus</span>(<span class="number">0</span>, <span class="number">1ll</span> * Mat[i][i] * p[i - <span class="number">1</span>][<span class="number">0</span>] % MOD);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">                p[i][j] = <span class="built_in">Minus</span>(p[i - <span class="number">1</span>][j - <span class="number">1</span>], <span class="number">1ll</span> * Mat[i][i] * p[i - <span class="number">1</span>][j] % MOD);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i - <span class="number">1</span>; j ++) &#123;</span><br><span class="line">                <span class="type">long</span> <span class="type">long</span> mul = Mat[i - j][i];</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = i - j + <span class="number">1</span>; k &lt;= i; k ++)</span><br><span class="line">                    mul = mul * Mat[k][k - <span class="number">1</span>] % MOD;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt;= i; k ++)</span><br><span class="line">                    p[i][k] = <span class="built_in">Minus</span>(p[i][k], p[i - j - <span class="number">1</span>][k] * mul % MOD);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">            res[i] = p[n][i];</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2023.1.8省选模拟</title>
     <url>/posts/51080703/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">

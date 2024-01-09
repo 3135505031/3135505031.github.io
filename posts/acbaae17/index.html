@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-L.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-L.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-L.png">
+  <link rel="mask-icon" href="/images/L.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lav2.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":"mac","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="介绍了方阵的特征多项式以及利用上Hessenberg矩阵的 \(\mathcal{O}(n^3)\) 求法。 Reference OI-wiki 特征多项式：Hessenberg 法及加速矩阵幂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="特征多项式学习笔记">
+<meta property="og:url" content="https://lav2.top/posts/acbaae17/index.html">
+<meta property="og:site_name" content="LA&#39;s Blog">
+<meta property="og:description" content="介绍了方阵的特征多项式以及利用上Hessenberg矩阵的 \(\mathcal{O}(n^3)\) 求法。 Reference OI-wiki 特征多项式：Hessenberg 法及加速矩阵幂">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-09T10:53:35.000Z">
+<meta property="article:modified_time" content="2024-01-09T14:05:37.129Z">
+<meta property="article:author" content="LA">
+<meta property="article:tag" content="线性代数">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lav2.top/posts/acbaae17/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lav2.top/posts/acbaae17/","path":"posts/acbaae17/","title":"特征多项式学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>特征多项式学习笔记 | LA's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LA's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-留言板"><a href="/comments/" rel="section"><i class="fa fa-comment fa-fw"></i>留言板</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">特征值与特征向量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">特征多项式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E4%BC%98%E7%A7%80%E7%9A%84%E5%81%9A%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">更优秀的做法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hessenberg%E7%9F%A9%E9%98%B5"><span class="nav-number">4.1.</span> <span class="nav-text">Hessenberg矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E7%9F%A9%E9%98%B5"><span class="nav-number">4.2.</span> <span class="nav-text">相似矩阵</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LA"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">LA</p>
+  <div class="site-description" itemprop="description">和我签订契约，成为魔法少女吧！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/3135505031" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;3135505031" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Syh3135505031@outlook.com" title="E-Mail → mailto:Syh3135505031@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/319405026" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;319405026" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/508774" title="洛谷 → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;508774" rel="noopener me" target="_blank"><i class="fa fa-code fa-fw"></i>洛谷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://lav2.top/" title="QQ-3135505031 → https:&#x2F;&#x2F;lav2.top" rel="noopener me"><i class="fab fa-qq fa-fw"></i>QQ-3135505031</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://lav2.top/" title="微信-la3135505031 → https:&#x2F;&#x2F;lav2.top" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>微信-la3135505031</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/la-78-41-33" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;la-78-41-33" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+<!-- recent posts -->
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lav2.top/posts/acbaae17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="LA">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LA's Blog">
+      <meta itemprop="description" content="和我签订契约，成为魔法少女吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="特征多项式学习笔记 | LA's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          特征多项式学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-09 18:53:35 / 修改时间：22:05:37" itemprop="dateCreated datePublished" datetime="2024-01-09T18:53:35+08:00">2024-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+
+          
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>介绍了方阵的特征多项式以及利用上Hessenberg矩阵的 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span> 求法。</p>
+<h1 id="reference">Reference</h1>
+<p><a
+target="_blank" rel="noopener" href="https://oi-wiki.org/math/linear-algebra/char-poly/">OI-wiki</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/613146294">特征多项式：Hessenberg
+法及加速矩阵幂</a></p>
+<span id="more"></span>
+<h1 id="特征值与特征向量">特征值与特征向量</h1>
+<p>给定 <span class="math inline">\(n \times n\)</span> 的方阵 <span
+class="math inline">\(\mathbf{T}\)</span>，若存在一个非零列向量 <span
+class="math inline">\(\mathbf{v}\)</span> 和数 <span
+class="math inline">\(\lambda\)</span> 满足 <span
+class="math inline">\(\mathbf{T}\mathbf{v} = \lambda
+\mathbf{v}\)</span>，则称 <span class="math inline">\(\lambda\)</span>
+为 <span class="math inline">\(\mathbf{T}\)</span>
+的一个<strong>特征值</strong>，而 <span
+class="math inline">\(\mathbf{v}\)</span> 是 <span
+class="math inline">\(\mathbf{T}\)</span> 的<strong>属于特征值</strong>
+<span class="math inline">\(\mathbf{v}\)</span>
+的一个<strong>特征向量</strong>。</p>
+<p>也就是说，<span class="math inline">\(\mathbf{v}\)</span> 在 <span
+class="math inline">\(\mathbf{T}\)</span> 的线性变换下，只是伸缩了 <span
+class="math inline">\(\lambda\)</span> 倍。</p>
+<h1 id="特征多项式">特征多项式</h1>
+<p>将上面的式子变换得到 <span class="math inline">\((\lambda
+\mathbf{I}-\mathbf{T})\mathbf{v}=\mathbf{0}\)</span>，相应地，非 <span
+class="math inline">\(\mathbf{0}\)</span> 解 <span
+class="math inline">\(\mathbf{v}\)</span> 就是一个特征向量。我们称 <span
+class="math inline">\(\lambda \mathbf{I} - \mathbf{T}\)</span> 为 <span
+class="math inline">\(T\)</span>
+的<strong>特征矩阵</strong>，特征矩阵的行列式 <span
+class="math inline">\(\operatorname{det}(\lambda \mathbf{I} -
+\mathbf{T})\)</span> 是一个 <span class="math inline">\(n\)</span>
+次多项式，称为 <span class="math inline">\(\mathbf{T}\)</span>
+的<strong>特征多项式</strong>，其根就是 <span
+class="math inline">\(\mathbf{T}\)</span> 的特征值，记做 <span
+class="math inline">\(p_{\mathbf{T}}(\lambda)\)</span>。</p>
+<p>怎么求一个方阵的特征多项式？代入 <span
+class="math inline">\(n+1\)</span> 个 <span
+class="math inline">\(\lambda\)</span> 后Lagrange插值即可，时间复杂度
+<span class="math inline">\(\mathcal{O}(n^4)\)</span>。</p>
+<p>接下来，我们引入相似矩阵和上Hessenberg矩阵来做到 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span> 的时间复杂度。</p>
+<h1 id="更优秀的做法">更优秀的做法</h1>
+<h2 id="hessenberg矩阵">Hessenberg矩阵</h2>
+<p>海森堡矩阵（Hessenberg
+matrix）是一个和三角阵很相似的<strong>方阵</strong>，上海森堡矩阵（upper
+Hessenberg matrix）的次对角线以下元素全为 <span
+class="math inline">\(0\)</span>，下海森堡（lower Hessenberg
+matrix）矩阵的次对角线以上元素全为 <span
+class="math inline">\(0\)</span>，下面是两个例子，左侧为上Hessenberg矩阵，右侧为下Hessenberg矩阵。</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 3 &amp; 4 &amp; 2\\
+7 &amp; 2 &amp; 2 &amp; 1\\
+0 &amp; 1 &amp; 4 &amp; 5\\
+0 &amp; 0 &amp; 3 &amp; 9
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 6 &amp; 0 &amp; 0\\
+7 &amp; 2 &amp; 2 &amp; 0\\
+3 &amp; 1 &amp; 4 &amp; 5\\
+5 &amp; 8 &amp; 3 &amp; 9
+\end{bmatrix}
+\nonumber
+\]</span></p>
+<p>Hessenberg矩阵对我们求特征多项式有什么用处吗？接下来我们试着求出一个上Hessenberg矩阵的特征多项式，并且在之后用相似变换将求一般方阵的特征多项式转换为求Hessenberg矩阵的特征多项式。</p>
+<p>设上Hessenberg矩阵 <span class="math inline">\(\mathbf{H}\)</span>
+为</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+\alpha_1 &amp; h_{1,2} &amp; h_{1,3} &amp; \cdots &amp; h_{1,n} \\
+\beta_2 &amp; \alpha_2 &amp; h_{2,3} &amp; \cdots &amp; h_{2,n} \\
+  &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+  &amp;  &amp; \ddots &amp; \ddots &amp; h_{n-1,n} \\
+  &amp;  &amp;  &amp; \beta_n &amp; \alpha_n
+\end{bmatrix}
+\nonumber
+\]</span></p>
+<p>那么其特征多项式就是</p>
+<p><span class="math display">\[
+\begin{vmatrix}
+\lambda-\alpha_1 &amp; -h_{1,2} &amp; -h_{1,3} &amp; \cdots &amp;
+-h_{1,n} \\
+-\beta_2 &amp; \lambda-\alpha_2 &amp; -h_{2,3} &amp; \cdots &amp;
+-h_{2,n} \\
+  &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+  &amp;  &amp; \ddots &amp; \ddots &amp; -h_{n-1,n} \\
+  &amp;  &amp;  &amp; -\beta_n &amp; \lambda-\alpha_n
+\end{vmatrix}
+\nonumber
+\]</span></p>
+<p>记 <span class="math inline">\(\mathbf{H}_i\)</span> 表示保留 <span
+class="math inline">\(\mathbf{H}\)</span> 的前 <span
+class="math inline">\(i\)</span> 行前 <span
+class="math inline">\(i\)</span> 列得到的方阵，<span
+class="math inline">\(p_i(\lambda)\)</span> 表示 <span
+class="math inline">\(\mathbf{H}_i\)</span> 的特征多项式。</p>
+<p>按最后一行展开 <span
+class="math inline">\(p_{n}(\lambda)\)</span>，得到</p>
+<p><span class="math display">\[
+p_{n}(\lambda) = (\lambda - \alpha_n)p_{n-1}(\lambda) + \beta_n
+\begin{vmatrix}
+\lambda-\alpha_1 &amp; -h_{1,2} &amp; \cdots &amp; -h_{1,n-2} &amp;
+-h_{1,n} \\
+-\beta_2 &amp; \lambda-\alpha_2 &amp; \cdots &amp; -h_{2,n-2} &amp;
+-h_{2,n} \\
+  &amp; \ddots &amp; \ddots &amp; \vdots &amp; \vdots \\
+  &amp;  &amp; \ddots &amp; \lambda - \alpha_{n-2} &amp; -h_{n-2,n} \\
+  &amp;  &amp;  &amp; -\beta_{n-1} &amp; -h_{n-1,n}
+\end{vmatrix}
+\nonumber
+\]</span></p>
+<p>再按最后一列展开右面的行列式，对于每一个 <span
+class="math inline">\(-h_{n-i,n}\)</span>，其余子式皆形如</p>
+<p><span class="math display">\[
+\begin{vmatrix}
+  &amp;  &amp;  &amp;  &amp;  &amp; \\
+  &amp; [\lambda \mathbf{I}-\mathbf{H}_{n-i-1}]
+&amp;  &amp;  &amp;  &amp;  \\
+  &amp;  &amp;  &amp;  &amp;  &amp; \\
+  &amp;  &amp; -\beta_{n-i+1} &amp; \cdots &amp; &amp; \\
+  &amp;  &amp;  &amp; \ddots &amp; \vdots &amp; \vdots \\
+  &amp;  &amp;  &amp;  &amp; -\beta_{n-2} &amp; \vdots \\
+  &amp;  &amp;  &amp;  &amp;  &amp; -\beta_{n-1}
+\end{vmatrix}
+\nonumber
+\]</span></p>
+<p>这个东西很特别，它就是</p>
+<p><span class="math display">\[
+p_{n-i-1}(\lambda) \prod_{j=n-i+1}^{n-1}-\beta_j
+\nonumber
+\]</span></p>
+<p>把每个 <span class="math inline">\(-h_{n-i,n}\)</span>
+展开的结果加起来，得到</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n-1}(-1)^{1+(n-i)+(n-1)+(i-1)}
+p_{n-i-1}(\lambda)h_{n-i,n}\prod_{j=n-i+1}^{n-1}\beta_j=-\sum_{i=1}^{n-1}p_{n-i-1}(\lambda)h_{n-i,n}\prod_{j=n-i+1}^{n-1}\beta_j
+\nonumber
+\]</span></p>
+<p>代回到原式子，我们就有</p>
+<p><span class="math display">\[
+p_{n}(\lambda) = (\lambda - \alpha_n)p_{n-1}(\lambda)
+-\sum_{i=1}^{n-1}p_{n-i-1}(\lambda)h_{n-i,n}\prod_{j=n-i+1}^{n}\beta_j
+\nonumber
+\]</span></p>
+<p>可以递推计算 <span
+class="math inline">\(p_i(\lambda)\)</span>，时间复杂度 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span>。</p>
+<h2 id="相似矩阵">相似矩阵</h2>
+<p>对于一个 <span class="math inline">\(n \times n\)</span> 方阵 <span
+class="math inline">\(\mathbf{A}\)</span>，定义其<strong>相似矩阵</strong>
+<span class="math inline">\(\mathbf{B}\)</span> 是可以表示为 <span
+class="math inline">\(\mathbf{P} \times \mathbf{A} \times
+\mathbf{P}^{-1}\)</span> 的 <span class="math inline">\(n \times
+n\)</span> 方阵，其中 <span class="math inline">\(\mathbf{P}\)</span>
+是任意一个 <span class="math inline">\(n \times n\)</span>
+的可逆方阵，此时称 <span class="math inline">\(\mathbf{A}\)</span> 和
+<span class="math inline">\(\mathbf{B}\)</span>
+<strong>相似</strong>。</p>
+<p>相似矩阵有什么特别之处吗？</p>
+<p><strong>定理：</strong> 两个相似矩阵 <span
+class="math inline">\(\mathbf{A}\)</span> 和 <span
+class="math inline">\(\mathbf{B}\)</span> 具有相同的特征多项式。</p>
+<p><strong>证明：</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{det}(\lambda \mathbf{I} -
+\mathbf{P}\mathbf{A}\mathbf{P}^{-1})&amp;=\operatorname{det}(\mathbf{P}(\lambda
+\mathbf{I})\mathbf{P}^{-1} -
+\mathbf{P}\mathbf{A}\mathbf{P}^{-1})\newline
+&amp;=\operatorname{det}(\mathbf{P})\operatorname{det}(\mathbf{P}^{-1})\operatorname{det}(\lambda
+\mathbf{I} - \mathbf{A})\newline
+&amp;=\operatorname{det}(\lambda \mathbf{I} - \mathbf{A})
+\end{aligned}\nonumber
+\]</span></p>
+<p>证毕！</p>
+<p>运用相似变换直接将一个任意方阵 <span
+class="math inline">\(\mathbf{A}\)</span>
+变为上三角阵是不现实的：在消元时做第 <span
+class="math inline">\(i\)</span> 列和第 <span
+class="math inline">\(j\)</span>
+列的初等列变换会把之前的东西变乱——但是运用相似变换将一个任意方阵 <span
+class="math inline">\(\mathbf{A}\)</span>
+变为一个Hessenberg矩阵是容易的！此时消元的初等列变换不会干扰到之前做好的值。</p>
+<p>于是就得到了 <span class="math inline">\(\mathcal{O}(n^3)\)</span>
+求任意方阵的特征多项式的做法。</p>
+<details class="note info no-icon"><summary><p>示例代码</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Plus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a + b &gt;= MOD ? a + b - MOD : a + b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Minus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a - b &lt; <span class="number">0</span> ? a - b + MOD : a - b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">ksm</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> r = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(; b; b &gt;&gt;= <span class="number">1</span>, a = a * a % MOD)</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>) r = r * a % MOD;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> solver &#123;</span><br><span class="line">    <span class="type">int</span> Mat[N][N];</span><br><span class="line">    <span class="type">int</span> p[N][N];    <span class="comment">// p[i][k] 表示 p_i(Mat) 中 \lambda^k 的系数</span></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> vector&lt;<span class="type">int</span>&gt; <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(Mat[i + <span class="number">1</span>][i] == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">2</span>; j &lt;= n; j ++)</span><br><span class="line">                    <span class="keyword">if</span>(Mat[j][i] != <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="built_in">swap</span>(Mat[i + <span class="number">1</span>], Mat[j]);</span><br><span class="line">                        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k ++)</span><br><span class="line">                            <span class="built_in">swap</span>(Mat[k][i + <span class="number">1</span>], Mat[k][j]);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(Mat[i + <span class="number">1</span>][i] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">2</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">                <span class="type">long</span> <span class="type">long</span> mul = <span class="number">1ll</span> * Mat[j][i] * <span class="built_in">ksm</span>(Mat[i + <span class="number">1</span>][i], MOD - <span class="number">2</span>) % MOD;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k ++)</span><br><span class="line">                    Mat[j][k] = <span class="built_in">Minus</span>(Mat[j][k], mul * Mat[i + <span class="number">1</span>][k] % MOD);</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k ++)</span><br><span class="line">                    Mat[k][i + <span class="number">1</span>] = <span class="built_in">Plus</span>(Mat[k][i + <span class="number">1</span>], mul * Mat[k][j] % MOD);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= n; j ++)</span><br><span class="line">                p[i][j] = <span class="number">0</span>; <span class="comment">// 只做一次的话可以不清空</span></span><br><span class="line">        p[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">            p[i][<span class="number">0</span>] = <span class="built_in">Minus</span>(<span class="number">0</span>, <span class="number">1ll</span> * Mat[i][i] * p[i - <span class="number">1</span>][<span class="number">0</span>] % MOD);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">                p[i][j] = <span class="built_in">Minus</span>(p[i - <span class="number">1</span>][j - <span class="number">1</span>], <span class="number">1ll</span> * Mat[i][i] * p[i - <span class="number">1</span>][j] % MOD);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i - <span class="number">1</span>; j ++) &#123;</span><br><span class="line">                <span class="type">long</span> <span class="type">long</span> mul = Mat[i - j][i];</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = i - j + <span class="number">1</span>; k &lt;= i; k ++)</span><br><span class="line">                    mul = mul * Mat[k][k - <span class="number">1</span>] % MOD;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt;= i; k ++)</span><br><span class="line">                    p[i][k] = <span class="built_in">Minus</span>(p[i][k], p[i - j - <span class="number">1</span>][k] * mul % MOD);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">            res[i] = p[n][i];</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag"># 线性代数</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/51080703/" rel="prev" title="2023.1.8省选模拟">
+                  <i class="fa fa-angle-left"></i> 2023.1.8省选模拟
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-pen-fancy"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">LA</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">82k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:58</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.12/pdfobject.min.js","integrity":"sha256-g2xji1rlE3KsGVClvuxTbcR0Kn2+wtQADSff2Tbb4zA="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
