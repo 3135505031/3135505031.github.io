@@ -255,8 +255,10 @@ class="math inline">\(1, 2,\ldots,k - 1\)</span>
 层后产生的交点总数。对于整个路径方案，它的交点数为<strong>两两不同路径间交点数之和</strong>。例如下图是一个
 <span class="math inline">\(3\)</span> 条路径，共 <span
 class="math inline">\(3\)</span> 个交点的例子，其中红色点是交点。</p>
-<p><img
-src="https://cdn.luogu.com.cn/upload/image_hosting/pvr0iwkt.png" /></p>
+<p align="center">
+<object type="image/svg+xml" data="/posts/eb7c3ef8/NOI2021.svg" width="100%" height="100%">
+</object>
+</p>
 <p>小 L
 现在想知道有偶数个交点的路径方案数比有奇数个交点的路径方案数多多少个。两个路径方案被视为相同的，当且仅当它们的
 <span class="math inline">\(n_1\)</span>
