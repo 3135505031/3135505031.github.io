@@ -236,6 +236,13 @@
 
   
   <url>
+    <loc>https://lav2.top/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/</loc>
+    <lastmod>2024-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://lav2.top/tags/Codeforces/</loc>
     <lastmod>2024-01-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -250,7 +257,7 @@
   </url>
   
   <url>
-    <loc>https://lav2.top/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/</loc>
+    <loc>https://lav2.top/tags/%E8%AE%A1%E6%95%B0/</loc>
     <lastmod>2024-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -291,42 +298,14 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://lav2.top/tags/dp/</loc>
-    <lastmod>2024-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/tags/%E8%83%8C%E5%8C%85/</loc>
-    <lastmod>2024-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/tags/bitset/</loc>
-    <lastmod>2024-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/tags/%E6%9E%84%E9%80%A0/</loc>
-    <lastmod>2024-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/tags/%E8%AE%A1%E6%95%B0/</loc>
-    <lastmod>2024-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
+  
+  <url>
+    <loc>https://lav2.top/categories/%E6%A8%A1%E6%8B%9F%E8%B5%9B/</loc>
+    <lastmod>2024-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://lav2.top/categories/Codeforces/</loc>
@@ -350,20 +329,6 @@
   </url>
   
   <url>
-    <loc>https://lav2.top/categories/%E6%A8%A1%E6%8B%9F%E8%B5%9B/</loc>
-    <lastmod>2024-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/categories/Test-Categories/</loc>
-    <lastmod>2024-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lav2.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-01-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -371,7 +336,7 @@
   </url>
   
   <url>
-    <loc>https://lav2.top/categories/%E9%A2%98%E7%9B%AE/</loc>
+    <loc>https://lav2.top/categories/Test-Categories/</loc>
     <lastmod>2024-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
