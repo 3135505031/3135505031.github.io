@@ -1,6 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LGV引理学习笔记</title>
+    <url>/posts/eb7c3ef8/</url>
+    <content><![CDATA[<h1 id="reference">Reference</h1>
+<p><a href="https://oi-wiki.org/graph/lgv/">OI-wiki</a></p>
+<h1 id="介绍">介绍</h1>
+<p>LGV引理(Lindström–Gessel–Viennot
+lemma)用来解决<strong>有向无环图</strong>上不相交路径计数，注意仅适用于有向无环图。</p>
+<p>给定 <span class="math inline">\(n\)</span> 个起点构成的集合 <span
+class="math inline">\(S\)</span> 和 <span
+class="math inline">\(n\)</span> 个终点构成的集合 <span
+class="math inline">\(T\)</span>，定义 <span
+class="math inline">\(\omega(P)\)</span> 表示路径 <span
+class="math inline">\(P\)</span> 上所有边权的乘积（计数时设边权为 <span
+class="math inline">\(1\)</span> 即可），<span
+class="math inline">\(e(u,v)\)</span> 表示 <span
+class="math inline">\(u\)</span> 到 <span
+class="math inline">\(v\)</span> 的<strong>每一条</strong>路径的 <span
+class="math inline">\(\omega(P)\)</span> 之和，即 <span
+class="math inline">\(e(u,v)=\sum\limits_{P:u \to
+v}\omega(P)\)</span>。</p>
+<p>一组 <span class="math inline">\(S \to T\)</span> 的不相交路径 <span
+class="math inline">\(S\)</span>：<span
+class="math inline">\(S_i\)</span> 是一条从 <span
+class="math inline">\(A_i\)</span> 到 <span
+class="math inline">\(B_{\sigma(S)_i}\)</span> 的路径，其中 <span
+class="math inline">\(\sigma(S)\)</span> 是 <span
+class="math inline">\(S\)</span> 的一个排列，满足对于任意 <span
+class="math inline">\(i \ne j\)</span>，<span
+class="math inline">\(S_i\)</span> 和 <span
+class="math inline">\(S_j\)</span> 没有公共顶点。</p>
+<p>设 <span class="math inline">\((-1)^\sigma\)</span> 表示 <span
+class="math inline">\((-1)^c\)</span>，其中 <span
+class="math inline">\(c\)</span> 是排列 <span
+class="math inline">\(\sigma\)</span>
+的逆序对个数，那么有如下LGV引理：</p>
+<p>记 <span class="math inline">\(n\)</span> 阶方阵</p>
+<p><span class="math display">\[
+M=\begin{bmatrix}
+e(S_1,T_1) &amp; e(S_1,T_2) &amp; \cdots &amp; e(S_1,T_n)\\
+e(S_2,T_1) &amp; e(S_2,T_2) &amp; \cdots &amp; e(S_2,T_n)\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+e(S_n,T_1) &amp; e(S_n,T_2) &amp; \cdots &amp; e(S_n,T_n)
+\end{bmatrix}\nonumber
+\]</span></p>
+<p>那么</p>
+<p><span class="math display">\[
+\operatorname{det}M=\sum_{P:S \to T}(-1)^\sigma
+\prod_{i=1}^{n}\omega(P_i)\nonumber
+\]</span></p>
+<p>其中 <span class="math inline">\(\sum\limits_{P:S \to T}\)</span>
+中的 <span class="math inline">\(P\)</span>
+表示一个上文中所说的两两无交点的路径组，<span
+class="math inline">\(P_i\)</span> 表示这个路径组中以 <span
+class="math inline">\(S_i\)</span> 为起点的那条路径。</p>
+<p><strong>证明：</strong> 由行列式定义， <span class="math display">\[
+\begin{aligned}
+\operatorname{det} M &amp;= \sum_{\sigma}(-1)^\sigma
+\prod_{i=1}^{n}e(S_i,T_{\sigma(i)})\newline
+&amp;= \sum_{\sigma}(-1)^\sigma \prod_{i=1}^{n}\sum_{P:S_i \to
+T_{\sigma(i)}} \omega(P)
+\end{aligned}
+\nonumber
+\]</span></p>
+<p>将 <span class="math inline">\(\prod_{i=1}^{n}\sum_{P:S_i \to
+T_{\sigma(i)}} \omega(P)\)</span> 的 <span
+class="math inline">\(\sum\)</span> 打开（即 <span
+class="math inline">\((a+b)(c+d)\)</span> 打开成 <span
+class="math inline">\(ac+ad+bc+bd\)</span>
+的形式）可以发现上式就等于所有从 <span class="math inline">\(S\)</span>
+到 <span class="math inline">\(T\)</span>，排列为 <span
+class="math inline">\(\sigma\)</span> 的路径组 <span
+class="math inline">\(P\)</span> 的 <span
+class="math inline">\(\omega(P)\)</span> 之和，于是</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{\sigma}(-1)^\sigma \prod_{i=1}^{n}\sum_{P:S_i \to T_{\sigma(i)}}
+\omega(P)&amp;=\sum_{P:S \to T}(-1)^\sigma \prod_{i=1}^{n}\omega(P_i)
+\end{aligned}
+\nonumber
+\]</span></p>
+<p>此处的 <span class="math inline">\(P\)</span>
+为任意路径组，将它拆成不相交路径组 <span
+class="math inline">\(U\)</span> 和相交路径组 <span
+class="math inline">\(V\)</span>，于是上式等于</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{P:S \to T}(-1)^\sigma \prod_{i=1}^{n}\omega(P_i)&amp;=\sum_{U:S
+\to T}(-1)^U \prod_{i=1}^{n}\omega(U_i) + \sum_{V:S \to T}(-1)^V
+\prod_{i=1}^{n}\omega(V_i)
+\end{aligned}
+\nonumber
+\]</span></p>
+<p>若有一个路径组中的某两条路径相交，那么交换两个终点可以得到另外一个相交的方案，并且它们的逆序数不同，不难发现到这是个双射，因此有
+<span class="math inline">\(\sum_{V: S \to T} (-1)^V
+\prod_{i=1}^{n}\omega(V_i)=0\)</span>，于是得到</p>
+<p><span class="math display">\[
+\operatorname{det} M = \sum_{U: S \to T}(-1)^U
+\prod_{i=1}^{n}\omega(U_i)\nonumber
+\]</span></p>
+<p>证毕！</p>
+<h1 id="例题">例题</h1>
+<h2 id="cf348d.-turtles">CF348D. Turtles</h2>
+<h3 id="简要题意">简要题意</h3>
+<p>一个 <span class="math inline">\(n \times m\)</span> 网格图，从一个点
+<span class="math inline">\((x,y)\)</span> 可以走到 <span
+class="math inline">\((x+1,y)\)</span> 或者 <span
+class="math inline">\((x,y+1)\)</span>，某些点被钦定不能走，求无序路径对
+<span class="math inline">\((P_1,P_2)\)</span> 的数量，满足 <span
+class="math inline">\(P_1,P_2\)</span> 都以 <span
+class="math inline">\((1,1)\)</span> 为起点，<span
+class="math inline">\((n,m)\)</span>
+为终点，并且两条路径只在起点和终点处有交点。</p>
+<p>对于 <span class="math inline">\(100\%\)</span> 的数据，<span
+class="math inline">\(2 \le n,m \le 3000\)</span>，答案对 <span
+class="math inline">\(10^9+7\)</span> 取模。</p>
+<h3 id="题解">题解</h3>
+<p>注意到两条路径的第一步必然是分别走到 <span
+class="math inline">\((1,2)\)</span> 和 <span
+class="math inline">\((2,1)\)</span>，最后一步必然是分别从 <span
+class="math inline">\((n-1,m)\)</span> 和 <span
+class="math inline">\((n,m-1)\)</span> 走到 <span
+class="math inline">\((n,m)\)</span>，直接套用LGV引理，设 <span
+class="math inline">\(f(u,v)\)</span> 表示从 <span
+class="math inline">\(u\)</span> 到 <span
+class="math inline">\(v\)</span> 的路径数量，那么答案就是</p>
+<p><span class="math display">\[
+\begin{vmatrix}
+f\big((1,2),(n-1,m)\big) &amp; f\big( (1,2),(n,m-1) \big)\\
+f\big((2,1),(n-1,m)\big) &amp; f\big((2,1),(n,m-1)\big)
+\end{vmatrix}\nonumber
+\]</span></p>
+<p>依据是：不相交的路径组必然是从 <span
+class="math inline">\((1,2)\)</span> 到 <span
+class="math inline">\((n-1,m)\)</span>，从 <span
+class="math inline">\((2,1)\)</span> 到 <span
+class="math inline">\((n,m-1)\)</span>，符号是正的。</p>
+<p><span class="math inline">\(f\)</span> 可以网格图上dp算，时间复杂度
+<span class="math inline">\(\mathcal{O}(nm)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code for CF348D</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn = <span class="number">3010</span>, MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> n, m; <span class="type">char</span> G[maxn][maxn];</span><br><span class="line"><span class="type">int</span> f[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">F</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x &lt;= <span class="number">0</span> || y &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(f[x][y] != <span class="number">-1</span>) <span class="keyword">return</span> f[x][y];</span><br><span class="line">    <span class="keyword">if</span>(G[x][y] == <span class="string">&#x27;#&#x27;</span>) <span class="keyword">return</span> (f[x][y] = <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> (f[x][y] = (<span class="built_in">F</span>(x - <span class="number">1</span>, y) + <span class="built_in">F</span>(x, y - <span class="number">1</span>)) % MOD);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">F</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span> f); f[a][b] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(G[a][b] == <span class="string">&#x27;#&#x27;</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">F</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        cin &gt;&gt; (G[i] + <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1ll</span> * <span class="built_in">F</span>(<span class="number">1</span>, <span class="number">2</span>, n - <span class="number">1</span>, m) * <span class="built_in">F</span>(<span class="number">2</span>, <span class="number">1</span>, n, m - <span class="number">1</span>) % MOD - <span class="number">1ll</span> * <span class="built_in">F</span>(<span class="number">1</span>, <span class="number">2</span>, n, m - <span class="number">1</span>) * <span class="built_in">F</span>(<span class="number">2</span>, <span class="number">1</span>, n - <span class="number">1</span>, m) % MOD;</span><br><span class="line">    cout &lt;&lt; (res % MOD + MOD) % MOD &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+<h2 id="hdu5852.-intersection-is-not-allowed">HDU5852. Intersection is
+not allowed!</h2>
+<h3 id="简要题意-1">简要题意</h3>
+<p>有一个 <span class="math inline">\(n\times n\)</span>
+的棋盘，一个棋子从 <span class="math inline">\((x, y)\)</span> 只能走到
+<span class="math inline">\((x, y+1)\)</span> 或 <span
+class="math inline">\((x + 1, y)\)</span> ，有 <span
+class="math inline">\(k\)</span> 个棋子，一开始第 <span
+class="math inline">\(i\)</span> 个棋子放在 <span
+class="math inline">\((1, a_i)\)</span> ，最终要到 <span
+class="math inline">\((n, b_i)\)</span> ，路径要两两不相交，求方案数对
+<span class="math inline">\(10^9+7\)</span> 取模。</p>
+<p>对于 <span class="math inline">\(100\%\)</span> 的数据，保证 <span
+class="math inline">\(1\le n\le 10^5\)</span> ， <span
+class="math inline">\(1\le k\le 100\)</span> ，保证 <span
+class="math inline">\(1\le a_1&lt;a_2&lt;\dots&lt;a_n\le n\)</span> ，
+<span class="math inline">\(1\le b_1&lt;b_2&lt;\dots&lt;b_n\le
+n\)</span> 。</p>
+<h3 id="题解-1">题解</h3>
+<p>因为 <span class="math inline">\(a,b\)</span>
+都是递增的，所以不相交的路径组的匹配方案是固定的，两点之间的路径数量就是个组合数，直接套LGV引理就行。</p>
+<p>时间复杂度 <span class="math inline">\(\mathcal{O}(n + k^3+ k^2\log
+P)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code for HDU5852</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>, K = <span class="number">110</span>, MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Plus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a + b &gt;= MOD ? a + b - MOD : a + b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Minus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a - b &lt; <span class="number">0</span> ? a - b + MOD : a - b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">ksm</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> r = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(; b; b &gt;&gt;= <span class="number">1</span>, a = a * a % MOD)</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>) r = r * a % MOD;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, k, A[K], B[K];</span><br><span class="line"><span class="type">int</span> fac[N], ifac[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">C</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a &gt;= b &amp;&amp; b &gt;= <span class="number">0</span> ? <span class="number">1ll</span> * fac[a] * ifac[b] % MOD * ifac[a - b] % MOD : <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> Mat[K][K];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">det</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> flag = <span class="number">1</span>, ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!Mat[i][i]) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= k; j ++)</span><br><span class="line">                <span class="keyword">if</span>(Mat[j][i]) &#123;</span><br><span class="line">                    <span class="built_in">swap</span>(Mat[i], Mat[j]), flag = -flag;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!Mat[i][i]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        ans = <span class="number">1ll</span> * ans * Mat[i][i] % MOD;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> mul = <span class="built_in">ksm</span>(Mat[i][i], MOD - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i; j &lt;= k; j ++)</span><br><span class="line">            Mat[i][j] = Mat[i][j] * mul % MOD;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= k; j ++) &#123;</span><br><span class="line">            mul = Mat[j][i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> p = i; p &lt;= k; p ++)</span><br><span class="line">                Mat[j][p] = <span class="built_in">Minus</span>(Mat[j][p], mul * Mat[i][p] % MOD);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">-1</span>) ans = <span class="built_in">Minus</span>(<span class="number">0</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++)</span><br><span class="line">        cin &gt;&gt; A[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++)</span><br><span class="line">        cin &gt;&gt; B[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= k; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i] &lt;= B[j]) Mat[i][j] = <span class="built_in">C</span>((n - <span class="number">1</span>) + (B[j] - A[i]), n - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">else</span> Mat[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">det</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    fac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; N; i ++) fac[i] = <span class="number">1ll</span> * fac[i - <span class="number">1</span>] * i % MOD;</span><br><span class="line">    ifac[N - <span class="number">1</span>] = <span class="built_in">ksm</span>(fac[N - <span class="number">1</span>], MOD - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = N - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i --) ifac[i - <span class="number">1</span>] = <span class="number">1ll</span> * ifac[i] * i % MOD;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> T; cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T --) <span class="built_in">solve</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>计数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ZROI 2023暑假集训ab班day7</title>
     <url>/posts/42e2e315/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
