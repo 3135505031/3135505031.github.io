@@ -336,73 +336,7 @@ S} f_{S-T}g_T^p
 class="math inline">\(\mathcal{O}(n^22^n)\)</span>。</p>
 <details class="note info no-icon"><summary><p>code</p>
 </summary>
-<p>#include &lt;bits/stdc++.h&gt;</p>
-<p>using namespace std;</p>
-<p>const int N = 21, M = (1 &lt;&lt; N), MOD = 998244353; inline int
-Plus(int a, int b) {return a + b &gt;= MOD ? a + b - MOD : a + b; }
-inline int Minus(int a, int b) {return a - b &lt; 0 ? a - b + MOD : a -
-b; } inline int ksm(long long a, int b) { long long r = 1; for(; b; b
-&gt;&gt;= 1, a = a * a % MOD) if(b &amp; 1) r = r * a % MOD; return r;
-}</p>
-<p>int n, m, p, w[N]; vector<int> G[N]; int f[N + 1][M], g[N + 1][M],
-ig[M];</p>
-<p>bool vis[N]; void dfs(int u, int mask, int c) { vis[u] = c; for(auto
-v : G[u]) if((mask &gt;&gt; v &amp; 1) &amp;&amp; (vis[v] != c)) dfs(v,
-mask, c); } inline int check(int mask) { static int deg[N]; bool flag =
-false; for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1) {
-for(auto j : G[i]) if(mask &gt;&gt; j &amp; 1) deg[i] ++; if(deg[i]
-&amp; 1) flag = true; } for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt;
-i &amp; 1) { for(auto j : G[i]) if(mask &gt;&gt; j &amp; 1) deg[i] --; }
-for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1) {dfs(i, mask,
-1); break; } int siz = 0; for(int i = 0; i &lt; n; i ++) if(mask
-&gt;&gt; i &amp; 1) siz += vis[i]; if(siz != __builtin_popcount(mask))
-flag = true; for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1)
-{dfs(i, mask, 0); break; } if(!flag) return 0; int sum = 0; for(int i =
-0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1) sum = Plus(sum, w[i]);
-return sum; }</p>
-<p>inline void FWT(int A[], int n, int type) { for(int h = 2; h &lt;= n;
-h &lt;&lt;= 1) for(int i = 0; i &lt; n; i += h) for(int j = i; j &lt; i
-+ (h &gt;&gt; 1); j ++) { if(type == 1) A[j + (h &gt;&gt; 1)] = Plus(A[j
-+ (h &gt;&gt; 1)], A[j]); else A[j + (h &gt;&gt; 1)] = Minus(A[j + (h
-&gt;&gt; 1)], A[j]); } }</p>
-<p>int main() { ios::sync_with_stdio(false), cin.tie(0);</p>
-<pre><code>cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;
-for(int i = 0; i &lt; m; i ++) {
-    int a, b; cin &gt;&gt; a &gt;&gt; b;
-    a --, b --; G[a].emplace_back(b), G[b].emplace_back(a);
-}
-for(int i = 0; i &lt; n; i ++) cin &gt;&gt; w[i];
-
-for(int mask = 1; mask &lt; (1 &lt;&lt; n); mask ++) {
-    int x = check(mask);
-    if(x != 0) {
-        if(p == 0) g[__builtin_popcount(mask)][mask] = 1;
-        else if(p == 1) g[__builtin_popcount(mask)][mask] = x;
-        else g[__builtin_popcount(mask)][mask] = 1ll * x * x % MOD;
-    }
-    int sum = 0;
-    for(int i = 0; i &lt; n; i ++)
-        if(mask &gt;&gt; i &amp; 1) sum = Plus(sum, w[i]);
-    ig[mask] = ksm(ksm(sum, MOD - 2), p);
-}
-for(int i = 0; i &lt;= n; i ++)
-    FWT(g[i], 1 &lt;&lt; n, 1);
-
-f[0][0] = 1; FWT(f[0], 1 &lt;&lt; n, 1);
-for(int i = 1; i &lt;= n; i ++) {
-    for(int j = 0; j &lt; i; j ++)
-        for(int k = 0; k &lt; (1 &lt;&lt; n); k ++)
-            f[i][k] = Plus(f[i][k], 1ll * f[j][k] * g[i - j][k] % MOD);
-    FWT(f[i], 1 &lt;&lt; n, -1);
-    for(int k = 0; k &lt; (1 &lt;&lt; n); k ++)
-        f[i][k] = __builtin_popcount(k) == i ? 1ll * f[i][k] * ig[k] % MOD : 0;
-    FWT(f[i], 1 &lt;&lt; n, 1);
-}
-FWT(f[n], 1 &lt;&lt; n, -1);
-cout &lt;&lt; f[n][(1 &lt;&lt; n) - 1] &lt;&lt; &#39;\n&#39;;
-
-return 0;</code></pre>
-<p>}</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">21</span>, M = (<span class="number">1</span> &lt;&lt; N), MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Plus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a + b &gt;= MOD ? a + b - MOD : a + b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Minus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a - b &lt; <span class="number">0</span> ? a - b + MOD : a - b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">ksm</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> r = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(; b; b &gt;&gt;= <span class="number">1</span>, a = a * a % MOD)</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>) r = r * a % MOD;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, p, w[N];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; G[N];</span><br><span class="line"><span class="type">int</span> f[N + <span class="number">1</span>][M], g[N + <span class="number">1</span>][M], ig[M];</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> vis[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> mask, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">    vis[u] = c;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> v : G[u]) </span><br><span class="line">        <span class="keyword">if</span>((mask &gt;&gt; v &amp; <span class="number">1</span>) &amp;&amp; (vis[v] != c))</span><br><span class="line">            <span class="built_in">dfs</span>(v, mask, c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">check</span><span class="params">(<span class="type">int</span> mask)</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> deg[N];</span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) <span class="keyword">if</span>(mask &gt;&gt; i &amp; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> j : G[i]) <span class="keyword">if</span>(mask &gt;&gt; j &amp; <span class="number">1</span>) deg[i] ++;</span><br><span class="line">        <span class="keyword">if</span>(deg[i] &amp; <span class="number">1</span>) flag = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) <span class="keyword">if</span>(mask &gt;&gt; i &amp; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> j : G[i]) <span class="keyword">if</span>(mask &gt;&gt; j &amp; <span class="number">1</span>) deg[i] --;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) </span><br><span class="line">        <span class="keyword">if</span>(mask &gt;&gt; i &amp; <span class="number">1</span>) &#123;<span class="built_in">dfs</span>(i, mask, <span class="number">1</span>); <span class="keyword">break</span>; &#125;</span><br><span class="line">    <span class="type">int</span> siz = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) </span><br><span class="line">        <span class="keyword">if</span>(mask &gt;&gt; i &amp; <span class="number">1</span>) siz += vis[i];</span><br><span class="line">    <span class="keyword">if</span>(siz != __builtin_popcount(mask)) flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">        <span class="keyword">if</span>(mask &gt;&gt; i &amp; <span class="number">1</span>) &#123;<span class="built_in">dfs</span>(i, mask, <span class="number">0</span>); <span class="keyword">break</span>; &#125;</span><br><span class="line">    <span class="keyword">if</span>(!flag) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">        <span class="keyword">if</span>(mask &gt;&gt; i &amp; <span class="number">1</span>) sum = <span class="built_in">Plus</span>(sum, w[i]);</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>; h &lt;= n; h &lt;&lt;= <span class="number">1</span>) </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i; j &lt; i + (h &gt;&gt; <span class="number">1</span>); j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(type == <span class="number">1</span>) A[j + (h &gt;&gt; <span class="number">1</span>)] = <span class="built_in">Plus</span>(A[j + (h &gt;&gt; <span class="number">1</span>)], A[j]);</span><br><span class="line">                <span class="keyword">else</span> A[j + (h &gt;&gt; <span class="number">1</span>)] = <span class="built_in">Minus</span>(A[j + (h &gt;&gt; <span class="number">1</span>)], A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i ++) &#123;</span><br><span class="line">        <span class="type">int</span> a, b; cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        a --, b --; G[a].<span class="built_in">emplace_back</span>(b), G[b].<span class="built_in">emplace_back</span>(a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cin &gt;&gt; w[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> mask = <span class="number">1</span>; mask &lt; (<span class="number">1</span> &lt;&lt; n); mask ++) &#123;</span><br><span class="line">        <span class="type">int</span> x = <span class="built_in">check</span>(mask);</span><br><span class="line">        <span class="keyword">if</span>(x != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(p == <span class="number">0</span>) g[__builtin_popcount(mask)][mask] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(p == <span class="number">1</span>) g[__builtin_popcount(mask)][mask] = x;</span><br><span class="line">            <span class="keyword">else</span> g[__builtin_popcount(mask)][mask] = <span class="number">1ll</span> * x * x % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">            <span class="keyword">if</span>(mask &gt;&gt; i &amp; <span class="number">1</span>) sum = <span class="built_in">Plus</span>(sum, w[i]);</span><br><span class="line">        ig[mask] = <span class="built_in">ksm</span>(<span class="built_in">ksm</span>(sum, MOD - <span class="number">2</span>), p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="built_in">FWT</span>(g[i], <span class="number">1</span> &lt;&lt; n, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; <span class="built_in">FWT</span>(f[<span class="number">0</span>], <span class="number">1</span> &lt;&lt; n, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; (<span class="number">1</span> &lt;&lt; n); k ++)</span><br><span class="line">                f[i][k] = <span class="built_in">Plus</span>(f[i][k], <span class="number">1ll</span> * f[j][k] * g[i - j][k] % MOD);</span><br><span class="line">        <span class="built_in">FWT</span>(f[i], <span class="number">1</span> &lt;&lt; n, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; (<span class="number">1</span> &lt;&lt; n); k ++)</span><br><span class="line">            f[i][k] = __builtin_popcount(k) == i ? <span class="number">1ll</span> * f[i][k] * ig[k] % MOD : <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">FWT</span>(f[i], <span class="number">1</span> &lt;&lt; n, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">FWT</span>(f[n], <span class="number">1</span> &lt;&lt; n, <span class="number">-1</span>);</span><br><span class="line">    cout &lt;&lt; f[n][(<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </details>
 <h2 id="ceoi2019-amusement-park">「CEOI2019」 Amusement Park</h2>
@@ -433,6 +367,16 @@ f_S=\sum_{\substack{ {T \subseteq S}\newline\newline{T\text{是独立集} }
 } }(-1)^{|T|-1}f_{S-T}
 \nonumber
 \]</span></p>
+<p>于是就可以枚举子集做到 <span
+class="math inline">\(\mathcal{O}(3^n)\)</span>
+了，应该可以通过，但接下来我们将它优化到 <span
+class="math inline">\(\mathcal{O}(n^22^n)\)</span>。</p>
+<p>设 <span
+class="math inline">\(g_S=(-1)^{|S|-1}[S\text{是独立集}]\)</span>，那么
+<span class="math inline">\(f=f \times g +
+1\)</span>，这里的乘法是子集卷积。解得 <span
+class="math inline">\(f=\frac{1}{1-g}\)</span>，做一个子集卷积求逆即可，时间复杂度
+<span class="math inline">\(\mathcal{O}(n^22^n)\)</span>。</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
