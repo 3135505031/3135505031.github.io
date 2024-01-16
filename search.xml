@@ -1,6 +1,448 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>快速沃尔什变换与子集卷积</title>
+    <url>/posts/a65800c2/</url>
+    <content><![CDATA[<p>前置知识：FFT（快速傅里叶变换）。</p>
+<h1 id="快速沃尔什变换">快速沃尔什变换</h1>
+<p><a href="https://www.luogu.com.cn/problem/P4717">Luogu P4717
+【模板】快速莫比乌斯/沃尔什变换 (FMT/FWT)</a></p>
+<p>快速沃尔什变换（Fast Walsh–Hadamard
+transform）解决二进制运算下的卷积。</p>
+<p>给定序列 <span class="math inline">\(f,g\)</span>，求以下三个序列
+<span class="math inline">\(A,B,C\)</span>：</p>
+<p><span class="math display">\[
+A_i=\sum_{j \operatorname{or} k = i} f_j \times g_k
+\nonumber
+\]</span></p>
+<p><span class="math display">\[
+A_i=\sum_{j \operatorname{and} k = i} f_j \times g_k
+\nonumber
+\]</span></p>
+<p><span class="math display">\[
+A_i=\sum_{j \operatorname{xor} k = i} f_j \times g_k
+\nonumber
+\]</span></p>
+<p>其中 <span class="math inline">\(\operatorname{or}\)</span>、<span
+class="math inline">\(\operatorname{and}\)</span>、<span
+class="math inline">\(\operatorname{xor}\)</span>
+为二进制的或、与、异或运算。</p>
+<p>显然可以 <span class="math inline">\(\mathcal{O}(3^n)\)</span>
+做平凡的子集枚举，但这不是我们想要的，我们的目标是 <span
+class="math inline">\(\mathcal{O}(n \log n)\)</span> 求，其中 <span
+class="math inline">\(n\)</span> 是序列长度。</p>
+<p>FWT运用了和FFT相同的思想，将序列变换后做运算再逆变换回去来加速卷积。</p>
+<h2 id="或卷积">或卷积</h2>
+<p>考虑构造一个运算 <span class="math inline">\(\mathscr{F}\)</span>
+使得若</p>
+<p><span class="math display">\[
+A_i=\sum_{j \operatorname{or} k = i} f_j \times g_k
+\nonumber
+\]</span></p>
+<p>则</p>
+<p><span class="math display">\[
+(\mathscr{F}A)_i=(\mathscr{F}f)_i \times (\mathscr{F}g)_i
+\nonumber
+\]</span></p>
+<p>并且给定序列 <span
+class="math inline">\(f\)</span>，我们可以快速地计算出 <span
+class="math inline">\(\mathscr{F}A\)</span> 以及 <span
+class="math inline">\(\mathscr{F}^{-1}A\)</span>，其中 <span
+class="math inline">\(\mathscr{F}^{-1}\)</span> 表示 <span
+class="math inline">\(\mathscr{F}\)</span> 的逆变换，即 <span
+class="math inline">\(\mathscr{F}^{-1} (\mathscr{F}A)=A\)</span>。</p>
+<p>构造算子 <span class="math inline">\(\mathscr{F}\)</span> 满足：</p>
+<p><span class="math display">\[
+(\mathscr{F}A)_i=\sum_{j \operatorname{or} i = i}A_j
+\nonumber
+\]</span></p>
+<p>也就是 <span class="math inline">\((\mathscr{F}A)_i\)</span> 是所有
+<span class="math inline">\(A_j\)</span> 的和，其中下标 <span
+class="math inline">\(j\)</span> 是 <span
+class="math inline">\(i\)</span> 表示的集合的子集。</p>
+<p>容易验证 <span
+class="math inline">\((\mathscr{F}A)_i=(\mathscr{F}f)_i \times
+(\mathscr{F}g)_i\)</span>：</p>
+<p><span class="math display">\[
+\begin{aligned}
+(\mathscr{F}f)_i \times (\mathscr{F}g)_i=\sum_{j \operatorname{or} i =
+i}\sum_{k \operatorname{or} i = i} f_jg_k=\sum_{(j \operatorname{or} k)
+\operatorname{or}i = i} f_jg_k=(\mathscr{F}A)_i
+\end{aligned}
+\nonumber
+\]</span></p>
+<p>于是我们只需要快速对一个序列进行变换及逆变换。</p>
+<p>对一个序列 <span class="math inline">\(A\)</span>
+进行变换是容易的，先将序列补齐为 <span
+class="math inline">\(2^k\)</span> 项，考虑分治：设 <span
+class="math inline">\(A_0\)</span> 表示 <span
+class="math inline">\(A\)</span> 的前 <span
+class="math inline">\(2^{k-1}\)</span> 项（即下标首位为 <span
+class="math inline">\(0\)</span> 的位置）构成的序列，<span
+class="math inline">\(A_1\)</span> 表示 <span
+class="math inline">\(A\)</span> 的后 <span
+class="math inline">\(2^{k-1}\)</span> 项即下标首位为 <span
+class="math inline">\(1\)</span> 的位置构成的序列，根据 <span
+class="math inline">\(\mathscr{F}A_0\)</span> 和 <span
+class="math inline">\(\mathscr{F}A_1\)</span> 求出 <span
+class="math inline">\(\mathscr{F}A\)</span>。</p>
+<p>对于 <span class="math inline">\(\mathscr{F}A\)</span> 的前 <span
+class="math inline">\(2^{k-1}\)</span> 项，它只能由前 <span
+class="math inline">\(2^{k-1}\)</span> 项贡献过来，因为后 <span
+class="math inline">\(2^{k-1}\)</span> 项首位都是 <span
+class="math inline">\(1\)</span>，不可能或出 <span
+class="math inline">\(0\)</span> 来；对于后 <span
+class="math inline">\(2^{k-1}\)</span>
+项，整个序列都可以贡献，因此得到</p>
+<p><span class="math display">\[
+\mathscr{F}A=\operatorname{merge}\Big(
+\mathscr{F}A_0,\mathscr{F}A_0+\mathscr{F}A_1 \Big)
+\nonumber
+\]</span></p>
+<p>其中 <span class="math inline">\(\operatorname{merge}(P,Q)\)</span>
+就是将两个序列像字符串那样拼起来，加法就是对两个序列对应位置做加法得到的新序列。</p>
+<p>逆变换也就呼之欲出：</p>
+<p><span class="math display">\[
+\mathscr{F}^{-1}A=\operatorname{merge}\Big(
+\mathscr{F}^{-1}A_0,\mathscr{F}A_1-\mathscr{F}^{-1}A_0 \Big)
+\nonumber
+\]</span></p>
+<p>时间复杂度 <span class="math inline">\(\mathcal{O}(n \log
+n)\)</span>，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">OR_FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line"><span class="comment">// type = -1 表示逆变换，否则type = 1</span></span><br><span class="line"><span class="comment">// n 是一个 2^k</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>, H = <span class="number">1</span>; h &lt;= n; h &lt;&lt;= <span class="number">1</span>, H &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h) </span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; H; j ++) </span><br><span class="line">				A[i + j + H] = ((A[i + j + H] + type * A[i + j]) % MOD + MOD) % MOD;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="与卷积">与卷积</h2>
+<p>构造和或卷积类似的算子 <span
+class="math inline">\(\mathscr{F}\)</span> 使得</p>
+<p><span class="math display">\[
+(\mathscr{F}A)_i=\sum_{j \operatorname{and} i = i} A_j
+\nonumber
+\]</span></p>
+<p>容易验证若 <span class="math inline">\(A_i=\sum\limits_{j
+\operatorname{and} k = i} f_jg_k\)</span>，那么 <span
+class="math inline">\((\mathscr{F}A)_i=(\mathscr{F}f)_i \times
+(\mathscr{F}g)_i\)</span>。</p>
+<p>同样的，将 <span class="math inline">\(A\)</span> 补齐到 <span
+class="math inline">\(2^k\)</span> 项，设 <span
+class="math inline">\(A_0\)</span> 表示前 <span
+class="math inline">\(2^{k-1}\)</span> 项构成的序列，<span
+class="math inline">\(A_1\)</span> 表示后 <span
+class="math inline">\(2^{k-1}\)</span> 项构成的序列，不难得到</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\mathscr{F}A=\operatorname{merge}\Big(
+\mathscr{F}A_0+\mathscr{F}A_1,\mathscr{F}A_1 \Big)\newline
+&amp;\mathscr{F}^{-1}A=\operatorname{merge}\Big(
+\mathscr{F}^{-1}A_0-\mathscr{F}^{-1}A_1,\mathscr{F}^{-1}A_1 \Big)
+\end{aligned}
+\nonumber
+\]</span></p>
+<p>时间复杂度同样是 <span class="math inline">\(\mathcal{O}(n \log
+n)\)</span>，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">AND_FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line"><span class="comment">// type = -1 表示逆变换，否则type = 1</span></span><br><span class="line"><span class="comment">// n 是一个 2^k</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>, H = <span class="number">1</span>; h &lt;= n; h &lt;&lt;= <span class="number">1</span>, H &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h)</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; H; j ++)</span><br><span class="line">				A[i + j] = ((A[i + j] + type * A[i + j + H]) % MOD + MOD) % MOD;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异或卷积">异或卷积</h2>
+<p>异或的情况就比较不同了，我们不能照搬之前与和或的形式来做变换（<span
+class="math inline">\(j \operatorname{xor} i = i \Rightarrow j =
+0\)</span>，这样的变换肯定是不可行的）。</p>
+<p>接下来给出异或的正确变换，为了方便，对于数 <span
+class="math inline">\(x\)</span>，记 <span
+class="math inline">\(|x|\)</span> 表示 <span
+class="math inline">\(x\)</span> 的二进制表示中 <span
+class="math inline">\(1\)</span> 的个数，即 <span
+class="math inline">\(|x|=\operatorname{popcount}(x)\)</span>。</p>
+<p>基于奇偶性，由于 <span class="math inline">\(\big((a
+\operatorname{and} b) \bmod 2\big) \operatorname{xor} \big((b
+\operatorname{and} c)]\bmod 2 \big)=\big( (a \operatorname{and} c) \bmod
+2 \big)\)</span>，得到变换 <span
+class="math inline">\(\mathscr{F}\)</span>：</p>
+<p><span class="math display">\[
+(\mathscr{F}A)_i=\sum_{|j \operatorname{and} i| \bmod 2 = 0}A_j-\sum_{|j
+\operatorname{and} i|\bmod 2=1}A_j
+\nonumber
+\]</span></p>
+<p>为了方便，记 <span class="math inline">\(S_i\)</span> 表示满足 <span
+class="math inline">\(|j \operatorname{and} i| \bmod 2 = 0\)</span> 的
+<span class="math inline">\(j\)</span> 构成的集合，<span
+class="math inline">\(T_i\)</span> 表示满足 <span
+class="math inline">\(|j \operatorname{and} i| \bmod 2 = 1\)</span> 的
+<span class="math inline">\(j\)</span>
+构成的集合，那么上式可以就写成</p>
+<p><span class="math display">\[
+(\mathscr{F}A)_i=\sum_{j \in S_i}A_j - \sum_{j \in T_i}A_j
+\nonumber
+\]</span></p>
+<p>下证若 <span class="math inline">\(A_i=\sum\limits_{j
+\operatorname{xor} k=i}f_jg_k\)</span>，那么 <span
+class="math inline">\((\mathscr{F}A)_i=(\mathscr{F}f)_i \times
+(\mathscr{F}g)_i\)</span>。</p>
+<p><strong>证明：</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+(\mathscr{F}f)_i \times (\mathscr{F}g)_i&amp;=\left(\sum_{j \in
+S_i}f_j-\sum_{j \in T_i}f_j\right)
+\times \left(\sum_{j \in S_i}g_j-\sum_{j \in T_i}g_j\right)\newline
+&amp;=\sum_{j,k \in S_i}f_jg_k + \sum_{j,k \in T_i}f_jg_k-\sum_{j \in
+S_i, k \in T_i}f_jg_k - \sum_{j \in T_i, k \in S_i}f_jg_k\newline
+&amp;=\sum_{(j \operatorname{xor} k) \in S_i}f_jg_k-\sum_{(j
+\operatorname{xor} k) \in T_i}f_jg_k\newline
+&amp;=(\mathscr{F}A)_i
+\end{aligned}
+\nonumber
+\]</span></p>
+<p>然后还是分治求 <span class="math inline">\(\mathscr{F}A\)</span> 和
+<span class="math inline">\(\mathscr{F}^{-1}A\)</span>，将 <span
+class="math inline">\(A\)</span> 补齐为 <span
+class="math inline">\(2^k\)</span> 项，设 <span
+class="math inline">\(A_0\)</span> 为前 <span
+class="math inline">\(2^{k-1}\)</span> 项构成的序列，<span
+class="math inline">\(A_1\)</span> 为后 <span
+class="math inline">\(2^{k-1}\)</span> 项构成的序列，那么</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\mathscr{F}A=\operatorname{merge}(\mathscr{F}A_0+\mathscr{F}A_1,\mathscr{F}A_0-\mathscr{F}A_1)\newline
+&amp;\mathscr{F}^{-1}A=\operatorname{merge}(\frac{\mathscr{F}^{-1}A_0+\mathscr{F}^{-1}A_1}{2},\frac{\mathscr{F}^{-1}A_0-\mathscr{F}^{-1}A_1}{2})
+\end{aligned}
+\nonumber
+\]</span></p>
+<p>时间复杂度 <span class="math inline">\(\mathcal{O}(n \log
+n)\)</span>，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">XOR_FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line"><span class="comment">// type = 2的逆元 表示逆变换，否则type = 1</span></span><br><span class="line"><span class="comment">// n 是一个 2^k</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>, H = <span class="number">1</span>, x, y; h &lt;= n; h &lt;&lt;= <span class="number">1</span>, H &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h)</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; H; j ++) &#123;</span><br><span class="line">				x = A[i + j], y = A[i + j + H]; </span><br><span class="line">				A[i + j] = <span class="number">1ll</span> * (x + y) % MOD * type % MOD, A[i + j + H] = <span class="number">1ll</span> * ((x - y) % MOD + MOD) % MOD * type % MOD;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>三个FWT合并起来的代码如下：</p>
+<details class="note info no-icon"><summary><p>code for Luogu P4717</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn = (<span class="number">1</span> &lt;&lt; <span class="number">18</span>) + <span class="number">10</span>, MOD = <span class="number">998244353</span>, inv2 = <span class="number">499122177</span>;</span><br><span class="line"><span class="type">int</span> n, A[maxn], B[maxn], C[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cout &lt;&lt; A[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">OR_FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line"><span class="comment">// type = -1 表示逆变换，否则type = 1</span></span><br><span class="line"><span class="comment">// n 是一个 2^k</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>, H = <span class="number">1</span>; h &lt;= n; h &lt;&lt;= <span class="number">1</span>, H &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h) </span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; H; j ++) </span><br><span class="line">				A[i + j + H] = ((A[i + j + H] + type * A[i + j]) % MOD + MOD) % MOD;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">AND_FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line"><span class="comment">// type = -1 表示逆变换，否则type = 1</span></span><br><span class="line"><span class="comment">// n 是一个 2^k</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>, H = <span class="number">1</span>; h &lt;= n; h &lt;&lt;= <span class="number">1</span>, H &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h)</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; H; j ++)</span><br><span class="line">				A[i + j] = ((A[i + j] + type * A[i + j + H]) % MOD + MOD) % MOD;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">XOR_FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line"><span class="comment">// type = 2的逆元 表示逆变换，否则type = 1</span></span><br><span class="line"><span class="comment">// n 是一个 2^k</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>, H = <span class="number">1</span>, x, y; h &lt;= n; h &lt;&lt;= <span class="number">1</span>, H &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h)</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; H; j ++) &#123;</span><br><span class="line">				x = A[i + j], y = A[i + j + H]; </span><br><span class="line">				A[i + j] = <span class="number">1ll</span> * (x + y) % MOD * type % MOD, A[i + j + H] = <span class="number">1ll</span> * ((x - y) % MOD + MOD) % MOD * type % MOD;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	cin &gt;&gt; n; n = (<span class="number">1</span> &lt;&lt; n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cin &gt;&gt; A[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cin &gt;&gt; B[i];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">OR_FWT</span>(A, n, <span class="number">1</span>), <span class="built_in">OR_FWT</span>(B, n, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) C[i] = <span class="number">1ll</span> * A[i] * B[i] % MOD;</span><br><span class="line">	<span class="built_in">OR_FWT</span>(C, n, <span class="number">-1</span>); <span class="built_in">print</span>(C, n); <span class="built_in">OR_FWT</span>(A, n, <span class="number">-1</span>), <span class="built_in">OR_FWT</span>(B, n, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">AND_FWT</span>(A, n, <span class="number">1</span>), <span class="built_in">AND_FWT</span>(B, n, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) C[i] = <span class="number">1ll</span> * A[i] * B[i] % MOD;</span><br><span class="line">	<span class="built_in">AND_FWT</span>(C, n, <span class="number">-1</span>); <span class="built_in">print</span>(C, n); <span class="built_in">AND_FWT</span>(A, n, <span class="number">-1</span>), <span class="built_in">AND_FWT</span>(B, n, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">XOR_FWT</span>(A, n, <span class="number">1</span>), <span class="built_in">XOR_FWT</span>(B, n, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) C[i] = <span class="number">1ll</span> * A[i] * B[i] % MOD;</span><br><span class="line">	<span class="built_in">XOR_FWT</span>(C, n, inv2); <span class="built_in">print</span>(C, n); <span class="built_in">XOR_FWT</span>(A, n, inv2), <span class="built_in">XOR_FWT</span>(B, n, inv2);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+<h1 id="子集卷积">子集卷积</h1>
+<p><a href="https://www.luogu.com.cn/problem/P6097">Luogu P6097
+【模板】子集卷积</a></p>
+<h2 id="基本形式">基本形式</h2>
+<p>给定两个长度为 <span class="math inline">\(2^n\)</span> 的序列 <span
+class="math inline">\(a_0,a_1,\cdots,a_{2^n-1}\)</span> 和 <span
+class="math inline">\(b_0,b_1,\cdots,b_{2^n-1}\)</span>，你需要求出一个序列
+<span class="math inline">\(c_0,c_1,\cdots,c_{2^n-1}\)</span>，其中
+<span class="math inline">\(c_k\)</span> 满足：</p>
+<p><span class="math display">\[
+c_k=\sum_{\substack{ {i \operatorname{and} j=0}\newline{i
+\operatorname{or} j=k} } } a_i b_j
+\nonumber
+\]</span></p>
+<p>其中 <span class="math inline">\(\operatorname{and}\)</span> 和 <span
+class="math inline">\(\operatorname{or}\)</span> 为位运算。</p>
+<p>尝试将它转变成我们熟悉的与、或卷积的形式：注意到若 <span
+class="math inline">\(i \operatorname{or} j=k\)</span> 并且 <span
+class="math inline">\(|i|+|j|=|k|\)</span>（其中 <span
+class="math inline">\(|x|\)</span> 表示 <span
+class="math inline">\(\operatorname{popcount}(x)\)</span>，即 <span
+class="math inline">\(x\)</span> 的二进制中 <span
+class="math inline">\(1\)</span> 的个数），那么就自然满足 <span
+class="math inline">\(i \operatorname{and} j=k\)</span>，于是设</p>
+<p><span class="math display">\[
+A_{i,j}=\begin{cases}
+a_j, &amp;|j|=i\newline
+0, &amp;|j|\ne i
+\end{cases}
+\nonumber
+\]</span></p>
+<p>同理定义 <span
+class="math inline">\(B_{i,j},C_{i,j}\)</span>，上式就可以改写为</p>
+<p><span class="math display">\[
+C_{l,k}=\sum_{i=0}^{l}\left( \sum_{x \operatorname{or} y = k} A_{i,x}
+\times B_{l-i,y} \right)
+\nonumber
+\]</span></p>
+<p>后面括号里面是或卷积的形式，可以 <span
+class="math inline">\(\mathcal{O}(n2^n)\)</span> 算，对于每个 <span
+class="math inline">\(i \in [0,|k|]\)</span> 都算一次，时间复杂度 <span
+class="math inline">\(\mathcal{O}(n^2 2^n)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code for Luogu P6097</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="number">1</span> &lt;&lt; <span class="number">20</span>) + <span class="number">10</span>, MOD = <span class="number">1e9</span> + <span class="number">9</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Plus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a + b &gt;= MOD ? a + b - MOD : a + b; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Minus</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;<span class="keyword">return</span> a - b &lt; <span class="number">0</span> ? a - b + MOD : a - b; &#125;</span><br><span class="line"><span class="type">int</span> n, a[N], b[N], c[N];</span><br><span class="line"><span class="type">int</span> A[<span class="number">21</span>][N], B[<span class="number">21</span>][N], C[<span class="number">21</span>][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">FWT</span><span class="params">(<span class="type">int</span> A[], <span class="type">int</span> n, <span class="type">int</span> type)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> h = <span class="number">2</span>; h &lt;= n; h &lt;&lt;= <span class="number">1</span>) </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += h)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i; j &lt; i + (h &gt;&gt; <span class="number">1</span>); j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(type == <span class="number">1</span>) A[j + (h &gt;&gt; <span class="number">1</span>)] = <span class="built_in">Plus</span>(A[j + (h &gt;&gt; <span class="number">1</span>)], A[j]);</span><br><span class="line">                <span class="keyword">else</span> A[j + (h &gt;&gt; <span class="number">1</span>)] = <span class="built_in">Minus</span>(A[j + (h &gt;&gt; <span class="number">1</span>)], A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i ++)</span><br><span class="line">        cin &gt;&gt; a[i], A[__builtin_popcount(i)][i] = a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i ++)</span><br><span class="line">        cin &gt;&gt; b[i], B[__builtin_popcount(i)][i] = b[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="built_in">FWT</span>(A[i], <span class="number">1</span> &lt;&lt; n, <span class="number">1</span>), <span class="built_in">FWT</span>(B[i], <span class="number">1</span> &lt;&lt; n, <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt;= i; k ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span> &lt;&lt; n); j ++)</span><br><span class="line">                C[i][j] = <span class="built_in">Plus</span>(C[i][j], <span class="number">1ll</span> * A[k][j] * B[i - k][j] % MOD);</span><br><span class="line">        <span class="built_in">FWT</span>(C[i], <span class="number">1</span> &lt;&lt; n, <span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i ++)</span><br><span class="line">        c[i] = C[__builtin_popcount(i)][i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i ++)</span><br><span class="line">        cout &lt;&lt; c[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+<p>注意看这个式子</p>
+<p><span class="math display">\[
+C_{l,k}=\sum_{i=0}^{l}\left( \sum_{x \operatorname{or} y = k} A_{i,x}
+\times B_{l-i,y} \right)
+\nonumber
+\]</span></p>
+<p>改写成</p>
+<p><span class="math display">\[
+C_i=\sum_{i_1+i_2=i}A_{i_1} *_{\operatorname{xor}} B_{i_2}
+\nonumber
+\]</span></p>
+<p>将 <span class="math inline">\(A,B,C\)</span> 看作是 <span
+class="math inline">\(n\)</span>
+次多项式，每项的系数都是一个集合幂级数，那么这就是一个卷积！我们甚至可以求逆、<span
+class="math inline">\(\ln\)</span>、<span
+class="math inline">\(\exp\)</span>。</p>
+<p>具体地，对于求逆，直接递推：</p>
+<p><span class="math display">\[
+g=f^{-1},g_i=\frac{1-\sum_{j=0}^{i-1}g_jf_{i-j}}{f_0}
+\nonumber
+\]</span></p>
+<p>对于 <span class="math inline">\(\ln\)</span>，有 <span
+class="math inline">\(g=\ln f = \frac{f&#39;}{f}\)</span>，对 <span
+class="math inline">\(\exp\)</span> 有 <span
+class="math inline">\(g=\exp f,g&#39;=gf&#39;\)</span>，递推求。</p>
+<h1 id="例题">例题</h1>
+<h2 id="wc2018-州区划分">「WC2018」 州区划分</h2>
+<h3 id="题目描述">题目描述</h3>
+<p>小 S 现在拥有 <span class="math inline">\(n\)</span> 座城市，第 <span
+class="math inline">\(i\)</span> 座城市的人口为 <span
+class="math inline">\(w_i\)</span>，城市与城市之间可能有双向道路相连。</p>
+<p>现在小 S 要将这 <span class="math inline">\(n\)</span>
+座城市划分成若干个州，每个州由至少一个城市组成，每个城市在恰好一个州内。</p>
+<p>假设小 S 将这些城市划分成了 <span class="math inline">\(k\)</span>
+个州，设 <span class="math inline">\(V_i\)</span> 是第 <span
+class="math inline">\(i\)</span>
+个州包含的所有城市组成的集合。定义一条道路是一个州的内部道路，当且仅当这条道路的两个端点城市都在这个州内。如果一个州内部存在一条起点终点相同，不经过任何不属于这个州的城市，且经过这个州的所有内部道路都恰好一次并且经过这个州的所有城市至少一次的路径（路径长度可以为
+<span class="math inline">\(0\)</span>），则称这个州是不合法的。</p>
+<p>定义第 <span class="math inline">\(i\)</span> 个州的满意度为：第
+<span class="math inline">\(i\)</span> 个州的人口在前 <span
+class="math inline">\(i\)</span> 个州的人口中所占比例的 <span
+class="math inline">\(p\)</span> 次幂，即：</p>
+<p><span class="math display">\[\left(\dfrac{\sum _ {x \in V _ i} w _
+x}{\sum _ {j = 1} ^ i \sum _ {x \in V _ j} w _ x}\right) ^
+p\]</span></p>
+<p>定义一个划分的满意度为所有州的满意度的乘积。</p>
+<p>求所有合法的划分方案的满意度之和。</p>
+<p>答案对 <span class="math inline">\(998244353\)</span> 取模。 两个划分
+<span class="math inline">\(\{V_1, V _ 2, \cdots, V_k\}\)</span> 和
+<span class="math inline">\(\{C_1, C _ 2, \cdots, C_s\}\)</span>
+是不同的，当且仅当 <span class="math inline">\(k \neq
+s\)</span>，或存在某个 <span class="math inline">\(1 \leq i \leq
+k\)</span>，使得 <span class="math inline">\(V_i \neq C_i\)</span>。</p>
+<p>保证对于所有数据有：<span class="math inline">\(0 \leq n \leq
+21\)</span>， <span class="math inline">\(0 \leq m \leq \dfrac{n\times
+(n-1)}{2}\)</span> ， <span class="math inline">\(0 \leq p \leq
+2\)</span>， <span class="math inline">\(1 \leq w_i \leq
+100\)</span>。</p>
+<h3 id="题解">题解</h3>
+<p>注意到一个州不合法当且仅当它连通且存在欧拉回路，状压dp，设 <span
+class="math inline">\(f_S\)</span> 表示集合 <span
+class="math inline">\(S\)</span> 的答案，<span
+class="math inline">\(g_S\)</span> 表示集合 <span
+class="math inline">\(S\)</span> 内所有点的 <span
+class="math inline">\(w\)</span> 和，就有转移</p>
+<p><span class="math display">\[
+f_S=\sum_{T \subset
+S}f_{S-T}\left(\frac{g_T}{g_S}\right)^p=\frac{1}{g_S^p}\sum_{T \subset
+S} f_{S-T}g_T^p
+\nonumber
+\]</span></p>
+<p>这是一个子集卷积的形式，按照 <span class="math inline">\(|S|\)</span>
+升序，依次算出 <span class="math inline">\(f\)</span> 即可。</p>
+<p>时间复杂度 <span
+class="math inline">\(\mathcal{O}(n^22^n)\)</span>。</p>
+<details class="note info no-icon"><summary><p>code</p>
+</summary>
+<p>#include &lt;bits/stdc++.h&gt;</p>
+<p>using namespace std;</p>
+<p>const int N = 21, M = (1 &lt;&lt; N), MOD = 998244353; inline int
+Plus(int a, int b) {return a + b &gt;= MOD ? a + b - MOD : a + b; }
+inline int Minus(int a, int b) {return a - b &lt; 0 ? a - b + MOD : a -
+b; } inline int ksm(long long a, int b) { long long r = 1; for(; b; b
+&gt;&gt;= 1, a = a * a % MOD) if(b &amp; 1) r = r * a % MOD; return r;
+}</p>
+<p>int n, m, p, w[N]; vector<int> G[N]; int f[N + 1][M], g[N + 1][M],
+ig[M];</p>
+<p>bool vis[N]; void dfs(int u, int mask, int c) { vis[u] = c; for(auto
+v : G[u]) if((mask &gt;&gt; v &amp; 1) &amp;&amp; (vis[v] != c)) dfs(v,
+mask, c); } inline int check(int mask) { static int deg[N]; bool flag =
+false; for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1) {
+for(auto j : G[i]) if(mask &gt;&gt; j &amp; 1) deg[i] ++; if(deg[i]
+&amp; 1) flag = true; } for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt;
+i &amp; 1) { for(auto j : G[i]) if(mask &gt;&gt; j &amp; 1) deg[i] --; }
+for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1) {dfs(i, mask,
+1); break; } int siz = 0; for(int i = 0; i &lt; n; i ++) if(mask
+&gt;&gt; i &amp; 1) siz += vis[i]; if(siz != __builtin_popcount(mask))
+flag = true; for(int i = 0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1)
+{dfs(i, mask, 0); break; } if(!flag) return 0; int sum = 0; for(int i =
+0; i &lt; n; i ++) if(mask &gt;&gt; i &amp; 1) sum = Plus(sum, w[i]);
+return sum; }</p>
+<p>inline void FWT(int A[], int n, int type) { for(int h = 2; h &lt;= n;
+h &lt;&lt;= 1) for(int i = 0; i &lt; n; i += h) for(int j = i; j &lt; i
++ (h &gt;&gt; 1); j ++) { if(type == 1) A[j + (h &gt;&gt; 1)] = Plus(A[j
++ (h &gt;&gt; 1)], A[j]); else A[j + (h &gt;&gt; 1)] = Minus(A[j + (h
+&gt;&gt; 1)], A[j]); } }</p>
+<p>int main() { ios::sync_with_stdio(false), cin.tie(0);</p>
+<pre><code>cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;
+for(int i = 0; i &lt; m; i ++) {
+    int a, b; cin &gt;&gt; a &gt;&gt; b;
+    a --, b --; G[a].emplace_back(b), G[b].emplace_back(a);
+}
+for(int i = 0; i &lt; n; i ++) cin &gt;&gt; w[i];
+
+for(int mask = 1; mask &lt; (1 &lt;&lt; n); mask ++) {
+    int x = check(mask);
+    if(x != 0) {
+        if(p == 0) g[__builtin_popcount(mask)][mask] = 1;
+        else if(p == 1) g[__builtin_popcount(mask)][mask] = x;
+        else g[__builtin_popcount(mask)][mask] = 1ll * x * x % MOD;
+    }
+    int sum = 0;
+    for(int i = 0; i &lt; n; i ++)
+        if(mask &gt;&gt; i &amp; 1) sum = Plus(sum, w[i]);
+    ig[mask] = ksm(ksm(sum, MOD - 2), p);
+}
+for(int i = 0; i &lt;= n; i ++)
+    FWT(g[i], 1 &lt;&lt; n, 1);
+
+f[0][0] = 1; FWT(f[0], 1 &lt;&lt; n, 1);
+for(int i = 1; i &lt;= n; i ++) {
+    for(int j = 0; j &lt; i; j ++)
+        for(int k = 0; k &lt; (1 &lt;&lt; n); k ++)
+            f[i][k] = Plus(f[i][k], 1ll * f[j][k] * g[i - j][k] % MOD);
+    FWT(f[i], 1 &lt;&lt; n, -1);
+    for(int k = 0; k &lt; (1 &lt;&lt; n); k ++)
+        f[i][k] = __builtin_popcount(k) == i ? 1ll * f[i][k] * ig[k] % MOD : 0;
+    FWT(f[i], 1 &lt;&lt; n, 1);
+}
+FWT(f[n], 1 &lt;&lt; n, -1);
+cout &lt;&lt; f[n][(1 &lt;&lt; n) - 1] &lt;&lt; &#39;\n&#39;;
+
+return 0;</code></pre>
+<p>}</p>
+
+</details>
+<h2 id="ceoi2019-amusement-park">「CEOI2019」 Amusement Park</h2>
+<h3 id="题目描述-1">题目描述</h3>
+<p>有一个含 <span class="math inline">\(n\)</span> 个点，<span
+class="math inline">\(m\)</span>
+条边的有向图，图无重边，无自环，两点之间不成环。</p>
+<p>现在我们想改变一些边的方向，使得该有向图无环。</p>
+<p>您需要求出，每一种改变方向后使得该有向图无环的方案的需改变边的数量之和
+<span class="math inline">\(\bmod\ 998244353\)</span> 之后的答案。</p>
+<p>对于 <span class="math inline">\(100\%\)</span> 的数据，保证 <span
+class="math inline">\(1\le n\le 18\)</span>，<span
+class="math inline">\(0\le m\le \frac{n\times (n-1)}{2}\)</span>，<span
+class="math inline">\(1\le a_i,b_i\le n\)</span>，<span
+class="math inline">\(a_i\not=b_i\)</span>，对于 <span
+class="math inline">\(i\not=j\)</span>，均有 <span
+class="math inline">\(a_i\not=a_j\)</span> 或者 <span
+class="math inline">\(b_i\not=b_j\)</span>，无序数对 <span
+class="math inline">\(\{a_i,b_i\}\)</span> 互不相同。</p>
+<h3 id="题解-1">题解</h3>
+<p>主要到一个DAG的所有边反向后仍然是DAG，因此答案就是方案数乘 <span
+class="math inline">\(\frac{m}{2}\)</span>。</p>
+<p>设 <span class="math inline">\(f_S\)</span> 表示集合 <span
+class="math inline">\(S\)</span> 中点的方案数，转移时钦定一些度数为
+<span class="math inline">\(0\)</span> 的点后容斥出结果，具体的有</p>
+<p><span class="math display">\[
+f_S=\sum_{\substack{ {T \subseteq S}\newline\newline{T\text{是独立集} }
+} }(-1)^{|T|-1}f_{S-T}
+\nonumber
+\]</span></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+        <tag>多项式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AtCoder ABC Ex乱写</title>
     <url>/posts/1dbd48b9/</url>
     <content><![CDATA[<h1 id="abc233ex-manhattan-christmas-tree"><a
@@ -3323,7 +3765,7 @@ alt="Goodbye,2023." />
     <title>瞎写</title>
     <url>/posts/9210d486/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="不会开盒？" data-whm="好像盒对了。">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d03f8f016c68a4654265e9fb38ea20c83ab98a451862f44e39b68deec989123b">bf257aa7226f7414e08be929816d559ea4000930c961708bbaaa6618a6d0dcbcc4ac342708e2df2a16460f1111368a329cfda591cd01cc70555baf5ecee7a0a74f811716678d6c7c6b06093af7e91ee36e0e9589c5c92350f2c3e68627525f3e640233a123258dc5a9e8aec3ae6c78071de82da2fbba790fb396a87a863ef14dfe6cbfd4ce2e5af0768abfb5ace32458555040bab07166bdc5103e6e3492fbcd6227ca2c2fbf5b7c5c42e8d76e54b5c2b5a5f7a05068146d92d5920fffd1d5f29bb8dd4ef443f42f8186f11d888045a9f066b4fbb186b60b2203f6cca5029c18435acdde542b1a173f9c02343e766fa78ebb1bccb8b2ef65bf69c4a425c1f1c4e884227e30cf4f1b3e3f11eae4977cab81913d681d1c41ab42221a61030d502563416ab0e5f1749f598c83096e535fa21c44b6a798a834efac5cd0c69b20920e0fa4f9b9c11cd33ccc5e1b5511cbc63d16ac48185cd29a87b03badf6b56ec19305db7426f0332d341ff990cc795bdc9d9e8804c5a6aa72a56a007d61b49f2e39fb675e777ef1662fbbcb3c5ead124a8d0b9cadbf1e144f8e2a475536cdba966fc92a97be8f038724a0aa120a7f7286f24d5682d4754ee405f860ce232ef9804cf8516553fb8f704bece50c3b3f5eb17d070f0b22caf8e19a5f035b1dbf823a52f8775d4c946e2e4a2427c1cdc64b1edbc7a7a93b182cb3ea4ba04b6918990a28adf7fc12644fd226bc3488be9e117af85a186b9ea107738e9bdf1232e15f55c83a44875f88c7cc019bf17dfb245ba1fdbd2c716b26fe9a9892fc09a7ff8aa9136c34c8a1b6117967b220f1e041b7c57f26861058eeee7d638967c7596bf46725643e14a5013b8d210b747882c272a6cfd23b94a9b2c7a3412073338560dddaeb482da381b7dc6491293dd9d26b3d3ee5dbddf7ee62396b07b2e17d5f860b7c42fbb4090a1687a2c093f95a3f4c78725ea5a03987914352159663d07ce8bbc62a03e7f89bd5d84ed39ee5f87bb6a79afbd24eff238c180ce30aac278b22d897db5437c7ed3ad6b91cdc23f9c129dec259ffaf26df6fe6abf82d920754940f38ec4be8d9321e3c093af2751a6ab99fda97f9dce6fdb404b2c7d1062007503521bce1b0dc6deec5c9406c96595bb92ad375002803ecc29d68723d0602d18a6329d6f85043a6a868891a5b30fb9dcf483baf3ec9cac76cecb39a3e16a85ac356cd03ed2e48b3dcf316479d10251c53b5c85144172fa740fa065dffa4175422adcaf36826beb27400ebdc303dd4ad8c2401e0dc8962523a3f9218480b0224336487919bdd1096e56213835c7331751cde31d90b6c38bc5844e42a8ea98d222ab778fca958af45236447487a6a7f97b5f0f2f89ea6e90dc77d6a97f6ce530a7b2d61c87dff8d9de5c77c22bda96f6af49bbd166fe538211e1dad1d9f066e74a70b70d7e90cc31244dbfbcd00f5587126affc3f1943f34e2dbeecb88cc31409271cee2983016cd2b70dabd4afc71a07cf848111972080c39eb77d7d6739a24ba00bf9c25ab2ba95b31e1bc55fddc3200f3c7ce881a489fbade29fd6ae4bceda032cf3b2d72f3353b22b4261c2ffe0dbff8e9002963e87a4503b7e6599a775175fda10ed31c0e27778c55b1c08d6dc0a5d02ca067de5299204627ba16f146b4014f5be479376a4b6f6c0cae6d37dac2152ef59660296c6269464443d921cd134cc7aeb8ddcbad73aaa881aac4332dd1ab02a81a3f31aca27dfcd6ad1df23a1e397513afbe743f4299a307d07d629cef95ac419062ae0d2e00e61a666807268e6c44e5f1a3653f7d9c0e25f844d293f7a702cb58d197f1e3c0437e59c8903cd43ecb6c7c65f7e31c881afae1f5d0a47401caea075f5717963bb2df2af8cf8a1816332df24f0b432880d74e6b70a51671a38dc654fc0bf5a8d6ec79adf12f85b9a4bf943c4a673863ab0fc98e049af05f26a8251cf1bf37ef690cf6df805a673666a622cc898fd924fdefb425d1b012911188e24560698ef275f1cbe77ba8a09d64d1a3b3631552df6221f8c5c37694bae035a0d07dd6ee86962274d8d8a6357811460280726b2eb42aa2cc7d4291d3f6464f3b6c5bd2af607cbba5f7b1e144b59a30245105191be3c0620e3ef4a88dd4d5c471dfdbd75c251ce31304d4327520a4c7bd65859352f35b8d8821fb0c8ac8654dc4b4f3c445a84a932953555864aa63372babdc6eac96d9cd009fcd4a4b9c1602c73d3e3b69a5d0767695a5a5367e21464368ee37a95acdf8a3c6e4aa3111d388dd8ec7f943eeeeb390a970da43e658870430e4a763f130f612945be02cd43afe57e82876b7aa24da9cd99a332c7408af698d46e4015458afc0d12c526f1be880e41ccc7a9b33f170694e436b18775bee25412444da008368e00090080ef77e0f50c4e7cc40eb7cd81f61161b64453b13c7677292b4bdc5fddbe380d770dad0bd799aa9065ab219f0797015f9e8ae5d92183c645353bf8c3eef09a7893ad2f27ba4a6a5f88c15a7c66c5bebc01c079ae01c91a78d037f5df3f7619edbafee6123c4b2e2f812d0837d428144435e63824c7af9bca3fe81506fc820b0b4e8709125e4ede74ba85c2a33d0a604fdeacf9970587b26cdb040c098331567b4df3aa502e0f7630fed758bf0f868fe87c12176ccaa74bda3d24cc5a9c780405cc0f2fab56562de9f94a315c35db39d7f0318e88a55a12be16814421005eaf1f3cd30a9d8859402b0ff1f5a616404e1b096e0921bff9fd547c691932c95906697454a607c51e3df775a52c9e4528bda9f201cc08884e8577518e8ef7fdbb0d771a0962414b9f64c379451ab448573f7d1dd1b2abcd5b542d067eba5571f63fab009c798555289225a684a40b35834c36e18ae82799739d84fdb170e85d13ea8451d4255ee0bb90a45c8c3b8173ea9490dcfacc90af42ee9189e41cca24200a3cab6d959440e9f323f5f0c760cec2566840002d0b4775be060c8ba466d4686a2b05cbde36af7742d76276ac1bd09f5ae3451a64e419d1e8295c8da2ea2d238ba11e5338894a5a3c174d9fa90e2e6994fc801c41725a2e6a88dc405f22514c26a8d5f9cef1c4a0f9bdc2e78b650584e30aaad2674035732b0243429e202d4daf8259f84dbc71960749d933e42f6c83d544d5b31057b721af9fae3a586ce1acc8b24ce121a189c952337627f6355c5fb6f0c4e8c73fdb12464fc9ebe78f1470d7969a069c06042ef7902cb849159fda311faa623d6a8991e516d00e0cc4e1189e46c5d8abe030733bf8f4853730f00a00e8f5f18b1bbc88a6bf2b934f0dc18bab432898370cc9a6bb91213b5c1e64f58664de3e05ea192e1961debdaa0ff60302db02d73a748861f054ad5e8478dc2c8a7e8be7872476a00c0b1db9c749eb30cbe9f6c3976e5903733555c8b5b2435655f09cba4a908ff06437c27af2ffe12fc452c3440985c0e7d261bf843e4ff51548433b3d92ea904f28d82d8e2f7b067ce069092ef011ef9b3f723ef4b8eee871213737b8f3c8b57f9fa257d3e46a6b015e07101f2b13c783cbd2f8a25fdd6ebcb979afc93c807b75aaec8b705eb4aedaac055d592f7cc761e46dbdca699586927cd33be5b3eaddcd4192bdd91894bfc92984dcf5695520cd904b496fd688aeb4d277073731ef7f11da91f49f8d8863870f04cefbcca831f9a9c6c45182e8daf4d350d4525e25ae09430a8328c6b3c85b7a00d617e9bea90247d32ebf4d886933d6954e883b7456e19d5bffb9e01ae5ec0cd29584af871de825aae0d7e1f4763eda18c28281efab3def71003af9376922094ac453c0ba2348e7dd345d68ce922bd2277706845055e4d5cff1146e37478ebde1240b3ffac8115878bfb7987de6174972c21e53e32b9efa6d63540072b2f4e8fd19ae286746b6229d43a736b8efd14f85f8fbe295f7d39c33998dcabcd1030215e5e4efedd4d66280ce8ed65da692acb19002a3f55e96cef8f0c2fda4ed85454d680a1b40595819fbe6b56c488cc32e1f88b23bdef69bbe6c9874659650a279982cf1267733d8e6d3e28484a0d1eb396bac30365c7fe6bb150f2328baa6e9bc5ec4ccd76137e740489a1aa63d16b79c91e7cb678cf45dee274131f6785a2478c1682e9e67e263f5aef4d7749f9e9c7488268eaafb1571a55f906075e11736661bbf58ceebb2dc198b1aae674cca4378bf49ed743df30b41980e9c1cb34f9b76e475a414926bfe1ff661b26919523e31e57d23736f3043d90f2eb876c758019fb69611e9bbc1739c86cf603d7e7e65f161558fd2d7d5f89ab120959e21d50e5d152ae1946e1ec0ac58f652188dd7d43277fc283756e677f70fe631907d9394f0affbb95852807649faa85dc400673222e6d992ec2637f1ae53ea8d36c230ecee1041666579886d80de7b33459ec458286fb0ac527ad9772aa20857302c74683635767d6b9ac3ce6c78e24a5f69e1bb51ca3277257ce3f0e975fd323fc4a9b8e6aee57e21491494e66ee0f843da2fadcb8c43103833112c48ea6ac59f7d402020e455a600103cad3f731adab32bbe735b6e2f35eacd32270d63c1e86aa39e642f318448d80960693efc7f3e1b380c45c1503b10068d63a5732eb3d1e0037c502e67de4796f5de65cc02deb08a107d7010af9cc3e2349965839fc80cb22ec3b8abae0fca52e03de12253f55e6a94cd7c70ee7163d890fac8ce845f01bff5ae43115110e5cacdd9a206044e4295cfb98bf16f80b9ddc9a3406f47877c238346e619d0f04c4bce23de42a8740cfd533da9d1a180135c5a61f0cb3c039564b55290758c7918bbea2247ae1265d288e02524d96a17c73b7a1a90c73665c6ec4c33e8ecb67468735db85743e7a6a54aab4da4b0f1459e1daff5269766153b806c37ebe25eb8c47894ddd49a8b1d0f1a98887988e98c344915eb0806c3a148be18a1b8365e2a65340edbed1847159f12ab2a542629b4b1692b845d811e0193e67e022f76d7c185637af1d2ac26b956f3ba78e306a2fd4daa07319636e39237991a208d441a00f01e26532bff8e7d78039a2fee91fb0afc9233476c06002f4927ebc06093a5f95096122b4d47cc8fc700def783e7875873a293a25e56b88afeef0462606a57b28503ade7cbed7e25077b70ce793be5f459b2520dc929ee2f0e82dc2b9518d3f7878d4d3ec29b7d922ecc6db0da6725557931d91dde0a2b9070104a75d85dd631765ba9966d35e6834ba45278e154df486290bed8ca455377b12fb986f8af8c25efa4c4309b127ea00135867e8824c0b77ec9341a88f1f091a813cdbfc7b2b497c8116e22ff63272af7a52bc587d01532c384966c8619b6743099580bfaebc7d35ea2bd047bfac6f194951e33df2162d7b47696a97f81597f19770c9c3e884e965130e722f5582d0d4cf197b6edd51ff0c6ff8688e38b1995a49ae00c966a347ac78953ac8fc4513629982e66797067e7d83441318e4f3674417dedfb5a3a3f2eaff3a467afc6ec8207ec02c8169c9088739cc4c9b62b072e8f092c85ff14636027e3278e185d87611eb27c9685fc45fec86c83261a6448fa61b3205b55af4ee011615425be784e338e4b5e380e7cff22e92e04fb2faf54073de8884280052ac0938b329f8aa53b93a503d52856306a74e63b13bcaff56d22d631128473fb89cb6605a37076e1a5a75535f7bb8d31ffcdaaa82cf374dc289b1ccaf6f80ce86216aa627fcd8e2a441ab17a5a7d760d5f55b295e7473d47a50815356d67832f0b96d97f50cfd44dc2972ccca462cec5d60291339e2e51e5b1d94a7f985055d869b60d81478a71a762af92bc3c283bb58f6d10f039e1f46cbabb5097af3749befcb5bca12074c2e681447e11345d5b57197084d4331a7c83018eb7ba4394a138a8341c4121b98a8f5b493d5ab43b95b6219a3cf3613c20a618e45071ae89f6d145f083393e0983f9820a77f2cde19dbed012bd62f99cc06bf140ebf81540e071abf885962df5f55abc2eb92f62e262c673629947c82d4398b106b16b2df6730931a4307b0b61c97e99b9cee60de9545323ef60d22bece8e1c79fa79f585927db7a1bf857f5f531a2aa5631be1005d2ef6b9d2e04de14798e571389652693117e788df5b00914f5927600283b2ec73472c1742ae8b840b7e0286b4c8672ccea2758fcc9182e23cca625b1f2a02efdbb6c7eb4a535c4c09a8fb9256309d8febb864485961fa53fdb9aaca304235f2f08eb398cd04e99bdc1f7906a83b2f2cb416ff4339e3aa437dd85f7329f02a8d629ff39a6a6621a090610635b529aea8a329a79ba97b52f0e7cbaf1264765275cab6ef8c51c159e29081ef88596b4f1ce55f1a07f04f5888134d71de097bd0f69c930c9f85ced1e7b222a0d075f76f88827192f65502b127300ff7c95f1e8c811cdb77ad224fa5fa291e2ea20ce0a9b767a78daf603d755092000728243540ad612be513a4acdefd6c197a9db358136e7f62914a5e73d0bf3ccacb205e7cdbf0598f5ae5b51167cb93fcb844094c4ae5a8148e5517b74d586ce14564970eafe7af8fbb46ba7a6e741d0a3be348378688f8827d9e01f48e288e1e9eb600d60147ba019e5618700417ade8e2f7643a96c95da326988c3480afccd0af220e49d9d90c3b5f9654d63808a2df91583891bd4ec519b41234cdee022d9c985f305efa17b1543ba904b35666e0e4e05ad483469e46b28c152efb1393f7121bc664476ac0b1bce7bda6c21615d49645472c9e5b6ae28bdd4df017a3c103549dc279963974100549984da23d1d4be1e056065ac8085917285483fd105821e29a726130ae22ee645b6998dcdf05f4ba225347fafb5f3267247ae5fbea2ec1cc5c867886a4ce68f444d1f736bcda095f45361247ff11ddbc0894077e67d5c3f75dea804847293ac53e928156d4c4a424a742b49827bafc57f1adfee675c1b5c51df45413de1a84aa97b2efd720d7b5165e3ff7cc559d045a97c5c65540ffd54ff185e480fa0c43f81cac2aac340929eadef9a72073bf629f4078a72869b6101439f2395e0a3a404a6e375779b52bb796ac5b6246698f13c4c3df84757dc2ff433b89508a45ccf4be20cfc853662ee5edf5674e1f8254f6ce8b2652aae6ceb4ea64e63e48e81bd6bbd3296eaad64ec756c22c03c35d4303ab517d1be459f45186b320c246b3f0f6973fcf36240bf4605cbe0a5f2e5e27a26a4ace536cff8725ccb8cd8689857d4d6376ad78afa78c07cab7083d8c9854350021ccf68bb872953772401ecb9ab8ffc563b398207c014572694aa09d2f6ead70e9262aacf08b800c944a92a86727c596236a0a17ea7d15fbaf9916d126f5ab3a0c5209b4ae3e3e68baddeb5e59ee66545b31e9acb4d460fbacefe60587a2b3ebed97f8f4d5fb21795094a08778f85970180e74d7c764abca27bd28c664cb3247531588ef24ecf7ece8b0f298353dbfd3be77d4872a2920b8a445131d2d89a9997b7d54bb6fabb8dcde04dd48aea25f96b4afa01ff9b66081bee56727276c48fb6ca4468ee2321b044058853a8fc7a79f09a97718a9b7629cf3c6353d1c4298f19277274314eed3bd30bb5c4cfc5d79d53e62018a97694d3ee58cdf6afe571bb009c615610a22d41d33e94aeb7daa9d92db523746c416d0c9402a92944e9de6543f1b1df5daeca8f56b36a40b058c5cccaea9f7566966cd1814a2f29a493db897c18a10013e2dbfa8425546f4cffa5aabf56426b9e72efc0c83f2db16d95ac650743c06fc011c95f9eb1ef1dde3f4925971e978ab0c649c774ca605b680ffb71e041d781f5e11a35552a171de3716124b60051b8e430666a85d2754dfd14e6ad5097abde89204ff801cf23ce9702574964b82b1ea517a7a0cf080a3ceb50763d09e52fda37e26424d325de02e10e1b02c6481cf9bacd635b919a9eb2203e88caa8d3ad53d88e63843f5d42ea6d9ce5bfdbbe69cb362a315d8daee338eca50c169b39d1831e0f49cf91b337f92528ed521398020e36307b5f3cb43b6dd5c58bb3f009572e97f41f1ad7583d05f674336f6ecae963850857d8b3d946ddf4f399f627aa52e837c0c1b008b87d87879a1957483e73b1d803cfa9e3a9f0343a80c08a4c4c9a2fb37967e60082474c824c48fe9cef5c9bdd2ca9cdbe0074b7176d05386e3940dc6921ab6a364cfafc9158d6e99f448ac5c1f58646a7d4e3f08f41b2f229d747482e656bd00b89a01cf90038c232f6f2887bc43fbfc53896e5a224cbe35be9763a0a482de61a04dae599e6e994434db00cec7d17de77f79c95c7bf4319ceca411f331d12462ff6f8bf1e0d0e25f6068d508ace1f0ed013d66ac6ee598efa8780dc5196d8309bd725b4963367afbee12a25999f2800c47e3879c2810529d1cc67a498fd8b080b9d74456363c75cea1bd3c325fcddcfd07d3d59d48c37b471aa660be76166219c227e52f67e19b50d776b2095e44ec20e57debf6421d4dc5884c616610f317e73329670c20b21bbcb7e839abd41c54acf4256944df265d77fd74f86ebe3ced5f2e395b4f8cb6cb8454fe11c354dfa23a671cdf6bc132ae46845d967c28f608059c03b7db56541a53cb0ff3a27196b41f48bc642ad608ec1c412209ca11ebc3a916afe38db0edf90058e7b46a9b28e1e715ced4feffb4f944bf7d75879d4c3395b8e72cbda9b4adcd15dab617fc8c56949a221489c3a9b00b4e57691e97db35fb72a87ecfb41fcad5d695d52cb2fa446bced6ccf278c20310b1347b8b687fc5a7a2b4769e3f50bcc6233a18e784f14d0e2efc38f4dd683071b0a2794be1a0ab5e7f04d4d00d5b385353f9c93021e2b677e8aa40760dbd0f3bc0f9297779a8531eeada0cfac3252c4e74f3792c93bc84e6e7874396cb1ebe9e2ec8b9cd49dfcf2f002c2e564406fd2b5993e6bf8884f9b0d74ca28fb01d9b35876dff3dfad0baad6d488bd4809e1ce7b49335471b648df4956311e658b36b6bcec939b788c527a4495c8c7cd93cb91c8259aa8e81359df54ecae32316285d55112ad4c9cde9c9cbf255cc58e66c4d38201ac41e05e67ea18d7b69c01ff08419610ad3ce7d979f3f9b1effe8377c80c0c101dfead38ae6de170e7a97f86a4feaf715bad7052695dd42058037ad8e46fc80ac9152f745399897fc21d579ed62cdfe2c77e66ea12cbf073e80dcdbb235cc0c436fb4d5948517ae16325ca52607ea058b0566d521f93ae7085cccd79c24686615f8f53ea7f9c43be19ef90ba174693696be534559f3fb32d6692731b3cbc545dd22097a4c3c6600c9ad686eed735a59c043ac173697fe07e6fcf5592ac72aaa3b88d27dd1640db5cfecf967ec40384f5f2049e4b4dd0d05f435b049b682a5af7189e6f3dc9bd123bf2122b4da80d0d1b65e10e16d6e400b463d0b9d3be477d5c852f7684844766e76ad113b72f70b394b88b7f4a2cb27d1c0bdd5b9cf06707bc6d321c16c14e3322729ff505486c8a3c5b563367832d7ed170c9b57e44df9b4c4ac385d6dc3e8bd081a9e6ee6253f4ed26ebf0e1dc0ef863fe7ecc50a57d32428a1208773f8ddfa96a811ee062691ed2a0bb76d6d7d4aeb9599587be557351bd575c6dd3abf57759a8726e2042cc9c729d362fd78c4ccbee360484888333b49646e89aa212fe433446041588b3610133b4555ab4c81c0192bfedb02eeb0de79f59e000dab6b11fc3f55d725461a7048a6c40c90e1a09a0841328d05aa6eedf64227a224594f6c4d87a5e7ac3a8bdf8a3c840a5e6fd79ef0288b111d0bebbbf41817ce1ae4835a17d0d73b799a325a25f4fa6f3658c9b9b928ad0c4483c5e1a13211e17258352939d6f004093bf9ae3102facf1ba887e62dcbb81e2f49f73fbaa1c0ca245cbedaf400f1b235e5525082805226a24057c18f18505e451fdd1cc0d59abb972745e6e965f42c51462548d81088acc5ba38a67d7be363813d633d3167ebf13936b8288f79b23edd46a3337c5eee78cb42aee2d161b46516aa3809c31fcbb7268304e80ff649ed61c84071e238578e18a2882522fdf96e0168d3765f5578d31731e649c0b97faf184186dc1b11b115865b8abd98a3be466e2b617b20aade6ab434a2c54ecc7dc069e70c23ecf9cc01cc7080493ed2a05471bd100781454ebd916220926a63902a6de5842aa13921ce94f12f7660c04974a5633fe1cf6af2f97e98632c5fdb9dae99f04495282afc58c4151cc3c504e2777bb8f380125aba89d7a57e7b3e84fb869d7d71e9d1412f700f0208d8c218104a55e7eef61e29a5e07a3fa4626ba39816c1686db73140f89463f8af02ff587edc7ed2a309fedcf490c8f85cd91ee194c16f33c59eda6ca5c8d0915defaa8184f88877c03e18c6d5925f900e57643ff58c264b950c2338754517215fa526b5854b65499651c7adb9af29291a15a5986235d717b41bd00f4cae4d483a264cefa13cd9a13a09fbda3c2ae2ce9353bd61f7a77ce51958a9f90a38a92db4d538ac4e40712dadb66f415c6b4bff939c19da004ef7d32ec7790c8296030ca18df611821b806949659b1d98a59bd1102dd7d1dddcdd354d97c7661fd1660aca616ed8d8554ca2d2fffdc12a97f83b9235400778aedfc62351858d05bf3f5548979e2d9779525b164946e9b1969ca72b2d8c498238e193f97832cf63a188568672520b7420ce3a23244a8da6c2a1e8bd044310740c0ea3be7d5ae57979992b4938fb673174d89e4024eb8d59c27c46ee7c12b7b33471be8bfeeba448d2ebfd50942ea31ad5f7e49a80a474380306889ac2b814cf50b979ecf850406e4440585bf93762f555be44c9c50290ee652a075af7d2f4d355dec18377397455a4a536397a55153cd903f487636f910ee0df04f6734f941f28de42bff8665f5df2cf7644bd9cc15c13b96676814f7ec349f88be86543bb338512bf101f79b5799f6d49273b9e5cef71f3360e1191aa9f2525084a2969b958dd4229edb7805eae76648a327c360630eaa27510ee85c3fef44bde90f5ccd8151398862e51589a40c4a7becfd91</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="16728c09ec12116e324375606ff47f5e31d829059f1e2dfd1ff38d4e3c5da926">bf257aa7226f7414e08be929816d559ea4000930c961708bbaaa6618a6d0dcbcc4ac342708e2df2a16460f1111368a329cfda591cd01cc70555baf5ecee7a0a74f811716678d6c7c6b06093af7e91ee36e0e9589c5c92350f2c3e68627525f3e640233a123258dc5a9e8aec3ae6c78071de82da2fbba790fb396a87a863ef14dfe6cbfd4ce2e5af0768abfb5ace32458555040bab07166bdc5103e6e3492fbcd6227ca2c2fbf5b7c5c42e8d76e54b5c2b5a5f7a05068146d92d5920fffd1d5f29bb8dd4ef443f42f8186f11d888045a9f066b4fbb186b60b2203f6cca5029c18435acdde542b1a173f9c02343e766fa78ebb1bccb8b2ef65bf69c4a425c1f1c4e884227e30cf4f1b3e3f11eae4977cab81913d681d1c41ab42221a61030d502563416ab0e5f1749f598c83096e535fa21c44b6a798a834efac5cd0c69b20920e0fa4f9b9c11cd33ccc5e1b5511cbc63d16ac48185cd29a87b03badf6b56ec19305db7426f0332d341ff990cc795bdc9d9e8804c5a6aa72a56a007d61b49f2e39fb675e777ef1662fbbcb3c5ead124a8d0b9cadbf1e144f8e2a475536cdba966fc92a97be8f038724a0aa120a7f7286f24d5682d4754ee405f860ce232ef9804cf8516553fb8f704bece50c3b3f5eb17d070f0b22caf8e19a5f035b1dbf823a52f8775d4c946e2e4a2427c1cdc64b1edbc7a7a93b182cb3ea4ba04b6918990a28adf7fc12644fd226bc3488be9e117af85a186b9ea107738e9bdf1232e15f55c83a44875f88c7cc019bf17dfb245ba1fdbd2c716b26fe9a9892fc09a7ff8aa9136c34c8a1b6117967b220f1e041b7c57f26861058eeee7d638967c7596bf46725643e14a5013b8d210b747882c272a6cfd23b94a9b2c7a3412073338560dddaeb482da381b7dc6491293dd9d26b3d3ee5dbddf7ee62396b07b2e17d5f860b7c42fbb4090a1687a2c093f95a3f4c78725ea5a03987914352159663d07ce8bbc62a03e7f89bd5d84ed39ee5f87bb6a79afbd24eff238c180ce30aac278b22d897db5437c7ed3ad6b91cdc23f9c129dec259ffaf26df6fe6abf82d920754940f38ec4be8d9321e3c093af2751a6ab99fda97f9dce6fdb404b2c7d1062007503521bce1b0dc6deec5c9406c96595bb92ad375002803ecc29d68723d0602d18a6329d6f85043a6a868891a5b30fb9dcf483baf3ec9cac76cecb39a3e16a85ac356cd03ed2e48b3dcf316479d10251c53b5c85144172fa740fa065dffa4175422adcaf36826beb27400ebdc303dd4ad8c2401e0dc8962523a3f9218480b0224336487919bdd1096e56213835c7331751cde31d90b6c38bc5844e42a8ea98d222ab778fca958af45236447487a6a7f97b5f0f2f89ea6e90dc77d6a97f6ce530a7b2d61c87dff8d9de5c77c22bda96f6af49bbd166fe538211e1dad1d9f066e74a70b70d7e90cc31244dbfbcd00f5587126affc3f1943f34e2dbeecb88cc31409271cee2983016cd2b70dabd4afc71a07cf848111972080c39eb77d7d6739a24ba00bf9c25ab2ba95b31e1bc55fddc3200f3c7ce881a489fbade29fd6ae4bceda032cf3b2d72f3353b22b4261c2ffe0dbff8e9002963e87a4503b7e6599a775175fda10ed31c0e27778c55b1c08d6dc0a5d02ca067de5299204627ba16f146b4014f5be479376a4b6f6c0cae6d37dac2152ef59660296c6269464443d921cd134cc7aeb8ddcbad73aaa881aac4332dd1ab02a81a3f31aca27dfcd6ad1df23a1e397513afbe743f4299a307d07d629cef95ac419062ae0d2e00e61a666807268e6c44e5f1a3653f7d9c0e25f844d293f7a702cb58d197f1e3c0437e59c8903cd43ecb6c7c65f7e31c881afae1f5d0a47401caea075f5717963bb2df2af8cf8a1816332df24f0b432880d74e6b70a51671a38dc654fc0bf5a8d6ec79adf12f85b9a4bf943c4a673863ab0fc98e049af05f26a8251cf1bf37ef690cf6df805a673666a622cc898fd924fdefb425d1b012911188e24560698ef275f1cbe77ba8a09d64d1a3b3631552df6221f8c5c37694bae035a0d07dd6ee86962274d8d8a6357811460280726b2eb42aa2cc7d4291d3f6464f3b6c5bd2af607cbba5f7b1e144b59a30245105191be3c0620e3ef4a88dd4d5c471dfdbd75c251ce31304d4327520a4c7bd65859352f35b8d8821fb0c8ac8654dc4b4f3c445a84a932953555864aa63372babdc6eac96d9cd009fcd4a4b9c1602c73d3e3b69a5d0767695a5a5367e21464368ee37a95acdf8a3c6e4aa3111d388dd8ec7f943eeeeb390a970da43e658870430e4a763f130f612945be02cd43afe57e82876b7aa24da9cd99a332c7408af698d46e4015458afc0d12c526f1be880e41ccc7a9b33f170694e436b18775bee25412444da008368e00090080ef77e0f50c4e7cc40eb7cd81f61161b64453b13c7677292b4bdc5fddbe380d770dad0bd799aa9065ab219f0797015f9e8ae5d92183c645353bf8c3eef09a7893ad2f27ba4a6a5f88c15a7c66c5bebc01c079ae01c91a78d037f5df3f7619edbafee6123c4b2e2f812d0837d428144435e63824c7af9bca3fe81506fc820b0b4e8709125e4ede74ba85c2a33d0a604fdeacf9970587b26cdb040c098331567b4df3aa502e0f7630fed758bf0f868fe87c12176ccaa74bda3d24cc5a9c780405cc0f2fab56562de9f94a315c35db39d7f0318e88a55a12be16814421005eaf1f3cd30a9d8859402b0ff1f5a616404e1b096e0921bff9fd547c691932c95906697454a607c51e3df775a52c9e4528bda9f201cc08884e8577518e8ef7fdbb0d771a0962414b9f64c379451ab448573f7d1dd1b2abcd5b542d067eba5571f63fab009c798555289225a684a40b35834c36e18ae82799739d84fdb170e85d13ea8451d4255ee0bb90a45c8c3b8173ea9490dcfacc90af42ee9189e41cca24200a3cab6d959440e9f323f5f0c760cec2566840002d0b4775be060c8ba466d4686a2b05cbde36af7742d76276ac1bd09f5ae3451a64e419d1e8295c8da2ea2d238ba11e5338894a5a3c174d9fa90e2e6994fc801c41725a2e6a88dc405f22514c26a8d5f9cef1c4a0f9bdc2e78b650584e30aaad2674035732b0243429e202d4daf8259f84dbc71960749d933e42f6c83d544d5b31057b721af9fae3a586ce1acc8b24ce121a189c952337627f6355c5fb6f0c4e8c73fdb12464fc9ebe78f1470d7969a069c06042ef7902cb849159fda311faa623d6a8991e516d00e0cc4e1189e46c5d8abe030733bf8f4853730f00a00e8f5f18b1bbc88a6bf2b934f0dc18bab432898370cc9a6bb91213b5c1e64f58664de3e05ea192e1961debdaa0ff60302db02d73a748861f054ad5e8478dc2c8a7e8be7872476a00c0b1db9c749eb30cbe9f6c3976e5903733555c8b5b2435655f09cba4a908ff06437c27af2ffe12fc452c3440985c0e7d261bf843e4ff51548433b3d92ea904f28d82d8e2f7b067ce069092ef011ef9b3f723ef4b8eee871213737b8f3c8b57f9fa257d3e46a6b015e07101f2b13c783cbd2f8a25fdd6ebcb979afc93c807b75aaec8b705eb4aedaac055d592f7cc761e46dbdca699586927cd33be5b3eaddcd4192bdd91894bfc92984dcf5695520cd904b496fd688aeb4d277073731ef7f11da91f49f8d8863870f04cefbcca831f9a9c6c45182e8daf4d350d4525e25ae09430a8328c6b3c85b7a00d617e9bea90247d32ebf4d886933d6954e883b7456e19d5bffb9e01ae5ec0cd29584af871de825aae0d7e1f4763eda18c28281efab3def71003af9376922094ac453c0ba2348e7dd345d68ce922bd2277706845055e4d5cff1146e37478ebde1240b3ffac8115878bfb7987de6174972c21e53e32b9efa6d63540072b2f4e8fd19ae286746b6229d43a736b8efd14f85f8fbe295f7d39c33998dcabcd1030215e5e4efedd4d66280ce8ed65da692acb19002a3f55e96cef8f0c2fda4ed85454d680a1b40595819fbe6b56c488cc32e1f88b23bdef69bbe6c9874659650a279982cf1267733d8e6d3e28484a0d1eb396bac30365c7fe6bb150f2328baa6e9bc5ec4ccd76137e740489a1aa63d16b79c91e7cb678cf45dee274131f6785a2478c1682e9e67e263f5aef4d7749f9e9c7488268eaafb1571a55f906075e11736661bbf58ceebb2dc198b1aae674cca4378bf49ed743df30b41980e9c1cb34f9b76e475a414926bfe1ff661b26919523e31e57d23736f3043d90f2eb876c758019fb69611e9bbc1739c86cf603d7e7e65f161558fd2d7d5f89ab120959e21d50e5d152ae1946e1ec0ac58f652188dd7d43277fc283756e677f70fe631907d9394f0affbb95852807649faa85dc400673222e6d992ec2637f1ae53ea8d36c230ecee1041666579886d80de7b33459ec458286fb0ac527ad9772aa20857302c74683635767d6b9ac3ce6c78e24a5f69e1bb51ca3277257ce3f0e975fd323fc4a9b8e6aee57e21491494e66ee0f843da2fadcb8c43103833112c48ea6ac59f7d402020e455a600103cad3f731adab32bbe735b6e2f35eacd32270d63c1e86aa39e642f318448d80960693efc7f3e1b380c45c1503b10068d63a5732eb3d1e0037c502e67de4796f5de65cc02deb08a107d7010af9cc3e2349965839fc80cb22ec3b8abae0fca52e03de12253f55e6a94cd7c70ee7163d890fac8ce845f01bff5ae43115110e5cacdd9a206044e4295cfb98bf16f80b9ddc9a3406f47877c238346e619d0f04c4bce23de42a8740cfd533da9d1a180135c5a61f0cb3c039564b55290758c7918bbea2247ae1265d288e02524d96a17c73b7a1a90c73665c6ec4c33e8ecb67468735db85743e7a6a54aab4da4b0f1459e1daff5269766153b806c37ebe25eb8c47894ddd49a8b1d0f1a98887988e98c344915eb0806c3a148be18a1b8365e2a65340edbed1847159f12ab2a542629b4b1692b845d811e0193e67e022f76d7c185637af1d2ac26b956f3ba78e306a2fd4daa07319636e39237991a208d441a00f01e26532bff8e7d78039a2fee91fb0afc9233476c06002f4927ebc06093a5f95096122b4d47cc8fc700def783e7875873a293a25e56b88afeef0462606a57b28503ade7cbed7e25077b70ce793be5f459b2520dc929ee2f0e82dc2b9518d3f7878d4d3ec29b7d922ecc6db0da6725557931d91dde0a2b9070104a75d85dd631765ba9966d35e6834ba45278e154df486290bed8ca455377b12fb986f8af8c25efa4c4309b127ea00135867e8824c0b77ec9341a88f1f091a813cdbfc7b2b497c8116e22ff63272af7a52bc587d01532c384966c8619b6743099580bfaebc7d35ea2bd047bfac6f194951e33df2162d7b47696a97f81597f19770c9c3e884e965130e722f5582d0d4cf197b6edd51ff0c6ff8688e38b1995a49ae00c966a347ac78953ac8fc4513629982e66797067e7d83441318e4f3674417dedfb5a3a3f2eaff3a467afc6ec8207ec02c8169c9088739cc4c9b62b072e8f092c85ff14636027e3278e185d87611eb27c9685fc45fec86c83261a6448fa61b3205b55af4ee011615425be784e338e4b5e380e7cff22e92e04fb2faf54073de8884280052ac0938b329f8aa53b93a503d52856306a74e63b13bcaff56d22d631128473fb89cb6605a37076e1a5a75535f7bb8d31ffcdaaa82cf374dc289b1ccaf6f80ce86216aa627fcd8e2a441ab17a5a7d760d5f55b295e7473d47a50815356d67832f0b96d97f50cfd44dc2972ccca462cec5d60291339e2e51e5b1d94a7f985055d869b60d81478a71a762af92bc3c283bb58f6d10f039e1f46cbabb5097af3749befcb5bca12074c2e681447e11345d5b57197084d4331a7c83018eb7ba4394a138a8341c4121b98a8f5b493d5ab43b95b6219a3cf3613c20a618e45071ae89f6d145f083393e0983f9820a77f2cde19dbed012bd62f99cc06bf140ebf81540e071abf885962df5f55abc2eb92f62e262c673629947c82d4398b106b16b2df6730931a4307b0b61c97e99b9cee60de9545323ef60d22bece8e1c79fa79f585927db7a1bf857f5f531a2aa5631be1005d2ef6b9d2e04de14798e571389652693117e788df5b00914f5927600283b2ec73472c1742ae8b840b7e0286b4c8672ccea2758fcc9182e23cca625b1f2a02efdbb6c7eb4a535c4c09a8fb9256309d8febb864485961fa53fdb9aaca304235f2f08eb398cd04e99bdc1f7906a83b2f2cb416ff4339e3aa437dd85f7329f02a8d629ff39a6a6621a090610635b529aea8a329a79ba97b52f0e7cbaf1264765275cab6ef8c51c159e29081ef88596b4f1ce55f1a07f04f5888134d71de097bd0f69c930c9f85ced1e7b222a0d075f76f88827192f65502b127300ff7c95f1e8c811cdb77ad224fa5fa291e2ea20ce0a9b767a78daf603d755092000728243540ad612be513a4acdefd6c197a9db358136e7f62914a5e73d0bf3ccacb205e7cdbf0598f5ae5b51167cb93fcb844094c4ae5a8148e5517b74d586ce14564970eafe7af8fbb46ba7a6e741d0a3be348378688f8827d9e01f48e288e1e9eb600d60147ba019e5618700417ade8e2f7643a96c95da326988c3480afccd0af220e49d9d90c3b5f9654d63808a2df91583891bd4ec519b41234cdee022d9c985f305efa17b1543ba904b35666e0e4e05ad483469e46b28c152efb1393f7121bc664476ac0b1bce7bda6c21615d49645472c9e5b6ae28bdd4df017a3c103549dc279963974100549984da23d1d4be1e056065ac8085917285483fd105821e29a726130ae22ee645b6998dcdf05f4ba225347fafb5f3267247ae5fbea2ec1cc5c867886a4ce68f444d1f736bcda095f45361247ff11ddbc0894077e67d5c3f75dea804847293ac53e928156d4c4a424a742b49827bafc57f1adfee675c1b5c51df45413de1a84aa97b2efd720d7b5165e3ff7cc559d045a97c5c65540ffd54ff185e480fa0c43f81cac2aac340929eadef9a72073bf629f4078a72869b6101439f2395e0a3a404a6e375779b52bb796ac5b6246698f13c4c3df84757dc2ff433b89508a45ccf4be20cfc853662ee5edf5674e1f8254f6ce8b2652aae6ceb4ea64e63e48e81bd6bbd3296eaad64ec756c22c03c35d4303ab517d1be459f45186b320c246b3f0f6973fcf36240bf4605cbe0a5f2e5e27a26a4ace536cff8725ccb8cd8689857d4d6376ad78afa78c07cab7083d8c9854350021ccf68bb872953772401ecb9ab8ffc563b398207c014572694aa09d2f6ead70e9262aacf08b800c944a92a86727c596236a0a17ea7d15fbaf9916d126f5ab3a0c5209b4ae3e3e68baddeb5e59ee66545b31e9acb4d460fbacefe60587a2b3ebed97f8f4d5fb21795094a08778f85970180e74d7c764abca27bd28c664cb3247531588ef24ecf7ece8b0f298353dbfd3be77d4872a2920b8a445131d2d89a9997b7d54bb6fabb8dcde04dd48aea25f96b4afa01ff9b66081bee56727276c48fb6ca4468ee2321b044058853a8fc7a79f09a97718a9b7629cf3c6353d1c4298f19277274314eed3bd30bb5c4cfc5d79d53e62018a97694d3ee58cdf6afe571bb009c615610a22d41d33e94aeb7daa9d92db523746c416d0c9402a92944e9de6543f1b1df5daeca8f56b36a40b058c5cccaea9f7566966cd1814a2f29a493db897c18a10013e2dbfa8425546f4cffa5aabf56426b9e72efc0c83f2db16d95ac650743c06fc011c95f9eb1ef1dde3f4925971e978ab0c649c774ca605b680ffb71e041d781f5e11a35552a171de3716124b60051b8e430666a85d2754dfd14e6ad5097abde89204ff801cf23ce9702574964b82b1ea517a7a0cf080a3ceb50763d09e52fda37e26424d325de02e10e1b02c6481cf9bacd635b919a9eb2203e88caa8d3ad53d88e63843f5d42ea6d9ce5bfdbbe69cb362a315d8daee338eca50c169b39d1831e0f49cf91b337f92528ed521398020e36307b5f3cb43b6dd5c58bb3f009572e97f41f1ad7583d05f674336f6ecae963850857d8b3d946ddf4f399f627aa52e837c0c1b008b87d87879a1957483e73b1d803cfa9e3a9f0343a80c08a4c4c9a2fb37967e60082474c824c48fe9cef5c9bdd2ca9cdbe0074b7176d05386e3940dc6921ab6a364cfafc9158d6e99f448ac5c1f58646a7d4e3f08f41b2f229d747482e656bd00b89a01cf90038c232f6f2887bc43fbfc53896e5a224cbe35be9763a0a482de61a04dae599e6e994434db00cec7d17de77f79c95c7bf4319ceca411f331d12462ff6f8bf1e0d0e25f6068d508ace1f0ed013d66ac6ee598efa8780dc5196d8309bd725b4963367afbee12a25999f2800c47e3879c2810529d1cc67a498fd8b080b9d74456363c75cea1bd3c325fcddcfd07d3d59d48c37b471aa660be76166219c227e52f67e19b50d776b2095e44ec20e57debf6421d4dc5884c616610f317e73329670c20b21bbcb7e839abd41c54acf4256944df265d77fd74f86ebe3ced5f2e395b4f8cb6cb8454fe11c354dfa23a671cdf6bc132ae46845d967c28f608059c03b7db56541a53cb0ff3a27196b41f48bc642ad608ec1c412209ca11ebc3a916afe38db0edf90058e7b46a9b28e1e715ced4feffb4f944bf7d75879d4c3395b8e72cbda9b4adcd15dab617fc8c56949a221489c3a9b00b4e57691e97db35fb72a87ecfb41fcad5d695d52cb2fa446bced6ccf278c20310b1347b8b687fc5a7a2b4769e3f50bcc6233a18e784f14d0e2efc38f4dd683071b0a2794be1a0ab5e7f04d4d00d5b385353f9c93021e2b677e8aa40760dbd0f3bc0f9297779a8531eeada0cfac3252c4e74f3792c93bc84e6e7874396cb1ebe9e2ec8b9cd49dfcf2f002c2e564406fd2b5993e6bf8884f9b0d74ca28fb01d9b35876dff3dfad0baad6d488bd4809e1ce7b49335471b648df4956311e658b36b6bcec939b788c527a4495c8c7cd93cb91c8259aa8e81359df54ecae32316285d55112ad4c9cde9c9cbf255cc58e66c4d38201ac41e05e67ea18d7b69c01ff08419610ad3ce7d979f3f9b1effe8377c80c0c101dfead38ae6de170e7a97f86a4feaf715bad7052695dd42058037ad8e46fc80ac9152f745399897fc21d579ed62cdfe2c77e66ea12cbf073e80dcdbb235cc0c436fb4d5948517ae16325ca52607ea058b0566d521f93ae7085cccd79c24686615f8f53ea7f9c43be19ef90ba174693696be534559f3fb32d6692731b3cbc545dd22097a4c3c6600c9ad686eed735a59c043ac173697fe07e6fcf5592ac72aaa3b88d27dd1640db5cfecf967ec40384f5f2049e4b4dd0d05f435b049b682a5af7189e6f3dc9bd123bf2122b4da80d0d1b65e10e16d6e400b463d0b9d3be477d5c852f7684844766e76ad113b72f70b394b88b7f4a2cb27d1c0bdd5b9cf06707bc6d321c16c14e3322729ff505486c8a3c5b563367832d7ed170c9b57e44df9b4c4ac385d6dc3e8bd081a9e6ee6253f4ed26ebf0e1dc0ef863fe7ecc50a57d32428a1208773f8ddfa96a811ee062691ed2a0bb76d6d7d4aeb9599587be557351bd575c6dd3abf57759a8726e2042cc9c729d362fd78c4ccbee360484888333b49646e89aa212fe433446041588b3610133b4555ab4c81c0192bfedb02eeb0de79f59e000dab6b11fc3f55d725461a7048a6c40c90e1a09a0841328d05aa6eedf64227a224594f6c4d87a5e7ac3a8bdf8a3c840a5e6fd79ef0288b111d0bebbbf41817ce1ae4835a17d0d73b799a325a25f4fa6f3658c9b9b928ad0c4483c5e1a13211e17258352939d6f004093bf9ae3102facf1ba887e62dcbb81e2f49f73fbaa1c0ca245cbedaf400f1b235e5525082805226a24057c18f18505e451fdd1cc0d59abb972745e6e965f42c51462548d81088acc5ba38a67d7be363813d633d3167ebf13936b8288f79b23edd46a3337c5eee78cb42aee2d161b46516aa3809c31fcbb7268304e80ff649ed61c84071e238578e18a2882522fdf96e0168d3765f5578d31731e649c0b97faf184186dc1b11b115865b8abd98a3be466e2b617b20aade6ab434a2c54ecc7dc069e70c23ecf9cc01cc7080493ed2a05471bd100781454ebd916220926a63902a6de5842aa13921ce94f12f7660c04974a5633fe1cf6af2f97e98632c5fdb9dae99f04495282afc58c4151cc3c504e2777bb8f380125aba89d7a57e7b3e84fb869d7d71e9d1412f700f0208d8c218104a55e7eef61e29a5e07a3fa4626ba39816c1686db73140f89463f8af02ff587edc7ed2a309fedcf490c8f85cd91ee194c16f33c59eda6ca5c8d0915defaa8184f88877c03e18c6d5925f900e57643ff58c264b950c2338754517215fa526b5854b65499651c7adb9af29291a15a5986235d717b41bd00f4cae4d483a264cefa13cd9a13a09fbda3c2ae2ce9353bd61f7a77ce51958a9f90a38a92db4d538ac4e40712dadb66f415c6b4bff939c19da004ef7d32ec7790c8296030ca18df611821b806949659b1d98a59bd1102dd7d1dddcdd354d97c7661fd1660aca616ed8d8554ca2d2fffdc12a97f83b9235400778aedfc62351858d05bf3f5548979e2d9779525b164946e9b1969ca72b2d8c498238e193f97832cf63a188568672520b7420ce3a23244a8da6c2a1e8bd044310740c0ea3be7d5ae57979992b4938fb673174d89e4024eb8d59c27c46ee7c12b7b33471be8bfeeba448d2ebfd50942ea31ad5f7e49a80a474380306889ac2b814cf50b979ecf850406e4440585bf93762f555be44c9c50290ee652a075af7d2f4d355dec18377397455a4a536397a55153cd903f487636f910ee0df04f6734f941f28de42bff8665f5df2cf7644bd9cc15c13b96676814f7ec349f88be86543bb338512bf101f79b5799f6d49273b9e5cef71f3360e1191aa9f2525084a2969b958dd4229edb7805eae76648a327c360630eaa27510ee85c3fef44bde90f5ca63b6b003002a65467c53d536061413e51778a85421fba5e709f206bcb5626867686f9466af3dbf576853f587320e9740ec9a7761752ba548fb9c1cbd642eaacca5c51a8eb9167a1965dad2b0eae4d91176ca71e7509a08934c59362692f886fb4672d4e1fe3d77b9c89886fbdacbb22aaed122c7be5d4afbc0e40ab4911182f705681d6789c34c78d63ac73d3c33ec5bb19331f39efad7c5bd9b2e2b39734ca</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-up">
       <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">
