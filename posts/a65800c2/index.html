@@ -30,7 +30,7 @@
 <meta property="og:description" content="快速Walsh变换（FWT）、子集卷积、子集卷积的扩展运算。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-15T23:24:10.000Z">
-<meta property="article:modified_time" content="2024-01-16T10:39:17.205Z">
+<meta property="article:modified_time" content="2024-01-17T13:35:37.477Z">
 <meta property="article:author" content="LA">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="多项式">
@@ -259,9 +259,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-01-16 07:24:10 / 修改时间：18:39:17" itemprop="dateCreated datePublished" datetime="2024-01-16T07:24:10+08:00">2024-01-16</time>
+      <time title="创建时间：2024-01-16 07:24:10" itemprop="dateCreated datePublished" datetime="2024-01-16T07:24:10+08:00">2024-01-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-17 21:35:37" itemprop="dateModified" datetime="2024-01-17T21:35:37+08:00">2024-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,14 +307,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.7k</span>
+      <span>5.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>17 分钟</span>
+      <span>19 分钟</span>
     </span>
 </div>
 
@@ -615,22 +621,48 @@ C_{l,k}=\sum_{i=0}^{l}\left( \sum_{x \operatorname{or} y = k} A_{i,x}
 C_i=\sum_{i_1+i_2=i}A_{i_1} *_{\operatorname{or}} B_{i_2}
 \nonumber
 \]</span></p>
-<p>将 <span class="math inline">\(A,B,C\)</span> 看作是 <span
-class="math inline">\(n\)</span>
-次多项式，每项的系数都是一个集合幂级数，那么这就是一个卷积！我们甚至可以求逆、<span
+<p>一个卷积？是不是也可以做求逆、<span
+class="math inline">\(\exp\)</span>、<span
+class="math inline">\(\ln\)</span>！</p>
+<p>定义集合幂级数 <span class="math inline">\(\exp f\)</span> 为满足
+<span class="math inline">\(\exp f
+=\sum_{i=0}^{+\infty}\frac{f^i}{i!}\)</span> 的集合幂级数，<span
+class="math inline">\(\ln f\)</span> 为满足 <span
+class="math inline">\(\exp (\ln f) = f\)</span> 的集合幂级数。</p>
+<p>实际上是当然可以的，对每个 <span
+class="math inline">\(A_i,B_i\)</span> 都FWT一下，现在对每个 <span
+class="math inline">\(x\)</span>，<span class="math inline">\(C_{i,
+x}\)</span> 是互相独立的，因此可以对每个 <span class="math inline">\(x
+\in [0,2^n-1]\)</span> 求出这一维的答案，然后最终合并，问题转化为长度为
+<span class="math inline">\(n\)</span> 的序列的求逆、<span
 class="math inline">\(\ln\)</span>、<span
-class="math inline">\(\exp\)</span>。</p>
-<p>具体地，对于求逆，直接递推：</p>
-<p><span class="math display">\[
-g=f^{-1},g_i=\frac{1-\sum_{j=0}^{i-1}g_jf_{i-j}}{f_0}
-\nonumber
-\]</span></p>
-<p>对于 <span class="math inline">\(\ln\)</span>，有 <span
-class="math inline">\(g=\ln f = \frac{f&#39;}{f}\)</span>，对 <span
-class="math inline">\(\exp\)</span> 有 <span
-class="math inline">\(g=\exp f,g&#39;=gf&#39;\)</span>，递推求。</p>
-<p>集合幂级数的导数可以定义为 <span class="math inline">\(cx^S=\sum_{v
-\in S}cx^{S-v}\)</span>。</p>
+class="math inline">\(\exp\)</span>，当然可以上多项式全家桶做到 <span
+class="math inline">\(\mathcal{O}(2^n n \log
+n)\)</span>，但是这是完全没必要的，<span
+class="math inline">\(n\)</span> 很小，也就 <span
+class="math inline">\(20\)</span>
+左右，多项式全家桶的大常数是得不偿失的，可以直接 <span
+class="math inline">\(\mathcal{O}(n^2)\)</span>
+暴力做这些操作，时间复杂度是 <span class="math inline">\(\mathcal{O}(n^2
+2^n)\)</span>。</p>
+<p>再细说一下的话，求逆用递推 <span
+class="math inline">\(g_n=\frac{1-\sum_{j=0}^{i-1}g_jf_{i-j}}{f_0}\)</span>，<span
+class="math inline">\(\exp\)</span> 用 <span
+class="math inline">\(g&#39;=gf&#39;\)</span>，写成系数形式就是 <span
+class="math inline">\(g_n=\frac{1}{n}\sum_{i=0}^{n-1}if_ig_{n-i}\)</span>。<span
+class="math inline">\(\ln\)</span> 可以利用它是 <span
+class="math inline">\(\exp\)</span> 的逆变换得到 <span
+class="math inline">\(g_n=f_n-\frac{1}{n}\sum_{i=0}^{n-1}ig_if_{n-i}\)</span>。</p>
+<details class="note info no-icon"><summary><p>求逆</p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">    <span class="built_in">FWT</span>(f[i], <span class="number">1</span> &lt;&lt; n, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> mask = <span class="number">0</span>; mask &lt; (<span class="number">1</span> &lt;&lt; n); mask ++) &#123;</span><br><span class="line">    g[<span class="number">0</span>][mask] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">            g[i][mask] = <span class="built_in">Minus</span>(g[i][mask], <span class="number">1ll</span> * f[j][mask] * g[i - j][mask] % MOD);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">    <span class="built_in">FWT</span>(g[i], <span class="number">1</span> &lt;&lt; n, <span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+
+</details>
+<details class="note info no-icon"><summary><p><span class="math inline">\(\exp\)</span></p>
+</summary>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">    <span class="built_in">FWT</span>(f[i], <span class="number">1</span> &lt;&lt; n, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> mask = <span class="number">0</span>; mask &lt; (<span class="number">1</span> &lt;&lt; n); mask ++) &#123;</span><br><span class="line">    g[<span class="number">0</span>][mask] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j ++)</span><br><span class="line">            g[i][mask] = <span class="built_in">Plus</span>(g[i][mask], <span class="number">1ll</span> * f[j][mask] * j % MOD * g[i - j][mask] % MOD);</span><br><span class="line">        g[i][mask] = <span class="number">1ll</span> * g[i][mask] * inv[i] % MOD;   <span class="comment">// inv[i] 是 i 的逆元</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++)</span><br><span class="line">    <span class="built_in">FWT</span>(g[i], <span class="number">1</span> &lt;&lt; n, <span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+
+</details>
 <h1 id="例题">例题</h1>
 <h2 id="wc2018-州区划分">「WC2018」 州区划分</h2>
 <h3 id="题目描述">题目描述</h3>
@@ -751,6 +783,26 @@ P_2}\)</span>。<span class="math inline">\(S_i\)</span> 和 <span
 class="math inline">\(S_j\)</span> 不同当且仅当 <span
 class="math inline">\(i \neq j\)</span>。</p>
 <h2 id="题解-2">题解</h2>
+<p>这就是一个不完整的子集卷积 <span class="math inline">\(\exp\)</span>
+。记 <span class="math inline">\(f(x)\)</span> 为所给集族 <span
+class="math inline">\(\mathcal{F}\)</span>，所求即为</p>
+<p><span class="math display">\[
+\sum_{i=0}^{k}\frac{f^i(x)}{i!}
+\nonumber
+\]</span></p>
+<p>这里的乘法是用子集卷积定义的，所以不用担心转移时集合之间有交的问题。</p>
+<p>怎么算这个东西呢？记上面式子为 <span
+class="math inline">\(g\)</span>，求导得到</p>
+<p><span class="math display">\[
+g&#39;=\sum_{i=0}^{k}\frac{if^{i-1}f&#39;}{i!}=f&#39;\sum_{i=0}^{k-1}\frac{f^i}{i!}
+\nonumber
+\]</span></p>
+<p>即</p>
+<p><span class="math display">\[
+g&#39;=f&#39;(g-\frac{f^k}{k!})
+\nonumber
+\]</span></p>
+<p>递推即可。</p>
 
     </div>
 
@@ -807,13 +859,13 @@ class="math inline">\(i \neq j\)</span>。</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">124k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:27</span>
+    <span title="站点阅读时长">7:30</span>
   </span>
 </div>
 <div class="busuanzi-count">

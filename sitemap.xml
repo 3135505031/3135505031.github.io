@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lav2.top/comments/index.html</loc>
+    <loc>https://lav2.top/posts/a65800c2/</loc>
     
     <lastmod>2024-01-17</lastmod>
     
@@ -22,7 +22,16 @@
   <url>
     <loc>https://lav2.top/posts/9210d486/</loc>
     
-    <lastmod>2024-01-16</lastmod>
+    <lastmod>2024-01-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lav2.top/comments/index.html</loc>
+    
+    <lastmod>2024-01-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://lav2.top/posts/bf11b1b1/</loc>
-    
-    <lastmod>2024-01-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lav2.top/posts/a65800c2/</loc>
     
     <lastmod>2024-01-16</lastmod>
     
