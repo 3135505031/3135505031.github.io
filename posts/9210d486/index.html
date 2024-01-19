@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <!--pjax：防止跳转页面音乐暂停-->
-  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
-
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
@@ -17,10 +14,10 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lav2.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":"mac","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lav2.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":"mac","style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="article">
 <meta property="og:title" content="瞎写">
@@ -57,12 +54,6 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-
-  <link rel="stylesheet" href="/dist/APlayer.min.css">
-  <div id="aplayer"></div>
-  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-  <script type="text/javascript" src="/dist/music.js"></script>
-
   <div class="headband"></div>
 
   <main class="main">
@@ -133,7 +124,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -146,7 +137,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">2023.12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#section-1"><span class="nav-number">1.1.</span> <span class="nav-text">12.21</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-2"><span class="nav-number">1.2.</span> <span class="nav-text">12.22</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-3"><span class="nav-number">1.3.</span> <span class="nav-text">12.23</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-4"><span class="nav-number">1.4.</span> <span class="nav-text">12.24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-5"><span class="nav-number">1.5.</span> <span class="nav-text">12.25</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-6"><span class="nav-number">1.6.</span> <span class="nav-text">12.26</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-7"><span class="nav-number">1.7.</span> <span class="nav-text">12.27</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-8"><span class="nav-number">1.8.</span> <span class="nav-text">12.28</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-9"><span class="nav-number">1.9.</span> <span class="nav-text">12.29</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-10"><span class="nav-number">1.10.</span> <span class="nav-text">12.30</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-11"><span class="nav-number">1.11.</span> <span class="nav-text">12.31</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-12"><span class="nav-number">2.</span> <span class="nav-text">2024.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#section-13"><span class="nav-number">2.1.</span> <span class="nav-text">1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-14"><span class="nav-number">2.2.</span> <span class="nav-text">1.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-15"><span class="nav-number">2.3.</span> <span class="nav-text">1.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-16"><span class="nav-number">2.4.</span> <span class="nav-text">1.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-17"><span class="nav-number">2.5.</span> <span class="nav-text">1.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-18"><span class="nav-number">2.6.</span> <span class="nav-text">1.6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-19"><span class="nav-number">2.7.</span> <span class="nav-text">1.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-20"><span class="nav-number">2.8.</span> <span class="nav-text">1.8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-21"><span class="nav-number">2.9.</span> <span class="nav-text">1.9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-22"><span class="nav-number">2.10.</span> <span class="nav-text">1.10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-23"><span class="nav-number">2.11.</span> <span class="nav-text">1.11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-24"><span class="nav-number">2.12.</span> <span class="nav-text">1.12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-25"><span class="nav-number">2.13.</span> <span class="nav-text">1.13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-26"><span class="nav-number">2.14.</span> <span class="nav-text">1.14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-27"><span class="nav-number">2.15.</span> <span class="nav-text">1.15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-28"><span class="nav-number">2.16.</span> <span class="nav-text">1.16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-29"><span class="nav-number">2.17.</span> <span class="nav-text">1.17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-30"><span class="nav-number">2.18.</span> <span class="nav-text">1.18</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-31"><span class="nav-number">3.</span> <span class="nav-text">1.19</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -314,8 +304,6 @@
     </span>
 </div>
 
-
-          
             <div class="post-description">随便写。</div>
         </div>
       </header>
@@ -351,12 +339,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/posts/1fddaa55/" rel="prev" title="THUPC2024 初赛">
-                  <i class="fa fa-angle-left"></i> THUPC2024 初赛
+                  <i class="fa fa-chevron-left"></i> THUPC2024 初赛
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/posts/53626af/" rel="next" title="NFLS 2024省选1">
-                  NFLS 2024省选1 <i class="fa fa-angle-right"></i>
+                  NFLS 2024省选1 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -376,14 +364,15 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-pen-fancy"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">LA</span>
-  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-pen-fancy"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LA</span>
+</div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
@@ -443,7 +432,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
-  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.12/pdfobject.min.js","integrity":"sha256-g2xji1rlE3KsGVClvuxTbcR0Kn2+wtQADSff2Tbb4zA="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.11/pdfobject.min.js","integrity":"sha256-N6JtCNwaYm6kizuG92UtOOXamRHPwu+V1yF10g3bu/c="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
 

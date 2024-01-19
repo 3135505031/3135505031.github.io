@@ -64,39 +64,3 @@ if (!window.NexT) window.NexT = {};
     variableConfig = {};
   });
 })();
-
-<head>
-<style>
-table {
-border-collapse: collapse;
-width: 100%;
-max-width: 800px;
-margin: 0 auto;
-}
-th, td {
-padding: 8px;
-text-align: left;
-border-bottom: 1px solid #ddd;
-}
-tr:nth-child(odd) {
-background-color: #f2f2f2;
-}
-tr:nth-child(even) {
-background-color: #ffffff;
-}
-.center {
-text-align: center;
-}
-</style>
-</head>
-<script>
-// 使用JavaScript给表格奇偶行添加类名
-var rows = document.getElementsByTagName("tr");
-for (var i = 0; i < rows.length; i++) {
-if (i % 2 === 0) {
-rows[i].className = "even";
-} else {
-rows[i].className = "odd";
-}
-}
-</script>

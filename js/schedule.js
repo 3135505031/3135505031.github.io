@@ -136,5 +136,3 @@
     clearInterval(fetchDataTimer);
   });
 })();
-
-
