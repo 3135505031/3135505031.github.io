@@ -7,10 +7,7 @@ site_url: https://lav2.top/wiki/  #网站地址
 
 # [Navigtion]
 nav:
-  - Home: index.md
-  - 简介: 
-    - 什么是HYOI: 简介/index.md
-    - HYOI成员: 简介/members.md
+  - 简介: index.md
   - 语言基础:
     - c++基础: 语言基础/cpp.md
 
