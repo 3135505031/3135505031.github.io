@@ -61,7 +61,7 @@ theme:
   icon: 
     repo: fontawesome/brands/github #右上角图标
 repo_name: HYOI # 右上角的名
-repo_url: https://github.com/31355050341/3135505031.github.io # 右上角点击跳转的链接
+repo_url: https://github.com/3135505031/3135505031.github.io # 右上角点击跳转的链接
 
 
 markdown_extensions:
