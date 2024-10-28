@@ -8,19 +8,11 @@ site_url: https://lav2.top/wiki/  #网站地址
 # [Navigtion]
 nav:
   - Home: index.md
-  - Java: 
-    - java/index.md
-    - 设计模式: java/设计模式/index.md
-  - Dokcer:
-    - docker/index.md
- #   - Installation: guide/installation.md
- #   - Basics: guide/basics.md
- #   - Configuration: guide/config.md
-  - K8s:
-    - k8s/index.md
-  - 教程:
-    - 教程/mkdocs.md
-  - About: about.md
+  - 简介: 
+    - 什么是HYOI: 简介/index.md
+    - HYOI成员: 简介/members.md
+  - 语言基础:
+    - c++基础: 语言基础/cpp.md
 
 #[UI]
 theme:
@@ -71,8 +63,8 @@ theme:
     
   icon: 
     repo: fontawesome/brands/github #右上角图标
-repo_name: leoalasiga.github.io # 右上角的名
-repo_url: https://github.com/leoalasiga/leoalasiga.github.io.git # 右上角点击跳转的链接
+repo_name: HYOI # 右上角的名
+repo_url: https://github.com/31355050341/3135505031.github.io # 右上角点击跳转的链接
 
 
 markdown_extensions:
