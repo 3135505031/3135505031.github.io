@@ -13,8 +13,9 @@ nav:
   - 游记:
     - LA:
       - 游记test: 游记/LA/游记test.md
-    - qwerty111111:
-      - qwe游记: 游记/qwerty111111/qwe游记.md
+    - Rubbish_Du:
+      - 2024CSP-S 游寄: 游记/Rubbish_Du/2024CSP-S游寄.md
+      - 2024OIFHA游记: 游记/Rubbish_Du/2024OIFHA游记.md
   - 闲话:
     - LA:
       - 鲜花01: 闲话/LA/鲜花01.md
@@ -78,6 +79,7 @@ extra_javascript:
   - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
   - '{OIWikiFeedbackSystemFrontendJS}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
   - '{OIWikiFeedbackSystemFrontendContentScript}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
+
 
 extra_css:
   - '_static/css/extra.css?v=16'
