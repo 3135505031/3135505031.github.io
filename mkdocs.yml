@@ -63,15 +63,15 @@ hooks:
   - hooks/on_env.py
 
 # Customization
-extra:
-  disqus: 'OI-Wiki'
-  copyright: '<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a>'
-  pagetime: 'on'
-  manifest: 'manifest.webmanifest'
-  githash: ''
-  analytics:
-    provider: google
-    property: UA-124485594-1
+# extra:
+#   disqus: 'OI-Wiki'
+#   copyright: '<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a>'
+#   pagetime: 'on'
+#   manifest: 'manifest.webmanifest'
+#   githash: ''
+#   analytics:
+#     provider: google
+#     property: UA-124485594-1
 
 extra_javascript:
   - '_static/js/math-csr.js?math-csr'
