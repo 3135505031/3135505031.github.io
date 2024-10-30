@@ -27,3 +27,4 @@ HYOI wiki由所有HYOIer构建，旨在帮助后来的HYOIer更好地学习算�
 - [LA](https://www.luogu.com.cn/user/508774)
 - [qwerty111111](https://www.luogu.com.cn/user/697161)
 - [Rubbish_Du](https://www.luogu.com.cn/user/1169161)
+- [Danubius](https://www.luogu.com.cn/user/1062132)

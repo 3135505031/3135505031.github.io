@@ -9,16 +9,25 @@ site_url: https://lav2.top/wiki/  #网站地址
 nav:
   - 简介: index.md
   - 语言基础:
-    - c++基础: 语言基础/cpp.md
+    - 语言介绍: 语言基础/语言介绍.md
+  - 数据结构:
+    - 线段树: 数据结构/线段树.md
   - 游记:
     - LA:
       - 游记test: 游记/LA/游记test.md
     - Rubbish_Du:
       - 2024CSP-S 游寄: 游记/Rubbish_Du/2024CSP-S游寄.md
       - 2024OIFHA游记: 游记/Rubbish_Du/2024OIFHA游记.md
+    - qwerty111111:
+      - 中山一周行: 游记/qwerty111111/中山一周行.md
   - 闲话:
     - LA:
       - 鲜花01: 闲话/LA/鲜花01.md
+    - Danubius:
+      - 典籍里の机房一: 闲话/Danubius/典籍里の机房一.md
+      - 浅谈历史研究视角: 闲话/Danubius/浅谈历史研究视角.md
+    - Rubbish_Du:
+      - 我与OI: 闲话/Rubbish_Du/我与OI.md
 #[UI]
 # Theme
 theme:
