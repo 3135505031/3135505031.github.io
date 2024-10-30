@@ -1116,16 +1116,16 @@
 <p>举个例子，如果我们的算法进行了两次求和的操作，我们就要进行 <span class="arithmatex">\(2n\)</span> 次加法，它的时间复杂度并不是 <span class="arithmatex">\(\mathcal{O}(2n)\)</span>，仔细想想就会发现，当 <span class="arithmatex">\(n\)</span> 大到一定程度的时候， <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(2n\)</span>  的区别并不算大。</p>
 <p>这时候有人就要问了，什么才叫“不算大”？当 <span class="arithmatex">\(n\)</span> 越来越大的时候，<span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(2n\)</span> 相差的明明会越来越多。</p>
 <p>我们是这样解释的，虽然他们的差值会变大，但是他们的比值永远是一个常数，计算它们所花费的时间也只是两倍的关系而已，但假如现在有一个时间复杂度为 <span class="arithmatex">\(\mathcal{O}(n^2)\)</span>  的算法，也就是计算规模为 <span class="arithmatex">\(n\)</span> 的问题需要常数倍于 <span class="arithmatex">\(n^2\)</span> 的计算量，比较它与 <span class="arithmatex">\(\mathcal{O}(n)\)</span> 的算法就会发现，当 <span class="arithmatex">\(n\)</span> 为 <span class="arithmatex">\(10^8\)</span> 时，后者所要花费的时间已经是前者的 <span class="arithmatex">\(10^8\)</span> 倍了！</p>
-<p>回到最开始的问题，计算这个和还有一种方法是公式：小学的时候我们就学过等差数列的求和公式。</p>
-<div class="arithmatex">\[
+<p>回到最开始的问题，计算这个和还有一种方法是公式：小学的时候我们就学过等差数列的求和公式。
+$$
 \sum_{i=1}^n i=\frac{1}{2}n(n+1)
-\]</div>
-<p>这次，无论 <span class="arithmatex">\(n\)</span> 有多大，我们都只需要计算三次乘法和一次加法（或者说，一次加法，一次乘法和一次除法）即可，<strong>我们可以认为，单次的加、减、乘、除、取模以及位运算都是</strong> <span class="arithmatex">\(\mathcal{O}(1)\)</span> 的，于是上面算法的时间复杂度就是 <span class="arithmatex">\(\mathcal{O}(1)\)</span> ，这表明程序的运行速度和 <span class="arithmatex">\(n\)</span> 没有任何关系.</p>
-<p>我们这样定义两个时间复杂度是否相同：对于两个计算规模对于 <span class="arithmatex">\(n\)</span> 的函数为 <span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(S(n)\)</span> 的程序，称它们时间复杂度相同，当且仅当在 <span class="arithmatex">\(n\)</span> 趋近于无穷大时，<span class="arithmatex">\(T(n)\)</span> 与 <span class="arithmatex">\(S(n)\)</span> 的比值为常数，写成极限的式子就是</p>
-<div class="arithmatex">\[
+$$
+这次，无论 <span class="arithmatex">\(n\)</span> 有多大，我们都只需要计算三次乘法和一次加法（或者说，一次加法，一次乘法和一次除法）即可，<strong>我们可以认为，单次的加、减、乘、除、取模以及位运算都是</strong> <span class="arithmatex">\(\mathcal{O}(1)\)</span> 的，于是上面算法的时间复杂度就是 <span class="arithmatex">\(\mathcal{O}(1)\)</span> ，这表明程序的运行速度和 <span class="arithmatex">\(n\)</span> 没有任何关系.</p>
+<p>我们这样定义两个时间复杂度是否相同：对于两个计算规模对于 <span class="arithmatex">\(n\)</span> 的函数为 <span class="arithmatex">\(T(n)\)</span> 和 <span class="arithmatex">\(S(n)\)</span> 的程序，称它们时间复杂度相同，当且仅当在 <span class="arithmatex">\(n\)</span> 趋近于无穷大时，<span class="arithmatex">\(T(n)\)</span> 与 <span class="arithmatex">\(S(n)\)</span> 的比值为常数，写成极限的式子就是
+$$
 \lim_{n \to +\infty} \frac{T(n)}{S(n)} = C \ne 0
-\]</div>
-<p>若该极限为无穷大，则 <span class="arithmatex">\(T(n)\)</span> 的时间复杂度要高于 <span class="arithmatex">\(S(n)\)</span> ，若为 <span class="arithmatex">\(0\)</span>，则 <span class="arithmatex">\(T(n)\)</span> 的时间复杂度低于 <span class="arithmatex">\(S(n)\)</span>。</p>
+$$
+若该极限为无穷大，则 <span class="arithmatex">\(T(n)\)</span> 的时间复杂度要高于 <span class="arithmatex">\(S(n)\)</span> ，若为 <span class="arithmatex">\(0\)</span>，则 <span class="arithmatex">\(T(n)\)</span> 的时间复杂度低于 <span class="arithmatex">\(S(n)\)</span>。</p>
 <p>于是我们可以正式解释 <span class="arithmatex">\(\mathcal{O}\)</span> 记号了：它描述了所有计算规模为 <span class="arithmatex">\(T(n)\)</span>，满足 <span class="arithmatex">\(\lim_{n \to +\infty} \frac{T(n)}{n}=C\)</span> 的算法，我们在写 <span class="arithmatex">\(T(n)=\mathcal{O}(n)\)</span> 时，这个等号本质上是集合语言中的 <span class="arithmatex">\(\in\)</span>，因此自然不能写作 <span class="arithmatex">\(\mathcal{O}(n)=T(n)\)</span>。</p>
 <p>类似的，假如时间复杂度中含有对数函数，我们是不写底数的，这是因为我们总可以用换底公式将不同的底数变为常数倍的差距，直接记作 <span class="arithmatex">\(\mathcal{O}(\log n)\)</span>。</p>
 <p>还有关键的一点是，在最开始说这是衡量算法在<strong>最坏情况</strong>下的运行速度，这个最坏情况，具体来说是：假如现在有一种算法能在平均 <span class="arithmatex">\(\mathcal{O}(n)\)</span> 的时间内解决某个问题，但是在某些特殊情况下，它的时间复杂度是 <span class="arithmatex">\(\mathcal{O}(n^2)\)</span>，我们就不能说它的时间复杂度是 <span class="arithmatex">\(\mathcal{O}(n)\)</span> ，尽管这些特殊情况的条件可能很苛刻，但它们确实存在，我们就只能说算法的时间复杂度是 <span class="arithmatex">\(\mathcal{O}(n^2)\)</span>。例如你不可以在最开始的例子中说，当 <span class="arithmatex">\(n=1\)</span> 的时候时间复杂度是 <span class="arithmatex">\(\mathcal{O}(1)\)</span>，因此该算法的时间复杂度就是 <span class="arithmatex">\(\mathcal{O}(1)\)</span>。</p>
