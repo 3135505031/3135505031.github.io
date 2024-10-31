@@ -53,9 +53,9 @@ async function readCommitsLog(sourceFilePath: string): Promise<{ commitDate: Dat
   });
 }
 
-const GITHUB_REPO = "OI-wiki/OI-wiki";
+const GITHUB_REPO = "3135505031/3135505031.github.io";
 const AUTHORS_CACHE_URL = `https://raw.githubusercontent.com/${GITHUB_REPO}/authors-cache/authors.json`;
-const AUTHORS_EXCLUDED = ["24OI-Bot", "OI-wiki"];
+const AUTHORS_EXCLUDED = ["24OI-Bot", "HYOI-wiki"];
 
 export const taskHandler = new (class implements TaskHandler<AuthorUserMap> {
   async globalInitialize() {
