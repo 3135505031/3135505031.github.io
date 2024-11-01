@@ -1471,6 +1471,70 @@
 
               
             
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_7" id="__nav_7_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    caw0218
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_7">
+            <span class="md-nav__icon md-icon"></span>
+            caw0218
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B8%B8%E8%AE%B0/caw0218/CSP-S2024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSP-S 2024 游记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2062,20 +2126,20 @@ $$</p>
 <h2 id="二维前缀和多维前缀和">二维前缀和/多维前缀和<a class="headerlink" href="#二维前缀和多维前缀和" title="Permanent link"></a></h2>
 <p>顾名思义，二维前缀和即维护二维数组前缀和</p>
 <p><img alt="2前缀和.png" src="https://img.picui.cn/free/2024/10/31/6723749f82642.png" /></p>
-<p>给定一个二维数组 <span class="arithmatex">\(a\)</span>，维护一个前缀和数组 <span class="arithmatex">\(d\)</span>。如果暴力计算的话，易得
-$$
-h[n][m]=\sum_{i=1}<sup>n\sum_{j=1}</sup>m a[i][j]
-$$</p>
+<p>给定一个二维数组 <span class="arithmatex">\(a\)</span>，维护一个前缀和数组 <span class="arithmatex">\(d\)</span>。如果暴力计算的话，易得</p>
+<div class="arithmatex">\[
+h[n][m]=\sum_{i=1}^n\sum_{j=1}^m a[i][j]
+\]</div>
 <h4 id="容斥思想求法">容斥思想求法<a class="headerlink" href="#容斥思想求法" title="Permanent link"></a></h4>
-<p>这样计算的话时间复杂度就爆炸了，那维护这个就没有起到优化的作用了，我们可以参考一维前缀和从 <span class="arithmatex">\(d[i - 1]\)</span> 入手，二维前缀和我们可以从 <span class="arithmatex">\(d[i-1][j]\)</span> 和 <span class="arithmatex">\(d[i][j-1]\)</span>  入手，如上图所示，<span class="arithmatex">\(d[i][j]\)</span> 可以从图中黄色+红色和橙色+红色部分转移过来，但是我们发现红色区域的 <span class="arithmatex">\(d[i-1][j-1]\)</span> 计算了两遍，我们需要将多余计算的部分减去，再加上绿色部分（也就是 <span class="arithmatex">\(a[i][j]\)</span> 本身）即可（该方法其实基于容斥原理思想实现）
-$$
+<p>这样计算的话时间复杂度就爆炸了，那维护这个就没有起到优化的作用了，我们可以参考一维前缀和从 <span class="arithmatex">\(d[i - 1]\)</span> 入手，二维前缀和我们可以从 <span class="arithmatex">\(d[i-1][j]\)</span> 和 <span class="arithmatex">\(d[i][j-1]\)</span>  入手，如上图所示，<span class="arithmatex">\(d[i][j]\)</span> 可以从图中黄色+红色和橙色+红色部分转移过来，但是我们发现红色区域的 <span class="arithmatex">\(d[i-1][j-1]\)</span> 计算了两遍，我们需要将多余计算的部分减去，再加上绿色部分（也就是 <span class="arithmatex">\(a[i][j]\)</span> 本身）即可（该方法其实基于容斥原理思想实现）</p>
+<div class="arithmatex">\[
 h[i][j]=h[i-1][j]+h[i][j-1]-h[i-1][j-1]+a[i][j]
-$$</p>
+\]</div>
 <h4 id="逐维前缀和">逐维前缀和<a class="headerlink" href="#逐维前缀和" title="Permanent link"></a></h4>
-<p>对于一般的情形，给定 <span class="arithmatex">\(k\)</span> 维数组 <span class="arithmatex">\(a\)</span> 大小为 <span class="arithmatex">\(N\)</span>，求其前缀和，易得
-$$
-h_{i_1,···,i_k}=\sum_{i'<em>1\leq i_1}···\sum</em>{i_k'\leq i_k} a_{i_1,···,i_k}
-$$</p>
+<p>对于一般的情形，给定 <span class="arithmatex">\(k\)</span> 维数组 <span class="arithmatex">\(a\)</span> 大小为 <span class="arithmatex">\(N\)</span>，求其前缀和，易得</p>
+<div class="arithmatex">\[
+h_{i_1,···,i_k}=\sum_{i'_1\leq i_1}···\sum_{i_k'\leq i_k} a_{i_1,···,i_k}
+\]</div>
 <p>从上式可以看出，<span class="arithmatex">\(k\)</span> 维前缀和就等于 <span class="arithmatex">\(k\)</span> 次求和。所以，一个显然的算法是，每次只考虑一个维度，固定所有其它维度，然后求若干个一维前缀和，这样对所有 <span class="arithmatex">\(k\)</span> 个维度分别求和之后，得到的就是 <span class="arithmatex">\(k\)</span> 维前缀和。</p>
 <p>利用逐维前缀和求二维前缀和的代码示例</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
