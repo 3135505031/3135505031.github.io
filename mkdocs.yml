@@ -93,9 +93,10 @@ theme:
   font:
     text: 'Fira Sans'
     code: 'Fira Mono'
+  # plugins:
+  #   - search:
+  #       separator: '[\s\u200b\-]'
 
-plugins: []
-     
 hooks:
   - hooks/on_env.py
 
@@ -115,9 +116,6 @@ extra_javascript:
   - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
   - '{OIWikiFeedbackSystemFrontendJS}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
   - '{OIWikiFeedbackSystemFrontendContentScript}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
-  # - '_static/js/mathjax.js'
-  # - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  # - '_static/js/tex-mml-chtml.js'
   - _static/js/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
