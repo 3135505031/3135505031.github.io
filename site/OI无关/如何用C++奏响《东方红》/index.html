@@ -1854,6 +1854,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E6%95%85%E4%BA%8B%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    故事集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2166,7 +2186,7 @@
 <p>无声世界中的你</p>
 </blockquote>
 <p>今天看到了 <em>“神十八神十九乘组太空会师”</em> 的新闻，偶然想到 <span class="arithmatex">\(54\)</span> 年前发射的<strong>东方红</strong>卫星，直到今天她仍然在苍穹之上漂浮着并一直唱着属于我们的歌！</p>
-<p>介于本人(Rhine)并非专业出身，本篇博客可能在乐理方面存在一些专业上的问题，也希望大家看到后可以练习我订正这些错误。</p>
+<p>介于本人(Rhine)并非专业出身，本篇博客可能在乐理方面存在一些专业上的问题，也希望大家看到后可以<a href="[云剪贴板 - 洛谷 | 计算机科学教育新生态](https://www.luogu.com.cn/paste/7b4wqzlf)">联系我</a>订正这些错误。</p>
 <h2 id="利用c发声功能奏响东方红">利用C++发声功能奏响东方红<a class="headerlink" href="#利用c发声功能奏响东方红" title="Permanent link"></a></h2>
 <blockquote>
 <p>“东方红，太阳升”</p>
@@ -2182,10 +2202,10 @@
 </blockquote>
 <p>简单来说：<strong>十二平均律体系将一个“纯八度”分成 <span class="arithmatex">\(12\)</span> 份，每份称之为 <span class="arithmatex">\(1\)</span> 个半音，两份为 <span class="arithmatex">\(1\)</span> 个全音，以此定出所有中间的单音。</strong></p>
 <p>这种规定方式是极为巧妙的，就像计算机中的二进制系统规定了各种运算方式一样。</p>
-<p>例如某个单音的频率为 <span class="arithmatex">\(f\)</span>，那么它与频率为 <span class="arithmatex">\(2f\)</span> 的另一个单音之间就构成了一个“纯八度”音程。按照十二平均律系统，我们可以以 <span class="arithmatex">\(f\)</span> 为基准音，在区间 $\left [ f ,2f\right ] $ 内得到 <span class="arithmatex">\(13\)</span> 个不同的单音，它们的频率分别为：
-$$
-2^{\frac{0}{12} }f ,2^{\frac{1}{12} }f   ,2^{\frac{2}{12} }f   ,2^{\frac{3}{12} }f   \dots ,2^{\frac{12}{12} }f<br />
-$$</p>
+<p>例如某个单音的频率为 <span class="arithmatex">\(f\)</span>，那么它与频率为 <span class="arithmatex">\(2f\)</span> 的另一个单音之间就构成了一个“纯八度”音程。按照十二平均律系统，我们可以以 <span class="arithmatex">\(f\)</span> 为基准音，在区间 $\left [ f ,2f\right ] $ 内得到 <span class="arithmatex">\(13\)</span> 个不同的单音，它们的频率分别为：</p>
+<div class="arithmatex">\[
+2^{\frac{0}{12} }f ,2^{\frac{1}{12} }f   ,2^{\frac{2}{12} }f   ,2^{\frac{3}{12} }f   \dots ,2^{\frac{12}{12} }f
+\]</div>
 <p>其中第一个音就是 <span class="arithmatex">\(f\)</span> 自身。如果将 <span class="arithmatex">\(f\)</span> 设定为 <span class="arithmatex">\(440Hz\)</span> ，从 
 <span class="arithmatex">\(f=440Hz\)</span> 到 <span class="arithmatex">\(2f=880Hz\)</span>这 <span class="arithmatex">\(13\)</span> 个单音的频率就可以用此公式算出了呐呐呐。</p>
 <p><strong>看回到我们的乐谱中</strong>，不难发现，其是一首 <span class="arithmatex">\(F\)</span> 大调的乐曲，那么我们便可以借助十二平均律这一工具计算出每个单音的频率了呢！</p>
@@ -2472,7 +2492,7 @@ $$</p>
 <h3 id="输出格式">输出格式<a class="headerlink" href="#输出格式" title="Permanent link"></a></h3>
 <p>输出一个整数，表示最长联络时间。</p>
 <h3 id="数据范围">数据范围<a class="headerlink" href="#数据范围" title="Permanent link"></a></h3>
-<p><span class="arithmatex">\(1\le N\le10^{5}\)</span></p>
+<p><span class="arithmatex">\(1\le N\le1000\)</span></p>
 <p><strong>注意</strong>：$NOI 1970 $ 所使用的测评机109丙计算机<strong>每秒仅可以进行10万次运算。</strong></p>
 <h3 id="输入样例">输入样例<a class="headerlink" href="#输入样例" title="Permanent link"></a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2550,7 +2570,7 @@ $$</p>
 
 <div style="float:right" class="build_date_utc">
   <a href="https://github.com/OI-wiki/OI-wiki">
-    最近更新：, 2024-11-01
+    最近更新：, 2024-11-02
   </a>
 </div>
 <script>"oi-wiki.com"!=window.location.hostname&&"www.oi-wiki.com"!=window.location.hostname||(document.getElementById("miitbeian").innerHTML='<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>'),console.log("%c OI Wiki %c  %c","background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent"),console.log("少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org")</script> -->
