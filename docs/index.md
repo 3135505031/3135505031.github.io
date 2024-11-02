@@ -1,10 +1,10 @@
 # Welcome to HYOI
 
-> 这里是邯郸市第一中学的OIer。
+> 这里是邯郸市第一中学的OIers所搭建的wiki。
 
 HYOI wiki由所有HYOIer构建，旨在帮助后来的HYOIer更好地学习算法竞赛。
 
-本站欢迎所有选手投稿，包括但不限于OI内容、游记、闲话。
+本站欢迎所有HYOI选手或其他任何人投稿，包括但不限于OI内容、游记、闲话。
 
 ![](images/window.gif)
 

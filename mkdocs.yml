@@ -115,8 +115,8 @@ hooks:
 extra_javascript:
   - '_static/js/math-csr.js?math-csr'
   - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
-  - '{OIWikiFeedbackSystemFrontendJS}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
-  - '{OIWikiFeedbackSystemFrontendContentScript}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
+  # - '{OIWikiFeedbackSystemFrontendJS}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
+  # - '{OIWikiFeedbackSystemFrontendContentScript}' # see: scripts/pre-build/install-feedback-sys-frontend.ts
   - _static/js/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
