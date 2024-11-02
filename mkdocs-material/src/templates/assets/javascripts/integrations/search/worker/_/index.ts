@@ -80,7 +80,7 @@ export function setupSearchWorker(
     )
       .subscribe(() => worker$.next({
         type: SearchMessageType.SETUP,
-        data: ((window as any).__oiWikiSearchEndpoint || "https://search.oi-wiki.org:8443/") as any
+        data: ((window as any).__oiWikiSearchEndpoint || "https://search.lav2.top:8443/") as any
       }))
 
   /* Return search worker */

@@ -17,7 +17,7 @@ label = "Celebration / 庆贺"
 
 query = f'''
 query {{
-    repository(owner: "OI-wiki", name: "OI-wiki") {{
+    repository(owner: "3135505031", name: "3135505031.github.io") {{
         id
         stargazerCount
         label(name: "{label}") {{
