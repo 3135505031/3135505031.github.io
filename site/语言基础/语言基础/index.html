@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#语言介绍" class="md-skip">
+        <a href="#在开始之前" class="md-skip">
           跳转至
         </a>
       
@@ -517,16 +517,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#语言介绍" class="md-nav__link">
-    语言介绍
+  <a href="#在开始之前" class="md-nav__link">
+    在开始之前
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#代码基础框架" class="md-nav__link">
-    代码基础框架
+  <a href="#编写第一个c程序" class="md-nav__link">
+    编写第一个c++程序！
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#数据的存储与计算" class="md-nav__link">
+    数据的存储与计算
+  </a>
+  
+    <nav class="md-nav" aria-label="数据的存储与计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#存储一个数字" class="md-nav__link">
+    存储一个数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#其他数据类型" class="md-nav__link">
+    其他数据类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2038,16 +2065,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#语言介绍" class="md-nav__link">
-    语言介绍
+  <a href="#在开始之前" class="md-nav__link">
+    在开始之前
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#代码基础框架" class="md-nav__link">
-    代码基础框架
+  <a href="#编写第一个c程序" class="md-nav__link">
+    编写第一个c++程序！
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#数据的存储与计算" class="md-nav__link">
+    数据的存储与计算
+  </a>
+  
+    <nav class="md-nav" aria-label="数据的存储与计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#存储一个数字" class="md-nav__link">
+    存储一个数字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#其他数据类型" class="md-nav__link">
+    其他数据类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2173,27 +2227,154 @@
     <h1>语言基础</h1>
   
 
-<h2 id="语言介绍">语言介绍<a class="headerlink" href="#语言介绍" title="Permanent link"></a></h2>
-<p>C++（c plus plus）是一种计算机高级程序设计语言，由<a href="https://baike.baidu.com/item/C语言/105958?fromModule=lemma_inlink">C语言</a>扩展升级而产生 [17]，最早于1979年由<a href="https://baike.baidu.com/item/本贾尼·斯特劳斯特卢普/10613051?fromModule=lemma_inlink">本贾尼·斯特劳斯特卢普</a>在AT&amp;T贝尔工作室研发。（来自<a href="https://baike.baidu.com/item/c%2B%2B/99272">C++_百度百科 (baidu.com)</a>）</p>
-<h2 id="代码基础框架">代码基础框架<a class="headerlink" href="#代码基础框架" title="Permanent link"></a></h2>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<h2 id="在开始之前">在开始之前<a class="headerlink" href="#在开始之前" title="Permanent link"></a></h2>
+<p>大家一定都曾听说过“编程”，但是很大一部分人并不了解编程到底是在干什么。为了理解这个过程，我们简单举一个例子。</p>
+<p>现在我们手头上有一个任务：给你一堆数字，要计算它们的和。你一定会觉得这是一个再简单不过的任务：只需要列出竖式，依次计算就可以了。这当然没有任何问题，但是假如我告诉你，有足足 <span class="arithmatex">\(10^8\)</span> 个 <span class="arithmatex">\(10\)</span> 位数呢？是的，这个任务对于人类来说是几乎不可能完成的，但是计算机不同，上面这个例子可以通过现代家用计算机在 <span class="arithmatex">\(1\)</span> 秒之内算出答案（我们假定这 <span class="arithmatex">\(10^8\)</span> 个数字不需要你手动输入到计算机中）。</p>
+<p>具体的过程说起来也并不困难：首先我们需要站在巨人的肩膀上，通过已有的“地基”，也就是编程语言，以及其中内置的工具，将上面的自然语言“翻译”成计算机可以执行的程序。</p>
+<p>在算法竞赛中，我们被允许使用c++作为我们的编程语言，并使用c++14标准执行（你可以认为这个标准就是随着时间的推移，它被一些管理者作出更新、加入新的更好用的内容，暂时没有理解也没有关系）。</p>
+<p>编程语言当然不止有c++一种，事实上，它本身就来自c语言的扩展，现在人工智能领域常用python，知名游戏Minecraft就是通过java编写的（基岩版是c++）。</p>
+<p>现在可能有人会认为，我们的任务就是将题目转化为代码，然后进行统一测试（判卷），看看大家能不能得出正确的结果。这个理解没有问题，但这样未免有些无聊：大家当然也明白计算机并不能解决目前人类遇到的所有计算难题，限制因素就是计算速度，我们称之为<strong>“算力”</strong>。<span class="arithmatex">\(10^8\)</span> 个 <span class="arithmatex">\(10\)</span> 位数的和对计算机来说是再简单不过的问题，但假如是 <span class="arithmatex">\(10^{10^8}\)</span> 个 <span class="arithmatex">\(10^8\)</span> 位数的和呢？这其中的计算难度差异是显而易见的。</p>
+<p>再举个例子，假如我们要计算 <span class="arithmatex">\(1+2+3+\cdots +n\)</span>，一个只会加法的小学生只能一步一步计算（我们假定，这个小学生不是高斯），他就需要算 <span class="arithmatex">\(n-1\)</span> 次加法。但是对于我们来说，这个问题就是最基础的等差数列求和，答案是 <span class="arithmatex">\(\frac{n(n+1)}{2}\)</span>，只需要算一次加法，一次乘法，一次除法就可以了，我们的“算力”没有发生变化，因为在计算的始终是我，但是通过第一种方式计算出结果是困难的，但是通过第二种方式计算是十分容易的。计算机也是如此，入门之后，我们要解决的问题几乎不会是简单地“将自然语言转化为代码”这样无趣的工作，而是想办法在有限的“算力”下，在限定的时间内（通常是 <span class="arithmatex">\(1\)</span> 秒左右）解决一个问题，正如前面的等差数列求和公式一样。</p>
+<p>于是我们可以这样解释我们接下来一段时间要做的工作：将所给问题转化为可以在<strong>一定算力下</strong>，<strong>限定时间、空间内</strong>，得出<strong>正确答案</strong>的代码。为了<strong>优化</strong>我们的程序（缩短运行时间或占用空间），我们将要学习很多<strong>算法</strong>，即解决问题的方式，或是<strong>数据结构</strong>，即高效存储、获取所需数据的方式，通过<strong>渐进时间复杂度</strong>理论估算我们写出程序的运行效率。</p>
+<h2 id="编写第一个c程序">编写第一个c++程序！<a class="headerlink" href="#编写第一个c程序" title="Permanent link"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">待补充</p>
+<p>待补充：代码编辑器和编译器、IDE的使用方式</p>
+</div>
+<p>我们要做的第一个任务是编写一个程序，使其输出“Hello World”。</p>
+<p>为了让代码能够输入、输出文字，我们需要先引用一个名为<code>iostream</code>的“库”（也叫“头文件”），“库”指的就是前人写好的，你可以直接使用的框架，这个库的含义为“输入输出流”，<code>i</code>指<code>input</code>，<code>o</code>指<code>output</code>，<code>stream</code>就是流。至于为什么叫做“流”，我们稍后再给出解释。</p>
+<p>引用一个c++内部的库的方式是在代码中写这样一行：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;NAME&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>通过将<code>NAME</code>替换为<code>iostream</code>，我们就引用了<code>iostream</code>库，可以通过其中的东西方便地输入输出。</p>
+<p>代码应当有一个执行起点，值得注意的是，这个起点并<strong>不</strong>是代码的第一行，而是被包裹在一个东西内部，我们称之为<strong>主函数</strong>，它是一个特殊的函数，我们目前不用考虑什么是函数，只需要知道主函数的写法以及代码从这个特殊的框架的第一行开始执行。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">代码执行起点</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="n">代码执行终点</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-- include ：头文件，调用头文件方可使用头文件中包含的函数。
-- using namespace std： 调用命名空间 std ， 写后可直接使用std命名空间内的所有标识符。
-- int main ： 定义主函数。
-- 主函数： 程序执行的起点，由main结束整个程序。
-- return 0：主函数返回值为0。</p>
-<p>我知道说了这些你也不知道是干嘛的 ， 其实不重要，记住就好，后面你会愈发了解。</p>
+<p>主函数内部用大括号{}包裹，大括号结尾应当有一行 <code>return 0;</code>，注意行末的分号，这是不能省略的，同时不能使用中文分号，因为这是两个不同的字符。</p>
+<p>现在该使用<code>iostream</code>库里的东西了！，在主函数内部加入这样的一行代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p><code>cout</code>可以理解为<code>c</code>（我们使用的是c++）和<code>output</code></p>
+</div>
+<p>同样注意行末的分号不能省略，于是我们就写出了第一个程序，下面是其完整代码。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>为了让代码更加美观，我们可以在单词两侧任意添加空格，行和行之间可以随意添加空行，于是将代码写成更规范的形式：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>同时每行开头的空格也是可以删去的，但<strong>强烈建议</strong>大家先按照上面的代码规范书写。</p>
+<p>可以通过下面的方式连续输出许多内容：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>程序会依次输出<code>Hello</code>，空格和<code>World</code>，和之前的效果相同。这里的<code>&lt;&lt;</code>被形象地称作“流运算符”，像水流一样将待输出的内容依次流到输出区域。</p>
+<p>细心的同学可能会发现，代码中的<code>Hello World</code>被<strong>英文</strong>双引号所包裹，同时双引号没有被输出，这是基于这样一个设计逻辑：输出的“文字”应该可以方便地与代码的内容，如<code>cout</code>，<code>#include &lt;iostream&gt;</code>所区别，如果没有双引号包裹，代码将可能会变成</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="err">#</span><span class="n">include</span><span class="w"> </span><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>完全乱套了！于是c++做出了这样的规定，文本，或者说，字符串（一串字符），在语言中的表示方式为双引号内包裹的文字，例如我们要输出<code>#include &lt;iostream&gt;</code>就可以这么写：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;#include &lt;iostream&gt;&quot;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>完全没有问题！这时有人就会有问题了：假如我要输出双引号呢？解决方法是规定<code>\"</code>表示双引号这个字符，其中反斜杠<code>\\</code>被称作“转义字符”，相当于将<code>\"</code>的含义作了转换，从字符串的标志变作了一个字符。转移字符<code>\\</code>当然不只转义这一个内容，例如<code>\\n</code>就会被转义为换行，是的，换行也是一个字符，被表示为<code>\\n</code>，试着输出 <code>Hello \\n World</code>吧！</p>
+<p>问题又出现了，我们怎么输出<code>\\</code>这个字符？解决方法很简单，就是再转义一次，让<code>\\\\</code>表示<code>\\</code>这个字符，繁琐但有效，问题彻底被解决了。</p>
+<h2 id="数据的存储与计算">数据的存储与计算<a class="headerlink" href="#数据的存储与计算" title="Permanent link"></a></h2>
+<p>在本节的最开头，我们提出过计算一些数字和，这个任务在计算机中又该怎么完成呢？</p>
+<h3 id="存储一个数字">存储一个数字<a class="headerlink" href="#存储一个数字" title="Permanent link"></a></h3>
+<p>在c++中，我们通过下面的方式定义一个整数：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p><code>int</code>指<code>integer</code>，即英文整数。由于计算机的空间是有限的，自然而然地，这个 <span class="arithmatex">\(x\)</span> 也必然存在一个存储的上下限，在这里，<span class="arithmatex">\(x\)</span> 应当是一个 <span class="arithmatex">\(-2^{31}\)</span> 到 <span class="arithmatex">\(2^{31}-1\)</span> 内的整数，<strong>否则存储会出现问题</strong>。</p>
+<p>可以通过<code>=</code>给一个数赋值，例如可以这样写：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>上面代码的前两行可以简写作<code>int x = 7;</code>，同时可以像<code>int x, y, z;</code>这样一下子定义多个值。同样注意行末分号，之后不再提醒。</p>
+<p>现在运用我们学过的输出方式：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>成功输出了<code>7</code>！这里如果给<code>x</code>包裹上双引号，输出的就不会是<code>7</code>而会是<code>x</code>，因为此时表示<code>x</code>这个字符串，而非代号<code>x</code>中存储的内容。</p>
+<p>试试加法？</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>成功输出了<code>15</code>，事实上可以不用这么麻烦：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>效果是一样的。</p>
+<p>问题来了，假如我需要写一个程序计算两个数的和，但这两个数不是确定的，而是我每次输入进去的，该怎么做？类似输出，我们可以使用<code>cin</code>实现输入，在引用<code>iostream</code>头文件后在主函数内写：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>执行程序，输入<code>1 3</code>，再输入回车，程序正确地输出了 <code>4</code>，完整程序如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="其他数据类型">其他数据类型<a class="headerlink" href="#其他数据类型" title="Permanent link"></a></h3>
+<p>有些同学可能会兴奋地尝试其他加法，例如输入了<code>0.1 0.2</code>，但是输出了错误的结果！</p>
+<p>这是怎么一回事呢？计算机出错了？并不是，计算机会忠实地执行计算任务，只可能是代码本身出现的问题。</p>
+<p>问题出在哪里呢？在<code>int</code>这里。我们说过，<code>int</code>表示的是<strong>整数</strong>，将一个小数塞进去当然会出问题，我们通过<code>double</code>来定义一个小数（计算机中称作浮点数），将代码换作</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>就可以输出正确的结果了，同样地，<code>double</code>也存在其存储上限。<code>double</code>和<code>int</code>等被我们称作“数据类型”，“浮点数”和“整数”是不同类型的数据，它们在计算机中的存储形式也不同，即使它们都是数字。</p>
+<p>下面给出其他各种数据类型：</p>
+<div class="admonition note">
+<p class="admonition-title">待补充</p>
+<p>待补充：数据类型表</p>
+</div>
 <h2 id="变量与常量">变量与常量<a class="headerlink" href="#变量与常量" title="Permanent link"></a></h2>
 <p>常作为储存数值，字符串等的工具</p>
 <p>变量：在过程中可以变化的量</p>
