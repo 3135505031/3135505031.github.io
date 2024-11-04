@@ -1,30 +1,42 @@
-# Welcome to HYOI
+# 简介
 
-> 这里是邯郸市第一中学的OIers所搭建的wiki。
+## **Welcome to HYOI！**
 
-HYOI wiki由所有HYOIer构建，旨在帮助后来的HYOIer更好地学习算法竞赛。
+> 这里是邯郸市第一中学的OIer们所搭建的wiki。
 
-本站欢迎所有HYOI选手或其他任何人投稿，包括但不限于OI内容、游记、闲话。
+**HYOI wiki** 由所有**HYOIer**共同搭建，旨在帮助未来的**HYOIer**更好地学习**OI**。
 
-![](images/window.gif)
+本**wiki**还欢迎其他有兴趣的人投稿，包括任何内容：**OIer**知识、游记、闲话等。(~~与OI无关的内容也可以喵~~)
 
-## OI是什么？
+## OI 是什么？
 
-**OI**（Olympiad in Informatics，信息学奥林匹克竞赛）在中国起源于 1984 年，是五大高中学科竞赛之一。
+**OI**（Olympiad in Informatics，信息学奥林匹克竞赛）在中国起源于 1984 年，是高中五大学科竞赛之一。
 
 本项目受[OI wiki](https://oi-wiki.org/)启发，在编写过程中参考了诸多资料，在此一并致谢。
 
-## 如何参与
+## 邯郸市第一中学
 
-找目前本站的管理员即可。~~期待后续有责任心的管理员搞一个OI wiki的同款参与方式。~~
+![](https://cdn.luogu.com.cn/upload/image_hosting/5f7j5dps.png)
 
-联系方式：qq 3135505031
+[Welcome to HDYZ!](http://221.193.217.146)
+
+> 邯郸市第一中学是一所历史悠久、综合性强的公办中学，拥有优秀的师资队伍和学生群体。
+
+## 团队
+
+2022届+2023届+2024届 の 联合团队：[2024HYOI](https://www.luogu.com.cn/team/74955)
+
+yzy老师 の 远古团队：[邯郸一中 & 宁静致远](https://www.luogu.com.cn/team/36049)
+
+……
+
+## 如何参与投稿或搭建？
+
+此**wiki**的维护者：\_LAP\_
+联系方式：QQ:3135505031
 
 ## 致谢
 
 贡献者名单：
 
-- [LA](https://www.luogu.com.cn/user/508774)
-- [qwerty111111](https://www.luogu.com.cn/user/697161)
-- [Rubbish_Du](https://www.luogu.com.cn/user/1169161)
-- [Danubius](https://www.luogu.com.cn/user/1062132)
+- **所有HYOIer**
