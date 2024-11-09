@@ -48,7 +48,7 @@ nav:
       - CSP-S 2024 游记: 游记/caw0218/CSP-S2024游记.md
   - 闲话:
     - LA:
-      - 人类观察日记: 闲话/LA/人类观察日记.md
+      - 我与OI: 闲话/LA/我与OI.md
     - Danubius:
       - 典籍里の机房一: 闲话/Danubius/典籍里の机房一.md
       - 浅谈历史研究视角: 闲话/Danubius/浅谈历史研究视角.md
@@ -99,9 +99,9 @@ theme:
   font:
     text: 'Fira Sans'
     code: 'Fira Mono'
-  # plugins:
-  #   - search:
-  #       separator: '[\s\u200b\-]'
+  plugins:
+    - search:
+        separator: '[\s\u200b\-]'
 
 hooks:
   - hooks/on_env.py
