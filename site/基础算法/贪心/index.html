@@ -17,28 +17,28 @@
         <meta name="author" content="HYOI">
       
       
-        <link rel="canonical" href="https://lav2.top/%E6%B8%B8%E8%AE%B0/LA/NOI2024%E9%80%80%E5%BD%B9%E8%AE%B0/">
+        <link rel="canonical" href="https://lav2.top/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83/">
       
       
-        <link rel="prev" href="../../../OI%E6%97%A0%E5%85%B3/%E5%A6%82%E4%BD%95%E7%94%A8C%2B%2B%E5%A5%8F%E5%93%8D%E3%80%8A%E4%B8%9C%E6%96%B9%E7%BA%A2%E3%80%8B/">
+        <link rel="prev" href="../%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
       
       
-        <link rel="next" href="../%E8%81%94%E5%90%88%E7%9C%81%E9%80%892024%E6%B8%B8%E8%AE%B0/">
+        <link rel="next" href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
       
       
-      <link rel="icon" href="../../../favicon.ico">
+      <link rel="icon" href="../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.4.6">
     
     
       
-        <title>NOI2024退役记 - HYOI wiki</title>
+        <title>贪心 - HYOI wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.aa9d803e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.aa9d803e.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -57,13 +57,13 @@
       
     
     
-      <link rel="stylesheet" href="../../../_static/css/extra.css?v=16">
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=16">
     
-      <link rel="stylesheet" href="../../../{OIWikiFeedbackSystemFrontendCSS}">
+      <link rel="stylesheet" href="../../{OIWikiFeedbackSystemFrontendCSS}">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#noi2024" class="md-skip">
+        <a href="#贪心" class="md-skip">
           跳转至
         </a>
       
@@ -106,7 +106,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="HYOI wiki" class="md-header__button md-logo" aria-label="HYOI wiki" data-md-component="logo">
+    <a href="../.." title="HYOI wiki" class="md-header__button md-logo" aria-label="HYOI wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NOI2024退役记
+              贪心
             
           </span>
         </div>
@@ -218,7 +218,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -237,7 +237,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+        <a href="../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
           
   
   语言基础
@@ -251,11 +251,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" class="md-tabs__link">
           
   
   基础算法
@@ -273,7 +275,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-tabs__link">
+        <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-tabs__link">
           
   
   数据结构
@@ -291,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E5%9B%BE%E8%AE%BA/%E6%A0%91%E4%B8%8A%E5%B7%AE%E5%88%86/" class="md-tabs__link">
+        <a href="../../%E5%9B%BE%E8%AE%BA/%E6%A0%91%E4%B8%8A%E5%B7%AE%E5%88%86/" class="md-tabs__link">
           
   
   图论
@@ -309,7 +311,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/%E7%AE%80%E4%BB%8B/" class="md-tabs__link">
+        <a href="../../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/%E7%AE%80%E4%BB%8B/" class="md-tabs__link">
           
   
   组合数学
@@ -327,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E5%85%B6%E5%AE%83%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-tabs__link">
+        <a href="../../%E5%85%B6%E5%AE%83%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-tabs__link">
           
   
   其它数学
@@ -345,7 +347,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../OI%E6%97%A0%E5%85%B3/%E5%A6%82%E4%BD%95%E7%94%A8C%2B%2B%E5%A5%8F%E5%93%8D%E3%80%8A%E4%B8%9C%E6%96%B9%E7%BA%A2%E3%80%8B/" class="md-tabs__link">
+        <a href="../../OI%E6%97%A0%E5%85%B3/%E5%A6%82%E4%BD%95%E7%94%A8C%2B%2B%E5%A5%8F%E5%93%8D%E3%80%8A%E4%B8%9C%E6%96%B9%E7%BA%A2%E3%80%8B/" class="md-tabs__link">
           
   
   OI无关
@@ -359,21 +361,17 @@
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../%E6%B8%B8%E8%AE%B0/LA/NOI2024%E9%80%80%E5%BD%B9%E8%AE%B0/" class="md-tabs__link">
           
   
   游记
@@ -400,7 +398,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E9%97%B2%E8%AF%9D/LA/%E6%88%91%E4%B8%8EOI/" class="md-tabs__link">
+        <a href="../../%E9%97%B2%E8%AF%9D/LA/%E6%88%91%E4%B8%8EOI/" class="md-tabs__link">
           
   
   闲话
@@ -436,7 +434,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="HYOI wiki" class="md-nav__button md-logo" aria-label="HYOI wiki" data-md-component="logo">
+    <a href="../.." title="HYOI wiki" class="md-nav__button md-logo" aria-label="HYOI wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
@@ -453,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -511,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -531,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="md-nav__link">
+      <a href="../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E6%B8%90%E8%BF%9B%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="md-nav__link">
+      <a href="../../%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/%E6%B8%90%E8%BF%9B%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -576,6 +574,8 @@
       
   
   
+    
+  
   
     
     
@@ -585,12 +585,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -604,7 +604,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             基础算法
@@ -617,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" class="md-nav__link">
+      <a href="../%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -637,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+      <a href="../%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -657,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+      <a href="../%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -675,9 +675,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    贪心
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -686,6 +706,356 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#简介" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#适用范围" class="md-nav__link">
+    适用范围
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#贪心模型及证明" class="md-nav__link">
+    贪心模型及证明
+  </a>
+  
+    <nav class="md-nav" aria-label="贪心模型及证明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#入门小菜" class="md-nav__link">
+    入门小菜
+  </a>
+  
+    <nav class="md-nav" aria-label="入门小菜">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#解析" class="md-nav__link">
+    解析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#区间问题" class="md-nav__link">
+    区间问题
+  </a>
+  
+    <nav class="md-nav" aria-label="区间问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-one" class="md-nav__link">
+    Problem One
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem One">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_1" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-two" class="md-nav__link">
+    Problem Two
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Two">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_2" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_1" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#证明" class="md-nav__link">
+    证明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-three--给-n-个闭区间染色使得相交的区间颜色不同求最少需要多少种颜色" class="md-nav__link">
+    Problem Three — 给&nbsp;<span class="arithmatex">\(n\)</span>&nbsp;个闭区间染色，使得相交的区间颜色不同，求最少需要多少种颜色
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Three — 给 \(n\) 个闭区间染色，使得相交的区间颜色不同，求最少需要多少种颜色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solution_2" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prolem-four" class="md-nav__link">
+    Prolem Four
+  </a>
+  
+    <nav class="md-nav" aria-label="Prolem Four">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_3" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_3" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#匹配问题" class="md-nav__link">
+    匹配问题
+  </a>
+  
+    <nav class="md-nav" aria-label="匹配问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-one_1" class="md-nav__link">
+    Problem One
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem One">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_4" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_4" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-two_1" class="md-nav__link">
+    Problem Two
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Two">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_5" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_5" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_6" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_6" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-four" class="md-nav__link">
+    Problem Four
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Four">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_7" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_7" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#邻项交换" class="md-nav__link">
+    邻项交换
+  </a>
+  
+    <nav class="md-nav" aria-label="邻项交换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-one_2" class="md-nav__link">
+    Problem One
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem One">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_8" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_8" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#例题来源" class="md-nav__link">
+    例题来源
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -743,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -763,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="md-nav__link">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -783,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="md-nav__link">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -849,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%9B%BE%E8%AE%BA/%E6%A0%91%E4%B8%8A%E5%B7%AE%E5%88%86/" class="md-nav__link">
+      <a href="../../%E5%9B%BE%E8%AE%BA/%E6%A0%91%E4%B8%8A%E5%B7%AE%E5%88%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -915,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -935,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/%E7%BB%84%E5%90%88%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/%E7%BB%84%E5%90%88%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1001,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%85%B6%E5%AE%83%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
+      <a href="../../%E5%85%B6%E5%AE%83%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1067,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI%E6%97%A0%E5%85%B3/%E5%A6%82%E4%BD%95%E7%94%A8C%2B%2B%E5%A5%8F%E5%93%8D%E3%80%8A%E4%B8%9C%E6%96%B9%E7%BA%A2%E3%80%8B/" class="md-nav__link">
+      <a href="../../OI%E6%97%A0%E5%85%B3/%E5%A6%82%E4%BD%95%E7%94%A8C%2B%2B%E5%A5%8F%E5%93%8D%E3%80%8A%E4%B8%9C%E6%96%B9%E7%BA%A2%E3%80%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1092,8 +1462,6 @@
       
   
   
-    
-  
   
     
     
@@ -1103,12 +1471,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
@@ -1122,7 +1490,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             游记
@@ -1133,20 +1501,18 @@
                 
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
         
           
           <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
@@ -1160,7 +1526,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_1">
             <span class="md-nav__icon md-icon"></span>
             LA
@@ -1171,29 +1537,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    NOI2024退役记
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../%E6%B8%B8%E8%AE%B0/LA/NOI2024%E9%80%80%E5%BD%B9%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1202,75 +1548,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#day--" class="md-nav__link">
-    Day -?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day--1" class="md-nav__link">
-    Day -1
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day-0" class="md-nav__link">
-    Day 0
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day-1" class="md-nav__link">
-    Day 1
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day15" class="md-nav__link">
-    Day1.5
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day2" class="md-nav__link">
-    Day2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day3" class="md-nav__link">
-    Day3
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1282,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E8%81%94%E5%90%88%E7%9C%81%E9%80%892024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/LA/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Rubbish_Du/2024CSP-S%E6%B8%B8%E5%AF%84/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/Rubbish_Du/2024CSP-S%E6%B8%B8%E5%AF%84/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1366,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Rubbish_Du/2024OIFHA%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/Rubbish_Du/2024OIFHA%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1430,7 +1707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../qwerty111111/%E4%B8%AD%E5%B1%B1%E4%B8%80%E5%91%A8%E8%A1%8C/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/qwerty111111/%E4%B8%AD%E5%B1%B1%E4%B8%80%E5%91%A8%E8%A1%8C/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1494,7 +1771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../loynyng_fasfy/CSP-S2024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/loynyng_fasfy/CSP-S2024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1558,7 +1835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dtbigwaves/CSP-S2024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/dtbigwaves/CSP-S2024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1622,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../KccoT/csps%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/KccoT/csps%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1686,7 +1963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../caw0218/CSP-S2024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
+      <a href="../../%E6%B8%B8%E8%AE%B0/caw0218/CSP-S2024%E6%B8%B8%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1796,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/LA/%E6%88%91%E4%B8%8EOI/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/LA/%E6%88%91%E4%B8%8EOI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1860,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/Danubius/%E5%85%B8%E7%B1%8D%E9%87%8C%E3%81%AE%E6%9C%BA%E6%88%BF%E4%B8%80/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/Danubius/%E5%85%B8%E7%B1%8D%E9%87%8C%E3%81%AE%E6%9C%BA%E6%88%BF%E4%B8%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1880,7 +2157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/Danubius/%E6%B5%85%E8%B0%88%E5%8E%86%E5%8F%B2%E7%A0%94%E7%A9%B6%E8%A7%86%E8%A7%92/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/Danubius/%E6%B5%85%E8%B0%88%E5%8E%86%E5%8F%B2%E7%A0%94%E7%A9%B6%E8%A7%86%E8%A7%92/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1944,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E6%88%91%E4%B8%8EOI/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E6%88%91%E4%B8%8EOI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1964,7 +2241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E7%AE%80%E5%8D%95%E5%AD%90%E5%BA%8F%E5%88%97%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E7%AE%80%E5%8D%95%E5%AD%90%E5%BA%8F%E5%88%97%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1984,7 +2261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E8%AD%A6%E7%A4%BA%E5%90%8E%E4%BA%BA/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E8%AD%A6%E7%A4%BA%E5%90%8E%E4%BA%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2004,7 +2281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E6%95%85%E4%BA%8B%E9%9B%86/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/Rubbish_Du/%E6%95%85%E4%BA%8B%E9%9B%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2068,7 +2345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/LosTcrab/%E9%97%B2%E8%AF%9D%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8E%E5%B9%B8%E7%A6%8F/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/LosTcrab/%E9%97%B2%E8%AF%9D%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8E%E5%B9%B8%E7%A6%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2132,7 +2409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E9%97%B2%E8%AF%9D/qwerty111111/%E6%9C%BA%E6%88%BF%E4%B8%80%E3%81%AE%E6%81%B6%E6%88%98/" class="md-nav__link">
+      <a href="../../%E9%97%B2%E8%AF%9D/qwerty111111/%E6%9C%BA%E6%88%BF%E4%B8%80%E3%81%AE%E6%81%B6%E6%88%98/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2188,51 +2465,332 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#day--" class="md-nav__link">
-    Day -?
+  <a href="#简介" class="md-nav__link">
+    简介
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#day--1" class="md-nav__link">
-    Day -1
+  <a href="#适用范围" class="md-nav__link">
+    适用范围
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#day-0" class="md-nav__link">
-    Day 0
+  <a href="#贪心模型及证明" class="md-nav__link">
+    贪心模型及证明
+  </a>
+  
+    <nav class="md-nav" aria-label="贪心模型及证明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#入门小菜" class="md-nav__link">
+    入门小菜
+  </a>
+  
+    <nav class="md-nav" aria-label="入门小菜">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述" class="md-nav__link">
+    题目描述
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#day-1" class="md-nav__link">
-    Day 1
+        
+          <li class="md-nav__item">
+  <a href="#解析" class="md-nav__link">
+    解析
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#day15" class="md-nav__link">
-    Day1.5
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#区间问题" class="md-nav__link">
+    区间问题
+  </a>
+  
+    <nav class="md-nav" aria-label="区间问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-one" class="md-nav__link">
+    Problem One
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem One">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_1" class="md-nav__link">
+    题目描述
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#day2" class="md-nav__link">
-    Day2
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#day3" class="md-nav__link">
-    Day3
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-two" class="md-nav__link">
+    Problem Two
   </a>
+  
+    <nav class="md-nav" aria-label="Problem Two">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_2" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_1" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#证明" class="md-nav__link">
+    证明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-three--给-n-个闭区间染色使得相交的区间颜色不同求最少需要多少种颜色" class="md-nav__link">
+    Problem Three — 给&nbsp;<span class="arithmatex">\(n\)</span>&nbsp;个闭区间染色，使得相交的区间颜色不同，求最少需要多少种颜色
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Three — 给 \(n\) 个闭区间染色，使得相交的区间颜色不同，求最少需要多少种颜色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solution_2" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prolem-four" class="md-nav__link">
+    Prolem Four
+  </a>
+  
+    <nav class="md-nav" aria-label="Prolem Four">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_3" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_3" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#匹配问题" class="md-nav__link">
+    匹配问题
+  </a>
+  
+    <nav class="md-nav" aria-label="匹配问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-one_1" class="md-nav__link">
+    Problem One
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem One">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_4" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_4" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-two_1" class="md-nav__link">
+    Problem Two
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Two">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_5" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_5" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_6" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_6" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-four" class="md-nav__link">
+    Problem Four
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Four">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_7" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_7" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#邻项交换" class="md-nav__link">
+    邻项交换
+  </a>
+  
+    <nav class="md-nav" aria-label="邻项交换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-one_2" class="md-nav__link">
+    Problem One
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem One">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#题目描述_8" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_8" class="md-nav__link">
+    solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#例题来源" class="md-nav__link">
+    例题来源
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2253,58 +2811,141 @@
 
   
 
-<blockquote>
-<p>本文已经更新完毕。</p>
-</blockquote>
-<h1 id="noi2024">NOI2024<a class="headerlink" href="#noi2024" title="Permanent link"></a></h1>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1939699028&auto=1&height=66"></iframe>
-
-<p>不知不觉我的OI生涯就结束了，走到这一步才突然发觉。才想起来我还有好多感兴趣的内容没学，还有好多有趣的题没做，还有好多流逝的时间没有抓住。但是都已经走到这一步了，高中的OI之旅就也只能到此为止了。</p>
-<h2 id="day--">Day -?<a class="headerlink" href="#day--" title="Permanent link"></a></h2>
-<p>提前两周来到了重庆，跟着梦熊的模拟赛，又认识了一个OIer，是AH的xq。模拟赛天天薄纱我。这么久的模拟赛没怎么打出过好成绩，但是也没办法了，走一步算一步吧。</p>
-<p>cqyc的小姐姐是真好看啊。薄纱hdyz。见到的第一个薄纱hdyz的学校。</p>
-<h2 id="day--1">Day -1<a class="headerlink" href="#day--1" title="Permanent link"></a></h2>
-<p>报道日，没什么好说的。还是hz和s2的那些选手，我和房老师，耳朵龙、retf一个房间，apj和5k，jjdw，haosen在对面的房间。</p>
-<h2 id="day-0">Day 0<a class="headerlink" href="#day-0" title="Permanent link"></a></h2>
-<p>开幕式，看小姐姐。</p>
-<h2 id="day-1">Day 1<a class="headerlink" href="#day-1" title="Permanent link"></a></h2>
-<p>省流一下吧。看了一年T1，最后90pt跑路了，然后T2，瞎编一编就拿到了69pt，直接跑路。最后T3，写了一年性质，有24pt，最后还有15分钟的时候思考要不要写指数的12pt暴力（时间可能已经来不及了），但是莫名想到了zak打World Tour Finals 2024在最后10秒内交了最后的两发，遂写，在还剩2分钟的时候顺利过了selfeval，最后90+69+36=195，群里云浅和pcf一直在批，Au线300都来了，晚上看的比较靠谱的是236+，说不定能翻盘呢？</p>
-<p>apj考炸了，唉。</p>
-<h2 id="day15">Day1.5<a class="headerlink" href="#day15" title="Permanent link"></a></h2>
-<p>社会活动，去三峡博物馆，没啥意思，下午在自习室和宿舍写题。</p>
-<h2 id="day2">Day2<a class="headerlink" href="#day2" title="Permanent link"></a></h2>
-<p>省流：炸了，翻nm盘呢。</p>
-<p>pretest 85+25+25，但是t3不知道有啥道理，我莫名其妙多过了一个点。systest还不知道，只能Ag了。</p>
-<p>systest出了，就是85+25+25。</p>
-<p>育才师陶楼，一跳解千愁。</p>
-<p>apj pretest210，现在我还不知道st分数，但是就算有波动也肯定不大，唉真可惜了。fls day2打的不好，HE今年又没Au了。是不是有啥诅咒啊。不懂了。</p>
-<p>晚上出分了，银线大概是409，HE-10 435，取之。</p>
-<p>zlx进队了，恭喜。</p>
-<p>NOI嘉年华，唐龙，取之！！！</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/qemso2w0.png" /></p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/h0fc8175.png" /></p>
-<p>房老师咋这就走了。</p>
-<h2 id="day3">Day3<a class="headerlink" href="#day3" title="Permanent link"></a></h2>
-<p>发牌子日，上午先是文艺汇演，耳朵龙和retf6点多提议起床，太恐怖了。</p>
-<p>昨天晚上听歌然后无意识睡着了，早上起来只有8%的电，遂去自习室充电。</p>
-<p>xht来了，要到了他的徽章，因为我没带着我的徽章所以只能白嫖了。</p>
-<p>下午拿到了牌子和奖状：</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/2q3cwjd1.png" /></p>
-<p>于是我的最后一场OI比赛真正结束了。</p>
-<hr />
-<h1 id="说在最后">说在最后<a class="headerlink" href="#说在最后" title="Permanent link"></a></h1>
-<p>唉，怎么说呢。我在两周前前往重庆的时候写了几段文字，题目是“一段旅程的结束 ——写在退役之前”，本来想发出来，可后来想想还是算了，为什么呢，首先是感觉不太好，总感觉自己在给自己立死亡flag：我水平本来就不怎么样，再这么一搞就真要遗憾打铜了；其次是想来想去发现没什么必要，里面的内容该说的我早就跟别人说过若干遍了，翻来覆去没什么意思，遂鸽。</p>
-<p>在我整个的OI生涯里，有人和我玩的很好，比如hz和s2的那些选手，我很喜欢跟他们一起玩，倒不知道他们对我的评价，只能在这自我感觉良好了；还有我高一的那些学弟，可能之后见到他们也不会很多了。有人帮助了我很多，比如马老师，虽然有时候大家都会吐槽两声，但说实话他真的是个很好的老师，被OIer诟病最多的就是自身OI水平了，但说实话OI教练没有几个有水平的，我个人认为教练最大的作用就是帮你联系你联系不到的学校教练，搞到你搞不到的资源，毫不夸张的说，在这方面他已经超越99%的教练了。如果有后来的HYOIer看到这篇博客，我想说的是，教练说的当然不全对，但是也不要太忽视他能给你的巨大帮助了，他可能会爆出很多的典，但是乐一乐也就过去了，没什么影响。（如果你持有不同观点，我支持你持有你的观点。）</p>
-<p>再比如闫老师，我的班主任，虽然在OI方面没什么存在感，但她真的给了我很多帮助和便利，非常感谢她。</p>
-<p>还有杨忠毅老师和侯肖雷老师，如果不是杨老师的支持，我可能早在去年APIO结束之后就放弃了，是他让我重新坚持下来的，谢谢。</p>
-<p>还有我的同学，谢谢所有帮助我，鼓励我的人，谢谢我的所有同学，无论是HDYZ，还是HZ或者S2，或者别的学校的同学，谢谢你们。</p>
-<p>最后是我的父母，没有他们的理解与支持，我是绝对走不到这一步的，我见过很多很多家长不支持的选手了，为他们惋惜的同时也深感自己的幸运，谢谢我的父母。</p>
-<p>谢谢大家。</p>
-<p>在最后NOI的几个月里，马老师很多次问我一个问题：如果给我更多的时间，比如初一初二就开始学，我是不是就能进集训队了？说实话，我心里也没底。如果你在我刚考完联赛问我，我会说那当然，如果是考完省选之后，我就有点犹豫了，如果是现在，我会得出基本不可能的回答。</p>
-<p>为什么这么说呢，我觉得包括我在内的很多人都低估了OI au的难度，尤其是在各个省份各个学校尤其是那些传统强省不断挖掘更多的低年级（初一甚至从小学开始）天赋选手的现在。我认为能拿到Au的人无非两种，第一种是zak那种生物，第二种是上限高出Au下限足够多并且有充足时间上升以及试错的，总结一下就是天赋或者低一点的天赋+更多的时间投入。</p>
-<p>非常不幸，我达不到第二类的门槛，只能在门外面看着。但好在我的运气足够好，从NOIP到省选再到NOI，我觉得我始终是和幸运站在一起的，NOIP给了我高达72分的T4部分分，性质部分的数据足够弱使得我多通过了5分？或者10分，我忘了。省选幸亏我在河北而不是什么强省，在Day1大失利之后仍然能够重新拿回省队；NOI更是惊险，坑了很多人的Day1T2，我捞到了足够的分数（69pt），虽然这个题不难，我认为给我一些时间我能够切掉，但是这是在NOI考场上。Day2虽然我考的很烂，但Day1的老底也能帮我把银牌兜住。</p>
-<p>总之，这就是我所有想说的话了，后面的事情就后面说吧。再次谢谢所有人。</p>
-<p><img alt="" src="https://cdn.luogu.com.cn/upload/image_hosting/xspchac7.png" /></p>
+<h1 id="贪心">贪心<a class="headerlink" href="#贪心" title="Permanent link"></a></h1>
+<h2 id="简介">简介<a class="headerlink" href="#简介" title="Permanent link"></a></h2>
+<p>贪心算法 ， 指得是每一次不考虑后面的状态 ， 在当前寻找一个最优的解法，从而得到最终的最优值。</p>
+<p>但明显，这种算法只考虑当前而不考虑全局的思想，在有些题目中并不适用，所以 ， 当使用贪心思想的时候需要具有充分的证明可以判断此问题中贪心具有正确性。</p>
+<h2 id="适用范围">适用范围<a class="headerlink" href="#适用范围" title="Permanent link"></a></h2>
+<p>如果一个问题 ， 是可以拆成很多子问题的 ， 并且他们之间是相互独立的 ， 那么我们就可以通过贪心来不断得出子问题的最优解 ， 从而得出来此问题的最优解。</p>
+<h2 id="贪心模型及证明">贪心模型及证明<a class="headerlink" href="#贪心模型及证明" title="Permanent link"></a></h2>
+<h3 id="入门小菜">入门小菜<a class="headerlink" href="#入门小菜" title="Permanent link"></a></h3>
+<h4 id="题目描述">题目描述<a class="headerlink" href="#题目描述" title="Permanent link"></a></h4>
+<p>有 <span class="arithmatex">\(n\)</span> 个人在一个水龙头前排队接水，假如每个人接水的时间为 <span class="arithmatex">\(T_i\)</span>，请编程找出这 n 个人排队的一种顺序，使得 <span class="arithmatex">\(n\)</span> 个人的平均等待时间最小。</p>
+<h4 id="解析">解析<a class="headerlink" href="#解析" title="Permanent link"></a></h4>
+<p>我们先想，每个人等待的平均时间最小 ， 那么就是让所有人的总等待时间最小 (最后除以个人数嘛) ， 那么我们可以转为求让所有人的等待时间最短。</p>
+<p>然后我们考虑 ， 排在前面的人需要等待的时间， 后面的所有人也需要等，所以对于他接水的这段时间 ， 总需等待他和他之后所有人的人数乘本次的时间。</p>
+<p>举个例子 ， 如果有 <span class="arithmatex">\(2\)</span> 个人 ， 第一个人接水时间为 <span class="arithmatex">\(1s\)</span> <del>(带个单位)</del> ， 第二个人接水时间为 <span class="arithmatex">\(2s\)</span>。</p>
+<p>如果排队的顺序为  <span class="arithmatex">\(1, 2\)</span>  那么 <span class="arithmatex">\(1\)</span> 接水的时候 <span class="arithmatex">\(1\)</span> , <span class="arithmatex">\(2\)</span> 都需要等待 <span class="arithmatex">\(1s\)</span> ， 然后 <span class="arithmatex">\(2\)</span> 接水需要等待 <span class="arithmatex">\(2s\)</span> ， 总需要时间 <span class="arithmatex">\(4s\)</span>。</p>
+<p>如果排队的顺序为  <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>  那么 <span class="arithmatex">\(2\)</span> 接水的时候 <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span> 都需要等待 <span class="arithmatex">\(2s\)</span>， 然后 <span class="arithmatex">\(1\)</span> 接水需要等待 <span class="arithmatex">\(1s\)</span> ， 总需要时间  <span class="arithmatex">\(5s\)</span>。</p>
+<p>明显 ， 把接水花费时间短的人排在前面 ， 总等待时间最小。</p>
+<div class="admonition tip">
+<p class="admonition-title">证明</p>
+<p>设 <span class="arithmatex">\(T_i\)</span> 表示第 <span class="arithmatex">\(i\)</span> 个人的时间， <span class="arithmatex">\(i\)</span> 后面还有 <span class="arithmatex">\(s\)</span> 个人，为了让 <span class="arithmatex">\(T_i\)</span> 放在 <span class="arithmatex">\(T_{i+1}\)</span> 之前更优，就要满足
+$$
+T_i \times (s + 1) + T_{i + 1} \times s &lt; T_{i+1} \times (s+1) + T_i \times s
+$$
+化简即得 <span class="arithmatex">\(T_i &lt; T_{i + 1}\)</span>，于是结果最优当且仅当 <span class="arithmatex">\(T\)</span> 升序排列。</p>
+</div>
+<p>现在你就大概了解了贪心的含义及做法了 ， 下面我们来了解一些贪心的模型。</p>
+<h3 id="区间问题">区间问题<a class="headerlink" href="#区间问题" title="Permanent link"></a></h3>
+<h4 id="problem-one">Problem One<a class="headerlink" href="#problem-one" title="Permanent link"></a></h4>
+<h5 id="题目描述_1">题目描述<a class="headerlink" href="#题目描述_1" title="Permanent link"></a></h5>
+<p>从 <span class="arithmatex">\(n\)</span> 个闭区间中选出尽量多的两两不相交的区间 </p>
+<p><img alt="" src="https://img.picui.cn/free/2024/11/09/672f12c42fb08.png" /></p>
+<h5 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link"></a></h5>
+<p>把所有区间按照右端点排序 ， 不断选当前可选区间的右端点的最小值</p>
+<div class="admonition tip">
+<p class="admonition-title">证明</p>
+<p>假设我们选出的方案是 <span class="arithmatex">\(a_1 , a_2 \cdots , a_m\)</span>，考虑任意一个合法方案 <span class="arithmatex">\(b_1, b_2 \cdots b_m\)</span>， 与我们找到的方案不同。
+找到满足 <span class="arithmatex">\(a_1 = b_1 \cdots a_{i - 1} = b_{i - 1}\)</span> 的 最大的 <span class="arithmatex">\(i\)</span>, 因为我们找到的 <span class="arithmatex">\(a_i\)</span> 是满足条件的最小值， 那么肯定有 <span class="arithmatex">\(a_i \le b_i\)</span>。</p>
+<p>那么我们可以把 <span class="arithmatex">\(b_i\)</span> 替换为 <span class="arithmatex">\(a_i\)</span>, 则 <span class="arithmatex">\(b\)</span> 序列为 <span class="arithmatex">\(b_1, b_2 \cdots a_i\)</span>, <span class="arithmatex">\(b_i + 1 \cdots b_m\)</span> 也是合法的。</p>
+<p>因为对于情况 , 我们发现 替换为 <span class="arithmatex">\(a_i\)</span> 不会变差, 那么 <span class="arithmatex">\(a\)</span> 则为最优解。</p>
+</div>
+<h4 id="problem-two">Problem Two<a class="headerlink" href="#problem-two" title="Permanent link"></a></h4>
+<h5 id="题目描述_2">题目描述<a class="headerlink" href="#题目描述_2" title="Permanent link"></a></h5>
+<p>给定 <span class="arithmatex">\(n\)</span> 个闭区间，在数轴上选尽量少的点，使每个区间中都有至少一个选中的点<img alt="" src="https://img.picui.cn/free/2024/11/09/672f133803f8f.png" /></p>
+<h5 id="solution_1">solution<a class="headerlink" href="#solution_1" title="Permanent link"></a></h5>
+<p>即上一问的区间数， 每次选择区间右端点即可</p>
+<h5 id="证明">证明<a class="headerlink" href="#证明" title="Permanent link"></a></h5>
+<p>如果存在一个区间，没有被所选的点覆盖 ， 那么他必定在上一问中被选出来作为新区间 ，矛盾 。</p>
+<h4 id="problem-three--给-n-个闭区间染色使得相交的区间颜色不同求最少需要多少种颜色">Problem Three — 给 <span class="arithmatex">\(n\)</span> 个闭区间染色，使得相交的区间颜色不同，求最少需要多少种颜色<a class="headerlink" href="#problem-three--给-n-个闭区间染色使得相交的区间颜色不同求最少需要多少种颜色" title="Permanent link"></a></h4>
+<p><img alt="" src="https://img.picui.cn/free/2024/11/09/672f14b86e4b1.png" /></p>
+<h5 id="solution_2">solution<a class="headerlink" href="#solution_2" title="Permanent link"></a></h5>
+<p>答案即为 第一问中每个区间相交的区间的个数的最大值 <span class="arithmatex">\(+ 1\)</span></p>
+<h4 id="prolem-four">Prolem Four<a class="headerlink" href="#prolem-four" title="Permanent link"></a></h4>
+<h5 id="题目描述_3">题目描述<a class="headerlink" href="#题目描述_3" title="Permanent link"></a></h5>
+<p>从 <span class="arithmatex">\(n\)</span> 个闭区间中选出尽量少的区间，使他们的并包含 <span class="arithmatex">\([1 , m]\)</span></p>
+<p><img alt="" src="https://img.picui.cn/free/2024/11/09/672f165217c63.png" /></p>
+<h5 id="solution_3">solution<a class="headerlink" href="#solution_3" title="Permanent link"></a></h5>
+<p>第一个区间选包含 <span class="arithmatex">\(1\)</span> 的 右端点最大的区间 ， 然后把所有区间按照 左端点排序 ， 每次选择满足条件的右端点最大的区间，证明与Problem One 类似。</p>
+<h3 id="匹配问题">匹配问题<a class="headerlink" href="#匹配问题" title="Permanent link"></a></h3>
+<h4 id="problem-one_1">Problem One<a class="headerlink" href="#problem-one_1" title="Permanent link"></a></h4>
+<h5 id="题目描述_4">题目描述<a class="headerlink" href="#题目描述_4" title="Permanent link"></a></h5>
+<p>有 <span class="arithmatex">\(2N\)</span> 张牌，上面的整数分别是 <span class="arithmatex">\(1 \sim 2N\)</span>。你手上获得了其中的 <span class="arithmatex">\(N\)</span> 张牌，你的对 手有另外 <span class="arithmatex">\(N\)</span> 张。你和对手每次打出手中的一张牌，谁大谁赢，问最好情况下你能赢 多少次。</p>
+<h5 id="solution_4">solution<a class="headerlink" href="#solution_4" title="Permanent link"></a></h5>
+<p>因为你知道对方出的牌 <del>(这不是作弊吗)</del> ， 就能提前排布你的打法。</p>
+<p>很容易想到运用田忌赛马的思想，设当前自己手里的牌为 <span class="arithmatex">\(i\)</span> 。</p>
+<p>如果对方的牌比 <span class="arithmatex">\(i\)</span> 小 ， 那么直接拿下！</p>
+<p>如果对方的牌比 <span class="arithmatex">\(i\)</span> 大 ， 那么就用 <span class="arithmatex">\(i\)</span> 去把对方的大牌顶掉。</p>
+<h4 id="problem-two_1">Problem Two<a class="headerlink" href="#problem-two_1" title="Permanent link"></a></h4>
+<h5 id="题目描述_5">题目描述<a class="headerlink" href="#题目描述_5" title="Permanent link"></a></h5>
+<p>给出 <span class="arithmatex">\(2n\)</span> 个元素，把他们配成 <span class="arithmatex">\(n\)</span> 对 <span class="arithmatex">\((a_i , b_i)\)</span>，使 <span class="arithmatex">\(\max(a_i + b_i)\)</span> 最小。</p>
+<h5 id="solution_5">solution<a class="headerlink" href="#solution_5" title="Permanent link"></a></h5>
+<p>容易发现 ， <span class="arithmatex">\(a\)</span> 的降序排列 配 <span class="arithmatex">\(b\)</span> 的升序排列 ， <del>人话说</del> 一个小数 配一个大数 ， 求最大值。</p>
+<div class="admonition tip">
+<p class="admonition-title">证明</p>
+<p><span class="arithmatex">\(a\)</span> 按降序排列， <span class="arithmatex">\(b\)</span> 按升序排列，设 <span class="arithmatex">\(1 \le i &lt; j \le n\)</span>, <span class="arithmatex">\(1 \le k &lt; l \le n\)</span>。我们的匹配为 $\max((a_i + b_k) , (a_j + b_l))。</p>
+<p>交换后 , 对于 <span class="arithmatex">\(a_j + b_l\)</span>,<span class="arithmatex">\(a_i + b_k\)</span>, 可以得到 
+$$
+\max\big((a_j + b_l), (a_i + b_k)\big) \le \max\big((a_i + b_k), (a_j + b_l)\big)
+$$</p>
+</div>
+<p>因为 <span class="arithmatex">\(a_i + b_k\)</span> 是最大的,所以我们得到的序列肯定是更优的，证毕。</p>
+<p>Problem Three</p>
+<h5 id="题目描述_6">题目描述<a class="headerlink" href="#题目描述_6" title="Permanent link"></a></h5>
+<p>给定两个长度为 <span class="arithmatex">\(n\)</span> 的数组 <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span>, 把他们配成 <span class="arithmatex">\(n\)</span> 对 $(a_i , b_i) , 使 <span class="arithmatex">\(\sum^n_{i=1} a_ib_i\)</span> 最大</p>
+<h5 id="solution_6">solution<a class="headerlink" href="#solution_6" title="Permanent link"></a></h5>
+<p>容易发现 ， 把 <span class="arithmatex">\(a\)</span> ， <span class="arithmatex">\(b\)</span> 从小到大排列 ， 逐位求积最优。</p>
+<div class="admonition tip">
+<p class="admonition-title">证明</p>
+<p>与上题相似 ， 排列后设 <span class="arithmatex">\(1 \le i &lt; j \le n\)</span>，<span class="arithmatex">\(1 \le k &lt; l \le n\)</span>，我们的匹配为 <span class="arithmatex">\(a_i \times b_k + a_j \times b_l\)</span>，交叉后得到 <span class="arithmatex">\(a_i \times b_l + a_j \times b_k\)</span>，比较两者大小，用前式减去后式，得到 <span class="arithmatex">\((a_i - a_j \times (b_k - b_l)\)</span>。</p>
+<p>因为 <span class="arithmatex">\(a_i \le a_j\)</span>，<span class="arithmatex">\(b_k \le b_l\)</span>，故本式 <span class="arithmatex">\(\ge 0\)</span>，可使我们匹配的序列更优。</p>
+</div>
+<h4 id="problem-four">Problem Four<a class="headerlink" href="#problem-four" title="Permanent link"></a></h4>
+<h5 id="题目描述_7">题目描述<a class="headerlink" href="#题目描述_7" title="Permanent link"></a></h5>
+<p>给定两个长度为 <span class="arithmatex">\(n\)</span> 的数组 <span class="arithmatex">\(a\)</span> , <span class="arithmatex">\(b\)</span> , 把他们配成 <span class="arithmatex">\(n\)</span> 对 $(a_i , b_i) , 使 <span class="arithmatex">\(\sum^n_{i = 1} |a_i - b_i|\)</span>最小</p>
+<h5 id="solution_7">solution<a class="headerlink" href="#solution_7" title="Permanent link"></a></h5>
+<p>容易发现 ， 把 <span class="arithmatex">\(a\)</span> ，<span class="arithmatex">\(b\)</span> 从小到大排序 ， 逐位求差最优。</p>
+<div class="admonition tip">
+<p class="admonition-title">证明</p>
+</div>
+<p>设 <span class="arithmatex">\(1 \le i &lt; j \le n\)</span>，<span class="arithmatex">\(1 \le k &lt; l \le n\)</span>，我们的匹配为 <span class="arithmatex">\(\vert a_i - b_k\vert + \vert a_j - b_l\vert \\
+交叉后 , 得到 \vert a_i - b_l\vert + \vert a_j - b_k\vert\)</span>
+我们可以发现 , 交叉后的值总比上面的值多出来 <span class="arithmatex">\(2(b_l - b_k)\)</span>, 则我们得到的匹配更优 , 则证毕。</p>
+<h3 id="邻项交换">邻项交换<a class="headerlink" href="#邻项交换" title="Permanent link"></a></h3>
+<h4 id="problem-one_2">Problem One<a class="headerlink" href="#problem-one_2" title="Permanent link"></a></h4>
+<h5 id="题目描述_8">题目描述<a class="headerlink" href="#题目描述_8" title="Permanent link"></a></h5>
+<p><span class="arithmatex">\(n\)</span> 个数对 <span class="arithmatex">\((L_i , R_i)\)</span> ,  定义 <span class="arithmatex">\(F_i = \lfloor \frac{\prod_{j = 1}^{i - 1} \times L_jR_i \rfloor\)</span> , 求一个最小化 <span class="arithmatex">\(\max{F_i}\)</span> 的排列。</p>
+<h5 id="solution_8">solution<a class="headerlink" href="#solution_8" title="Permanent link"></a></h5>
+<p>考虑相邻两个数对 ， 什么时候交换可以使答案变优。</p>
+<p>设 <span class="arithmatex">\(T = \prod_{j = 1}^{i - 1} L_j\)</span> , 第 <span class="arithmatex">\(i\)</span> 个数对的 <span class="arithmatex">\(L\)</span>，<span class="arithmatex">\(R\)</span> 为<span class="arithmatex">\(l_1\)</span>，<span class="arithmatex">\(r_1\)</span>，第 <span class="arithmatex">\(i+1\)</span> 个数对的<span class="arithmatex">\(L\)</span>，<span class="arithmatex">\(R\)</span> 为 <span class="arithmatex">\(l_2\)</span> ，<span class="arithmatex">\(r_2\)</span>。</p>
+<p>交换前的值为
+$$
+F_i = \lfloor \frac{T}{r_1} \rfloor , F_{i + 1} = \lfloor \frac{T \times l_1}{r_2} \rfloor
+$$
+交换后的值为
+$$
+F_i = \lfloor \frac{T}{r_2} \rfloor , F_{i + 1} = \lfloor \frac{T \times l_2}{r_1} \rfloor
+$$
+我们设排序为 <span class="arithmatex">\(i\)</span> ，<span class="arithmatex">\(i + 1\)</span> 时答案更优 , 则可得
+$$
+\max(\lfloor \frac{T}{r_1} \rfloor, \lfloor \frac{T \times l_1}{r_2} \rfloor) &gt; max(\lfloor \frac{T}{r_2} \rfloor, \lfloor \frac{T \times l_2}{r_1} \rfloor)
+$$
+因为 <span class="arithmatex">\(\lfloor \frac{T}{r_1} \rfloor &lt; \lfloor \frac{T \times l_2}{r_1} \rfloor\)</span>，并且 <span class="arithmatex">\(\lfloor \frac{T \times l_1}{r_2} \rfloor  &gt; \lfloor \frac{T}{r_2} \rfloor\)</span>，故原式可以得到 <span class="arithmatex">\(\lfloor \frac{T \times l_1}{r_2} \rfloor &gt; \lfloor \frac{T \times l_2}{r_1} \rfloor\)</span></p>
+<p>化简得到 
+$$
+T \times r_1 \times l_1 &gt; T \times l_2 \times r_2
+$$
+综上所述 , 按照 每个数的 <span class="arithmatex">\(l \times r\)</span> 从大到小排列即可 ， 则证毕。 </p>
+<p>（更新中）</p>
+<h3 id="例题来源">例题来源<a class="headerlink" href="#例题来源" title="Permanent link"></a></h3>
+<p><a href="https://www.luogu.com.cn/problem/P1223">P1223 排队接水</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P1803">P1803 凌乱的yyy / 线段覆盖</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2970">P2970 [USACO09DEC] Selfish Grazing S</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P6179">P6179 [USACO15DEC] High Card Wins S</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2945">P2945 [USACO09MAR] Sand Castle S </a></p>
+<p><a href="https://www.luogu.com.cn/problem/P5963">P5963 [BalticOI ?] Card 卡牌游戏</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P1080">P1080 [NOIP2012 提高组] 国王游戏</a></p>
 
 
 
@@ -2381,16 +3022,16 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b6c651e9.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../assets/javascripts/workers/search.b6c651e9.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.69a41b14.min.js"></script>
+      <script src="../../assets/javascripts/bundle.69a41b14.min.js"></script>
       
-        <script src="../../../_static/js/math-csr.js?math-csr"></script>
+        <script src="../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
+        <script src="../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
-        <script src="../../../_static/js/katex.js"></script>
+        <script src="../../_static/js/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       

@@ -669,6 +669,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    贪心
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2526,18 +2546,18 @@
 <p>树状数组其实就是运用差分的思想，所以差分在树状数组的应用中很重要</p>
 <h4 id="一维差分">一维差分<a class="headerlink" href="#一维差分" title="Permanent link"></a></h4>
 <p>有一个数组a，其差分数组为d，前缀和数组为s</p>
-<p>$$
+<div class="arithmatex">\[
 \begin{equation}
 \begin{aligned}
 d[i]&amp;=a[i]-a[i-1],d[1]=a[1]
-\a[i]&amp;=d[1]+d[2]+d[3]+\dots+d[i]
-\s[i]&amp;=a[1]+a[2]+a[3]+\dots+a[i]
-\&amp;=d[1]+(d[1]+d[2])+(d[1]+\dots+d[i])
-\&amp;=d[1]<em>i+d[2]</em>(i-1)+d[3]<em>(i-2)+\dots+d[i]</em>1
+\\a[i]&amp;=d[1]+d[2]+d[3]+\dots+d[i]
+\\s[i]&amp;=a[1]+a[2]+a[3]+\dots+a[i]
+\\&amp;=d[1]+(d[1]+d[2])+(d[1]+\dots+d[i])
+\\&amp;=d[1]*i+d[2]*(i-1)+d[3]*(i-2)+\dots+d[i]*1
 \end{aligned}
 \end{equation}
-$$
-一维差分的操作较为简单 <span class="arithmatex">\(把[a,b]+v\)</span>  <span class="arithmatex">\(d[a]+v,d[b+1]-v\)</span> 即可  </p>
+\]</div>
+<p>一维差分的操作较为简单 <span class="arithmatex">\(把[a,b]+v\)</span>  <span class="arithmatex">\(d[a]+v,d[b+1]-v\)</span> 即可  </p>
 <h4 id="二维差分">二维差分<a class="headerlink" href="#二维差分" title="Permanent link"></a></h4>
 <p>其规律与一维差分类似</p>
 <div class="arithmatex">\[
@@ -2755,7 +2775,7 @@ s[x][y]&amp;=\sum_{i=1}^{x}\sum_{j=1}^{y}\sum_{h=1}^{i}\sum_{w=1}^{j}d[h][w]
 
 <div style="float:right" class="build_date_utc">
   <a href="https://github.com/OI-wiki/OI-wiki">
-    最近更新：, 2024-11-09
+    最近更新：, 2024-11-10
   </a>
 </div>
 <script>"oi-wiki.com"!=window.location.hostname&&"www.oi-wiki.com"!=window.location.hostname||(document.getElementById("miitbeian").innerHTML='<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>'),console.log("%c OI Wiki %c  %c","background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent"),console.log("少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org")</script> -->
