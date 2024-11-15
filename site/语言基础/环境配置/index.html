@@ -613,6 +613,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sublime-text" class="md-nav__link">
+    Sublime Text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dev-c" class="md-nav__link">
+    Dev-C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-blocks" class="md-nav__link">
+    Code Blocks
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2230,6 +2251,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sublime-text" class="md-nav__link">
+    Sublime Text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dev-c" class="md-nav__link">
+    Dev-C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-blocks" class="md-nav__link">
+    Code Blocks
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2256,7 +2298,7 @@
 <h2 id="编译器">编译器<a class="headerlink" href="#编译器" title="Permanent link"></a></h2>
 <p>在<a href="https://jmeubank.github.io/tdm-gcc/download/">这里</a>可以下载到我们之后绝不能离开的一个工具：GCC，它的作用是将我们编写的代码“翻译”成计算机可以执行的语句，算法竞赛中不关注其实现原理。</p>
 <h3 id="下载与安装">下载与安装<a class="headerlink" href="#下载与安装" title="Permanent link"></a></h3>
-<p>页面中的tdm-gcc-webdl表示最小的下载程序，它在执行时访问网络并再次下载所需文件；tdm64-hcc为64+32位的完整安装程序；最后一个表示32位系统的安装程序。（如果你不知道应该使用哪个，就先下载64+32位的程序，如果不能执行就下载32位程序并执行），安装过程中只需要点击“Create“后一路下一步（Next）即可。</p>
+<p>页面中的tdm-gcc-webdl表示最小的下载程序，它在执行时访问网络并再次下载所需文件；tdm64-gcc为64+32位的完整安装程序；最后一个表示32位系统的安装程序。（如果你不知道应该使用哪个，就先下载64+32位的程序，如果不能执行就下载32位程序并执行），安装过程中只需要点击“Create“后一路下一步（Next）即可。</p>
 <h3 id="检验是否安装成功">检验是否安装成功<a class="headerlink" href="#检验是否安装成功" title="Permanent link"></a></h3>
 <p>同时按下Windows键和R键，在弹出的窗口中输入<code>cmd</code>并点击”确定“（或按下回车键），在弹出的命令行窗口中输入<code>g++ -v</code>，如果输出的结果不是”未知命令“一类文字，而是g++的版本信息，说明已经成功安装，否则重启cmd（命令行）再次尝试，如果还是不可以就尝试重新安装。</p>
 <h3 id="简单使用">简单使用<a class="headerlink" href="#简单使用" title="Permanent link"></a></h3>
@@ -2276,6 +2318,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 将命令行的当前目录切换为文本文件所在目录，之后输入<code>g++ test.txt -o hello</code>，同目录下会多出一个文件<code>hello.exe</code>，双击打开它，将会弹出一个命令行窗口并显示<code>Hello</code>，这就是上面这个文本文件中的代码做的事情，我们将它通过g++变作了一个可执行文件。</p>
+<p>通过g++编译文件的命令可以简单写作<code>g++ &lt;FILE_NAME&gt; -o &lt;EXE_NAME&gt;</code>，其中<code>&lt;FILE_NAME&gt;</code>是代码文件名，<code>&lt;EXE_NAME&gt;</code>是编译生成的可执行文件名。之后可能会遇到添加参数的需求（开启O2优化、更改标准为C++17或C++20），只需要在命令末尾添加即可，例如<code>g++ A.cpp -o A -O2 -std=c++14</code>，可以用到的时候再去查询相关资料。</p>
 <div class="admonition tip">
 <p class="admonition-title">如何切换cmd的所在目录</p>
 <p>cmd所在目录就是指我们输入命令时前面的路径，默认是C盘下的用户目录。通过<code>cd</code>命令可以切换，例如<code>cd dic</code> 就是进入到当前目录下名为dic的子文件夹，<code>cd ..</code>就是回到上一级目录。直接输入<code>D:</code>并执行可以切换到D盘，同理输入<code>E:</code>切换到E盘。
@@ -2289,7 +2332,20 @@
 <p>点击左侧第一个按钮，打开一个目录（尽量是专门写代码的）。在vscode中可以实现新建文件或文件夹、浏览文件目录而不用打开另一个资源管理器窗口。</p>
 <p>在工作目录下新建一个文件<code>test.cpp</code>，其中<code>cpp</code>后缀表明这是一个c++代码文件，重新复制上面的代码到里面，会发现一些字被加上了高亮。</p>
 <p>依次点击最上方工具栏中的“查看”、“命令面板”，或直接使用<code>Ctrl+Shift+P</code>快捷键来弹出一个终端，这就相当于我们之前使用的cmd命令行。</p>
-<p>它的初始目录就是vscode打开的文件夹目录，现在输入<code>g++ test.cpp -o A</code>将代码编译为名为<code>A</code>的可执行文件，在终端中输入<code>A</code>即可执行这个名为<code>A.exe</code>的文件，会发现输出了<code>Hello</code>。</p>
+<p>它的初始目录就是vscode打开的文件夹目录，现在输入<code>g++ test.cpp -o A</code>将代码编译为名为<code>A</code>的可执行文件，在终端中输入<code>A</code>即可执行这个名为<code>A.exe</code>的文件，发现确实输出了<code>Hello</code>。</p>
+<p>关于VScode的更多内容这里就不作展开，它可以通过一些扩展实现用快捷键编译、运行，读者可以自行查阅相关博客资料，但目前而言，河北省的考场机器没有内置这些插件，也就意味着<strong>只能通过命令手动编译</strong>。</p>
+<h2 id="sublime-text">Sublime Text<a class="headerlink" href="#sublime-text" title="Permanent link"></a></h2>
+<p><a href="https://www.sublimetext.com/download">下载链接</a></p>
+<p>Sublime Text非常容易上手，没有什么复杂的界面，直接编辑文字即可。</p>
+<p>关于编译与运行c++代码，自带的窗口无法输入，只能使用文件输入输出，否则应当自己写编译文件，详细配置方法可以参考<a href="https://www.cnblogs.com/weirdoX/p/18332681">相关博客</a>。</p>
+<h2 id="dev-c">Dev-C++<a class="headerlink" href="#dev-c" title="Permanent link"></a></h2>
+<p><a href="https://sourceforge.net/projects/orwelldevcpp/files/Setup%20Releases/">下载链接</a></p>
+<p>非常经典的IDE（即内置了完整编译环境的文本编辑器），但也相对老旧。Dev-C++并非纯粹的文本编辑器，它内置了编译器（但版本很旧，因为已经没有人维护传统的Dev-C++）。</p>
+<p>在打开C++文件后，只需要单击窗口上方工具栏中的编译按钮即可编译，在单击旁边的运行按钮即可运行，或者直接单击编译-运行按钮一步到位。</p>
+<h2 id="code-blocks">Code Blocks<a class="headerlink" href="#code-blocks" title="Permanent link"></a></h2>
+<p><a href="https://www.codeblocks.org/downloads/binaries/">下载链接</a></p>
+<p>使用方法和Dev-C++几乎一样，不再过多介绍。</p>
+<p>和Dev-C++相比，Code Blocks仍在不断更新，相对更加现代化。</p>
 
 
 
