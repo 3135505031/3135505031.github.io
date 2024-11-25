@@ -1007,6 +1007,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#组合数" class="md-nav__link">
+    组合数
+  </a>
+  
+    <nav class="md-nav" aria-label="组合数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#组合恒等式" class="md-nav__link">
+    组合恒等式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2148,6 +2168,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#组合数" class="md-nav__link">
+    组合数
+  </a>
+  
+    <nav class="md-nav" aria-label="组合数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#组合恒等式" class="md-nav__link">
+    组合恒等式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2174,7 +2214,34 @@ $$
 n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1
 $$
 为了写作方便，定义 <span class="arithmatex">\(n!=n(n-1)(n-2)\cdots (2)(1)\)</span>，称作 “<span class="arithmatex">\(n\)</span> 的阶乘”，于是 <span class="arithmatex">\(n\)</span> 个元素的排列数就是 <span class="arithmatex">\(n!\)</span>。</p>
-<p>更准确地，我们可以这样定义阶乘：</p>
+<p>更准确地，我们可以这样定义阶乘：
+$$
+n!=\begin{cases}
+1, &amp;n=0\newline
+n \times (n-1)!, &amp;n \ge 1
+\end{cases}
+$$</p>
+<p>一种等价的定义是
+$$
+n!=\prod_{i=1}^{n}i
+$$</p>
+<p>注意上面我们规定了 <span class="arithmatex">\(0!=1\)</span>，一个比较合理的理解是空排列有且仅有一种（就是空），这样子表示“空”的边界条件在后面会频繁出现。</p>
+<p>做一个简单推广：从 <span class="arithmatex">\(n\)</span> 个不同元素中选出 <span class="arithmatex">\(m\)</span> 个元素组成的排列有多少种呢？显然就是 <span class="arithmatex">\(n \times (n-1) \times \cdots \times (n-m+1)\)</span>，一共 <span class="arithmatex">\(m\)</span> 项，它就等于 <span class="arithmatex">\(\frac{n!}{(n-m)!}\)</span>。</p>
+<p>还有一种表示方法叫做“下降幂”，记作 <span class="arithmatex">\(x^{\underline n}=\prod_{i=0}^{n-1}(x-i)\)</span>。在 <span class="arithmatex">\(x\)</span> 为正整数且 <span class="arithmatex">\(x \ge m\)</span> 时，<span class="arithmatex">\(x^{\underline m}=\frac{x!}{(x-m)!}\)</span>。发现什么了吗？阶乘的定义域为正整数但下降幂的底数可以是<strong>任意实数</strong>！高中数学课本中将 <span class="arithmatex">\(\frac{n!}{(n-m)!}\)</span> 记作 <span class="arithmatex">\(A_n^m\)</span>，表示从 <span class="arithmatex">\(n\)</span> 个互异元素中选出 <span class="arithmatex">\(m\)</span> 个组成排列的方案数，但这个记号在OI中很冷门，大家都喜欢用下降幂 <span class="arithmatex">\(n^{\underline m}\)</span> 表示。</p>
+<p>对于下降幂，有 <span class="arithmatex">\(n^{\underline 0}=1\)</span>（注意这导出了 <span class="arithmatex">\(0^{\underline 0}=1\)</span> 而非 <span class="arithmatex">\(0\)</span>），<span class="arithmatex">\(n^{\underline 1}=n\)</span>。若 <span class="arithmatex">\(m &gt; n\)</span>，则 <span class="arithmatex">\(n^{\underline m} = 0\)</span>。</p>
+<h2 id="组合数">组合数<a class="headerlink" href="#组合数" title="Permanent link"></a></h2>
+<p>假如我们不关注选出元素的相对顺序，只考虑它们构成的集合，就得到的组合数。一般地，称从 <span class="arithmatex">\(n\)</span> 个互异元素中选出 <span class="arithmatex">\(m\)</span> 个元素组成的集合的方案数为 “<span class="arithmatex">\(n\)</span> 选 <span class="arithmatex">\(m\)</span>”，记作 <span class="arithmatex">\(\binom{n}{m}\)</span>。</p>
+<div class="admonition tip">
+<p class="admonition-title">记号差异</p>
+<p>高中数学课本中选用的是另一种记号 <span class="arithmatex">\(C_n^m\)</span>，注意上下标是相反的。</p>
+</div>
+<p>一个大小为 <span class="arithmatex">\(m\)</span> 的集合可以变为 <span class="arithmatex">\(m!\)</span> 个排列，所以 <span class="arithmatex">\(\binom{n}{m}\)</span> 就应该等于 <span class="arithmatex">\(n^{\underline m}\)</span> 再除以 <span class="arithmatex">\(m!\)</span>，即
+$$
+\binom{n}{m}=\frac{n^{\underline m}}{m!}
+$$</p>
+<p>注意，假如我们将排列数 <span class="arithmatex">\(\frac{n!}{(n-m)!}\)</span> 写成下降幂的形式，那么上标的定义域就可以扩展为 <span class="arithmatex">\(\mathbb{R}\)</span>！假如采取阶乘的定义方式，定义域就是自然数，即 <span class="arithmatex">\(\binom{n}{m}=\frac{n!}{m!(n-m)!}\)</span>。</p>
+<p>简单验证一下，<span class="arithmatex">\(\binom{n}{0}= \frac{n^{\underline 0}}{0!}=1\)</span>（显然我们只有空集 <span class="arithmatex">\(\varnothing\)</span> 这一种选法）， <span class="arithmatex">\(\binom{n}{1}=\frac{n^{\underline 1}}{1!}=n\)</span>，<span class="arithmatex">\(\binom{n}{n}=1,\binom{n}{n+1}=0\)</span>。</p>
+<h3 id="组合恒等式">组合恒等式<a class="headerlink" href="#组合恒等式" title="Permanent link"></a></h3>
 
 
 
@@ -2236,7 +2303,7 @@ $$
 
 <div style="float:right" class="build_date_utc">
   <a href="https://github.com/OI-wiki/OI-wiki">
-    最近更新：, 2024-11-21
+    最近更新：, 2024-11-25
   </a>
 </div>
 <script>"oi-wiki.com"!=window.location.hostname&&"www.oi-wiki.com"!=window.location.hostname||(document.getElementById("miitbeian").innerHTML='<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>'),console.log("%c OI Wiki %c  %c","background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent"),console.log("少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org")</script> -->
