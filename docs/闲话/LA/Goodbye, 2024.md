@@ -14,6 +14,8 @@
 
 今年的年终总结一定免不了提到OI，突然就变成了之前觉得非常遥远的老年退役选手，感觉非常奇妙。年初参加了冬令营和APIO，7月份参加了NOI，之后我就从OIer变成了whker。
 
+成为whker之后，我建立了HYOI wiki，在最开始受到了HYOIer的热烈支持，虽然现在的内容还非常拉跨，但是我相信它总有一天会变好。现在主要是Rubbish\_Du在管理并完善，高考之后我也会重新贡献内容。
+
 想说说OI却又无从说起，怎么回事呢。可能是因为我高中甚至初三到现在写的所有随笔都离不开OI吧？写得自己都麻了。既然是告别，那么这次就这样结束吧，总之，Goodbye，然后，Goodbye, Goodbye, and Goodbye.
 
 ![](https://cdn.luogu.com.cn/upload/image_hosting/iwsis35i.png)
